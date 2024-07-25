@@ -6,6 +6,13 @@ module.exports = function (deployTarget) {
     // include other plugin configuration that applies to all deploy targets here
   };
 
+  ENV.git = {
+    repo: 'git@github.com:kpfefferle/bluecoats.git',
+    branch: 'gh-pages',
+    worktreePath: '/tmp/deploy-bluecoats',
+    commitMessage: 'Deployed %@',
+  };
+
   if (deployTarget === 'development') {
     ENV.build.environment = 'development';
     // configure other plugins for development deploy target here
