@@ -35,6 +35,13 @@ const X_AXIS_OPTION: EChartsOption['xAxis'] = {
   minorSplitLine: {
     show: true,
   },
+  axisLabel: {
+    formatter: function (value) {
+      if (value === 0) return 'DCI Finals';
+      let weeksNum = Math.abs(value) / 7;
+      return `${weeksNum} week${weeksNum > 1 ? 's' : ''}`;
+    },
+  },
 };
 
 const Y_AXIS_OPTION: EChartsOption['yAxis'] = {
