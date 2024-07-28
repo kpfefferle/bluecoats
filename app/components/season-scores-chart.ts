@@ -6,6 +6,7 @@ import { DateTime } from 'luxon';
 interface SeasonScoresChartSignature {
   Args: {
     seasonScores: SeasonScores[];
+    selectedYear: number;
   };
 }
 
@@ -67,13 +68,16 @@ export default class SeasonScoresChart extends Component<SeasonScoresChartSignat
   }
 
   get series(): EChartsOption['series'] {
-    let { seasonScores } = this.args;
+    let { seasonScores, selectedYear } = this.args;
 
-    return seasonScores.map(this.seriesForSeason);
+    return seasonScores.map((season) =>
+      this.seriesForSeason(season, selectedYear),
+    );
   }
 
-  seriesForSeason(season: SeasonScores): SeriesOption {
+  seriesForSeason(season: SeasonScores, selectedYear: number): SeriesOption {
     let { color, endDate, scores, year } = season;
+
     let finalDate = DateTime.fromISO(endDate);
     let data = scores.map(({ date, score }) => {
       let performanceDate = DateTime.fromISO(date);
@@ -87,7 +91,7 @@ export default class SeasonScoresChart extends Component<SeasonScoresChartSignat
       step: 'end',
       data,
       itemStyle: {
-        color: color,
+        color: selectedYear == year ? color : 'lightgray',
       },
     };
   }
