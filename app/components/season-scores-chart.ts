@@ -15,7 +15,7 @@ const TITLE_OPTION: EChartsOption['title'] = {
 };
 
 const GRID_OPTION: EChartsOption['grid'] = {
-  top: '10%',
+  top: '80px',
   left: '2%',
   right: '3%',
   bottom: '10%',
@@ -49,6 +49,10 @@ const Y_AXIS_OPTION: EChartsOption['yAxis'] = {
   },
 };
 
+const LEGEND_OPTION: EChartsOption['legend'] = {
+  data: ['2024'],
+};
+
 export default class SeasonScoresChart extends Component<SeasonScoresChartSignature> {
   get chartOption(): EChartsOption {
     let { series } = this;
@@ -57,6 +61,7 @@ export default class SeasonScoresChart extends Component<SeasonScoresChartSignat
       grid: GRID_OPTION,
       xAxis: X_AXIS_OPTION,
       yAxis: Y_AXIS_OPTION,
+      legend: LEGEND_OPTION,
       series,
     };
   }
