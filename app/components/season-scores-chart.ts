@@ -25,7 +25,7 @@ const GRID_OPTION: EChartsOption['grid'] = {
 
 const X_AXIS_OPTION: EChartsOption['xAxis'] = {
   type: 'value',
-  min: -42,
+  min: -49,
   max: 0,
   interval: 7,
   minorTick: {
@@ -50,32 +50,51 @@ const Y_AXIS_OPTION: EChartsOption['yAxis'] = {
   },
 };
 
-const LEGEND_OPTION: EChartsOption['legend'] = {
-  data: ['2024'],
-};
-
 export default class SeasonScoresChart extends Component<SeasonScoresChartSignature> {
   get chartOption(): EChartsOption {
-    let { series } = this;
+    let { legendOption, seriesOption } = this;
     return {
       title: TITLE_OPTION,
       grid: GRID_OPTION,
       xAxis: X_AXIS_OPTION,
       yAxis: Y_AXIS_OPTION,
-      legend: LEGEND_OPTION,
-      series,
+      legend: legendOption,
+      series: seriesOption,
     };
   }
 
-  get series(): EChartsOption['series'] {
-    let { seasonScores, selectedYear } = this.args;
+  get legendOption(): EChartsOption['legend'] {
+    let { selectedSeason } = this;
+    return {
+      data: [`${selectedSeason.year}`],
+    };
+  }
 
-    return seasonScores.map((season) =>
-      this.seriesForSeason(season, selectedYear),
+  get selectedSeason(): SeasonScores {
+    let { seasonScores, selectedYear } = this.args;
+    return (
+      seasonScores.find((season) => season.year == selectedYear) ??
+      seasonScores[seasonScores.length - 1]!
     );
   }
 
-  seriesForSeason(season: SeasonScores, selectedYear: number): SeriesOption {
+  get unselectedSeasons(): SeasonScores[] {
+    let { seasonScores, selectedYear } = this.args;
+    return seasonScores.filter((season) => season.year != selectedYear);
+  }
+
+  get seriesOption(): EChartsOption['series'] {
+    let { selectedSeason, unselectedSeasons } = this;
+
+    let seriesOption = unselectedSeasons.map((season) => {
+      return this.seriesForSeason(season);
+    });
+    seriesOption.push(this.seriesForSeason(selectedSeason, true));
+
+    return seriesOption;
+  }
+
+  seriesForSeason(season: SeasonScores, isSelected = false): SeriesOption {
     let { color, endDate, scores, year } = season;
 
     let finalDate = DateTime.fromISO(endDate);
@@ -91,7 +110,7 @@ export default class SeasonScoresChart extends Component<SeasonScoresChartSignat
       step: 'end',
       data,
       itemStyle: {
-        color: selectedYear == year ? color : 'lightgray',
+        color: isSelected ? color : 'lightgray',
       },
     };
   }
