@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
+import { type SeasonScores } from 'bluecoats/data';
 import { type IndexRouteModel } from 'bluecoats/routes/index';
-import { type EChartsOption } from 'echarts';
+import { type EChartsOption, type SeriesOption } from 'echarts';
 import { DateTime } from 'luxon';
 
 const TITLE_OPTION: EChartsOption['title'] = {
@@ -12,7 +13,7 @@ const GRID_OPTION: EChartsOption['grid'] = {
   top: '10%',
   left: '2%',
   right: '3%',
-  bottom: '2%',
+  bottom: '10%',
   containLabel: true,
 };
 
@@ -53,7 +54,6 @@ export default class IndexController extends Controller {
       grid: GRID_OPTION,
       xAxis: X_AXIS_OPTION,
       yAxis: Y_AXIS_OPTION,
-      color: ['#BB0C2F'],
       series,
     };
   }
@@ -61,20 +61,26 @@ export default class IndexController extends Controller {
   get series(): EChartsOption['series'] {
     let { model } = this;
 
-    let finalDate = DateTime.fromISO(model.endDate);
-    let data = model.scores.map(({ date, score }) => {
+    return model.map(this.seriesForSeason);
+  }
+
+  seriesForSeason(season: SeasonScores): SeriesOption {
+    let { color, endDate, scores, year } = season;
+    let finalDate = DateTime.fromISO(endDate);
+    let data = scores.map(({ date, score }) => {
       let performanceDate = DateTime.fromISO(date);
       let daysToFinal = finalDate.diff(performanceDate, 'days').days;
       return [-daysToFinal, score];
     });
 
-    return [
-      {
-        name: `${model.year}`,
-        type: 'line',
-        step: 'end',
-        data,
+    return {
+      name: `${year}`,
+      type: 'line',
+      step: 'end',
+      data,
+      itemStyle: {
+        color: color,
       },
-    ];
+    };
   }
 }
