@@ -501,14 +501,22 @@ video {
   --tw-contain-paint:  ;
   --tw-contain-style:  ;
 }
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+.flex {
+  display: flex;
 }
-.font-bold {
-  font-weight: 700;
+.grid {
+  display: grid;
 }
-.underline {
-  text-decoration-line: underline;
+.min-h-lvh {
+  min-height: 100lvh;
+}
+.flex-grow {
+  flex-grow: 1;
+}
+.flex-col {
+  flex-direction: column;
+}
+.p-8 {
+  padding: 2rem;
 }
 
