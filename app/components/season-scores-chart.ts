@@ -25,7 +25,7 @@ const GRID_OPTION: EChartsOption['grid'] = {
 
 const X_AXIS_OPTION: EChartsOption['xAxis'] = {
   type: 'value',
-  min: -49,
+  min: -8 * 7, // 8 weeks before finals
   max: 0,
   interval: 7,
   minorTick: {
@@ -117,7 +117,7 @@ export default class SeasonScoresChart extends Component<SeasonScoresChartSignat
       step: 'end',
       data,
       itemStyle: {
-        color: isSelected ? color : 'lightgray',
+        color: isSelected ? (color ?? '#012F70') : 'lightgray',
       },
     };
   }
