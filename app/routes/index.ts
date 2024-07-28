@@ -10,7 +10,7 @@ interface SeasonScores {
   }>;
 }
 
-type IndexRouteModel = SeasonScores;
+export type IndexRouteModel = SeasonScores;
 
 export default class IndexRoute extends Route {
   model(): IndexRouteModel {
@@ -62,6 +62,16 @@ export default class IndexRoute extends Route {
           date: '2024-07-20',
           location: 'San Antonio, TX',
           score: 93.025,
+        },
+        {
+          date: '2024-07-26',
+          location: 'Murfreesboro, TN',
+          score: 94.45,
+        },
+        {
+          date: '2024-07-27',
+          location: 'Atlanta, GA',
+          score: 94.425,
         },
       ],
     };
