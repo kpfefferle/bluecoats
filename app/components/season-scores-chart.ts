@@ -17,10 +17,9 @@ const TITLE_OPTION: EChartsOption['title'] = {
 
 const GRID_OPTION: EChartsOption['grid'] = {
   top: '80px',
-  left: '2%',
-  right: '3%',
-  bottom: '10%',
-  containLabel: true,
+  left: '32px',
+  right: '32px',
+  bottom: '32px',
 };
 
 const X_AXIS_OPTION: EChartsOption['xAxis'] = {
