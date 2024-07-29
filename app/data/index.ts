@@ -1,3 +1,4 @@
+import { SEASON_2016 } from 'bluecoats/data/2016';
 import { SEASON_2017 } from 'bluecoats/data/2017';
 import { SEASON_2018 } from 'bluecoats/data/2018';
 import { SEASON_2019 } from 'bluecoats/data/2019';
@@ -17,6 +18,7 @@ export interface SeasonScores {
 }
 
 export const ALL_SEASONS: SeasonScores[] = [
+  SEASON_2016,
   SEASON_2017,
   SEASON_2018,
   SEASON_2019,
