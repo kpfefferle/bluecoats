@@ -510,8 +510,8 @@ video {
 .min-h-svh {
   min-height: 100svh;
 }
-.min-w-\[40rem\] {
-  min-width: 40rem;
+.min-w-\[50rem\] {
+  min-width: 50rem;
 }
 .flex-grow {
   flex-grow: 1;
