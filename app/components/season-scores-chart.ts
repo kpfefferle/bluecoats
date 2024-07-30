@@ -138,14 +138,16 @@ export default class SeasonScoresChartComponent extends Component<SeasonScoresCh
       name: `${year}`,
       data,
       itemStyle: {
-        color: isSelected ? (color ?? '#012F70') : 'lightgray',
+        color: isSelected
+          ? (color ?? '#1d4ed8') // blue-700
+          : '#e5e7eb', // gray-200
       },
       emphasis: {
         itemStyle: {
-          borderColor: isSelected ? color : '#0245A2',
+          borderColor: color ?? '#2563eb', // blue-600
         },
         lineStyle: {
-          color: isSelected ? color : '#0245A2',
+          color: color ?? '#2563eb', // blue-600
         },
       },
     };
