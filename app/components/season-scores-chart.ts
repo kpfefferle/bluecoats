@@ -73,6 +73,7 @@ export default class SeasonScoresChart extends Component<SeasonScoresChartSignat
     let { selectedSeason } = this;
     return {
       data: [`${selectedSeason.year}`],
+      selectedMode: false,
     };
   }
 
