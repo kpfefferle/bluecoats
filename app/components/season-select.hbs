@@ -1,0 +1,22 @@
+<div class="flex items-center gap-2">
+  <label
+    class="block text-sm font-medium leading-6 text-gray-900"
+    for="season-select"
+  >
+    Select a season:
+  </label>
+  <select
+    {{on "change" this.onSelectYear}}
+    class="block rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-blue-600 sm:text-sm sm:leading-6"
+    id="season-select"
+  >
+    {{#each @seasonScores as |season|}}
+      <option
+        value={{season.year}}
+        selected={{this.isSelectedYear season.year}}
+      >
+        {{season.year}}
+      </option>
+    {{/each}}
+  </select>
+</div>

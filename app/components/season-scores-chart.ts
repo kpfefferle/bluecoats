@@ -77,7 +77,7 @@ const Y_AXIS_OPTION: EChartsOption['yAxis'] = {
   },
 };
 
-export default class SeasonScoresChart extends Component<SeasonScoresChartSignature> {
+export default class SeasonScoresChartComponent extends Component<SeasonScoresChartSignature> {
   get chartOption(): EChartsOption {
     let { legendOption, seriesOption } = this;
     return {
