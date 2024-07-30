@@ -137,6 +137,7 @@ export default class SeasonScoresChartComponent extends Component<SeasonScoresCh
       ...LINE_SERIES_OPTION_BASE,
       name: `${year}`,
       data,
+      z: isSelected ? 1 : 0,
       itemStyle: {
         color: isSelected
           ? (color ?? '#1d4ed8') // blue-700
