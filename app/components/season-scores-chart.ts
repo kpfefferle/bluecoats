@@ -45,7 +45,7 @@ const X_AXIS_OPTION: EChartsOption['xAxis'] = {
 
 const Y_AXIS_OPTION: EChartsOption['yAxis'] = {
   type: 'value',
-  min: 60,
+  min: 50,
   max: 100,
   minorTick: {
     show: true,
