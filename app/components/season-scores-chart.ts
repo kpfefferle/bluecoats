@@ -43,6 +43,27 @@ const X_AXIS_OPTION: EChartsOption['xAxis'] = {
   },
 };
 
+const LINE_SERIES_OPTION_BASE = {
+  type: 'line' as const,
+  step: 'end' as const,
+  tooltip: {
+    formatter(params: unknown) {
+      let { data } = params as {
+        seriesName: string;
+        data: [number, number, string, string];
+      };
+      let formattedDate = DateTime.fromISO(data[2]).toLocaleString(
+        DateTime.DATE_FULL,
+      );
+      return `
+        <div class="text-lg font-semibold">${data[1].toFixed(3)}</div>
+        <div class="text-sm">${data[3]}</div>
+        <div class="text-xs">${formattedDate}</div>
+      `;
+    },
+  },
+};
+
 const Y_AXIS_OPTION: EChartsOption['yAxis'] = {
   type: 'value',
   min: 30,
@@ -66,6 +87,7 @@ export default class SeasonScoresChart extends Component<SeasonScoresChartSignat
       yAxis: Y_AXIS_OPTION,
       legend: legendOption,
       series: seriesOption,
+      tooltip: {},
     };
   }
 
@@ -105,19 +127,26 @@ export default class SeasonScoresChart extends Component<SeasonScoresChartSignat
     let { color, endDate, scores, year } = season;
 
     let finalDate = DateTime.fromISO(endDate);
-    let data = scores.map(({ date, score }) => {
+    let data = scores.map(({ date, location, score }) => {
       let performanceDate = DateTime.fromISO(date);
       let daysToFinal = finalDate.diff(performanceDate, 'days').days;
-      return [-daysToFinal, score];
+      return [-daysToFinal, score, date, location];
     });
 
     return {
+      ...LINE_SERIES_OPTION_BASE,
       name: `${year}`,
-      type: 'line',
-      step: 'end',
       data,
       itemStyle: {
         color: isSelected ? (color ?? '#012F70') : 'lightgray',
+      },
+      emphasis: {
+        itemStyle: {
+          borderColor: isSelected ? color : '#0245A2',
+        },
+        lineStyle: {
+          color: isSelected ? color : '#0245A2',
+        },
       },
     };
   }
