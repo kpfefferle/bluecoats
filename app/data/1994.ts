@@ -111,7 +111,7 @@ export const SEASON_1994: SeasonScores = {
     },
     {
       date: '1994-08-06',
-      location: 'North Canton, OH',
+      location: 'Canton, OH',
       score: 80.2,
     },
     {
