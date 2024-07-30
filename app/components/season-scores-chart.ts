@@ -12,7 +12,7 @@ interface SeasonScoresChartSignature {
 
 const TITLE_OPTION: EChartsOption['title'] = {
   text: 'Scores by Season',
-  subtext: 'Relative to Final Performance',
+  subtext: 'Relative to DCI Finals',
 };
 
 const GRID_OPTION: EChartsOption['grid'] = {
