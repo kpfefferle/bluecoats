@@ -24,7 +24,7 @@ const GRID_OPTION: EChartsOption['grid'] = {
 
 const X_AXIS_OPTION: EChartsOption['xAxis'] = {
   type: 'value',
-  min: -9 * 7, // 9 weeks before finals
+  min: -10 * 7, // 10 weeks before finals
   max: 0,
   interval: 7,
   minorTick: {
