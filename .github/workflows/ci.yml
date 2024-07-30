@@ -55,14 +55,6 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Git user
-        run: |
-          # Set up a Git user for committing
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@users.noreply.github.com"
-          # Copy the Git Auth from the local config
-          git config --global "http.https://github.com/.extraheader" \
-            "$(git config --local --get http.https://github.com/.extraheader)"
       - name: Install Node
         uses: actions/setup-node@v3
         with:
@@ -71,4 +63,7 @@ jobs:
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Deploy
-        run: yarn deploy
+        run: |
+          git config --global user.name 'Kevin Pfefferle'
+          git config --global user.email 'kpfefferle@users.noreply.github.com'
+          yarn deploy
