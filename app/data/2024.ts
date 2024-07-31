@@ -65,5 +65,10 @@ export const SEASON_2024: SeasonScores = {
       location: 'Winston-Salem, GA',
       score: 94.7,
     },
+    {
+      date: '2024-07-30',
+      location: 'Newark, DE',
+      score: 95.225,
+    },
   ],
 };
