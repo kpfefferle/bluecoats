@@ -5,6 +5,7 @@ import { DateTime } from 'luxon';
 
 interface SeasonScoresChartSignature {
   Args: {
+    fitAllSeasons: boolean;
     seasonScores: SeasonScores[];
     selectedYear: number;
   };
@@ -69,6 +70,7 @@ const Y_AXIS_OPTION: EChartsOption['yAxis'] = {
   min: 30,
   max: 100,
   minorTick: {
+    length: 0,
     show: true,
     splitNumber: 2,
   },
@@ -79,15 +81,17 @@ const Y_AXIS_OPTION: EChartsOption['yAxis'] = {
 
 export default class SeasonScoresChartComponent extends Component<SeasonScoresChartSignature> {
   get chartOption(): EChartsOption {
-    let { legendOption, seriesOption } = this;
+    let { legendOption, seriesOption, xAxisOption, yAxisOption } = this;
+
     return {
       title: TITLE_OPTION,
       grid: GRID_OPTION,
-      xAxis: X_AXIS_OPTION,
-      yAxis: Y_AXIS_OPTION,
+      tooltip: {},
+
       legend: legendOption,
       series: seriesOption,
-      tooltip: {},
+      xAxis: xAxisOption,
+      yAxis: yAxisOption,
     };
   }
 
@@ -121,6 +125,51 @@ export default class SeasonScoresChartComponent extends Component<SeasonScoresCh
     seriesOption.push(this.seriesForSeason(selectedSeason, true));
 
     return seriesOption;
+  }
+
+  get xAxisMinForSelectedSeason(): number {
+    let { selectedSeason } = this;
+    let finalDate = DateTime.fromISO(selectedSeason.endDate);
+    let firstPerformanceDate = DateTime.fromISO(selectedSeason.scores[0]!.date);
+    let seasonLength = finalDate.diff(firstPerformanceDate, 'days').days;
+    let numberOfWeeks = Math.ceil(seasonLength / 7);
+    return -numberOfWeeks * 7;
+  }
+
+  get xAxisOption(): EChartsOption['xAxis'] {
+    let { fitAllSeasons } = this.args;
+    let { xAxisMinForSelectedSeason } = this;
+
+    if (fitAllSeasons) {
+      return X_AXIS_OPTION;
+    }
+
+    return {
+      ...X_AXIS_OPTION,
+      min: xAxisMinForSelectedSeason,
+    };
+  }
+
+  get yAxisMinForSelectedSeason(): number {
+    let { selectedSeason } = this;
+    let minScore = Math.min(...selectedSeason.scores.map(({ score }) => score));
+    let minScoreRounded = Math.floor(minScore / 10) * 10;
+    return minScoreRounded;
+  }
+
+  get yAxisOption(): EChartsOption['yAxis'] {
+    let { fitAllSeasons } = this.args;
+    let { yAxisMinForSelectedSeason } = this;
+
+    if (fitAllSeasons) {
+      return Y_AXIS_OPTION;
+    }
+
+    let yAxisOption = {
+      ...Y_AXIS_OPTION,
+      min: yAxisMinForSelectedSeason,
+    };
+    return yAxisOption;
   }
 
   seriesForSeason(season: SeasonScores, isSelected = false): SeriesOption {

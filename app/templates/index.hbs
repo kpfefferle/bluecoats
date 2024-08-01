@@ -2,14 +2,19 @@
 
 <div class="min-h-svh flex flex-col p-8 min-w-[50rem] relative">
   <SeasonScoresChart
+    @fitAllSeasons={{this.fitAll}}
     @seasonScores={{this.model}}
     @selectedYear={{this.year}}
   />
-  <div class="top-8 right-8 absolute">
+  <div class="top-8 right-8 absolute flex flex-col items-end gap-2">
     <SeasonSelect
       @seasonScores={{this.model}}
       @selectedYear={{this.year}}
       @onYearChange={{this.onYearChange}}
+    />
+    <FitAllCheckbox
+      @fitAllSeasons={{this.fitAll}}
+      @onFitAllSeasonsChange={{this.onFitAllChange}}
     />
   </div>
 </div>
