@@ -4,18 +4,25 @@ import { tracked } from '@glimmer/tracking';
 import { type IndexRouteModel } from 'bluecoats/routes/index';
 
 export default class IndexController extends Controller {
-  queryParams = ['fitAll', 'year'];
+  queryParams = ['fitAll', 'years'];
 
   declare model: IndexRouteModel;
 
   @tracked fitAll: boolean = false;
-  @tracked year: number = 2024;
+  @tracked years: string = '2024';
+
+  get selectedYears(): Array<number> {
+    return this.years.split(',').map(Number).sort().reverse();
+  }
+  set selectedYears(value: Array<number>) {
+    this.years = value.join(',');
+  }
 
   @action onFitAllChange(fitAll: boolean) {
     this.fitAll = fitAll;
   }
 
-  @action onYearChange(year: number) {
-    this.year = year;
+  @action onSelectedYearsChange(selectedYears: Array<number>) {
+    this.selectedYears = selectedYears;
   }
 }

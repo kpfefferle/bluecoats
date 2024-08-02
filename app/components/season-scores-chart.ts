@@ -7,7 +7,7 @@ interface SeasonScoresChartSignature {
   Args: {
     fitAllSeasons: boolean;
     seasonScores: SeasonScores[];
-    selectedYear: number;
+    selectedYears: Array<number>;
   };
 }
 
@@ -96,43 +96,52 @@ export default class SeasonScoresChartComponent extends Component<SeasonScoresCh
   }
 
   get legendOption(): EChartsOption['legend'] {
-    let { selectedSeason } = this;
+    let { selectedSeasons } = this;
+    let data = selectedSeasons
+      .map(({ year }) => `${year}`)
+      .sort()
+      .reverse();
     return {
-      data: [`${selectedSeason.year}`],
+      data,
       selectedMode: false,
     };
   }
 
-  get selectedSeason(): SeasonScores {
-    let { seasonScores, selectedYear } = this.args;
-    return (
-      seasonScores.find((season) => season.year == selectedYear) ??
-      seasonScores[seasonScores.length - 1]!
+  get selectedSeasons(): Array<SeasonScores> {
+    let { seasonScores, selectedYears } = this.args;
+    let selectedSeasons = seasonScores.filter((season) =>
+      selectedYears.includes(season.year),
     );
+    return selectedSeasons.length
+      ? selectedSeasons
+      : [seasonScores[seasonScores.length - 1]!];
   }
 
   get unselectedSeasons(): SeasonScores[] {
-    let { seasonScores, selectedYear } = this.args;
-    return seasonScores.filter((season) => season.year != selectedYear);
+    let { seasonScores, selectedYears } = this.args;
+    return seasonScores.filter(
+      (season) => !selectedYears.includes(season.year),
+    );
   }
 
   get seriesOption(): EChartsOption['series'] {
-    let { selectedSeason, unselectedSeasons } = this;
+    let { selectedSeasons, unselectedSeasons } = this;
 
-    let seriesOption = unselectedSeasons.map((season) => {
-      return this.seriesForSeason(season);
-    });
-    seriesOption.push(this.seriesForSeason(selectedSeason, true));
-
-    return seriesOption;
+    return [
+      ...unselectedSeasons.map((season) => this.seriesForSeason(season)),
+      ...selectedSeasons.map((season) => this.seriesForSeason(season, true)),
+    ];
   }
 
   get xAxisMinForSelectedSeason(): number {
-    let { selectedSeason } = this;
-    let finalDate = DateTime.fromISO(selectedSeason.endDate);
-    let firstPerformanceDate = DateTime.fromISO(selectedSeason.scores[0]!.date);
-    let seasonLength = finalDate.diff(firstPerformanceDate, 'days').days;
-    let numberOfWeeks = Math.ceil(seasonLength / 7);
+    let { selectedSeasons } = this;
+    let seasonLengths = selectedSeasons.map((season) => {
+      let finalDate = DateTime.fromISO(season.endDate);
+      let firstPerformanceDate = DateTime.fromISO(season.scores[0]!.date);
+      return finalDate.diff(firstPerformanceDate, 'days').days;
+    });
+    let longestSeasonLength = Math.max(...seasonLengths);
+    let numberOfWeeks = Math.ceil(longestSeasonLength / 7);
     return -numberOfWeeks * 7;
   }
 
@@ -151,8 +160,11 @@ export default class SeasonScoresChartComponent extends Component<SeasonScoresCh
   }
 
   get yAxisMinForSelectedSeason(): number {
-    let { selectedSeason } = this;
-    let minScore = Math.min(...selectedSeason.scores.map(({ score }) => score));
+    let { selectedSeasons } = this;
+    let minScores = selectedSeasons.map((season) => {
+      return Math.min(...season.scores.map(({ score }) => score));
+    });
+    let minScore = Math.min(...minScores);
     let minScoreRounded = Math.floor(minScore / 10) * 10;
     return minScoreRounded;
   }

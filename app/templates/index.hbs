@@ -4,13 +4,13 @@
   <SeasonScoresChart
     @fitAllSeasons={{this.fitAll}}
     @seasonScores={{this.model}}
-    @selectedYear={{this.year}}
+    @selectedYears={{this.selectedYears}}
   />
   <div class="top-8 right-8 absolute flex flex-col items-end gap-2">
     <SeasonSelect
+      @onSelectedYearsChange={{this.onSelectedYearsChange}}
       @seasonScores={{this.model}}
-      @selectedYear={{this.year}}
-      @onYearChange={{this.onYearChange}}
+      @selectedYears={{this.selectedYears}}
     />
     <FitAllCheckbox
       @fitAllSeasons={{this.fitAll}}
