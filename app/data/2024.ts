@@ -70,5 +70,10 @@ export const SEASON_2024: SeasonScores = {
       location: 'Newark, DE',
       score: 95.225,
     },
+    {
+      date: '2024-08-02',
+      location: 'Allentown, PA',
+      score: 95.9,
+    },
   ],
 };
