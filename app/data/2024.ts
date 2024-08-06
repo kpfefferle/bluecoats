@@ -75,5 +75,10 @@ export const SEASON_2024: SeasonScores = {
       location: 'Allentown, PA',
       score: 95.9,
     },
+    {
+      date: '2024-08-05',
+      location: 'Canton, OH',
+      score: 96,
+    },
   ],
 };
