@@ -80,5 +80,10 @@ export const SEASON_2024: SeasonScores = {
       location: 'Canton, OH',
       score: 96,
     },
+    {
+      date: '2024-08-08',
+      location: 'Indianapolis, IN',
+      score: 97.525,
+    },
   ],
 };
