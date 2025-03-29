@@ -14,10 +14,10 @@
     "build": "ember build --environment=production",
     "deploy": "ember deploy production",
     "format": "prettier . --cache --write",
-    "lint": "concurrently \"yarn:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
+    "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
     "lint:css": "stylelint \"**/*.css\"",
-    "lint:css:fix": "concurrently \"yarn:lint:css -- --fix\"",
-    "lint:fix": "concurrently \"yarn:lint:*:fix\" --names \"fix:\" --prefixColors auto && yarn format",
+    "lint:css:fix": "concurrently \"pnpm:lint:css -- --fix\"",
+    "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\" --prefixColors auto && pnpm format",
     "lint:format": "prettier . --cache --check",
     "lint:hbs": "ember-template-lint .",
     "lint:hbs:fix": "ember-template-lint . --fix",
@@ -25,12 +25,12 @@
     "lint:js:fix": "eslint . --fix",
     "lint:types": "tsc --noEmit",
     "start": "ember serve",
-    "test": "concurrently \"yarn:lint\" \"yarn:test:*\" --names \"lint,test:\" --prefixColors auto",
+    "test": "concurrently \"pnpm:lint\" \"pnpm:test:*\" --names \"lint,test:\" --prefixColors auto",
     "test:ember": "ember test"
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",
-    "@babel/eslint-parser": "^7.26.10",
+    "@babel/eslint-parser": "^7.27.0",
     "@babel/plugin-proposal-decorators": "^7.25.9",
     "@ember-data/adapter": "~5.3.12",
     "@ember-data/graph": "~5.3.12",
@@ -57,7 +57,6 @@
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/postcss": "^4.0.17",
     "@tsconfig/ember": "^3.0.10",
-    "@types/eslint__js": "^9.14.0",
     "@types/luxon": "^3.4.2",
     "@types/qunit": "^2.19.12",
     "@types/rsvp": "^4.0.9",
@@ -82,7 +81,7 @@
     "ember-load-initializers": "^3.0.1",
     "ember-modifier": "^4.2.0",
     "ember-page-title": "^9.0.1",
-    "ember-qunit": "^9.0.1",
+    "ember-qunit": "^9.0.2",
     "ember-resolver": "^13.1.0",
     "ember-source": "~6.3.0",
     "ember-template-imports": "^4.3.0",
@@ -106,7 +105,7 @@
     "tailwindcss": "^4.0.17",
     "tracked-built-ins": "^4.0.0",
     "typescript": "^5.8.2",
-    "typescript-eslint": "^8.27.0",
+    "typescript-eslint": "^8.28.0",
     "webpack": "^5.98.0"
   },
   "engines": {
@@ -117,6 +116,6 @@
   },
   "volta": {
     "node": "20.16.0",
-    "yarn": "1.22.22"
+    "pnpm": "10.7.0"
   }
 }
