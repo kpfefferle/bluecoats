@@ -7,13 +7,15 @@ module.exports = {
       true,
       {
         ignoreAtRules: [
-          'tailwind',
           'apply',
-          'variants',
+          'plugin',
           'responsive',
           'screen',
+          'tailwind',
+          'variants',
         ],
       },
     ],
+    'import-notation': 'string',
   },
 };
