@@ -97,7 +97,7 @@ export const SEASON_2019: SeasonScores = {
     {
       date: '2019-07-20',
       location: 'San Antonio, TX',
-      score: 91.213,
+      score: 91.2125,
     },
     {
       date: '2019-07-22',
@@ -117,7 +117,7 @@ export const SEASON_2019: SeasonScores = {
     {
       date: '2019-07-27',
       location: 'Atlanta, GA',
-      score: 93.762,
+      score: 93.7625,
     },
     {
       date: '2019-07-28',
@@ -157,7 +157,7 @@ export const SEASON_2019: SeasonScores = {
     {
       date: '2019-08-10',
       location: 'Indianapolis, IN',
-      score: 98.238,
+      score: 98.2375,
     },
   ],
 };

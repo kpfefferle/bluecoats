@@ -26,7 +26,7 @@ export const SEASON_2011: SeasonScores = {
     },
     {
       date: '2011-06-25',
-      location: 'Grand Rapids, MI',
+      location: 'Grandville, MI',
       score: 74,
     },
     {

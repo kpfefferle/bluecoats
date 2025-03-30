@@ -81,7 +81,7 @@ export const SEASON_1996: SeasonScores = {
     },
     {
       date: '1996-07-31',
-      location: 'Canton, OH',
+      location: 'Massilon, OH',
       score: 83,
     },
     {
@@ -95,14 +95,14 @@ export const SEASON_1996: SeasonScores = {
       score: 83.7,
     },
     {
+      date: '1996-08-06',
+      location: 'Hornell, NY',
+      score: 85.7,
+    },
+    {
       date: '1996-08-07',
       location: 'Columbus, OH',
       score: 85.5,
-    },
-    {
-      date: '1996-08-08',
-      location: 'Hornell, NY',
-      score: 85.7,
     },
     {
       date: '1996-08-09',

@@ -46,7 +46,7 @@ export const SEASON_2014: SeasonScores = {
     },
     {
       date: '2014-07-08',
-      location: 'Ft. Wayne, IN',
+      location: 'Fort Wayne, IN',
       score: 85.15,
     },
     {
@@ -87,7 +87,7 @@ export const SEASON_2014: SeasonScores = {
     {
       date: '2014-07-21',
       location: 'Dallas, TX',
-      score: 90.9,
+      score: 91.1,
     },
     {
       date: '2014-07-22',

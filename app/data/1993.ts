@@ -61,12 +61,12 @@ export const SEASON_1993: SeasonScores = {
     },
     {
       date: '1993-07-16',
-      location: 'DeKalb, IL',
+      location: 'Toledo, OH',
       score: 72.6,
     },
     {
       date: '1993-07-17',
-      location: 'DeKalb, IL',
+      location: 'Toledo, OH',
       score: 71.1,
     },
     {

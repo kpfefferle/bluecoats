@@ -92,7 +92,7 @@ export const SEASON_2016: SeasonScores = {
     {
       date: '2016-07-23',
       location: 'San Antonio, TX',
-      score: 87.063,
+      score: 87.0625,
     },
     {
       date: '2016-07-25',
@@ -112,7 +112,7 @@ export const SEASON_2016: SeasonScores = {
     {
       date: '2016-07-30',
       location: 'Atlanta, GA',
-      score: 91.713,
+      score: 91.7125,
     },
     {
       date: '2016-07-31',

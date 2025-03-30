@@ -2,7 +2,7 @@ import { type SeasonScores } from 'bluecoats/data';
 
 export const SEASON_1985: SeasonScores = {
   year: 1985,
-  endDate: '1985-08-16',
+  endDate: '1985-08-17',
   scores: [
     {
       date: '1985-06-14',
@@ -16,7 +16,7 @@ export const SEASON_1985: SeasonScores = {
     },
     {
       date: '1985-06-22',
-      location: 'Cleveland, OH',
+      location: 'Berea, OH',
       score: 63.1,
     },
     {
@@ -50,6 +50,11 @@ export const SEASON_1985: SeasonScores = {
       score: 61.9,
     },
     {
+      date: '1985-07-06',
+      location: 'Sandusky, OH',
+      score: 66.5,
+    },
+    {
       date: '1985-07-13',
       location: 'Whitewater, WI',
       score: 61.4,
@@ -57,7 +62,17 @@ export const SEASON_1985: SeasonScores = {
     {
       date: '1985-07-27',
       location: 'Lynn, MA',
+      score: 59,
+    },
+    {
+      date: '1985-07-27',
+      location: 'Lynn, MA',
       score: 62.4,
+    },
+    {
+      date: '1985-08-02',
+      location: 'Canton, OH',
+      score: 68,
     },
     {
       date: '1985-08-08',

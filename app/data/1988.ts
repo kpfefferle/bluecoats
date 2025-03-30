@@ -65,7 +65,7 @@ export const SEASON_1988: SeasonScores = {
       score: 72.3,
     },
     {
-      date: '1988-07-06',
+      date: '1988-07-05',
       location: 'Cary, NC',
       score: 71.1,
     },
@@ -85,7 +85,7 @@ export const SEASON_1988: SeasonScores = {
       score: 74.8,
     },
     {
-      date: '1988-07-16',
+      date: '1988-07-15',
       location: 'DeKalb, IL',
       score: 77.8,
     },
@@ -101,7 +101,7 @@ export const SEASON_1988: SeasonScores = {
     },
     {
       date: '1988-07-27',
-      location: 'Canton, OH',
+      location: 'Perry Township, OH',
       score: 80.2,
     },
     {

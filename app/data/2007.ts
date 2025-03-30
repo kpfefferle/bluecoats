@@ -46,7 +46,7 @@ export const SEASON_2007: SeasonScores = {
     },
     {
       date: '2007-07-01',
-      location: 'Pt. Huron, MI',
+      location: 'Port Huron, MI',
       score: 81.7,
     },
     {

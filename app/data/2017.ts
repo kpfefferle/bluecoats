@@ -52,7 +52,7 @@ export const SEASON_2017: SeasonScores = {
     {
       date: '2017-07-09',
       location: 'Rochester, MN',
-      score: 81.8,
+      score: 81.6,
     },
     {
       date: '2017-07-11',
@@ -142,17 +142,17 @@ export const SEASON_2017: SeasonScores = {
     {
       date: '2017-08-10',
       location: 'Indianapolis, IN',
-      score: 94.638,
+      score: 94.6325,
     },
     {
       date: '2017-08-11',
       location: 'Indianapolis, IN',
-      score: 95.212,
+      score: 95.125,
     },
     {
       date: '2017-08-12',
       location: 'Indianapolis, IN',
-      score: 95.163,
+      score: 95.1625,
     },
   ],
 };

@@ -12,7 +12,7 @@ export const SEASON_2004: SeasonScores = {
     {
       date: '2004-06-20',
       location: 'DeKalb, IL',
-      score: 72.05,
+      score: 72.7,
     },
     {
       date: '2004-06-23',
@@ -21,7 +21,7 @@ export const SEASON_2004: SeasonScores = {
     },
     {
       date: '2004-06-25',
-      location: 'Normal, IL',
+      location: 'Bloomington-Normal, IL',
       score: 74.25,
     },
     {
@@ -30,7 +30,7 @@ export const SEASON_2004: SeasonScores = {
       score: 72.9,
     },
     {
-      date: '2004-06-27',
+      date: '2004-06-28',
       location: 'Lima, OH',
       score: 74.95,
     },
@@ -86,7 +86,7 @@ export const SEASON_2004: SeasonScores = {
     },
     {
       date: '2004-07-22',
-      location: 'E. Rutherford, NJ',
+      location: 'East Rutherford, NJ',
       score: 87.3,
     },
     {
@@ -117,7 +117,7 @@ export const SEASON_2004: SeasonScores = {
     {
       date: '2004-07-31',
       location: 'Indianapolis, IN',
-      score: 88.925,
+      score: 90.6,
     },
     {
       date: '2004-08-01',

@@ -81,12 +81,12 @@ export const SEASON_1991: SeasonScores = {
     },
     {
       date: '1991-07-19',
-      location: 'DeKalb, IL',
+      location: 'Toledo, OH',
       score: 76.6,
     },
     {
       date: '1991-07-20',
-      location: 'DeKalb, IL',
+      location: 'Toledo, OH',
       score: 76.6,
     },
     {
@@ -127,7 +127,7 @@ export const SEASON_1991: SeasonScores = {
     {
       date: '1991-08-01',
       location: 'Port Huron, MI',
-      score: 84,
+      score: 79.2,
     },
     {
       date: '1991-08-03',

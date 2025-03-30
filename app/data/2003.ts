@@ -17,11 +17,11 @@ export const SEASON_2003: SeasonScores = {
     {
       date: '2003-06-21',
       location: 'Louisville, KY',
-      score: 68.9,
+      score: 66.35,
     },
     {
       date: '2003-06-23',
-      location: 'Kennesaw, GA',
+      location: 'Atlanta, GA',
       score: 70.7,
     },
     {
@@ -51,8 +51,8 @@ export const SEASON_2003: SeasonScores = {
     },
     {
       date: '2003-07-05',
-      location: 'Nashua/Boston MA',
-      score: 78.7,
+      location: 'Nashua, NH',
+      score: 78.8,
     },
     {
       date: '2003-07-06',
@@ -67,7 +67,7 @@ export const SEASON_2003: SeasonScores = {
     {
       date: '2003-07-09',
       location: 'Murray, KY',
-      score: 79.65,
+      score: 78.5,
     },
     {
       date: '2003-07-10',

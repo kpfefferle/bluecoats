@@ -106,12 +106,12 @@ export const SEASON_1989: SeasonScores = {
     },
     {
       date: '1989-07-29',
-      location: 'Bloomington, IL',
+      location: 'Bloomington, IN',
       score: 82.6,
     },
     {
       date: '1989-08-01',
-      location: 'Canton, OH',
+      location: 'Perry Township, OH',
       score: 85.3,
     },
     {
@@ -127,7 +127,7 @@ export const SEASON_1989: SeasonScores = {
     {
       date: '1989-08-09',
       location: 'Fort Wayne, IN',
-      score: 89,
+      score: 91.5,
     },
     {
       date: '1989-08-11',

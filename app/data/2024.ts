@@ -42,7 +42,7 @@ export const SEASON_2024: SeasonScores = {
     },
     {
       date: '2024-07-19',
-      location: 'Houston, TX',
+      location: 'Prarie View, TX',
       score: 92.1,
     },
     {
@@ -62,7 +62,7 @@ export const SEASON_2024: SeasonScores = {
     },
     {
       date: '2024-07-28',
-      location: 'Winston-Salem, GA',
+      location: 'Winston-Salem, NC',
       score: 94.7,
     },
     {

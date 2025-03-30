@@ -26,7 +26,7 @@ export const SEASON_2005: SeasonScores = {
     },
     {
       date: '2005-06-22',
-      location: 'Ft. Mill, SC',
+      location: 'Fort Mill, SC',
       score: 72.7,
     },
     {
@@ -51,7 +51,7 @@ export const SEASON_2005: SeasonScores = {
     },
     {
       date: '2005-07-01',
-      location: 'Normal, IL',
+      location: 'Bloomington, IL',
       score: 79.175,
     },
     {
@@ -92,7 +92,7 @@ export const SEASON_2005: SeasonScores = {
     {
       date: '2005-07-20',
       location: 'Monroe, LA',
-      score: 86.95,
+      score: 86.15,
     },
     {
       date: '2005-07-21',
@@ -102,7 +102,7 @@ export const SEASON_2005: SeasonScores = {
     {
       date: '2005-07-23',
       location: 'San Antonio, TX',
-      score: 87.35,
+      score: 82.425,
     },
     {
       date: '2005-07-25',
