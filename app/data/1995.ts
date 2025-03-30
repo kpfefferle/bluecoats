@@ -21,11 +21,6 @@ export const SEASON_1995: SeasonScores = {
     },
     {
       date: '1995-07-07',
-      location: 'Glasgow, DE',
-      score: 70.6,
-    },
-    {
-      date: '1995-07-07',
       location: 'Elkton, MD',
       score: 70.6,
     },
@@ -36,7 +31,7 @@ export const SEASON_1995: SeasonScores = {
     },
     {
       date: '1995-07-09',
-      location: 'Medford, NJ',
+      location: 'Cherry Hill, NJ',
       score: 73.7,
     },
     {

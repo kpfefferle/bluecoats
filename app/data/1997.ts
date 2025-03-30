@@ -111,7 +111,7 @@ export const SEASON_1997: SeasonScores = {
     },
     {
       date: '1997-08-09',
-      location: 'Jacksonville, AL',
+      location: 'Jacksonville, FL',
       score: 86.7,
     },
     {

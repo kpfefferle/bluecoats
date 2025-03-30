@@ -22,7 +22,7 @@ export const SEASON_2001: SeasonScores = {
     {
       date: '2001-06-23',
       location: 'Rockford, IL',
-      score: 67.55,
+      score: 71.8,
     },
     {
       date: '2001-06-24',
@@ -32,11 +32,11 @@ export const SEASON_2001: SeasonScores = {
     {
       date: '2001-06-26',
       location: 'Lima, OH',
-      score: 72.65,
+      score: 72.6,
     },
     {
       date: '2001-06-27',
-      location: 'Normal, IL',
+      location: 'Bloomington-Normal, IL',
       score: 69.5,
     },
     {
@@ -92,12 +92,12 @@ export const SEASON_2001: SeasonScores = {
     {
       date: '2001-07-21',
       location: 'San Antonio, TX',
-      score: 80.3,
+      score: 82.55,
     },
     {
       date: '2001-07-21',
       location: 'San Antonio, TX',
-      score: 82.55,
+      score: 80.3,
     },
     {
       date: '2001-07-25',
@@ -113,11 +113,6 @@ export const SEASON_2001: SeasonScores = {
       date: '2001-07-28',
       location: 'Indianapolis, IN',
       score: 85.65,
-    },
-    {
-      date: '2001-07-28',
-      location: 'Indianapolis, IN',
-      score: 85.35,
     },
     {
       date: '2001-07-28',

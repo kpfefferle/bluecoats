@@ -146,12 +146,12 @@ export const SEASON_1990: SeasonScores = {
     },
     {
       date: '1990-08-05',
-      location: 'Port Huron, MI',
+      location: 'Port Clinton, OH',
       score: 83.6,
     },
     {
       date: '1990-08-07',
-      location: 'Dayton, OH',
+      location: 'Centerville, OH',
       score: 84.6,
     },
     {

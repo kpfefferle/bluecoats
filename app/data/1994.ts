@@ -2,7 +2,7 @@ import { type SeasonScores } from 'bluecoats/data';
 
 export const SEASON_1994: SeasonScores = {
   year: 1994,
-  endDate: '1994-08-20',
+  endDate: '1994-08-19',
   scores: [
     {
       date: '1994-06-21',
@@ -140,18 +140,18 @@ export const SEASON_1994: SeasonScores = {
       score: 83.9,
     },
     {
+      date: '1994-08-17',
+      location: 'Boston, MA',
+      score: 84.1,
+    },
+    {
       date: '1994-08-18',
-      location: 'Foxboro, MA',
+      location: 'Boston, MA',
       score: 84.1,
     },
     {
       date: '1994-08-19',
-      location: 'Foxboro, MA',
-      score: 84.1,
-    },
-    {
-      date: '1994-08-20',
-      location: 'Foxboro, MA',
+      location: 'Boston, MA',
       score: 84.3,
     },
   ],

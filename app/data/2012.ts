@@ -52,7 +52,7 @@ export const SEASON_2012: SeasonScores = {
     {
       date: '2012-07-06',
       location: 'Whitewater, WI',
-      score: 77.75,
+      score: 77.65,
     },
     {
       date: '2012-07-07',
@@ -116,7 +116,7 @@ export const SEASON_2012: SeasonScores = {
     },
     {
       date: '2012-07-29',
-      location: 'Charlotte, NC',
+      location: 'Rock Hill, SC',
       score: 88.15,
     },
     {

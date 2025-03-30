@@ -5,6 +5,11 @@ export const SEASON_2000: SeasonScores = {
   endDate: '2000-08-12',
   scores: [
     {
+      date: '2000-06-23',
+      location: 'La Porte, IN',
+      score: 65.1,
+    },
+    {
       date: '2000-06-25',
       location: 'Wisconsin Rapids, WI',
       score: 64.3,

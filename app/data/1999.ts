@@ -126,7 +126,7 @@ export const SEASON_1999: SeasonScores = {
     },
     {
       date: '1999-08-08',
-      location: 'Canton, OH',
+      location: 'Massilon, OH',
       score: 83.8,
     },
     {

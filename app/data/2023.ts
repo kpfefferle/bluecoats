@@ -58,7 +58,7 @@ export const SEASON_2023: SeasonScores = {
     {
       date: '2023-07-30',
       location: 'Winston-Salem, NC',
-      score: 92.95,
+      score: 92.9,
     },
     {
       date: '2023-08-02',
@@ -78,12 +78,12 @@ export const SEASON_2023: SeasonScores = {
     {
       date: '2023-08-10',
       location: 'Indianapolis, IN',
-      score: 96.688,
+      score: 96.668,
     },
     {
       date: '2023-08-11',
       location: 'Indianapolis, IN',
-      score: 96.988,
+      score: 96.998,
     },
     {
       date: '2023-08-12',

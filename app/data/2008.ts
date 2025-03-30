@@ -16,7 +16,7 @@ export const SEASON_2008: SeasonScores = {
     },
     {
       date: '2008-06-23',
-      location: 'Pt. Huron, MI',
+      location: 'Port Huron, MI',
       score: 71.6,
     },
     {
@@ -97,7 +97,7 @@ export const SEASON_2008: SeasonScores = {
     {
       date: '2008-07-26',
       location: 'Atlanta, GA',
-      score: 88.975,
+      score: 88.1,
     },
     {
       date: '2008-07-29',

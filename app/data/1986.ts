@@ -41,7 +41,7 @@ export const SEASON_1986: SeasonScores = {
     },
     {
       date: '1986-07-01',
-      location: 'Greensburg, PA',
+      location: 'Sarnia, ONT',
       score: 69.3,
     },
     {
@@ -58,6 +58,11 @@ export const SEASON_1986: SeasonScores = {
       date: '1986-07-06',
       location: 'Saint Louis, MO',
       score: 63.1,
+    },
+    {
+      date: '1986-07-19',
+      location: 'DeKalb, IL',
+      score: 74.1,
     },
     {
       date: '1986-07-19',
@@ -85,6 +90,11 @@ export const SEASON_1986: SeasonScores = {
       score: 72.2,
     },
     {
+      date: '1986-07-26',
+      location: 'Hamilton, ONT',
+      score: 70.2,
+    },
+    {
       date: '1986-07-27',
       location: 'Ypsilanti, MI',
       score: 70.4,
@@ -96,8 +106,13 @@ export const SEASON_1986: SeasonScores = {
     },
     {
       date: '1986-08-02',
-      location: 'Sheffield, PA',
+      location: 'Warren, PA',
       score: 79.3,
+    },
+    {
+      date: '1986-08-05',
+      location: 'Niles, OH',
+      score: 75.3,
     },
     {
       date: '1986-08-09',

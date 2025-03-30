@@ -37,7 +37,7 @@ export const SEASON_1987: SeasonScores = {
     {
       date: '1987-06-26',
       location: 'Toledo, OH',
-      score: 73.2,
+      score: 73.29,
     },
     {
       date: '1987-06-27',
@@ -77,12 +77,17 @@ export const SEASON_1987: SeasonScores = {
     {
       date: '1987-07-18',
       location: 'DeKalb, IL',
+      score: 77.9,
+    },
+    {
+      date: '1987-07-18',
+      location: 'DeKalb, IL',
       score: 80.5,
     },
     {
       date: '1987-07-20',
       location: 'Parma, OH',
-      score: 78,
+      score: 78.05,
     },
     {
       date: '1987-07-21',

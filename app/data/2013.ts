@@ -6,8 +6,23 @@ export const SEASON_2013: SeasonScores = {
   scores: [
     {
       date: '2013-06-21',
-      location: 'Lexington, KY',
+      location: 'Mount Sterling, KY',
       score: 70,
+    },
+    {
+      date: '2013-06-22',
+      location: 'Akron, OH',
+      score: 71.15,
+    },
+    {
+      date: '2013-06-25',
+      location: 'Fairfield, OH',
+      score: 71.4,
+    },
+    {
+      date: '2013-06-26',
+      location: 'Monroeville, PA',
+      score: 73.2,
     },
     {
       date: '2013-06-28',
@@ -111,7 +126,7 @@ export const SEASON_2013: SeasonScores = {
     },
     {
       date: '2013-07-31',
-      location: 'Warrenton, VA',
+      location: 'Bealton, VA',
       score: 90.8,
     },
     {

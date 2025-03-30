@@ -36,7 +36,7 @@ export const SEASON_2006: SeasonScores = {
     },
     {
       date: '2006-06-25',
-      location: 'Lexington, KY',
+      location: 'Winchester, KY',
       score: 76.1,
     },
     {
@@ -46,7 +46,7 @@ export const SEASON_2006: SeasonScores = {
     },
     {
       date: '2006-06-30',
-      location: 'Normal, IL',
+      location: 'Bloomington-Normal, IL',
       score: 80.15,
     },
     {

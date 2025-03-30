@@ -16,12 +16,12 @@ export const SEASON_2018: SeasonScores = {
     },
     {
       date: '2018-06-25',
-      location: 'Mason, OH',
+      location: 'Hamilton, OH',
       score: 74.2,
     },
     {
       date: '2018-06-28',
-      location: 'Pittsburgh, PA',
+      location: 'Moon Township, PA',
       score: 76.4,
     },
     {
@@ -112,7 +112,7 @@ export const SEASON_2018: SeasonScores = {
     {
       date: '2018-07-27',
       location: 'Murfreesboro, TN',
-      score: 92.3,
+      score: 92.25,
     },
     {
       date: '2018-07-28',
@@ -147,12 +147,12 @@ export const SEASON_2018: SeasonScores = {
     {
       date: '2018-08-09',
       location: 'Indianapolis, IN',
-      score: 95.213,
+      score: 95.2125,
     },
     {
       date: '2018-08-10',
       location: 'Indianapolis, IN',
-      score: 96.588,
+      score: 96.5875,
     },
     {
       date: '2018-08-11',

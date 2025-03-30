@@ -2,7 +2,7 @@ import { type SeasonScores } from 'bluecoats/data';
 
 export const SEASON_1984: SeasonScores = {
   year: 1984,
-  endDate: '1984-08-17',
+  endDate: '1984-08-18',
   scores: [
     {
       date: '1984-06-23',
@@ -12,7 +12,7 @@ export const SEASON_1984: SeasonScores = {
     {
       date: '1984-06-24',
       location: 'Marion, OH',
-      score: 39.9,
+      score: 40,
     },
     {
       date: '1984-06-28',

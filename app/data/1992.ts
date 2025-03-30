@@ -67,7 +67,7 @@ export const SEASON_1992: SeasonScores = {
     {
       date: '1992-07-13',
       location: 'Kannapolis, NC',
-      score: 69.3,
+      score: 71,
     },
     {
       date: '1992-07-14',

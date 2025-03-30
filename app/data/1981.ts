@@ -2,7 +2,7 @@ import { type SeasonScores } from 'bluecoats/data';
 
 export const SEASON_1981: SeasonScores = {
   year: 1981,
-  endDate: '1981-08-23',
+  endDate: '1981-08-22',
   scores: [
     {
       date: '1981-07-04',
@@ -13,6 +13,11 @@ export const SEASON_1981: SeasonScores = {
       date: '1981-07-18',
       location: 'Titusville, PA',
       score: 54.5,
+    },
+    {
+      date: '1981-08-04',
+      location: 'Toledo, OH',
+      score: 56.35,
     },
     {
       date: '1981-08-04',

@@ -56,7 +56,7 @@ export const SEASON_1998: SeasonScores = {
     },
     {
       date: '1998-07-11',
-      location: 'Hershey, PA',
+      location: 'Rochester, NY',
       score: 79,
     },
     {
@@ -147,7 +147,7 @@ export const SEASON_1998: SeasonScores = {
     {
       date: '1998-08-14',
       location: 'Orlando, FL',
-      score: 88.6,
+      score: 88.5,
     },
     {
       date: '1998-08-15',

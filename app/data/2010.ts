@@ -31,7 +31,7 @@ export const SEASON_2010: SeasonScores = {
     },
     {
       date: '2010-06-30',
-      location: 'Ft. Edward/Glens Falls, NY',
+      location: 'Fort Edward, NY',
       score: 80.9,
     },
     {
@@ -96,7 +96,7 @@ export const SEASON_2010: SeasonScores = {
     },
     {
       date: '2010-07-25',
-      location: 'San Antonio, TX',
+      location: 'Converse, TX',
       score: 89.95,
     },
     {
