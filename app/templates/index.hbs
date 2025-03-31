@@ -1,20 +1,24 @@
-{{page-title this.year}}
+{{page-title "Score History"}}
 
-<div class="min-h-svh flex flex-col p-8 min-w-[50rem] relative">
-  <SeasonScoresChart
-    @fitAllSeasons={{this.fitAll}}
-    @seasonScores={{this.model}}
-    @selectedYears={{this.selectedYears}}
-  />
-  <div class="top-8 right-8 absolute flex flex-col items-end gap-2">
-    <SeasonSelect
-      @onSelectedYearsChange={{this.onSelectedYearsChange}}
-      @seasonScores={{this.model}}
-      @selectedYears={{this.selectedYears}}
-    />
-    <FitAllCheckbox
-      @fitAllSeasons={{this.fitAll}}
-      @onFitAllSeasonsChange={{this.onFitAllChange}}
-    />
-  </div>
-</div>
+<PageContent>
+  <Card>
+    <div class="min-h-svh flex flex-col relative overflow-x-auto">
+      <SeasonScoresChart
+        @fitAllSeasons={{this.fitAll}}
+        @seasonScores={{this.model}}
+        @selectedYears={{this.selectedYears}}
+      />
+      <div class="top-0 right-0 absolute flex flex-col items-end gap-2">
+        <SeasonSelect
+          @onSelectedYearsChange={{this.onSelectedYearsChange}}
+          @seasonScores={{this.model}}
+          @selectedYears={{this.selectedYears}}
+        />
+        <FitAllCheckbox
+          @fitAllSeasons={{this.fitAll}}
+          @onFitAllSeasonsChange={{this.onFitAllChange}}
+        />
+      </div>
+    </div>
+  </Card>
+</PageContent>

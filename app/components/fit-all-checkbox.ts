@@ -14,3 +14,10 @@ export default class FitAllCheckboxComponent extends Component<FitAllCheckboxSig
     this.args.onFitAllSeasonsChange(checked);
   }
 }
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    FitAllCheckbox: typeof FitAllCheckboxComponent;
+    'fit-all-checkbox': typeof FitAllCheckboxComponent;
+  }
+}
