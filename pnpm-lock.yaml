@@ -162,8 +162,8 @@ importers:
         specifier: ^4.2.2
         version: 4.2.2(@babel/core@7.27.1)
       ember-page-title:
-        specifier: ^9.0.1
-        version: 9.0.1(ember-source@6.3.0(@glimmer/component@2.0.0)(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.9))
+        specifier: ^9.0.2
+        version: 9.0.2
       ember-qunit:
         specifier: ^9.0.3
         version: 9.0.3(@ember/test-helpers@5.2.2(@babel/core@7.27.1)(@glint/template@1.5.2))(@glint/template@1.5.2)(qunit@2.24.1)
@@ -3728,11 +3728,9 @@ packages:
   ember-modifier@4.2.2:
     resolution: {integrity: sha512-pPYBAGyczX0hedGWQFQOEiL9s45KS9efKxJxUQkMLjQyh+1Uef1mcmAGsdw2KmvNupITkE/nXxmVO1kZ9tt3ag==}
 
-  ember-page-title@9.0.1:
-    resolution: {integrity: sha512-qo3NHJRrCZpYyGr+KkDAQDZ9IFJOFLW9qEKYer2tetSpaL9B2PQmh4KY0XdZY25jxFg8GZ1+DChDSImIbh5yzA==}
+  ember-page-title@9.0.2:
+    resolution: {integrity: sha512-ACklH6hemNB6tDAiwGo4e0tFIqVrAkTNqRmlLtLABlh+GynH7xkWm9q4fyc4Ysg9R1jP8OrsKcxWRittshRatA==}
     engines: {node: 16.* || >= 18}
-    peerDependencies:
-      ember-source: '>= 4.2.0'
 
   ember-qunit@9.0.3:
     resolution: {integrity: sha512-t+FD5/EWAR3WvGVj1etblFJJ6CaJqddDxusNcYYFZmW7zrQpCnQ9ziwpXM5/sw1sWabkhJZgYPXCn8bDRRhOfg==}
@@ -6694,9 +6692,6 @@ packages:
     resolution: {integrity: sha512-9kY+CygyYM6j02t5YFHbNz2FN5QmYGv9zAjVp4lCDjlCw7amdckXlEt/bjMhUIfj4ThGRE4gCUH5+yGnNuPo5A==}
     engines: {node: '>=10.0.0'}
 
-  tailwindcss@4.0.17:
-    resolution: {integrity: sha512-OErSiGzRa6rLiOvaipsDZvLMSpsBZ4ysB4f0VKGXUrjw2jfkJRd6kjRKV2+ZmTCNvwtvgdDam5D7w6WXsdLJZw==}
-
   tailwindcss@4.1.7:
     resolution: {integrity: sha512-kr1o/ErIdNhTz8uzAYL7TpaUuzKIE6QPQ4qmSdxnoX/lo+5wmUHQA6h3L5yIqEImSRnAAURDirLu/BgiXGPAhg==}
 
@@ -7393,7 +7388,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.27.1(supports-color@8.1.1)
       '@babel/helper-compilation-targets': 7.27.2
-      '@babel/helper-plugin-utils': 7.26.5
+      '@babel/helper-plugin-utils': 7.27.1
       debug: 4.4.0(supports-color@8.1.1)
       lodash.debounce: 4.0.8
       resolve: 1.22.10
@@ -12111,11 +12106,10 @@ snapshots:
       - '@babel/core'
       - supports-color
 
-  ember-page-title@9.0.1(ember-source@6.3.0(@glimmer/component@2.0.0)(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.9)):
+  ember-page-title@9.0.2:
     dependencies:
-      '@embroider/addon-shim': 1.9.0
+      '@embroider/addon-shim': 1.10.0
       '@simple-dom/document': 1.4.0
-      ember-source: 6.3.0(@glimmer/component@2.0.0)(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.9)
     transitivePeerDependencies:
       - supports-color
 
@@ -14290,7 +14284,7 @@ snapshots:
     dependencies:
       growly: 1.3.0
       is-wsl: 2.2.0
-      semver: 7.7.2
+      semver: 7.7.1
       shellwords: 0.1.1
       uuid: 8.3.2
       which: 2.0.2
@@ -15544,8 +15538,6 @@ snapshots:
       slice-ansi: 4.0.0
       string-width: 4.2.3
       strip-ansi: 6.0.1
-
-  tailwindcss@4.0.17: {}
 
   tailwindcss@4.1.7: {}
 
