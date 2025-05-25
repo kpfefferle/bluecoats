@@ -43,7 +43,7 @@
     "@ember-data/store": "~5.3.12",
     "@ember-data/tracking": "~5.3.12",
     "@ember/optional-features": "^2.2.0",
-    "@ember/test-helpers": "^5.2.0",
+    "@ember/test-helpers": "^5.2.2",
     "@embroider/compat": "^3.8.5",
     "@embroider/core": "^3.5.5",
     "@embroider/macros": "^1.18.0",
