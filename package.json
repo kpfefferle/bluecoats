@@ -104,7 +104,7 @@
     "qunit-dom": "^3.4.0",
     "stylelint": "^16.19.1",
     "stylelint-config-standard": "^38.0.0",
-    "tailwindcss": "^4.1.7",
+    "tailwindcss": "^4.1.8",
     "tracked-built-ins": "^4.0.0",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.32.1",
