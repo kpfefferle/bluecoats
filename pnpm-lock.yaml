@@ -55,16 +55,16 @@ importers:
         version: 5.2.2(@babel/core@7.27.4)(@glint/template@1.5.2)
       '@embroider/compat':
         specifier: ^3.9.0
-        version: 3.9.0(@embroider/core@3.5.6(@glint/template@1.5.2))(@glint/template@1.5.2)
+        version: 3.9.0(@embroider/core@3.5.7(@glint/template@1.5.2))(@glint/template@1.5.2)
       '@embroider/core':
-        specifier: ^3.5.6
-        version: 3.5.6(@glint/template@1.5.2)
+        specifier: ^3.5.7
+        version: 3.5.7(@glint/template@1.5.2)
       '@embroider/macros':
         specifier: ^1.18.0
         version: 1.18.0(@glint/template@1.5.2)
       '@embroider/webpack':
         specifier: ^4.1.0
-        version: 4.1.0(@embroider/core@3.5.6(@glint/template@1.5.2))(webpack@5.99.9)
+        version: 4.1.0(@embroider/core@3.5.7(@glint/template@1.5.2))(webpack@5.99.9)
       '@eslint/js':
         specifier: ^9.29.0
         version: 9.29.0
@@ -280,6 +280,10 @@ packages:
 
   '@babel/generator@7.27.3':
     resolution: {integrity: sha512-xnlJYj5zepml8NXtjkG0WquFUv8RskFqyFcVgTBp5k+NaA/8uw/K+OSVf8AMGw5e9HKP2ETd5xpK5MLZQD6b4Q==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/generator@7.27.5':
+    resolution: {integrity: sha512-ZGhA37l0e/g2s1Cnzdix0O3aLYm66eF8aufiVteOgnwxgnRP8GoyMj7VWsgWnQbVKXyge7hqrFh2K2TQM6t1Hw==}
     engines: {node: '>=6.9.0'}
 
   '@babel/helper-annotate-as-pure@7.27.1':
@@ -829,19 +833,19 @@ packages:
     resolution: {integrity: sha512-JqWH1vsgdGcw2RR6VliXXdA0/59LttzlU8UlRT/iUUsEeWfYq8I+K0yhihEUTTHLRm1EXvpsCx3083EU15ecsA==}
     engines: {node: '>=18'}
 
-  '@csstools/css-calc@2.1.3':
-    resolution: {integrity: sha512-XBG3talrhid44BY1x3MHzUx/aTG8+x/Zi57M4aTKK9RFB4aLlF3TTSzfzn8nWVHWL3FgAXAxmupmDd6VWww+pw==}
+  '@csstools/css-calc@2.1.4':
+    resolution: {integrity: sha512-3N8oaj+0juUw/1H3YwmDDJXCgTB1gKU6Hc/bB502u9zR0q2vd786XJH9QfrKIEgFlZmhZiq6epXl4rHqhzsIgQ==}
     engines: {node: '>=18'}
     peerDependencies:
-      '@csstools/css-parser-algorithms': ^3.0.4
-      '@csstools/css-tokenizer': ^3.0.3
+      '@csstools/css-parser-algorithms': ^3.0.5
+      '@csstools/css-tokenizer': ^3.0.4
 
-  '@csstools/css-color-parser@3.0.9':
-    resolution: {integrity: sha512-wILs5Zk7BU86UArYBJTPy/FMPPKVKHMj1ycCEyf3VUptol0JNRLFU/BZsJ4aiIHJEbSLiizzRrw8Pc1uAEDrXw==}
+  '@csstools/css-color-parser@3.0.10':
+    resolution: {integrity: sha512-TiJ5Ajr6WRd1r8HSiwJvZBiJOqtH86aHpUjq5aEKWHiII2Qfjqd/HCWKPOW8EP4vcspXbHnXrwIDlu5savQipg==}
     engines: {node: '>=18'}
     peerDependencies:
-      '@csstools/css-parser-algorithms': ^3.0.4
-      '@csstools/css-tokenizer': ^3.0.3
+      '@csstools/css-parser-algorithms': ^3.0.5
+      '@csstools/css-tokenizer': ^3.0.4
 
   '@csstools/css-parser-algorithms@3.0.4':
     resolution: {integrity: sha512-Up7rBoV77rv29d3uKHUIVubz1BTcgyUK72IvCQAbfbMv584xHcGKCKbWh7i8hPrRJ7qU4Y8IO3IY9m+iTB7P3A==}
@@ -849,8 +853,18 @@ packages:
     peerDependencies:
       '@csstools/css-tokenizer': ^3.0.3
 
+  '@csstools/css-parser-algorithms@3.0.5':
+    resolution: {integrity: sha512-DaDeUkXZKjdGhgYaHNJTV9pV7Y9B3b644jCLs9Upc3VeNGg6LWARAT6O+Q+/COo+2gg/bM5rhpMAtf70WqfBdQ==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@csstools/css-tokenizer': ^3.0.4
+
   '@csstools/css-tokenizer@3.0.3':
     resolution: {integrity: sha512-UJnjoFsmxfKUdNYdWgOB0mWUypuLvAfQPH1+pyvRJs6euowbFkFC6P13w1l8mJyi3vxYMxc9kld5jZEGRQs6bw==}
+    engines: {node: '>=18'}
+
+  '@csstools/css-tokenizer@3.0.4':
+    resolution: {integrity: sha512-Vd/9EVDiu6PPJt9yAh6roZP6El1xHrdvIVGjyBsHR0RYwNHgL7FJPyIIW4fANJNG6FtyZfvlRPpFI4ZM/lubvw==}
     engines: {node: '>=18'}
 
   '@csstools/media-query-list-parser@4.0.2':
@@ -1137,8 +1151,8 @@ packages:
     peerDependencies:
       '@embroider/core': ^3.5.6
 
-  '@embroider/core@3.5.6':
-    resolution: {integrity: sha512-yCTed4fjX4ZK3baFN4qay8zvER6MB75peCHN0WxfxX4esK/Lgjh8aANLYPsZ/7kmSlKcq4qYnBmBD7peIMh6dA==}
+  '@embroider/core@3.5.7':
+    resolution: {integrity: sha512-0oytko2+iaYS31TG9Axj7Py0e0FAccUhu9J1h7ldEnQegK+Eu5+OINU0dYQgt0ijp6f2yF4+o3J7u9CJCLZ1gw==}
     engines: {node: 12.* || 14.* || >= 16}
 
   '@embroider/hbs-loader@3.0.3':
@@ -1168,6 +1182,10 @@ packages:
 
   '@embroider/shared-internals@2.9.0':
     resolution: {integrity: sha512-8untWEvGy6av/oYibqZWMz/yB+LHsKxEOoUZiLvcpFwWj2Sipc0DcXeTJQZQZ++otNkLCWyDrDhOLrOkgjOPSg==}
+    engines: {node: 12.* || 14.* || >= 16}
+
+  '@embroider/shared-internals@2.9.1':
+    resolution: {integrity: sha512-8PJBsa37GD++SAfHf8rcJzlwDwuAQCBo0fr+eGxg9l8XhBXsTnE/7706dM4OqWew9XNqRXn39wfIGHZoBpjNMw==}
     engines: {node: 12.* || 14.* || >= 16}
 
   '@embroider/shared-internals@3.0.0':
@@ -3021,8 +3039,8 @@ packages:
     resolution: {integrity: sha512-wvlcdIbf6pwKEk7vHj8/Bkc0B4ylXZruLvOgs9doS5eOsOpuodOV2zJChSpkp+pRpYQLQMeF04nr3Z68Sta9jA==}
     engines: {node: '>=8.0.0'}
 
-  cssstyle@4.3.1:
-    resolution: {integrity: sha512-ZgW+Jgdd7i52AaLYCriF8Mxqft0gD/R9i9wi6RWBhs1pqdPEzPjym7rvRKi397WmQFf3SlyUsszhw+VVCbx79Q==}
+  cssstyle@4.4.0:
+    resolution: {integrity: sha512-W0Y2HOXlPkb2yaKrCVRjinYKciu/qSLEmK0K9mcfDei3zwlnHFEHAs/Du3cIRwPqY+J4JsiBzUjoHyc8RsJ03A==}
     engines: {node: '>=18'}
 
   dag-map@2.0.2:
@@ -3883,8 +3901,8 @@ packages:
     resolution: {integrity: sha512-gIXjKqtFuWEgzFRJA9WCQeSJLZDjgJUOMCMzxtvFq/37KojM1BFGufqsCy0r4qSQmYLsZYMeyRqzIWOMup03sw==}
     engines: {node: '>=14'}
 
-  form-data@4.0.2:
-    resolution: {integrity: sha512-hGfm/slu0ZabnNt4oaRZ6uREyfCj6P4fT/n6A1rGV+Z0VdGXjfOhVUpkn6qVQONHGIFwmveGXyDs75+nr6FM8w==}
+  form-data@4.0.3:
+    resolution: {integrity: sha512-qsITQPfmvMOSAdeyZ+12I1c+CKSstAFAwu+97zrnWAbIr5u8wfsExUzCesVLC8NgHuRUqNN4Zy6UPWUTRGslcA==}
     engines: {node: '>= 6'}
 
   forwarded@0.2.0:
@@ -6886,10 +6904,10 @@ snapshots:
 
   '@asamuzakjp/css-color@3.2.0':
     dependencies:
-      '@csstools/css-calc': 2.1.3(@csstools/css-parser-algorithms@3.0.4(@csstools/css-tokenizer@3.0.3))(@csstools/css-tokenizer@3.0.3)
-      '@csstools/css-color-parser': 3.0.9(@csstools/css-parser-algorithms@3.0.4(@csstools/css-tokenizer@3.0.3))(@csstools/css-tokenizer@3.0.3)
-      '@csstools/css-parser-algorithms': 3.0.4(@csstools/css-tokenizer@3.0.3)
-      '@csstools/css-tokenizer': 3.0.3
+      '@csstools/css-calc': 2.1.4(@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4))(@csstools/css-tokenizer@3.0.4)
+      '@csstools/css-color-parser': 3.0.10(@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4))(@csstools/css-tokenizer@3.0.4)
+      '@csstools/css-parser-algorithms': 3.0.5(@csstools/css-tokenizer@3.0.4)
+      '@csstools/css-tokenizer': 3.0.4
       lru-cache: 10.4.3
 
   '@babel/code-frame@7.27.1':
@@ -6929,6 +6947,14 @@ snapshots:
       semver: 6.3.1
 
   '@babel/generator@7.27.3':
+    dependencies:
+      '@babel/parser': 7.27.5
+      '@babel/types': 7.27.6
+      '@jridgewell/gen-mapping': 0.3.8
+      '@jridgewell/trace-mapping': 0.3.25
+      jsesc: 3.1.0
+
+  '@babel/generator@7.27.5':
     dependencies:
       '@babel/parser': 7.27.5
       '@babel/types': 7.27.6
@@ -7610,7 +7636,7 @@ snapshots:
   '@babel/traverse@7.27.4(supports-color@8.1.1)':
     dependencies:
       '@babel/code-frame': 7.27.1
-      '@babel/generator': 7.27.3
+      '@babel/generator': 7.27.5
       '@babel/parser': 7.27.5
       '@babel/template': 7.27.2
       '@babel/types': 7.27.6
@@ -7631,23 +7657,29 @@ snapshots:
 
   '@csstools/color-helpers@5.0.2': {}
 
-  '@csstools/css-calc@2.1.3(@csstools/css-parser-algorithms@3.0.4(@csstools/css-tokenizer@3.0.3))(@csstools/css-tokenizer@3.0.3)':
+  '@csstools/css-calc@2.1.4(@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4))(@csstools/css-tokenizer@3.0.4)':
     dependencies:
-      '@csstools/css-parser-algorithms': 3.0.4(@csstools/css-tokenizer@3.0.3)
-      '@csstools/css-tokenizer': 3.0.3
+      '@csstools/css-parser-algorithms': 3.0.5(@csstools/css-tokenizer@3.0.4)
+      '@csstools/css-tokenizer': 3.0.4
 
-  '@csstools/css-color-parser@3.0.9(@csstools/css-parser-algorithms@3.0.4(@csstools/css-tokenizer@3.0.3))(@csstools/css-tokenizer@3.0.3)':
+  '@csstools/css-color-parser@3.0.10(@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4))(@csstools/css-tokenizer@3.0.4)':
     dependencies:
       '@csstools/color-helpers': 5.0.2
-      '@csstools/css-calc': 2.1.3(@csstools/css-parser-algorithms@3.0.4(@csstools/css-tokenizer@3.0.3))(@csstools/css-tokenizer@3.0.3)
-      '@csstools/css-parser-algorithms': 3.0.4(@csstools/css-tokenizer@3.0.3)
-      '@csstools/css-tokenizer': 3.0.3
+      '@csstools/css-calc': 2.1.4(@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4))(@csstools/css-tokenizer@3.0.4)
+      '@csstools/css-parser-algorithms': 3.0.5(@csstools/css-tokenizer@3.0.4)
+      '@csstools/css-tokenizer': 3.0.4
 
   '@csstools/css-parser-algorithms@3.0.4(@csstools/css-tokenizer@3.0.3)':
     dependencies:
       '@csstools/css-tokenizer': 3.0.3
 
+  '@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4)':
+    dependencies:
+      '@csstools/css-tokenizer': 3.0.4
+
   '@csstools/css-tokenizer@3.0.3': {}
+
+  '@csstools/css-tokenizer@3.0.4': {}
 
   '@csstools/media-query-list-parser@4.0.2(@csstools/css-parser-algorithms@3.0.4(@csstools/css-tokenizer@3.0.3))(@csstools/css-tokenizer@3.0.3)':
     dependencies:
@@ -7998,16 +8030,16 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@embroider/babel-loader-9@3.1.1(@embroider/core@3.5.6(@glint/template@1.5.2))(supports-color@8.1.1)(webpack@5.99.9)':
+  '@embroider/babel-loader-9@3.1.1(@embroider/core@3.5.7(@glint/template@1.5.2))(supports-color@8.1.1)(webpack@5.99.9)':
     dependencies:
       '@babel/core': 7.27.4(supports-color@8.1.1)
-      '@embroider/core': 3.5.6(@glint/template@1.5.2)
+      '@embroider/core': 3.5.7(@glint/template@1.5.2)
       babel-loader: 9.2.1(@babel/core@7.27.4)(webpack@5.99.9)
     transitivePeerDependencies:
       - supports-color
       - webpack
 
-  '@embroider/compat@3.9.0(@embroider/core@3.5.6(@glint/template@1.5.2))(@glint/template@1.5.2)':
+  '@embroider/compat@3.9.0(@embroider/core@3.5.7(@glint/template@1.5.2))(@glint/template@1.5.2)':
     dependencies:
       '@babel/code-frame': 7.27.1
       '@babel/core': 7.27.4(supports-color@8.1.1)
@@ -8018,7 +8050,7 @@ snapshots:
       '@babel/preset-env': 7.27.2(@babel/core@7.27.4)(supports-color@8.1.1)
       '@babel/runtime': 7.27.6
       '@babel/traverse': 7.27.4(supports-color@8.1.1)
-      '@embroider/core': 3.5.6(@glint/template@1.5.2)
+      '@embroider/core': 3.5.7(@glint/template@1.5.2)
       '@embroider/macros': 1.16.13(@glint/template@1.5.2)
       '@types/babel__code-frame': 7.0.6
       '@types/yargs': 17.0.33
@@ -8060,13 +8092,13 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@embroider/core@3.5.6(@glint/template@1.5.2)':
+  '@embroider/core@3.5.7(@glint/template@1.5.2)':
     dependencies:
       '@babel/core': 7.27.4(supports-color@8.1.1)
       '@babel/parser': 7.27.5
       '@babel/traverse': 7.27.4(supports-color@8.1.1)
       '@embroider/macros': 1.16.13(@glint/template@1.5.2)
-      '@embroider/shared-internals': 2.9.0(supports-color@8.1.1)
+      '@embroider/shared-internals': 2.9.1
       assert-never: 1.4.0
       babel-plugin-ember-template-compilation: 2.3.0
       broccoli-node-api: 1.7.0
@@ -8094,9 +8126,9 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@embroider/hbs-loader@3.0.3(@embroider/core@3.5.6(@glint/template@1.5.2))(webpack@5.99.9)':
+  '@embroider/hbs-loader@3.0.3(@embroider/core@3.5.7(@glint/template@1.5.2))(webpack@5.99.9)':
     dependencies:
-      '@embroider/core': 3.5.6(@glint/template@1.5.2)
+      '@embroider/core': 3.5.7(@glint/template@1.5.2)
       webpack: 5.99.9
 
   '@embroider/macros@1.16.13(@glint/template@1.5.2)':
@@ -8146,6 +8178,23 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@embroider/shared-internals@2.9.1':
+    dependencies:
+      babel-import-util: 2.1.1
+      debug: 4.4.1(supports-color@8.1.1)
+      ember-rfc176-data: 0.3.18
+      fs-extra: 9.1.0
+      is-subdir: 1.2.0
+      js-string-escape: 1.0.1
+      lodash: 4.17.21
+      minimatch: 3.1.2
+      pkg-entry-points: 1.1.1
+      resolve-package-path: 4.0.3
+      semver: 7.7.2
+      typescript-memoize: 1.1.1
+    transitivePeerDependencies:
+      - supports-color
+
   '@embroider/shared-internals@3.0.0':
     dependencies:
       babel-import-util: 3.0.1
@@ -8164,13 +8213,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@embroider/webpack@4.1.0(@embroider/core@3.5.6(@glint/template@1.5.2))(webpack@5.99.9)':
+  '@embroider/webpack@4.1.0(@embroider/core@3.5.7(@glint/template@1.5.2))(webpack@5.99.9)':
     dependencies:
       '@babel/core': 7.27.4(supports-color@8.1.1)
       '@babel/preset-env': 7.27.2(@babel/core@7.27.4)(supports-color@8.1.1)
-      '@embroider/babel-loader-9': 3.1.1(@embroider/core@3.5.6(@glint/template@1.5.2))(supports-color@8.1.1)(webpack@5.99.9)
-      '@embroider/core': 3.5.6(@glint/template@1.5.2)
-      '@embroider/hbs-loader': 3.0.3(@embroider/core@3.5.6(@glint/template@1.5.2))(webpack@5.99.9)
+      '@embroider/babel-loader-9': 3.1.1(@embroider/core@3.5.7(@glint/template@1.5.2))(supports-color@8.1.1)(webpack@5.99.9)
+      '@embroider/core': 3.5.7(@glint/template@1.5.2)
+      '@embroider/hbs-loader': 3.0.3(@embroider/core@3.5.7(@glint/template@1.5.2))(webpack@5.99.9)
       '@embroider/shared-internals': 2.9.0(supports-color@8.1.1)
       '@types/supports-color': 8.1.3
       assert-never: 1.4.0
@@ -10560,7 +10609,7 @@ snapshots:
     dependencies:
       css-tree: 1.1.3
 
-  cssstyle@4.3.1:
+  cssstyle@4.4.0:
     dependencies:
       '@asamuzakjp/css-color': 3.2.0
       rrweb-cssom: 0.8.0
@@ -12042,11 +12091,12 @@ snapshots:
       cross-spawn: 7.0.6
       signal-exit: 4.1.0
 
-  form-data@4.0.2:
+  form-data@4.0.3:
     dependencies:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       es-set-tostringtag: 2.1.0
+      hasown: 2.0.2
       mime-types: 2.1.35
 
   forwarded@0.2.0: {}
@@ -12854,10 +12904,10 @@ snapshots:
 
   jsdom@25.0.1(supports-color@8.1.1):
     dependencies:
-      cssstyle: 4.3.1
+      cssstyle: 4.4.0
       data-urls: 5.0.0
       decimal.js: 10.5.0
-      form-data: 4.0.2
+      form-data: 4.0.3
       html-encoding-sniffer: 4.0.0
       http-proxy-agent: 7.0.2(supports-color@8.1.1)
       https-proxy-agent: 7.0.6(supports-color@8.1.1)
