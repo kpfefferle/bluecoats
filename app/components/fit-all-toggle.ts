@@ -1,14 +1,14 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-interface FitAllCheckboxSignature {
+interface FitAllToggleSignature {
   Args: {
     fitAllSeasons: boolean;
     onFitAllSeasonsChange: (fitAll: boolean) => void;
   };
 }
 
-export default class FitAllCheckboxComponent extends Component<FitAllCheckboxSignature> {
+export default class FitAllToggleComponent extends Component<FitAllToggleSignature> {
   @action onChangeFitAllSeasons(event: Event) {
     let { checked } = event.target as HTMLInputElement;
     this.args.onFitAllSeasonsChange(checked);
@@ -17,7 +17,7 @@ export default class FitAllCheckboxComponent extends Component<FitAllCheckboxSig
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    FitAllCheckbox: typeof FitAllCheckboxComponent;
-    'fit-all-checkbox': typeof FitAllCheckboxComponent;
+    FitAllToggle: typeof FitAllToggleComponent;
+    'fit-all-toggle': typeof FitAllToggleComponent;
   }
 }

@@ -7,15 +7,17 @@
 <PageContent>
   <div class="grid grid-cols-1 gap-4">
     <Card>
-      <SeasonSelect
-        @onSelectedYearsChange={{this.onSelectedYearsChange}}
-        @seasonScores={{this.model}}
-        @selectedYears={{this.selectedYears}}
-      />
-      <FitAllCheckbox
-        @fitAllSeasons={{this.fitAll}}
-        @onFitAllSeasonsChange={{this.onFitAllChange}}
-      />
+      <div class="grid grid-cols-1 gap-4">
+        <SeasonSelect
+          @onSelectedYearsChange={{this.onSelectedYearsChange}}
+          @seasonScores={{this.model}}
+          @selectedYears={{this.selectedYears}}
+        />
+        <FitAllToggle
+          @fitAllSeasons={{this.fitAll}}
+          @onFitAllSeasonsChange={{this.onFitAllChange}}
+        />
+      </div>
     </Card>
     <Card>
       <div class="min-h-svh flex flex-col overflow-x-auto">
