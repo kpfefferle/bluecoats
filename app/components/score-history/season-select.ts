@@ -24,7 +24,7 @@ export default class SeasonSelectComponent extends Component<SeasonSelectSignatu
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    SeasonSelect: typeof SeasonSelectComponent;
-    'season-select': typeof SeasonSelectComponent;
+    'ScoreHistory::SeasonSelect': typeof SeasonSelectComponent;
+    'score-history/season-select': typeof SeasonSelectComponent;
   }
 }

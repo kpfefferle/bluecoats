@@ -5,12 +5,12 @@
   <div class="grid grid-cols-1 gap-4">
     <Shared::Card>
       <div class="grid grid-cols-1 gap-4">
-        <SeasonSelect
+        <ScoreHistory::SeasonSelect
           @onSelectedYearsChange={{this.onSelectedYearsChange}}
           @seasonScores={{this.model}}
           @selectedYears={{this.selectedYears}}
         />
-        <FitAllToggle
+        <ScoreHistory::FitAllToggle
           @fitAllSeasons={{this.fitAll}}
           @onFitAllSeasonsChange={{this.onFitAllChange}}
         />
@@ -18,7 +18,7 @@
     </Shared::Card>
     <Shared::Card>
       <div class="min-h-svh flex flex-col overflow-x-auto">
-        <SeasonScoresChart
+        <ScoreHistory::SeasonScoresChart
           @fitAllSeasons={{this.fitAll}}
           @seasonScores={{this.model}}
           @selectedYears={{this.selectedYears}}
