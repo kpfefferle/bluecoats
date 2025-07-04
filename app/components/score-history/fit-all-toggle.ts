@@ -17,7 +17,7 @@ export default class FitAllToggleComponent extends Component<FitAllToggleSignatu
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    FitAllToggle: typeof FitAllToggleComponent;
-    'fit-all-toggle': typeof FitAllToggleComponent;
+    'ScoreHistory::FitAllToggle': typeof FitAllToggleComponent;
+    'score-history/fit-all-toggle': typeof FitAllToggleComponent;
   }
 }

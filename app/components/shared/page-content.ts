@@ -12,7 +12,7 @@ export default PageContentComponent;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    PageContent: typeof PageContentComponent;
-    'page-content': typeof PageContentComponent;
+    'Shared::PageContent': typeof PageContentComponent;
+    'shared/page-content': typeof PageContentComponent;
   }
 }
