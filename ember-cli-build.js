@@ -35,16 +35,7 @@ module.exports = function (defaults) {
           rules: [
             {
               test: /\.css$/i,
-              use: [
-                {
-                  loader: 'postcss-loader',
-                  options: {
-                    postcssOptions: {
-                      config: 'postcss.config.js',
-                    },
-                  },
-                },
-              ],
+              use: ['postcss-loader'],
             },
           ],
         },

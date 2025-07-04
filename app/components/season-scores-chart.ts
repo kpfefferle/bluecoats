@@ -11,11 +11,6 @@ interface SeasonScoresChartSignature {
   };
 }
 
-const TITLE_OPTION: EChartsOption['title'] = {
-  text: 'Scores by Season',
-  subtext: 'Relative to DCI Finals',
-};
-
 const GRID_OPTION: EChartsOption['grid'] = {
   top: '80px',
   left: '32px',
@@ -84,7 +79,6 @@ export default class SeasonScoresChartComponent extends Component<SeasonScoresCh
     let { legendOption, seriesOption, xAxisOption, yAxisOption } = this;
 
     return {
-      title: TITLE_OPTION,
       grid: GRID_OPTION,
       tooltip: {},
 
