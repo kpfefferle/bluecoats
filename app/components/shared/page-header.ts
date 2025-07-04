@@ -16,7 +16,7 @@ export default PageHeaderComponent;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    PageHeader: typeof PageHeaderComponent;
-    'page-header': typeof PageHeaderComponent;
+    'Shared::PageHeader': typeof PageHeaderComponent;
+    'shared/page-header': typeof PageHeaderComponent;
   }
 }

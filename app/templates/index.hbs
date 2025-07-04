@@ -1,9 +1,9 @@
 {{page-title "Score History"}}
 
-<PageHeader @title="Score History" @subtitle="Relative to DCI Finals" />
-<PageContent>
+<Shared::PageHeader @title="Score History" @subtitle="Relative to DCI Finals" />
+<Shared::PageContent>
   <div class="grid grid-cols-1 gap-4">
-    <Card>
+    <Shared::Card>
       <div class="grid grid-cols-1 gap-4">
         <SeasonSelect
           @onSelectedYearsChange={{this.onSelectedYearsChange}}
@@ -15,8 +15,8 @@
           @onFitAllSeasonsChange={{this.onFitAllChange}}
         />
       </div>
-    </Card>
-    <Card>
+    </Shared::Card>
+    <Shared::Card>
       <div class="min-h-svh flex flex-col overflow-x-auto">
         <SeasonScoresChart
           @fitAllSeasons={{this.fitAll}}
@@ -24,6 +24,6 @@
           @selectedYears={{this.selectedYears}}
         />
       </div>
-    </Card>
+    </Shared::Card>
   </div>
-</PageContent>
+</Shared::PageContent>
