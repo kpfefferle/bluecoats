@@ -12,10 +12,12 @@ module.exports = {
           'responsive',
           'screen',
           'tailwind',
+          'theme',
           'variants',
         ],
       },
     ],
     'import-notation': 'string',
+    'value-keyword-case': ['lower', { ignoreKeywords: ['InterVariable'] }],
   },
 };
