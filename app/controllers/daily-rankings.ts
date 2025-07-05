@@ -46,7 +46,11 @@ export default class DailyRankingsController extends Controller {
     return Math.max(...seasonDays);
   }
 
-  @action onSelectedDayChange(selectedDay: number) {
+  @action onSelectedDayChange(selectedDay: number): void {
     this.selectedDay = selectedDay;
+  }
+
+  @action resetToToday(): void {
+    this.selectedDay = this.currentDay;
   }
 }
