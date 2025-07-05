@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import { type DailyRankingsItem } from 'bluecoats/controllers/daily-rankings'
+import { type DailyRankingsItem } from 'bluecoats/controllers/daily-rankings';
 
 interface TableSignature {
   Args: {
