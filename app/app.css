@@ -4,21 +4,24 @@
   --font-sans: InterVariable, sans-serif;
 }
 
-input[type=range] {
+input[type="range"] {
   @apply appearance-none;
   @apply my-2;
 }
-input[type=range]:focus {
+
+input[type="range"]:focus {
   @apply outline-none;
 }
-input[type=range]::-webkit-slider-runnable-track {
+
+input[type="range"]::-webkit-slider-runnable-track {
   @apply w-full;
   @apply h-2;
   @apply cursor-pointer;
   @apply bg-gray-200;
   @apply rounded;
 }
-input[type=range]::-webkit-slider-thumb {
+
+input[type="range"]::-webkit-slider-thumb {
   @apply appearance-none;
   @apply w-6;
   @apply h-6;
@@ -27,17 +30,20 @@ input[type=range]::-webkit-slider-thumb {
   @apply bg-blue-600;
   @apply cursor-pointer;
 }
-input[type=range]:focus::-webkit-slider-runnable-track {
+
+input[type="range"]:focus::-webkit-slider-runnable-track {
   @apply bg-gray-200;
 }
-input[type=range]::-moz-range-track {
+
+input[type="range"]::-moz-range-track {
   @apply w-full;
   @apply h-2;
   @apply cursor-pointer;
   @apply bg-gray-200;
   @apply rounded;
 }
-input[type=range]::-moz-range-thumb {
+
+input[type="range"]::-moz-range-thumb {
   @apply appearance-none;
   @apply w-6;
   @apply h-6;

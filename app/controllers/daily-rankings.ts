@@ -34,15 +34,17 @@ export default class DailyRankingsController extends Controller {
 
   get maxDay(): number {
     let { model } = this;
-    let seasonDays = model.map((season) => {
-      let firstScore = season.scores[0];
-      if (!firstScore) {
-        return;
-      }
-      let firstScoreDate = DateTime.fromISO(firstScore.date);
-      let finalsDate = DateTime.fromISO(season.endDate);
-      return finalsDate.diff(firstScoreDate, 'days').days;
-    }).filter((days) => days !== undefined);
+    let seasonDays = model
+      .map((season) => {
+        let firstScore = season.scores[0];
+        if (!firstScore) {
+          return;
+        }
+        let firstScoreDate = DateTime.fromISO(firstScore.date);
+        let finalsDate = DateTime.fromISO(season.endDate);
+        return finalsDate.diff(firstScoreDate, 'days').days;
+      })
+      .filter((days) => days !== undefined);
     return Math.max(...seasonDays);
   }
 
