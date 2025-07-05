@@ -1,13 +1,13 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import { type ScoresByDayModel } from 'bluecoats/routes/scores-by-day';
+import { type DailyRankingsModel } from 'bluecoats/routes/daily-rankings';
 import { DateTime } from 'luxon';
 
-export default class ScoresByDayController extends Controller {
+export default class DailyRankingsController extends Controller {
   queryParams = ['day'];
 
-  declare model: ScoresByDayModel;
+  declare model: DailyRankingsModel;
 
   @tracked day?: string;
 

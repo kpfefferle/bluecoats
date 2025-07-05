@@ -12,8 +12,8 @@ const NAV_ITEMS: ReadonlyArray<NavItem> = [
     route: 'index',
   },
   {
-    label: 'Scores by Day',
-    route: 'scores-by-day',
+    label: 'Daily Rankings',
+    route: 'daily-rankings',
   },
 ];
 
