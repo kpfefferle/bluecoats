@@ -1,8 +1,10 @@
 import { type SeasonScores } from 'bluecoats/data';
 
+const COLOR_OPTIONS = ['#38bdf8', '#ec4899', '#facc15'];
+
 export const SEASON_2025: SeasonScores = {
   year: '2025',
-  color: '#dc2626', // red-600
+  color: COLOR_OPTIONS[Math.floor(Math.random() * COLOR_OPTIONS.length)],
   endDate: '2025-08-09',
   scores: [],
 };
