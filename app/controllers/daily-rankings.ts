@@ -34,20 +34,21 @@ export default class DailyRankingsController extends Controller {
 
   get dailyRankings(): Array<DailyRankingsItem> {
     let { model, selectedDay } = this;
-    let sortedRankings = model.map((season) => {
-      return this.rankingsItemForSelectedDay(season, selectedDay);
-    })
-    .filter((item) => item !== undefined)
-    .sort((itemA, itemB) => itemB.score - itemA.score);
-    return sortedRankings.map((rankingItem, index) => {
+    let sortedRankings = model
+      .map((season) => {
+        return this.rankingsItemForSelectedDay(season, selectedDay);
+      })
+      .filter((item) => item !== undefined)
+      .sort((itemA, itemB) => itemB.score - itemA.score);
+    return sortedRankings.map((rankingItem) => {
       let firstMatchingScoreIndex = sortedRankings.findIndex((item) => {
         return item.score === rankingItem.score;
       });
       return {
         rank: firstMatchingScoreIndex + 1,
         ...rankingItem,
-      }
-    })
+      };
+    });
   }
 
   get selectedDay(): number {
@@ -75,11 +76,16 @@ export default class DailyRankingsController extends Controller {
     return Math.max(...seasonDays);
   }
 
-  private rankingsItemForSelectedDay(season: SeasonScores, selectedDay: number): Omit<DailyRankingsItem, 'rank'> | undefined {
+  private rankingsItemForSelectedDay(
+    season: SeasonScores,
+    selectedDay: number,
+  ): Omit<DailyRankingsItem, 'rank'> | undefined {
     let finalsDateTime = DateTime.fromISO(season.endDate);
     let scores = season.scores.filter((score) => {
       let scoreDateTime = DateTime.fromISO(score.date);
-      let daysToFinals = Math.ceil(finalsDateTime.diff(scoreDateTime, 'days').days);
+      let daysToFinals = Math.ceil(
+        finalsDateTime.diff(scoreDateTime, 'days').days,
+      );
       return daysToFinals >= selectedDay;
     });
     let latestScore = scores.at(-1);
@@ -87,11 +93,14 @@ export default class DailyRankingsController extends Controller {
       return;
     }
     return {
-      daysOld: Math.ceil(finalsDateTime.diff(DateTime.fromISO(latestScore.date), 'days').days) - selectedDay,
+      daysOld:
+        Math.ceil(
+          finalsDateTime.diff(DateTime.fromISO(latestScore.date), 'days').days,
+        ) - selectedDay,
       location: latestScore.location,
       score: latestScore.score,
       year: season.year,
-    }
+    };
   }
 
   @action onSelectedDayChange(selectedDay: number): void {

@@ -8,7 +8,7 @@ interface TableSignature {
 }
 
 export default class TableComponent extends Component<TableSignature> {
-  ordinalFor = function(rank: number): string {
+  ordinalFor = function (rank: number): string {
     if (Math.floor(rank / 10) === 1) {
       return 'th';
     } else if (rank % 10 === 1) {
@@ -20,11 +20,11 @@ export default class TableComponent extends Component<TableSignature> {
     } else {
       return 'th';
     }
-  }
+  };
 
-  rankFromIndex = function(index: number): number {
+  rankFromIndex = function (index: number): number {
     return index + 1;
-  }
+  };
 }
 
 declare module '@glint/environment-ember-loose/registry' {
