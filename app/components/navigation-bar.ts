@@ -11,6 +11,10 @@ const NAV_ITEMS: ReadonlyArray<NavItem> = [
     label: 'Score History',
     route: 'index',
   },
+  {
+    label: 'Scores by Day',
+    route: 'scores-by-day',
+  },
 ];
 
 export default class NavigationBarComponent extends Component {

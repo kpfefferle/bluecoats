@@ -1,3 +1,21 @@
 {{page-title "Scores by Day"}}
+{{page-title }}
 
-{{outlet}}
+<Shared::PageHeader
+  @title="Scores by Day"
+  @subtitle={{if
+    (eq this.selectedDay 0)
+    "Finals Day"
+    (concat this.selectedDay " days before DCI Finals")
+  }}
+/>
+<Shared::PageContent>
+  <div class="grid grid-cols-1 gap-4">
+    <Shared::Card>
+      {{! TODO: Day range slider }}
+    </Shared::Card>
+    <Shared::Card>
+      {{! TODO: List of scores }}
+    </Shared::Card>
+  </div>
+</Shared::PageContent>
