@@ -7,7 +7,7 @@ interface SeasonScoresChartSignature {
   Args: {
     fitAllSeasons: boolean;
     seasonScores: SeasonScores[];
-    selectedYears: Array<number>;
+    selectedYears: Array<SeasonScores['year']>;
   };
 }
 
@@ -92,7 +92,7 @@ export default class SeasonScoresChartComponent extends Component<SeasonScoresCh
   get legendOption(): EChartsOption['legend'] {
     let { selectedSeasons } = this;
     let data = selectedSeasons
-      .map(({ year }) => `${year}`)
+      .map(({ year }) => year)
       .sort()
       .reverse();
     return {
@@ -190,7 +190,7 @@ export default class SeasonScoresChartComponent extends Component<SeasonScoresCh
 
     return {
       ...LINE_SERIES_OPTION_BASE,
-      name: `${year}`,
+      name: year,
       data,
       z: isSelected ? 1 : 0,
       itemStyle: {

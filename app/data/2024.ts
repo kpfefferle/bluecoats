@@ -1,7 +1,7 @@
 import { type SeasonScores } from 'bluecoats/data';
 
 export const SEASON_2024: SeasonScores = {
-  year: 2024,
+  year: '2024',
   color: '#dc2626', // red-600
   endDate: '2024-08-10',
   scores: [

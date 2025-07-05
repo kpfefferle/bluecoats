@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { type SeasonScores } from 'bluecoats/data';
 import { type IndexRouteModel } from 'bluecoats/routes/index';
 
 export default class IndexController extends Controller {
@@ -9,12 +10,12 @@ export default class IndexController extends Controller {
   declare model: IndexRouteModel;
 
   @tracked fitAll: boolean = false;
-  @tracked years: string = '2024';
+  @tracked declare years: string;
 
-  get selectedYears(): Array<number> {
-    return this.years.split(',').map(Number).sort().reverse();
+  get selectedYears(): Array<SeasonScores['year']> {
+    return this.years.split(',').sort().reverse();
   }
-  set selectedYears(value: Array<number>) {
+  set selectedYears(value: Array<SeasonScores['year']>) {
     this.years = value.join(',');
   }
 
@@ -22,7 +23,7 @@ export default class IndexController extends Controller {
     this.fitAll = fitAll;
   }
 
-  @action onSelectedYearsChange(selectedYears: Array<number>) {
+  @action onSelectedYearsChange(selectedYears: Array<SeasonScores['year']>) {
     this.selectedYears = selectedYears;
   }
 }

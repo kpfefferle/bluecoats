@@ -5,20 +5,20 @@ import { type SeasonScores } from 'bluecoats/data';
 interface SeasonSelectSignature {
   Args: {
     seasonScores: SeasonScores[];
-    selectedYears: Array<number>;
-    onSelectedYearsChange: (selectedYears: Array<number>) => void;
+    selectedYears: Array<SeasonScores['year']>;
+    onSelectedYearsChange: (selectedYears: Array<SeasonScores['year']>) => void;
   };
 }
 
 export default class SeasonSelectComponent extends Component<SeasonSelectSignature> {
-  isSelectedYear = (year: number) => {
+  isSelectedYear = (year: SeasonScores['year']) => {
     let { selectedYears } = this.args;
     return selectedYears.includes(year);
   };
 
   @action onSelectYear(event: Event) {
     let { value } = event.target as HTMLSelectElement;
-    this.args.onSelectedYearsChange([parseInt(value)]);
+    this.args.onSelectedYearsChange([value]);
   }
 }
 
