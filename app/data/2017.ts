@@ -1,7 +1,7 @@
 import { type SeasonScores } from 'bluecoats/data';
 
 export const SEASON_2017: SeasonScores = {
-  year: 2017,
+  year: '2017',
   endDate: '2017-08-12',
   scores: [
     {

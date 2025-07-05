@@ -45,7 +45,7 @@ import { SEASON_2024 } from 'bluecoats/data/2024';
 import { SEASON_2025 } from 'bluecoats/data/2025';
 
 export interface SeasonScores {
-  year: number;
+  year: string;
   color?: string;
   endDate: string;
   scores: Array<{
