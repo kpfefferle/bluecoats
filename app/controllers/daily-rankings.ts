@@ -12,15 +12,15 @@ export default class DailyRankingsController extends Controller {
   @tracked day?: string;
 
   get selectedDay(): number {
-    let { day, defaultDay } = this;
-    return day ? Number(day) : defaultDay;
+    let { day, currentDay } = this;
+    return day ? Number(day) : currentDay;
   }
   set selectedDay(value: number) {
-    let { defaultDay } = this;
-    this.day = value === defaultDay ? undefined : `${value}`;
+    let { currentDay } = this;
+    this.day = value === currentDay ? undefined : `${value}`;
   }
 
-  get defaultDay(): number {
+  get currentDay(): number {
     let { model } = this;
     let latestSeason = model.slice(-1)[0]!;
     let latestFinalsDate = DateTime.fromISO(latestSeason.endDate);
@@ -30,6 +30,20 @@ export default class DailyRankingsController extends Controller {
     } else {
       return Math.ceil(latestFinalsDate.diff(currentDate, 'days').days);
     }
+  }
+
+  get maxDay(): number {
+    let { model } = this;
+    let seasonDays = model.map((season) => {
+      let firstScore = season.scores[0];
+      if (!firstScore) {
+        return;
+      }
+      let firstScoreDate = DateTime.fromISO(firstScore.date);
+      let finalsDate = DateTime.fromISO(season.endDate);
+      return finalsDate.diff(firstScoreDate, 'days').days;
+    }).filter((days) => days !== undefined);
+    return Math.max(...seasonDays);
   }
 
   @action onSelectedDayChange(selectedDay: number) {

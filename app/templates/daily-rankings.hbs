@@ -11,7 +11,11 @@
 <Shared::PageContent>
   <div class="grid grid-cols-1 gap-4">
     <Shared::Card>
-      {{! TODO: Day range slider }}
+      <DailyRankings::DaySlider
+        @maximum={{this.maxDay}}
+        @onChange={{this.onSelectedDayChange}}
+        @value={{this.selectedDay}}
+      />
     </Shared::Card>
     <Shared::Card>
       {{! TODO: List of scores }}
