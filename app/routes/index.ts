@@ -11,7 +11,7 @@ export default class IndexRoute extends Route {
 
   setupController(controller: IndexController, model: IndexRouteModel) {
     super.setupController(controller, model);
-    let lastSeason = model.slice(-1)[0]!;
+    let lastSeason = model.at(-1)!;
     controller.years = lastSeason.year;
   }
 }

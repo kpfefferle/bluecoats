@@ -22,7 +22,7 @@ export default class DailyRankingsController extends Controller {
 
   get currentDay(): number {
     let { model } = this;
-    let latestSeason = model.slice(-1)[0]!;
+    let latestSeason = model.at(-1)!;
     let latestFinalsDate = DateTime.fromISO(latestSeason.endDate);
     let currentDate = DateTime.now();
     if (currentDate > latestFinalsDate) {
