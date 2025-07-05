@@ -1,21 +1,62 @@
-<table>
-  <thead>
+<table class="min-w-full divide-y divide-gray-300">
+  <thead class="bg-gray-50">
     <tr>
-      <th>Rank</th>
-      <th>Year</th>
-      <th>Score</th>
-      <th>Location</th>
-      <th>Days Prior</th>
+      <th
+        scope="col"
+        class="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+      >
+        <span class="sr-only">Rank</span>
+      </th>
+      <th
+        scope="col"
+        class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+      >
+        Year
+      </th>
+      <th
+        scope="col"
+        class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+      >
+        Score
+      </th>
+      <th
+        scope="col"
+        class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+      >
+        Location
+      </th>
+      <th
+        scope="col"
+        class="py-3.5 pr-4 pl-3 text-left text-sm font-semibold text-gray-900 sm:pr-6"
+      >
+        Days Prior
+      </th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="divide-y divide-gray-200 bg-white">
     {{#each @rankings as |ranking|}}
       <tr>
-        <td>{{ranking.rank}}</td>
-        <td>{{ranking.year}}</td>
-        <td>{{ranking.score}}</td>
-        <td>{{ranking.location}}</td>
-        <td>{{ranking.daysOld}}</td>
+        <td
+          class="py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6"
+        >
+          {{concat ranking.rank (this.ordinalFor ranking.rank)}}
+        </td>
+        <td class="px-3 py-4 text-sm font-medium whitespace-nowrap text-gray-900">
+          {{ranking.year}}
+        </td>
+        <td
+          class="px-3 py-4 text-sm whitespace-nowrap text-gray-500"
+        >
+          {{ranking.score}}
+        </td>
+        <td class="px-3 py-4 text-sm whitespace-nowrap text-gray-500">
+          {{ranking.location}}
+        </td>
+        <td
+          class="relative py-4 pr-4 pl-3 text-sm whitespace-nowrap text-gray-500 sm:pr-6"
+        >
+          {{if ranking.daysOld ranking.daysOld}}
+        </td>
       </tr>
     {{/each}}
   </tbody>
