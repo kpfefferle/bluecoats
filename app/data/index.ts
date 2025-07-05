@@ -44,15 +44,17 @@ import { SEASON_2023 } from 'bluecoats/data/2023';
 import { SEASON_2024 } from 'bluecoats/data/2024';
 import { SEASON_2025 } from 'bluecoats/data/2025';
 
+export interface Score {
+  date: string;
+  location: string;
+  score: number;
+}
+
 export interface SeasonScores {
   year: string;
   color?: string;
   endDate: string;
-  scores: Array<{
-    date: string;
-    location: string;
-    score: number;
-  }>;
+  scores: Array<Score>;
 }
 
 export const ALL_SEASONS: SeasonScores[] = [

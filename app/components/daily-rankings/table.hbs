@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Year</th>
+      <th>Score</th>
+      <th>Location</th>
+      <th>Days Prior</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each @rankings as |ranking|}}
+      <tr>
+        <td>{{ranking.rank}}</td>
+        <td>{{ranking.year}}</td>
+        <td>{{ranking.score}}</td>
+        <td>{{ranking.location}}</td>
+        <td>{{ranking.daysOld}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
