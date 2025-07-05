@@ -6,8 +6,8 @@
     Days before Finals
   </label>
   <input
-    {{on "change" this.onChange}}
-    class="range-slider w-full"
+    {{on "input" this.onChange}}
+    class="w-full"
     id="day-slider"
     max="0"
     min="-{{@maximum}}"
