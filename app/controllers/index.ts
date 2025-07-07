@@ -10,7 +10,7 @@ export default class IndexController extends Controller {
   declare model: IndexRouteModel;
 
   @tracked fitAll: boolean = false;
-  @tracked declare years: string;
+  @tracked years: string = '2025';
 
   get selectedYears(): Array<SeasonScores['year']> {
     return this.years.split(',').sort().reverse();
