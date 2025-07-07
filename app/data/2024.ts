@@ -17,7 +17,7 @@ export const SEASON_2024: SeasonScores = {
     },
     {
       date: '2024-07-07',
-      location: 'LaCrosse, WI',
+      location: 'La Crosse, WI',
       score: 83.4,
     },
     {

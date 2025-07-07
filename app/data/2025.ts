@@ -6,5 +6,11 @@ export const SEASON_2025: SeasonScores = {
   year: '2025',
   color: COLOR_OPTIONS[Math.floor(Math.random() * COLOR_OPTIONS.length)],
   endDate: '2025-08-09',
-  scores: [],
+  scores: [
+    {
+      date: '2025-07-06',
+      location: 'La Crosse, WI',
+      score: 83.3,
+    },
+  ],
 };
