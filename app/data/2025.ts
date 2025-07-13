@@ -12,5 +12,10 @@ export const SEASON_2025: SeasonScores = {
       location: 'La Crosse, WI',
       score: 83.3,
     },
+    {
+      date: '2025-07-12',
+      location: 'Lisle, IL',
+      score: 86.5,
+    },
   ],
 };
