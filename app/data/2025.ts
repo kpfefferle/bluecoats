@@ -17,5 +17,10 @@ export const SEASON_2025: SeasonScores = {
       location: 'Lisle, IL',
       score: 86.5,
     },
+    {
+      date: '2025-07-15',
+      location: 'Broken Arrow, OK',
+      score: 88.55,
+    },
   ],
 };
