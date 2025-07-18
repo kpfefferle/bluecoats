@@ -22,5 +22,10 @@ export const SEASON_2025: SeasonScores = {
       location: 'Broken Arrow, OK',
       score: 88.55,
     },
+    {
+      date: '2025-07-17',
+      location: 'Denton, TX',
+      score: 90.3,
+    },
   ],
 };
