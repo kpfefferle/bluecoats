@@ -27,5 +27,10 @@ export const SEASON_2025: SeasonScores = {
       location: 'Denton, TX',
       score: 90.3,
     },
+    {
+      date: '2025-07-18',
+      location: 'Houston, TX',
+      score: 91.25,
+    },
   ],
 };
