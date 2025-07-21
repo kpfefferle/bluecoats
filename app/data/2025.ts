@@ -37,5 +37,10 @@ export const SEASON_2025: SeasonScores = {
       location: 'San Antonio, TX',
       score: 92.825,
     },
+    {
+      date: '2025-07-20',
+      location: 'Bedford, TX',
+      score: 92.95,
+    },
   ],
 };
