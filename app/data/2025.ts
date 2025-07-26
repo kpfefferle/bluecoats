@@ -42,5 +42,10 @@ export const SEASON_2025: SeasonScores = {
       location: 'Bedford, TX',
       score: 92.95,
     },
+    {
+      date: '2025-07-25',
+      location: 'Nashville, TN',
+      score: 94.4,
+    },
   ],
 };
