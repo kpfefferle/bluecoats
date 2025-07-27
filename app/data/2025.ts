@@ -47,5 +47,10 @@ export const SEASON_2025: SeasonScores = {
       location: 'Nashville, TN',
       score: 94.4,
     },
+    {
+      date: '2025-07-26',
+      location: 'Atlanta, GA',
+      score: 95.025,
+    },
   ],
 };
