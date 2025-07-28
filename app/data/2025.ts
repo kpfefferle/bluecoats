@@ -52,5 +52,10 @@ export const SEASON_2025: SeasonScores = {
       location: 'Atlanta, GA',
       score: 95.025,
     },
+    {
+      date: '2025-07-27',
+      location: "Winston-Salem, NC',
+      score: 94.55,
+    },
   ],
 };
