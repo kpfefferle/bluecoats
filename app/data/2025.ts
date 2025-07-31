@@ -57,5 +57,10 @@ export const SEASON_2025: SeasonScores = {
       location: 'Winston-Salem, NC',
       score: 94.55,
     },
+    {
+      date: '2025-07-30',
+      location: 'Glassboro, NJ',
+      score: 95.85,
+    },
   ],
 };
