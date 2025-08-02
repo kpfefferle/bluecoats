@@ -62,5 +62,10 @@ export const SEASON_2025: SeasonScores = {
       location: 'Glassboro, NJ',
       score: 95.85,
     },
+    {
+      date: '2025-08-01',
+      location: 'Allentown, PA',
+      score: 96.475,
+    },
   ],
 };
