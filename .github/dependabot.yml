@@ -6,3 +6,10 @@ updates:
     interval: daily
     time: "07:00"
   open-pull-requests-limit: 99
+  ignore:
+  - dependency-name: "@embroider/compat"
+    # 4.x only supports Vite
+    versions: [ ">=4.0.0" ]
+  - dependency-name: "@embroider/core"
+    # 4.x only supports Vite
+    versions: [ ">=4.0.0" ]
