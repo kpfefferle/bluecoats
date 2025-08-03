@@ -12,10 +12,10 @@ interface SeasonScoresChartSignature {
 }
 
 const GRID_OPTION: EChartsOption['grid'] = {
-  top: '80px',
+  top: '32px',
   left: '32px',
   right: '32px',
-  bottom: '32px',
+  bottom: '80px',
 };
 
 const X_AXIS_OPTION: EChartsOption['xAxis'] = {
