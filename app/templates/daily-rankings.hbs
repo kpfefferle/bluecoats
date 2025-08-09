@@ -5,7 +5,11 @@
   @subtitle={{if
     (eq this.selectedDay 0)
     "Finals Day"
-    (concat this.selectedDay " days before DCI Finals")
+    (concat
+      this.selectedDay
+      (if (gt this.selectedDay 1) " days" " day")
+      " before DCI Finals"
+    )
   }}
 >
   {{#if (not-eq this.selectedDay this.currentDay)}}
