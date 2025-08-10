@@ -53,7 +53,8 @@ export default class DailyRankingsController extends Controller {
 
   get selectedDay(): number {
     let { day, currentDay } = this;
-    return day ? Number(day) : currentDay;
+    let selectedDay = day ? Number(day) : currentDay;
+    return selectedDay >= 0 ? selectedDay : 0;
   }
   set selectedDay(value: number) {
     let { currentDay } = this;
