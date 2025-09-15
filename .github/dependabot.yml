@@ -1,15 +1,34 @@
 version: 2
 updates:
-- package-ecosystem: npm
-  directory: "/"
-  schedule:
-    interval: daily
-    time: "07:00"
-  open-pull-requests-limit: 99
-  ignore:
-  - dependency-name: "@embroider/compat"
-    # 4.x only supports Vite
-    versions: [ ">=4.0.0" ]
-  - dependency-name: "@embroider/core"
-    # 4.x only supports Vite
-    versions: [ ">=4.0.0" ]
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 99
+    groups:
+      babel:
+        applies-to: version-updates
+        patterns:
+          - "@babel/*"
+      eslint:
+        applies-to: version-updates
+        patterns:
+          - "eslint*"
+    ignore:
+      - dependency-name: "@embroider/compat"
+        # 4.x only supports Vite
+        versions: [ ">=4.0.0" ]
+      - dependency-name: "@embroider/core"
+        # 4.x only supports Vite
+        versions: [ ">=4.0.0" ]
+    reviewers:
+      - kpfefferle
+  - package-ecosystem: "github-actions"
+    # Workflow files stored in the
+    # default location of `.github/workflows`
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    reviewers:
+      - kpfefferle
