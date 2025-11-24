@@ -15,6 +15,7 @@ updates:
         patterns:
           - "ember-data*"
           - "@ember-data/*"
+          - "@warp-drive/*"
       eslint:
         applies-to: version-updates
         patterns:
