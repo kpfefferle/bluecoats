@@ -19,6 +19,11 @@ updates:
         patterns:
           - "@tailwindcss/*"
           - "tailwindcss*"
+      typescript:
+        applies-to: version-updates
+        patterns:
+          - "@tsconfig/*"
+          - "typescript*"
     ignore:
       - dependency-name: "@embroider/compat"
         # 4.x only supports Vite
