@@ -14,6 +14,12 @@ updates:
         applies-to: version-updates
         patterns:
           - "eslint*"
+      qunit:
+        applies-to: version-updates
+        patterns:
+          - "qunit*"
+          - "@types/qunit"
+          - "ember-qunit"
       tailwindcss:
         applies-to: version-updates
         patterns:

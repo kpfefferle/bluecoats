@@ -90,8 +90,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       '@types/qunit':
-        specifier: ^2.19.12
-        version: 2.19.12
+        specifier: ^2.19.13
+        version: 2.19.13
       '@types/rsvp':
         specifier: ^4.0.9
         version: 4.0.9
@@ -148,7 +148,7 @@ importers:
         version: 2.1.0
       ember-data:
         specifier: ~5.6.0
-        version: 5.6.0(@ember/test-helpers@5.2.2(@babel/core@7.28.5)(@glint/template@1.5.2))(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2)(qunit@2.24.1)
+        version: 5.6.0(@ember/test-helpers@5.2.2(@babel/core@7.28.5)(@glint/template@1.5.2))(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2)(qunit@2.24.2)
       ember-load-initializers:
         specifier: ^3.0.1
         version: 3.0.1(ember-source@6.6.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
@@ -159,8 +159,8 @@ importers:
         specifier: ^9.0.2
         version: 9.0.2
       ember-qunit:
-        specifier: ^9.0.3
-        version: 9.0.3(@ember/test-helpers@5.2.2(@babel/core@7.28.5)(@glint/template@1.5.2))(@glint/template@1.5.2)(qunit@2.24.1)
+        specifier: ^9.0.4
+        version: 9.0.4(@ember/test-helpers@5.2.2(@babel/core@7.28.5)(@glint/template@1.5.2))(@glint/template@1.5.2)(qunit@2.24.2)
       ember-resolver:
         specifier: ^13.1.1
         version: 13.1.1
@@ -213,11 +213,11 @@ importers:
         specifier: ^2.1.0
         version: 2.1.0(prettier@3.6.2)
       qunit:
-        specifier: ^2.24.1
-        version: 2.24.1
+        specifier: ^2.24.2
+        version: 2.24.2
       qunit-dom:
-        specifier: ^3.4.0
-        version: 3.4.0
+        specifier: ^3.5.0
+        version: 3.5.0
       stylelint:
         specifier: ^16.23.0
         version: 16.23.0(typescript@5.9.3)
@@ -1455,8 +1455,8 @@ packages:
   '@types/qs@6.14.0':
     resolution: {integrity: sha512-eOunJqu0K1923aExK6y8p6fsihYEn/BYuQ4g0CxAAgFc4b/ZLN4CrsRZ55srTdqoiLzU2B2evC+apEIxprEzkQ==}
 
-  '@types/qunit@2.19.12':
-    resolution: {integrity: sha512-II+C1wgzUia0g+tGAH+PBb4XiTm8/C/i6sN23r21NNskBYOYrv+qnW0tFQ/IxZzKVwrK4CTglf8YO3poJUclQA==}
+  '@types/qunit@2.19.13':
+    resolution: {integrity: sha512-N4xp3v4s7f0jb2Oij6+6xw5QhH7/IgHCoGIFLCWtbEWoPkGYp8Te4mIwIP21qaurr6ed5JiPMiy2/ZoiGPkLIw==}
 
   '@types/range-parser@1.2.7':
     resolution: {integrity: sha512-hKormJbkJqzQGhziax5PItDUTMAM9uE2XXQmM37dyd4hVM+5aVl7oVxMVUiVQn2oCQFN/LKCZdvSM0pFRqbSmQ==}
@@ -3187,8 +3187,8 @@ packages:
     resolution: {integrity: sha512-ACklH6hemNB6tDAiwGo4e0tFIqVrAkTNqRmlLtLABlh+GynH7xkWm9q4fyc4Ysg9R1jP8OrsKcxWRittshRatA==}
     engines: {node: 16.* || >= 18}
 
-  ember-qunit@9.0.3:
-    resolution: {integrity: sha512-t+FD5/EWAR3WvGVj1etblFJJ6CaJqddDxusNcYYFZmW7zrQpCnQ9ziwpXM5/sw1sWabkhJZgYPXCn8bDRRhOfg==}
+  ember-qunit@9.0.4:
+    resolution: {integrity: sha512-rv6gKvrdXdPBTdSZC5co82eIcDWWVR7RjafU/c+5TTz290oXhIHPoVuZbcO2F5RiAqkTW0jKzwkCP8y+2tCjFw==}
     peerDependencies:
       '@ember/test-helpers': '>=3.0.3'
       qunit: ^2.13.0
@@ -5387,14 +5387,14 @@ packages:
   quick-temp@0.1.8:
     resolution: {integrity: sha512-YsmIFfD9j2zaFwJkzI6eMG7y0lQP7YeWzgtFgNl38pGWZBSXJooZbOWwkcRot7Vt0Fg9L23pX0tqWU3VvLDsiA==}
 
-  qunit-dom@3.4.0:
-    resolution: {integrity: sha512-N5PYbJ20RD3JZN4whINdl7dDfxScUy7eNuO8IwUtBWC7d6SH+BqtBqVZdRn9evxLQVzuask6OGvMy4gdpiCceg==}
+  qunit-dom@3.5.0:
+    resolution: {integrity: sha512-eemLM5bflWafzmBnwlYbjf9NrjEkV2j7NO7mTvsMzQBJbEaq2zFvUFDtHV9JaK0TT5mgRZt034LCUewYGmjjjQ==}
 
   qunit-theme-ember@1.0.0:
     resolution: {integrity: sha512-vdMVVo6ecdCkWttMTKeyq1ZTLGHcA6zdze2zhguNuc3ritlJMhOXY5RDseqazOwqZVfCg3rtlmL3fMUyIzUyFQ==}
 
-  qunit@2.24.1:
-    resolution: {integrity: sha512-Eu0k/5JDjx0QnqxsE1WavnDNDgL1zgMZKsMw/AoAxnsl9p4RgyLODyo2N7abZY7CEAnvl5YUqFZdkImzbgXzSg==}
+  qunit@2.24.2:
+    resolution: {integrity: sha512-dWlYs+Q9AIDT3eHKgkpEpWrSjHjqTJNCAJr1tUo5bQuDMzlZvaqCz1bNZhqzNu41ibkIQ7b50S9y6IMlrrUfNQ==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -8315,7 +8315,7 @@ snapshots:
 
   '@types/qs@6.14.0': {}
 
-  '@types/qunit@2.19.12': {}
+  '@types/qunit@2.19.13': {}
 
   '@types/range-parser@1.2.7': {}
 
@@ -10766,7 +10766,7 @@ snapshots:
       - walrus
       - whiskers
 
-  ember-data@5.6.0(@ember/test-helpers@5.2.2(@babel/core@7.28.5)(@glint/template@1.5.2))(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2)(qunit@2.24.1):
+  ember-data@5.6.0(@ember/test-helpers@5.2.2(@babel/core@7.28.5)(@glint/template@1.5.2))(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2)(qunit@2.24.2):
     dependencies:
       '@ember-data/adapter': 5.6.0(@glint/template@1.5.2)
       '@ember-data/debug': 5.6.0(@ember-data/model@5.6.0(@glint/template@1.5.2))(@ember-data/request-utils@5.6.0(@glint/template@1.5.2))(@ember-data/store@5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2))(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2))(@glint/template@1.5.2)(@warp-drive/core-types@5.6.0(@glint/template@1.5.2))
@@ -10790,7 +10790,7 @@ snapshots:
       '@warp-drive/utilities': 5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2))
     optionalDependencies:
       '@ember/test-helpers': 5.2.2(@babel/core@7.28.5)(@glint/template@1.5.2)
-      qunit: 2.24.1
+      qunit: 2.24.2
     transitivePeerDependencies:
       - '@glint/template'
       - ember-inflector
@@ -10842,12 +10842,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ember-qunit@9.0.3(@ember/test-helpers@5.2.2(@babel/core@7.28.5)(@glint/template@1.5.2))(@glint/template@1.5.2)(qunit@2.24.1):
+  ember-qunit@9.0.4(@ember/test-helpers@5.2.2(@babel/core@7.28.5)(@glint/template@1.5.2))(@glint/template@1.5.2)(qunit@2.24.2):
     dependencies:
       '@ember/test-helpers': 5.2.2(@babel/core@7.28.5)(@glint/template@1.5.2)
       '@embroider/addon-shim': 1.10.0
       '@embroider/macros': 1.18.1(@glint/template@1.5.2)
-      qunit: 2.24.1
+      qunit: 2.24.2
       qunit-theme-ember: 1.0.0
     transitivePeerDependencies:
       - '@glint/template'
@@ -13323,13 +13323,13 @@ snapshots:
       rimraf: 2.7.1
       underscore.string: 3.3.6
 
-  qunit-dom@3.4.0:
+  qunit-dom@3.5.0:
     dependencies:
       dom-element-descriptors: 0.5.1
 
   qunit-theme-ember@1.0.0: {}
 
-  qunit@2.24.1:
+  qunit@2.24.2:
     dependencies:
       commander: 7.2.0
       node-watch: 0.7.3
