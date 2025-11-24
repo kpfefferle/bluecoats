@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import { type Score, type SeasonScores } from 'bluecoats/data';
+import { type Score, type SeasonScores } from 'bluecoats/data/base';
 import { type DailyRankingsModel } from 'bluecoats/routes/daily-rankings';
 import { DateTime } from 'luxon';
 

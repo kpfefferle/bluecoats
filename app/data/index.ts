@@ -1,3 +1,5 @@
+import { type SeasonScores } from 'bluecoats/data/base';
+
 import { SEASON_1977 } from 'bluecoats/data/1977';
 import { SEASON_1978 } from 'bluecoats/data/1978';
 import { SEASON_1980 } from 'bluecoats/data/1980';
@@ -43,19 +45,6 @@ import { SEASON_2022 } from 'bluecoats/data/2022';
 import { SEASON_2023 } from 'bluecoats/data/2023';
 import { SEASON_2024 } from 'bluecoats/data/2024';
 import { SEASON_2025 } from 'bluecoats/data/2025';
-
-export interface Score {
-  date: string;
-  location: string;
-  score: number;
-}
-
-export interface SeasonScores {
-  year: string;
-  color?: string;
-  endDate: string;
-  scores: Array<Score>;
-}
 
 export const ALL_SEASONS: SeasonScores[] = [
   SEASON_1977,

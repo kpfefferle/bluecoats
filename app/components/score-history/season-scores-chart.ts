@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import { type SeasonScores } from 'bluecoats/data';
+import { type SeasonScores } from 'bluecoats/data/base';
 import { type EChartsOption, type SeriesOption } from 'echarts';
 import { DateTime } from 'luxon';
 

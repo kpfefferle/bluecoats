@@ -1,4 +1,4 @@
-import { type SeasonScores } from 'bluecoats/data';
+import { type SeasonScores } from 'bluecoats/data/base';
 
 const COLOR_OPTIONS = ['#38bdf8', '#ec4899', '#facc15'];
 

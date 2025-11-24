@@ -16,6 +16,10 @@ updates:
           - "ember-data*"
           - "@ember-data/*"
           - "@warp-drive/*"
+      embroider:
+        applies-to: version-updates
+        patterns:
+          - "@embroider/*"
       eslint:
         applies-to: version-updates
         patterns:
@@ -41,13 +45,6 @@ updates:
         patterns:
           - "@tsconfig/*"
           - "typescript*"
-    ignore:
-      - dependency-name: "@embroider/compat"
-        # 4.x only supports Vite
-        versions: [ ">=4.0.0" ]
-      - dependency-name: "@embroider/core"
-        # 4.x only supports Vite
-        versions: [ ">=4.0.0" ]
     reviewers:
       - kpfefferle
   - package-ecosystem: "github-actions"

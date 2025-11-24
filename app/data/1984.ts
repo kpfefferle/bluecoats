@@ -1,4 +1,4 @@
-import { type SeasonScores } from 'bluecoats/data';
+import { type SeasonScores } from 'bluecoats/data/base';
 
 export const SEASON_1984: SeasonScores = {
   year: '1984',

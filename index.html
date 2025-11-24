@@ -5,21 +5,26 @@
     <title>Bluecoats</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="{{rootURL}}favicon.ico.png">
+    <link rel="icon" href="/@embroider/virtual/favicon.ico.png">
 
     {{content-for "head"}}
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/bluecoats.css">
+    <link integrity="" rel="stylesheet" href="/@embroider/virtual/vendor.css">
+    <link integrity="" rel="stylesheet" href="/@embroider/virtual/app.css">
 
     {{content-for "head-footer"}}
   </head>
   <body class="h-full font-sans">
     {{content-for "body"}}
 
-    <script src="{{rootURL}}assets/vendor.js"></script>
-    <script src="{{rootURL}}assets/bluecoats.js"></script>
+    <script src="/@embroider/virtual/vendor.js" type="module"></script>
+    <script type="module">
+      import Application from './app/app';
+      import environment from './app/config/environment';
+
+      Application.create(environment.APP);
+    </script>
 
     {{content-for "body-footer"}}
   </body>
