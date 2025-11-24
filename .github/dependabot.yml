@@ -10,12 +10,6 @@ updates:
         applies-to: version-updates
         patterns:
           - "@babel/*"
-      ember-data:
-        applies-to: version-updates
-        patterns:
-          - "ember-data*"
-          - "@ember-data/*"
-          - "@warp-drive/*"
       embroider:
         applies-to: version-updates
         patterns:
