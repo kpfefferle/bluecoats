@@ -62,7 +62,7 @@
     "@warp-drive/core-types": "~5.6.0",
     "@warp-drive/ember": "~5.6.0",
     "broccoli-asset-rev": "^3.0.0",
-    "concurrently": "^9.2.0",
+    "concurrently": "^9.2.1",
     "echarts": "^6.0.0",
     "ember-auto-import": "^2.10.0",
     "ember-cli": "~6.6.0",
