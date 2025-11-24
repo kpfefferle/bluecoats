@@ -19,49 +19,49 @@ importers:
         version: 7.28.0(@babel/core@7.28.5)
       '@ember-data/adapter':
         specifier: ~5.6.0
-        version: 5.6.0(@glint/template@1.5.2)
+        version: 5.6.0(@glint/template@1.7.3)
       '@ember-data/graph':
         specifier: ~5.6.0
-        version: 5.6.0(@glint/template@1.5.2)
+        version: 5.6.0(@glint/template@1.7.3)
       '@ember-data/json-api':
         specifier: ~5.6.0
-        version: 5.6.0(@glint/template@1.5.2)
+        version: 5.6.0(@glint/template@1.7.3)
       '@ember-data/legacy-compat':
         specifier: ~5.6.0
-        version: 5.6.0(@glint/template@1.5.2)
+        version: 5.6.0(@glint/template@1.7.3)
       '@ember-data/model':
         specifier: ~5.6.0
-        version: 5.6.0(@glint/template@1.5.2)
+        version: 5.6.0(@glint/template@1.7.3)
       '@ember-data/request':
         specifier: ~5.6.0
-        version: 5.6.0(@glint/template@1.5.2)
+        version: 5.6.0(@glint/template@1.7.3)
       '@ember-data/request-utils':
         specifier: ~5.6.0
-        version: 5.6.0(@glint/template@1.5.2)
+        version: 5.6.0(@glint/template@1.7.3)
       '@ember-data/serializer':
         specifier: ~5.6.0
-        version: 5.6.0(@glint/template@1.5.2)
+        version: 5.6.0(@glint/template@1.7.3)
       '@ember-data/store':
         specifier: ~5.6.0
-        version: 5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2))(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2)
+        version: 5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.7.3))(@glint/template@1.7.3))(@ember/test-waiters@4.1.1(@glint/template@1.7.3))(@glint/template@1.7.3)
       '@ember/optional-features':
         specifier: ^2.2.0
         version: 2.2.0
       '@ember/test-helpers':
         specifier: ^5.2.2
-        version: 5.2.2(@babel/core@7.28.5)(@glint/template@1.5.2)
+        version: 5.2.2(@babel/core@7.28.5)(@glint/template@1.7.3)
       '@embroider/compat':
         specifier: ^3.9.1
-        version: 3.9.1(@embroider/core@3.5.7(@glint/template@1.5.2))(@glint/template@1.5.2)
+        version: 3.9.1(@embroider/core@3.5.7(@glint/template@1.7.3))(@glint/template@1.7.3)
       '@embroider/core':
         specifier: ^3.5.7
-        version: 3.5.7(@glint/template@1.5.2)
+        version: 3.5.7(@glint/template@1.7.3)
       '@embroider/macros':
         specifier: ^1.18.1
-        version: 1.18.1(@glint/template@1.5.2)
+        version: 1.18.1(@glint/template@1.7.3)
       '@embroider/webpack':
         specifier: ^4.1.1
-        version: 4.1.1(@embroider/core@3.5.7(@glint/template@1.5.2))(webpack@5.101.0)
+        version: 4.1.1(@embroider/core@3.5.7(@glint/template@1.7.3))(webpack@5.101.0)
       '@eslint/js':
         specifier: ^9.32.0
         version: 9.32.0
@@ -76,10 +76,10 @@ importers:
         version: 1.5.2(typescript@5.9.3)
       '@glint/environment-ember-loose':
         specifier: ^1.5.2
-        version: 1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.5))
+        version: 1.5.2(@glimmer/component@2.0.0)(@glint/template@1.7.3)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.5))
       '@glint/template':
-        specifier: ^1.5.2
-        version: 1.5.2
+        specifier: ^1.7.3
+        version: 1.7.3
       '@tailwindcss/postcss':
         specifier: ^4.1.17
         version: 4.1.17
@@ -97,10 +97,10 @@ importers:
         version: 4.0.9
       '@warp-drive/core-types':
         specifier: ~5.6.0
-        version: 5.6.0(@glint/template@1.5.2)
+        version: 5.6.0(@glint/template@1.7.3)
       '@warp-drive/ember':
         specifier: ~5.6.0
-        version: 5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2)
+        version: 5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.7.3))(@glint/template@1.7.3)
       broccoli-asset-rev:
         specifier: ^3.0.0
         version: 3.0.0
@@ -112,7 +112,7 @@ importers:
         version: 6.0.0
       ember-auto-import:
         specifier: ^2.10.0
-        version: 2.10.0(@glint/template@1.5.2)(webpack@5.101.0)
+        version: 2.10.0(@glint/template@1.7.3)(webpack@5.101.0)
       ember-cli:
         specifier: ~6.6.0
         version: 6.6.0(babel-core@6.26.3)(handlebars@4.7.8)(underscore@1.13.7)
@@ -148,7 +148,7 @@ importers:
         version: 2.1.0
       ember-data:
         specifier: ~5.6.0
-        version: 5.6.0(@ember/test-helpers@5.2.2(@babel/core@7.28.5)(@glint/template@1.5.2))(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2)(qunit@2.24.2)
+        version: 5.6.0(@ember/test-helpers@5.2.2(@babel/core@7.28.5)(@glint/template@1.7.3))(@ember/test-waiters@4.1.1(@glint/template@1.7.3))(@glint/template@1.7.3)(qunit@2.24.2)
       ember-load-initializers:
         specifier: ^3.0.1
         version: 3.0.1(ember-source@6.6.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
@@ -160,7 +160,7 @@ importers:
         version: 9.0.3
       ember-qunit:
         specifier: ^9.0.4
-        version: 9.0.4(@ember/test-helpers@5.2.2(@babel/core@7.28.5)(@glint/template@1.5.2))(@glint/template@1.5.2)(qunit@2.24.2)
+        version: 9.0.4(@ember/test-helpers@5.2.2(@babel/core@7.28.5)(@glint/template@1.7.3))(@glint/template@1.7.3)(qunit@2.24.2)
       ember-resolver:
         specifier: ^13.1.1
         version: 13.1.1
@@ -1184,8 +1184,8 @@ packages:
       ember-modifier:
         optional: true
 
-  '@glint/template@1.5.2':
-    resolution: {integrity: sha512-fA9FoHCmWsWkoOKWshsOQlS0WCAM7NwwoaeSTHuz5yHvBZmmtkgx3t2SPOTJs85/hWTNVzYC/Gthw7xDUR3BlQ==}
+  '@glint/template@1.7.3':
+    resolution: {integrity: sha512-ouB9HjLJ5kDnAhORLx43vTmGukm6uHg5hg+jAoiSlyifQdVINmXIkkGPGCD1HQ0WeIDZ/CmxH7aIZlIyI90AAw==}
 
   '@handlebars/parser@2.0.0':
     resolution: {integrity: sha512-EP9uEDZv/L5Qh9IWuMUGJRfwhXJ4h1dqKTT4/3+tY0eu7sPis7xh23j61SYUnNF4vqCQvvUXpDo9Bh/+q1zASA==}
@@ -7449,13 +7449,13 @@ snapshots:
 
   '@dual-bundle/import-meta-resolve@4.1.0': {}
 
-  '@ember-data/adapter@5.6.0(@glint/template@1.5.2)':
+  '@ember-data/adapter@5.6.0(@glint/template@1.7.3)':
     dependencies:
       '@ember/edition-utils': 1.2.0
-      '@embroider/macros': 1.18.1(@glint/template@1.5.2)
-      '@warp-drive/core': 5.6.0(@glint/template@1.5.2)
-      '@warp-drive/legacy': 5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2))(@warp-drive/utilities@5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2)))
-      '@warp-drive/utilities': 5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2))
+      '@embroider/macros': 1.18.1(@glint/template@1.7.3)
+      '@warp-drive/core': 5.6.0(@glint/template@1.7.3)
+      '@warp-drive/legacy': 5.6.0(@glint/template@1.7.3)(@warp-drive/core@5.6.0(@glint/template@1.7.3))(@warp-drive/utilities@5.6.0(@glint/template@1.7.3)(@warp-drive/core@5.6.0(@glint/template@1.7.3)))
+      '@warp-drive/utilities': 5.6.0(@glint/template@1.7.3)(@warp-drive/core@5.6.0(@glint/template@1.7.3))
       ember-cli-path-utils: 1.0.0
       ember-cli-string-utils: 1.1.0
       ember-cli-test-info: 1.0.0
@@ -7463,54 +7463,54 @@ snapshots:
       - '@glint/template'
       - supports-color
 
-  '@ember-data/debug@5.6.0(@ember-data/model@5.6.0(@glint/template@1.5.2))(@ember-data/request-utils@5.6.0(@glint/template@1.5.2))(@ember-data/store@5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2))(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2))(@glint/template@1.5.2)(@warp-drive/core-types@5.6.0(@glint/template@1.5.2))':
+  '@ember-data/debug@5.6.0(@ember-data/model@5.6.0(@glint/template@1.7.3))(@ember-data/request-utils@5.6.0(@glint/template@1.7.3))(@ember-data/store@5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.7.3))(@glint/template@1.7.3))(@ember/test-waiters@4.1.1(@glint/template@1.7.3))(@glint/template@1.7.3))(@glint/template@1.7.3)(@warp-drive/core-types@5.6.0(@glint/template@1.7.3))':
     dependencies:
-      '@ember-data/model': 5.6.0(@glint/template@1.5.2)
-      '@ember-data/request-utils': 5.6.0(@glint/template@1.5.2)
-      '@ember-data/store': 5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2))(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2)
+      '@ember-data/model': 5.6.0(@glint/template@1.7.3)
+      '@ember-data/request-utils': 5.6.0(@glint/template@1.7.3)
+      '@ember-data/store': 5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.7.3))(@glint/template@1.7.3))(@ember/test-waiters@4.1.1(@glint/template@1.7.3))(@glint/template@1.7.3)
       '@ember/edition-utils': 1.2.0
-      '@embroider/macros': 1.18.1(@glint/template@1.5.2)
-      '@warp-drive/core': 5.6.0(@glint/template@1.5.2)
-      '@warp-drive/core-types': 5.6.0(@glint/template@1.5.2)
+      '@embroider/macros': 1.18.1(@glint/template@1.7.3)
+      '@warp-drive/core': 5.6.0(@glint/template@1.7.3)
+      '@warp-drive/core-types': 5.6.0(@glint/template@1.7.3)
     transitivePeerDependencies:
       - '@glint/template'
       - supports-color
 
-  '@ember-data/graph@5.6.0(@glint/template@1.5.2)':
+  '@ember-data/graph@5.6.0(@glint/template@1.7.3)':
     dependencies:
-      '@embroider/macros': 1.18.1(@glint/template@1.5.2)
-      '@warp-drive/core': 5.6.0(@glint/template@1.5.2)
+      '@embroider/macros': 1.18.1(@glint/template@1.7.3)
+      '@warp-drive/core': 5.6.0(@glint/template@1.7.3)
     transitivePeerDependencies:
       - '@glint/template'
       - supports-color
 
-  '@ember-data/json-api@5.6.0(@glint/template@1.5.2)':
+  '@ember-data/json-api@5.6.0(@glint/template@1.7.3)':
     dependencies:
-      '@embroider/macros': 1.18.1(@glint/template@1.5.2)
-      '@warp-drive/core': 5.6.0(@glint/template@1.5.2)
-      '@warp-drive/json-api': 5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2))
-      '@warp-drive/utilities': 5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2))
+      '@embroider/macros': 1.18.1(@glint/template@1.7.3)
+      '@warp-drive/core': 5.6.0(@glint/template@1.7.3)
+      '@warp-drive/json-api': 5.6.0(@glint/template@1.7.3)(@warp-drive/core@5.6.0(@glint/template@1.7.3))
+      '@warp-drive/utilities': 5.6.0(@glint/template@1.7.3)(@warp-drive/core@5.6.0(@glint/template@1.7.3))
     transitivePeerDependencies:
       - '@glint/template'
       - supports-color
 
-  '@ember-data/legacy-compat@5.6.0(@glint/template@1.5.2)':
+  '@ember-data/legacy-compat@5.6.0(@glint/template@1.7.3)':
     dependencies:
-      '@embroider/macros': 1.18.1(@glint/template@1.5.2)
-      '@warp-drive/core': 5.6.0(@glint/template@1.5.2)
-      '@warp-drive/legacy': 5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2))(@warp-drive/utilities@5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2)))
-      '@warp-drive/utilities': 5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2))
+      '@embroider/macros': 1.18.1(@glint/template@1.7.3)
+      '@warp-drive/core': 5.6.0(@glint/template@1.7.3)
+      '@warp-drive/legacy': 5.6.0(@glint/template@1.7.3)(@warp-drive/core@5.6.0(@glint/template@1.7.3))(@warp-drive/utilities@5.6.0(@glint/template@1.7.3)(@warp-drive/core@5.6.0(@glint/template@1.7.3)))
+      '@warp-drive/utilities': 5.6.0(@glint/template@1.7.3)(@warp-drive/core@5.6.0(@glint/template@1.7.3))
     transitivePeerDependencies:
       - '@glint/template'
       - supports-color
 
-  '@ember-data/model@5.6.0(@glint/template@1.5.2)':
+  '@ember-data/model@5.6.0(@glint/template@1.7.3)':
     dependencies:
       '@ember/edition-utils': 1.2.0
-      '@embroider/macros': 1.18.1(@glint/template@1.5.2)
-      '@warp-drive/core': 5.6.0(@glint/template@1.5.2)
-      '@warp-drive/legacy': 5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2))(@warp-drive/utilities@5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2)))
-      '@warp-drive/utilities': 5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2))
+      '@embroider/macros': 1.18.1(@glint/template@1.7.3)
+      '@warp-drive/core': 5.6.0(@glint/template@1.7.3)
+      '@warp-drive/legacy': 5.6.0(@glint/template@1.7.3)(@warp-drive/core@5.6.0(@glint/template@1.7.3))(@warp-drive/utilities@5.6.0(@glint/template@1.7.3)(@warp-drive/core@5.6.0(@glint/template@1.7.3)))
+      '@warp-drive/utilities': 5.6.0(@glint/template@1.7.3)(@warp-drive/core@5.6.0(@glint/template@1.7.3))
       ember-cli-string-utils: 1.1.0
       ember-cli-test-info: 1.0.0
       inflection: 3.0.2
@@ -7518,32 +7518,32 @@ snapshots:
       - '@glint/template'
       - supports-color
 
-  '@ember-data/request-utils@5.6.0(@glint/template@1.5.2)':
+  '@ember-data/request-utils@5.6.0(@glint/template@1.7.3)':
     dependencies:
-      '@embroider/macros': 1.18.1(@glint/template@1.5.2)
-      '@warp-drive/core': 5.6.0(@glint/template@1.5.2)
-      '@warp-drive/utilities': 5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2))
+      '@embroider/macros': 1.18.1(@glint/template@1.7.3)
+      '@warp-drive/core': 5.6.0(@glint/template@1.7.3)
+      '@warp-drive/utilities': 5.6.0(@glint/template@1.7.3)(@warp-drive/core@5.6.0(@glint/template@1.7.3))
     transitivePeerDependencies:
       - '@glint/template'
       - supports-color
 
-  '@ember-data/request@5.6.0(@glint/template@1.5.2)':
+  '@ember-data/request@5.6.0(@glint/template@1.7.3)':
     dependencies:
-      '@embroider/macros': 1.18.1(@glint/template@1.5.2)
-      '@warp-drive/core': 5.6.0(@glint/template@1.5.2)
+      '@embroider/macros': 1.18.1(@glint/template@1.7.3)
+      '@warp-drive/core': 5.6.0(@glint/template@1.7.3)
     transitivePeerDependencies:
       - '@glint/template'
       - supports-color
 
   '@ember-data/rfc395-data@0.0.4': {}
 
-  '@ember-data/serializer@5.6.0(@glint/template@1.5.2)':
+  '@ember-data/serializer@5.6.0(@glint/template@1.7.3)':
     dependencies:
       '@ember/edition-utils': 1.2.0
-      '@embroider/macros': 1.18.1(@glint/template@1.5.2)
-      '@warp-drive/core': 5.6.0(@glint/template@1.5.2)
-      '@warp-drive/legacy': 5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2))(@warp-drive/utilities@5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2)))
-      '@warp-drive/utilities': 5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2))
+      '@embroider/macros': 1.18.1(@glint/template@1.7.3)
+      '@warp-drive/core': 5.6.0(@glint/template@1.7.3)
+      '@warp-drive/legacy': 5.6.0(@glint/template@1.7.3)(@warp-drive/core@5.6.0(@glint/template@1.7.3))(@warp-drive/utilities@5.6.0(@glint/template@1.7.3)(@warp-drive/core@5.6.0(@glint/template@1.7.3)))
+      '@warp-drive/utilities': 5.6.0(@glint/template@1.7.3)(@warp-drive/core@5.6.0(@glint/template@1.7.3))
       ember-cli-path-utils: 1.0.0
       ember-cli-string-utils: 1.1.0
       ember-cli-test-info: 1.0.0
@@ -7551,22 +7551,22 @@ snapshots:
       - '@glint/template'
       - supports-color
 
-  '@ember-data/store@5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2))(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2)':
+  '@ember-data/store@5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.7.3))(@glint/template@1.7.3))(@ember/test-waiters@4.1.1(@glint/template@1.7.3))(@glint/template@1.7.3)':
     dependencies:
-      '@embroider/macros': 1.18.1(@glint/template@1.5.2)
-      '@warp-drive/core': 5.6.0(@glint/template@1.5.2)
+      '@embroider/macros': 1.18.1(@glint/template@1.7.3)
+      '@warp-drive/core': 5.6.0(@glint/template@1.7.3)
     optionalDependencies:
-      '@ember-data/tracking': 5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2)
-      '@ember/test-waiters': 4.1.1(@glint/template@1.5.2)
+      '@ember-data/tracking': 5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.7.3))(@glint/template@1.7.3)
+      '@ember/test-waiters': 4.1.1(@glint/template@1.7.3)
     transitivePeerDependencies:
       - '@glint/template'
       - supports-color
 
-  '@ember-data/tracking@5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2)':
+  '@ember-data/tracking@5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.7.3))(@glint/template@1.7.3)':
     dependencies:
-      '@ember/test-waiters': 4.1.1(@glint/template@1.5.2)
-      '@embroider/macros': 1.18.1(@glint/template@1.5.2)
-      '@warp-drive/core': 5.6.0(@glint/template@1.5.2)
+      '@ember/test-waiters': 4.1.1(@glint/template@1.7.3)
+      '@embroider/macros': 1.18.1(@glint/template@1.7.3)
+      '@warp-drive/core': 5.6.0(@glint/template@1.7.3)
     transitivePeerDependencies:
       - '@glint/template'
       - supports-color
@@ -7584,11 +7584,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@ember/test-helpers@5.2.2(@babel/core@7.28.5)(@glint/template@1.5.2)':
+  '@ember/test-helpers@5.2.2(@babel/core@7.28.5)(@glint/template@1.7.3)':
     dependencies:
-      '@ember/test-waiters': 4.1.1(@glint/template@1.5.2)
+      '@ember/test-waiters': 4.1.1(@glint/template@1.7.3)
       '@embroider/addon-shim': 1.10.0
-      '@embroider/macros': 1.18.1(@glint/template@1.5.2)
+      '@embroider/macros': 1.18.1(@glint/template@1.7.3)
       '@simple-dom/interface': 1.4.0
       decorator-transforms: 2.3.0(@babel/core@7.28.5)
       dom-element-descriptors: 0.5.1
@@ -7597,10 +7597,10 @@ snapshots:
       - '@glint/template'
       - supports-color
 
-  '@ember/test-waiters@4.1.1(@glint/template@1.5.2)':
+  '@ember/test-waiters@4.1.1(@glint/template@1.7.3)':
     dependencies:
       '@embroider/addon-shim': 1.10.0
-      '@embroider/macros': 1.18.1(@glint/template@1.5.2)
+      '@embroider/macros': 1.18.1(@glint/template@1.7.3)
     transitivePeerDependencies:
       - '@glint/template'
       - supports-color
@@ -7614,16 +7614,16 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@embroider/babel-loader-9@3.1.2(@embroider/core@3.5.7(@glint/template@1.5.2))(supports-color@8.1.1)(webpack@5.101.0)':
+  '@embroider/babel-loader-9@3.1.2(@embroider/core@3.5.7(@glint/template@1.7.3))(supports-color@8.1.1)(webpack@5.101.0)':
     dependencies:
       '@babel/core': 7.28.5(supports-color@8.1.1)
-      '@embroider/core': 3.5.7(@glint/template@1.5.2)
+      '@embroider/core': 3.5.7(@glint/template@1.7.3)
       babel-loader: 9.2.1(@babel/core@7.28.5)(webpack@5.101.0)
     transitivePeerDependencies:
       - supports-color
       - webpack
 
-  '@embroider/compat@3.9.1(@embroider/core@3.5.7(@glint/template@1.5.2))(@glint/template@1.5.2)':
+  '@embroider/compat@3.9.1(@embroider/core@3.5.7(@glint/template@1.7.3))(@glint/template@1.7.3)':
     dependencies:
       '@babel/code-frame': 7.27.1
       '@babel/core': 7.28.5(supports-color@8.1.1)
@@ -7634,8 +7634,8 @@ snapshots:
       '@babel/preset-env': 7.28.0(@babel/core@7.28.5)(supports-color@8.1.1)
       '@babel/runtime': 7.28.2
       '@babel/traverse': 7.28.0(supports-color@8.1.1)
-      '@embroider/core': 3.5.7(@glint/template@1.5.2)
-      '@embroider/macros': 1.16.13(@glint/template@1.5.2)
+      '@embroider/core': 3.5.7(@glint/template@1.7.3)
+      '@embroider/macros': 1.16.13(@glint/template@1.7.3)
       '@types/babel__code-frame': 7.0.6
       '@types/yargs': 17.0.33
       assert-never: 1.4.0
@@ -7676,12 +7676,12 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@embroider/core@3.5.7(@glint/template@1.5.2)':
+  '@embroider/core@3.5.7(@glint/template@1.7.3)':
     dependencies:
       '@babel/core': 7.28.5(supports-color@8.1.1)
       '@babel/parser': 7.28.0
       '@babel/traverse': 7.28.0(supports-color@8.1.1)
-      '@embroider/macros': 1.16.13(@glint/template@1.5.2)
+      '@embroider/macros': 1.16.13(@glint/template@1.7.3)
       '@embroider/shared-internals': 2.9.1(supports-color@8.1.1)
       assert-never: 1.4.0
       babel-plugin-ember-template-compilation: 2.3.0
@@ -7710,12 +7710,12 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@embroider/hbs-loader@3.0.4(@embroider/core@3.5.7(@glint/template@1.5.2))(webpack@5.101.0)':
+  '@embroider/hbs-loader@3.0.4(@embroider/core@3.5.7(@glint/template@1.7.3))(webpack@5.101.0)':
     dependencies:
-      '@embroider/core': 3.5.7(@glint/template@1.5.2)
+      '@embroider/core': 3.5.7(@glint/template@1.7.3)
       webpack: 5.101.0
 
-  '@embroider/macros@1.16.13(@glint/template@1.5.2)':
+  '@embroider/macros@1.16.13(@glint/template@1.7.3)':
     dependencies:
       '@embroider/shared-internals': 2.9.0
       assert-never: 1.4.0
@@ -7726,11 +7726,11 @@ snapshots:
       resolve: 1.22.10
       semver: 7.7.2
     optionalDependencies:
-      '@glint/template': 1.5.2
+      '@glint/template': 1.7.3
     transitivePeerDependencies:
       - supports-color
 
-  '@embroider/macros@1.18.1(@glint/template@1.5.2)':
+  '@embroider/macros@1.18.1(@glint/template@1.7.3)':
     dependencies:
       '@embroider/shared-internals': 3.0.0
       assert-never: 1.4.0
@@ -7741,7 +7741,7 @@ snapshots:
       resolve: 1.22.10
       semver: 7.7.2
     optionalDependencies:
-      '@glint/template': 1.5.2
+      '@glint/template': 1.7.3
     transitivePeerDependencies:
       - supports-color
 
@@ -7797,13 +7797,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@embroider/webpack@4.1.1(@embroider/core@3.5.7(@glint/template@1.5.2))(webpack@5.101.0)':
+  '@embroider/webpack@4.1.1(@embroider/core@3.5.7(@glint/template@1.7.3))(webpack@5.101.0)':
     dependencies:
       '@babel/core': 7.28.5(supports-color@8.1.1)
       '@babel/preset-env': 7.28.0(@babel/core@7.28.5)(supports-color@8.1.1)
-      '@embroider/babel-loader-9': 3.1.2(@embroider/core@3.5.7(@glint/template@1.5.2))(supports-color@8.1.1)(webpack@5.101.0)
-      '@embroider/core': 3.5.7(@glint/template@1.5.2)
-      '@embroider/hbs-loader': 3.0.4(@embroider/core@3.5.7(@glint/template@1.5.2))(webpack@5.101.0)
+      '@embroider/babel-loader-9': 3.1.2(@embroider/core@3.5.7(@glint/template@1.7.3))(supports-color@8.1.1)(webpack@5.101.0)
+      '@embroider/core': 3.5.7(@glint/template@1.7.3)
+      '@embroider/hbs-loader': 3.0.4(@embroider/core@3.5.7(@glint/template@1.7.3))(webpack@5.101.0)
       '@embroider/shared-internals': 2.9.1(supports-color@8.1.1)
       '@types/supports-color': 8.1.3
       assert-never: 1.4.0
@@ -8040,15 +8040,15 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.5))':
+  '@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.7.3)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.5))':
     dependencies:
       '@glimmer/component': 2.0.0
-      '@glint/template': 1.5.2
+      '@glint/template': 1.7.3
     optionalDependencies:
       ember-cli-htmlbars: 6.3.0
       ember-modifier: 4.2.2(@babel/core@7.28.5)
 
-  '@glint/template@1.5.2': {}
+  '@glint/template@1.7.3': {}
 
   '@handlebars/parser@2.0.0': {}
 
@@ -8440,64 +8440,64 @@ snapshots:
       '@typescript-eslint/types': 8.38.0
       eslint-visitor-keys: 4.2.1
 
-  '@warp-drive/build-config@5.6.0(@glint/template@1.5.2)':
+  '@warp-drive/build-config@5.6.0(@glint/template@1.7.3)':
     dependencies:
       '@embroider/addon-shim': 1.10.0
-      '@embroider/macros': 1.18.1(@glint/template@1.5.2)
+      '@embroider/macros': 1.18.1(@glint/template@1.7.3)
       babel-import-util: 2.1.1
       semver: 7.7.2
     transitivePeerDependencies:
       - '@glint/template'
       - supports-color
 
-  '@warp-drive/core-types@5.6.0(@glint/template@1.5.2)':
+  '@warp-drive/core-types@5.6.0(@glint/template@1.7.3)':
     dependencies:
-      '@embroider/macros': 1.18.1(@glint/template@1.5.2)
-      '@warp-drive/core': 5.6.0(@glint/template@1.5.2)
+      '@embroider/macros': 1.18.1(@glint/template@1.7.3)
+      '@warp-drive/core': 5.6.0(@glint/template@1.7.3)
     transitivePeerDependencies:
       - '@glint/template'
       - supports-color
 
-  '@warp-drive/core@5.6.0(@glint/template@1.5.2)':
+  '@warp-drive/core@5.6.0(@glint/template@1.7.3)':
     dependencies:
-      '@embroider/macros': 1.18.1(@glint/template@1.5.2)
-      '@warp-drive/build-config': 5.6.0(@glint/template@1.5.2)
+      '@embroider/macros': 1.18.1(@glint/template@1.7.3)
+      '@warp-drive/build-config': 5.6.0(@glint/template@1.7.3)
     transitivePeerDependencies:
       - '@glint/template'
       - supports-color
 
-  '@warp-drive/ember@5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2)':
+  '@warp-drive/ember@5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.7.3))(@glint/template@1.7.3)':
     dependencies:
-      '@ember/test-waiters': 4.1.1(@glint/template@1.5.2)
-      '@embroider/macros': 1.18.1(@glint/template@1.5.2)
-      '@warp-drive/core': 5.6.0(@glint/template@1.5.2)
+      '@ember/test-waiters': 4.1.1(@glint/template@1.7.3)
+      '@embroider/macros': 1.18.1(@glint/template@1.7.3)
+      '@warp-drive/core': 5.6.0(@glint/template@1.7.3)
     transitivePeerDependencies:
       - '@glint/template'
       - supports-color
 
-  '@warp-drive/json-api@5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2))':
+  '@warp-drive/json-api@5.6.0(@glint/template@1.7.3)(@warp-drive/core@5.6.0(@glint/template@1.7.3))':
     dependencies:
-      '@embroider/macros': 1.18.1(@glint/template@1.5.2)
-      '@warp-drive/core': 5.6.0(@glint/template@1.5.2)
+      '@embroider/macros': 1.18.1(@glint/template@1.7.3)
+      '@warp-drive/core': 5.6.0(@glint/template@1.7.3)
       fuse.js: 7.1.0
       json-to-ast: 2.1.0
     transitivePeerDependencies:
       - '@glint/template'
       - supports-color
 
-  '@warp-drive/legacy@5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2))(@warp-drive/utilities@5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2)))':
+  '@warp-drive/legacy@5.6.0(@glint/template@1.7.3)(@warp-drive/core@5.6.0(@glint/template@1.7.3))(@warp-drive/utilities@5.6.0(@glint/template@1.7.3)(@warp-drive/core@5.6.0(@glint/template@1.7.3)))':
     dependencies:
-      '@embroider/macros': 1.18.1(@glint/template@1.5.2)
-      '@warp-drive/core': 5.6.0(@glint/template@1.5.2)
-      '@warp-drive/utilities': 5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2))
+      '@embroider/macros': 1.18.1(@glint/template@1.7.3)
+      '@warp-drive/core': 5.6.0(@glint/template@1.7.3)
+      '@warp-drive/utilities': 5.6.0(@glint/template@1.7.3)(@warp-drive/core@5.6.0(@glint/template@1.7.3))
     transitivePeerDependencies:
       - '@glint/template'
       - supports-color
 
-  '@warp-drive/utilities@5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2))':
+  '@warp-drive/utilities@5.6.0(@glint/template@1.7.3)(@warp-drive/core@5.6.0(@glint/template@1.7.3))':
     dependencies:
-      '@embroider/macros': 1.18.1(@glint/template@1.5.2)
-      '@warp-drive/core': 5.6.0(@glint/template@1.5.2)
+      '@embroider/macros': 1.18.1(@glint/template@1.7.3)
+      '@warp-drive/core': 5.6.0(@glint/template@1.7.3)
     transitivePeerDependencies:
       - '@glint/template'
       - supports-color
@@ -10299,7 +10299,7 @@ snapshots:
 
   electron-to-chromium@1.5.194: {}
 
-  ember-auto-import@2.10.0(@glint/template@1.5.2)(webpack@5.101.0):
+  ember-auto-import@2.10.0(@glint/template@1.7.3)(webpack@5.101.0):
     dependencies:
       '@babel/core': 7.28.5(supports-color@8.1.1)
       '@babel/plugin-proposal-class-properties': 7.18.6(@babel/core@7.28.5)
@@ -10307,7 +10307,7 @@ snapshots:
       '@babel/plugin-proposal-private-methods': 7.18.6(@babel/core@7.28.5)
       '@babel/plugin-transform-class-static-block': 7.27.1(@babel/core@7.28.5)(supports-color@8.1.1)
       '@babel/preset-env': 7.28.0(@babel/core@7.28.5)(supports-color@8.1.1)
-      '@embroider/macros': 1.18.1(@glint/template@1.5.2)
+      '@embroider/macros': 1.18.1(@glint/template@1.7.3)
       '@embroider/shared-internals': 2.9.1(supports-color@8.1.1)
       babel-loader: 8.4.1(@babel/core@7.28.5)(webpack@5.101.0)
       babel-plugin-ember-modules-api-polyfill: 3.5.0
@@ -10765,30 +10765,30 @@ snapshots:
       - walrus
       - whiskers
 
-  ember-data@5.6.0(@ember/test-helpers@5.2.2(@babel/core@7.28.5)(@glint/template@1.5.2))(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2)(qunit@2.24.2):
+  ember-data@5.6.0(@ember/test-helpers@5.2.2(@babel/core@7.28.5)(@glint/template@1.7.3))(@ember/test-waiters@4.1.1(@glint/template@1.7.3))(@glint/template@1.7.3)(qunit@2.24.2):
     dependencies:
-      '@ember-data/adapter': 5.6.0(@glint/template@1.5.2)
-      '@ember-data/debug': 5.6.0(@ember-data/model@5.6.0(@glint/template@1.5.2))(@ember-data/request-utils@5.6.0(@glint/template@1.5.2))(@ember-data/store@5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2))(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2))(@glint/template@1.5.2)(@warp-drive/core-types@5.6.0(@glint/template@1.5.2))
-      '@ember-data/graph': 5.6.0(@glint/template@1.5.2)
-      '@ember-data/json-api': 5.6.0(@glint/template@1.5.2)
-      '@ember-data/legacy-compat': 5.6.0(@glint/template@1.5.2)
-      '@ember-data/model': 5.6.0(@glint/template@1.5.2)
-      '@ember-data/request': 5.6.0(@glint/template@1.5.2)
-      '@ember-data/request-utils': 5.6.0(@glint/template@1.5.2)
-      '@ember-data/serializer': 5.6.0(@glint/template@1.5.2)
-      '@ember-data/store': 5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2))(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2)
-      '@ember-data/tracking': 5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2)
+      '@ember-data/adapter': 5.6.0(@glint/template@1.7.3)
+      '@ember-data/debug': 5.6.0(@ember-data/model@5.6.0(@glint/template@1.7.3))(@ember-data/request-utils@5.6.0(@glint/template@1.7.3))(@ember-data/store@5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.7.3))(@glint/template@1.7.3))(@ember/test-waiters@4.1.1(@glint/template@1.7.3))(@glint/template@1.7.3))(@glint/template@1.7.3)(@warp-drive/core-types@5.6.0(@glint/template@1.7.3))
+      '@ember-data/graph': 5.6.0(@glint/template@1.7.3)
+      '@ember-data/json-api': 5.6.0(@glint/template@1.7.3)
+      '@ember-data/legacy-compat': 5.6.0(@glint/template@1.7.3)
+      '@ember-data/model': 5.6.0(@glint/template@1.7.3)
+      '@ember-data/request': 5.6.0(@glint/template@1.7.3)
+      '@ember-data/request-utils': 5.6.0(@glint/template@1.7.3)
+      '@ember-data/serializer': 5.6.0(@glint/template@1.7.3)
+      '@ember-data/store': 5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.7.3))(@glint/template@1.7.3))(@ember/test-waiters@4.1.1(@glint/template@1.7.3))(@glint/template@1.7.3)
+      '@ember-data/tracking': 5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.7.3))(@glint/template@1.7.3)
       '@ember/edition-utils': 1.2.0
-      '@ember/test-waiters': 4.1.1(@glint/template@1.5.2)
-      '@embroider/macros': 1.18.1(@glint/template@1.5.2)
-      '@warp-drive/core': 5.6.0(@glint/template@1.5.2)
-      '@warp-drive/core-types': 5.6.0(@glint/template@1.5.2)
-      '@warp-drive/ember': 5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.5.2))(@glint/template@1.5.2)
-      '@warp-drive/json-api': 5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2))
-      '@warp-drive/legacy': 5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2))(@warp-drive/utilities@5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2)))
-      '@warp-drive/utilities': 5.6.0(@glint/template@1.5.2)(@warp-drive/core@5.6.0(@glint/template@1.5.2))
+      '@ember/test-waiters': 4.1.1(@glint/template@1.7.3)
+      '@embroider/macros': 1.18.1(@glint/template@1.7.3)
+      '@warp-drive/core': 5.6.0(@glint/template@1.7.3)
+      '@warp-drive/core-types': 5.6.0(@glint/template@1.7.3)
+      '@warp-drive/ember': 5.6.0(@ember/test-waiters@4.1.1(@glint/template@1.7.3))(@glint/template@1.7.3)
+      '@warp-drive/json-api': 5.6.0(@glint/template@1.7.3)(@warp-drive/core@5.6.0(@glint/template@1.7.3))
+      '@warp-drive/legacy': 5.6.0(@glint/template@1.7.3)(@warp-drive/core@5.6.0(@glint/template@1.7.3))(@warp-drive/utilities@5.6.0(@glint/template@1.7.3)(@warp-drive/core@5.6.0(@glint/template@1.7.3)))
+      '@warp-drive/utilities': 5.6.0(@glint/template@1.7.3)(@warp-drive/core@5.6.0(@glint/template@1.7.3))
     optionalDependencies:
-      '@ember/test-helpers': 5.2.2(@babel/core@7.28.5)(@glint/template@1.5.2)
+      '@ember/test-helpers': 5.2.2(@babel/core@7.28.5)(@glint/template@1.7.3)
       qunit: 2.24.2
     transitivePeerDependencies:
       - '@glint/template'
@@ -10841,11 +10841,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ember-qunit@9.0.4(@ember/test-helpers@5.2.2(@babel/core@7.28.5)(@glint/template@1.5.2))(@glint/template@1.5.2)(qunit@2.24.2):
+  ember-qunit@9.0.4(@ember/test-helpers@5.2.2(@babel/core@7.28.5)(@glint/template@1.7.3))(@glint/template@1.7.3)(qunit@2.24.2):
     dependencies:
-      '@ember/test-helpers': 5.2.2(@babel/core@7.28.5)(@glint/template@1.5.2)
+      '@ember/test-helpers': 5.2.2(@babel/core@7.28.5)(@glint/template@1.7.3)
       '@embroider/addon-shim': 1.10.0
-      '@embroider/macros': 1.18.1(@glint/template@1.5.2)
+      '@embroider/macros': 1.18.1(@glint/template@1.7.3)
       qunit: 2.24.2
       qunit-theme-ember: 1.0.0
     transitivePeerDependencies:
