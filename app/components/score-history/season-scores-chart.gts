@@ -1,5 +1,8 @@
 import Component from '@glimmer/component';
+
 import { type SeasonScores } from 'bluecoats/data/base';
+import renderEchart from 'bluecoats/modifiers/render-echart';
+
 import { type EChartsOption, type SeriesOption } from 'echarts';
 import { DateTime } from 'luxon';
 
@@ -208,4 +211,8 @@ export default class SeasonScoresChartComponent extends Component<SeasonScoresCh
       },
     };
   }
+
+  <template>
+    <div class="grow min-w-200" {{renderEchart this.chartOption}}></div>
+  </template>
 }

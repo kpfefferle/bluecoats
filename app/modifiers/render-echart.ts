@@ -9,7 +9,7 @@ interface RenderEchartModifierSignature {
   };
 }
 
-export default class RenderEchartModifier extends Modifier<RenderEchartModifierSignature> {
+export default class RenderEchart extends Modifier<RenderEchartModifierSignature> {
   modify(
     element: HTMLDivElement,
     [chartOption]: PositionalArgs<RenderEchartModifierSignature>,
