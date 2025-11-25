@@ -1,6 +1,5 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 
 import DesktopMenu from 'bluecoats/components/navigation-bar/desktop-menu';
 import Logo from 'bluecoats/components/navigation-bar/logo';
@@ -27,9 +26,9 @@ export default class NavigationBar extends Component {
 
   @tracked isMobileMenuOpen = false;
 
-  @action setIsMobileMenuOpen(value: boolean) {
+  setIsMobileMenuOpen = (value: boolean) => {
     this.isMobileMenuOpen = value;
-  }
+  };
 
   <template>
     <nav class="bg-blue-600">

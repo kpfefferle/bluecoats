@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { concat } from '@ember/helper';
 
-import { type DailyRankingsItem } from 'bluecoats/controllers/daily-rankings';
+import { type DailyRankingsItem } from 'bluecoats/templates/daily-rankings';
 
 import { eq } from 'ember-truth-helpers';
 

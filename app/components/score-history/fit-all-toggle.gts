@@ -1,6 +1,5 @@
 import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
-import { action } from '@ember/object';
 
 interface FitAllToggleSignature {
   Args: {
@@ -10,7 +9,7 @@ interface FitAllToggleSignature {
 }
 
 export default class FitAllToggle extends Component<FitAllToggleSignature> {
-  @action onChangeFitAllSeasons(event: Event) {
+  onChangeFitAllSeasons(event: Event) {
     let { checked } = event.target as HTMLInputElement;
     this.args.onFitAllSeasonsChange(checked);
   }

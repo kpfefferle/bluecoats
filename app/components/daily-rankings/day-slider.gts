@@ -1,6 +1,5 @@
 import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
-import { action } from '@ember/object';
 
 interface DaySliderSignature {
   Args: {
@@ -11,14 +10,14 @@ interface DaySliderSignature {
 }
 
 export default class DaySlider extends Component<DaySliderSignature> {
-  @action onChange(event: Event): void {
+  onChange = (event: Event): void => {
     let { target } = event;
     if (target instanceof EventTarget) {
       let { value } = target as HTMLInputElement;
       let newValue = Math.abs(Number(value));
       this.args.onChange(newValue);
     }
-  }
+  };
 
   <template>
     <div>
