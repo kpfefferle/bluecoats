@@ -1,30 +1,13 @@
 'use strict';
-const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
+const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 const { compatBuild } = require('@embroider/compat');
 
 module.exports = async function (defaults) {
   const { buildOnce } = await import('@embroider/vite');
-
-  const app = new EmberApp(defaults, {
-    'ember-cli-babel': { enableTypeScriptTransform: true },
-
+  let app = new EmberApp(defaults, {
     // Add options here
   });
-  return compatBuild(app, buildOnce, {
-    staticInvokables: true,
 
-    packagerOptions: {
-      webpackConfig: {
-        module: {
-          rules: [
-            {
-              test: /\.css$/i,
-              use: ['postcss-loader'],
-            },
-          ],
-        },
-      },
-    },
-  });
+  return compatBuild(app, buildOnce);
 };
