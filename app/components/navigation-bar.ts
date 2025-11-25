@@ -26,10 +26,3 @@ export default class NavigationBarComponent extends Component {
     this.isMobileMenuOpen = value;
   }
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    NavigationBar: typeof NavigationBarComponent;
-    'navigation-bar': typeof NavigationBarComponent;
-  }
-}

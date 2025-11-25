@@ -26,10 +26,3 @@ export default class TableComponent extends Component<TableSignature> {
     return index + 1;
   };
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'DailyRankings::Table': typeof TableComponent;
-    'daily-rankings/table': typeof TableComponent;
-  }
-}

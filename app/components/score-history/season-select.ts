@@ -21,10 +21,3 @@ export default class SeasonSelectComponent extends Component<SeasonSelectSignatu
     this.args.onSelectedYearsChange([value]);
   }
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'ScoreHistory::SeasonSelect': typeof SeasonSelectComponent;
-    'score-history/season-select': typeof SeasonSelectComponent;
-  }
-}

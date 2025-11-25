@@ -10,10 +10,3 @@ interface MenuSignature {
 const MenuComponent = templateOnlyComponent<MenuSignature>();
 
 export default MenuComponent;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'NavigationBar::Desktop::Menu': typeof MenuComponent;
-    'navigation-bar/desktop/menu': typeof MenuComponent;
-  }
-}

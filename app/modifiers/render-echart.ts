@@ -17,9 +17,3 @@ export default class RenderEchartModifier extends Modifier<RenderEchartModifierS
     echarts.init(element).setOption(chartOption);
   }
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'render-echart': typeof RenderEchartModifier;
-  }
-}

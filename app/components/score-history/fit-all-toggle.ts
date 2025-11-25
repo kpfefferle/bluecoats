@@ -14,10 +14,3 @@ export default class FitAllToggleComponent extends Component<FitAllToggleSignatu
     this.args.onFitAllSeasonsChange(checked);
   }
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'ScoreHistory::FitAllToggle': typeof FitAllToggleComponent;
-    'score-history/fit-all-toggle': typeof FitAllToggleComponent;
-  }
-}

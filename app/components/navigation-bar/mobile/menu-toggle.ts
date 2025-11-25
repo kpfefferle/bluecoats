@@ -10,10 +10,3 @@ interface MenuToggleSignature {
 const MenuToggleComponent = templateOnlyComponent<MenuToggleSignature>();
 
 export default MenuToggleComponent;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'NavigationBar::Mobile::MenuToggle': typeof MenuToggleComponent;
-    'navigation-bar/mobile/menu-toggle': typeof MenuToggleComponent;
-  }
-}

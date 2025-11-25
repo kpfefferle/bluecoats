@@ -209,10 +209,3 @@ export default class SeasonScoresChartComponent extends Component<SeasonScoresCh
     };
   }
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'ScoreHistory::SeasonScoresChart': typeof SeasonScoresChartComponent;
-    'score-history/season-scores-chart': typeof SeasonScoresChartComponent;
-  }
-}
