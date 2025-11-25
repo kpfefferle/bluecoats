@@ -1,0 +1,11 @@
+import { LinkTo } from '@ember/routing';
+
+<template>
+  <div class="shrink-0">
+    <h1 class="text-lg/6 font-semibold text-white">
+      <LinkTo @route="index">
+        Bluecoats Scores
+      </LinkTo>
+    </h1>
+  </div>
+</template>
