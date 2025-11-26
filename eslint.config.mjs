@@ -63,6 +63,9 @@ export default ts.config(
     files: ['**/*.js'],
     languageOptions: {
       parser: babelParser,
+      parserOptions: {
+        requireConfigFile: false,
+      },
     },
   },
   {
@@ -114,6 +117,14 @@ export default ts.config(
     },
 
     languageOptions: {
+      parser: babelParser,
+      parserOptions: {
+        requireConfigFile: false,
+        babelOptions: {
+          babelrc: false,
+          configFile: false,
+        },
+      },
       sourceType: 'script',
       ecmaVersion: 'latest',
       globals: {
