@@ -19,6 +19,10 @@ updates:
         patterns:
           - "eslint*"
           - "@eslint/*"
+      prettier:
+        applies-to: version-updates
+        patterns:
+          - "prettier*"
       qunit:
         applies-to: version-updates
         patterns:
