@@ -48,7 +48,7 @@
     "@glimmer/component": "^2.0.0",
     "@glimmer/tracking": "^1.1.2",
     "@glint/ember-tsc": "^1.0.8",
-    "@glint/template": "^1.6.1",
+    "@glint/template": "^1.7.4",
     "@rollup/plugin-babel": "^6.1.0",
     "@tailwindcss/postcss": "^4.1.18",
     "@tsconfig/ember": "^3.0.12",
