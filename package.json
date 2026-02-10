@@ -88,7 +88,7 @@
     "prettier-plugin-ember-template-tag": "^2.1.2",
     "qunit": "^2.25.0",
     "qunit-dom": "^3.5.0",
-    "stylelint": "^17.0.0",
+    "stylelint": "^17.1.1",
     "stylelint-config-standard": "^40.0.0",
     "tailwindcss": "^4.1.18",
     "tracked-built-ins": "^4.1.0",
