@@ -103,7 +103,7 @@
     "edition": "octane"
   },
   "volta": {
-    "node": "20.19.5"
+    "node": "24.13.1"
   },
   "ember-addon": {
     "type": "app",
