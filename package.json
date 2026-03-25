@@ -54,7 +54,7 @@
     "@glint/ember-tsc": "^1.4.0",
     "@glint/template": "^1.7.7",
     "@rollup/plugin-babel": "^7.0.0",
-    "@tailwindcss/postcss": "^4.1.18",
+    "@tailwindcss/postcss": "^4.2.2",
     "@tsconfig/ember": "^3.0.12",
     "@types/luxon": "^3.7.1",
     "@types/qunit": "^2.19.13",
@@ -93,7 +93,7 @@
     "qunit-dom": "^3.5.0",
     "stylelint": "^17.5.0",
     "stylelint-config-standard": "^40.0.0",
-    "tailwindcss": "^4.1.18",
+    "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.53.1",
     "vite": "^8.0.2"
