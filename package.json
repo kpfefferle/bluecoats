@@ -90,7 +90,7 @@
     "prettier-plugin-ember-template-tag": "^2.1.5",
     "qunit": "^2.25.0",
     "qunit-dom": "^3.5.1",
-    "stylelint": "^17.8.0",
+    "stylelint": "^17.9.1",
     "stylelint-config-standard": "^40.0.0",
     "tailwindcss": "^4.2.3",
     "typescript": "^6.0.3",
