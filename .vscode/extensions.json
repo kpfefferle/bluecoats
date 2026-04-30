@@ -1,5 +1,10 @@
 {
   "recommendations": [
-    "typed-ember.glint-vscode"
+    "ardenivanov.svelte-intellisense",
+    "bradlc.vscode-tailwindcss",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "github.vscode-github-actions",
+    "svelte.svelte-vscode"
   ]
 }
