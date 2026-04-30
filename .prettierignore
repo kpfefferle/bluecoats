@@ -1,13 +1,12 @@
-# unconventional js
-/blueprints/*/files/
+# generated
+.svelte-kit/
 
 # compiled output
-/dist/
+/build/
 
 # misc
 /coverage/
 !.*
 .*/
 /pnpm-lock.yaml
-ember-cli-update.json
 *.html

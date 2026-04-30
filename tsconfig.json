@@ -1,13 +1,12 @@
 {
-  "extends": "@ember/app-tsconfig",
-  "include": ["app", "tests", "types"],
+  "extends": "./.svelte-kit/tsconfig.json",
   "compilerOptions": {
     "allowJs": true,
-    "paths": {
-      "bluecoats/tests/*": ["./tests/*"],
-      "bluecoats/*": ["./app/*"],
-      "*": ["./types/*"]
-    },
-    "types": ["ember-source/types", "@embroider/core/virtual", "vite/client"]
+    "checkJs": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true
   }
 }

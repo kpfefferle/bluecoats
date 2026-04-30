@@ -1,5 +1,5 @@
-# unconventional files
-/blueprints/*/files/
-
 # compiled output
-/dist/
+/build/
+
+# generated
+.svelte-kit/

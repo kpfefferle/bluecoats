@@ -1,5 +1,8 @@
+# generated
+.svelte-kit/
+
 # compiled output
-/dist/
+/build/
 /tmp/
 
 # dependencies
@@ -11,7 +14,8 @@
 /.eslintcache
 /coverage/
 /npm-debug.log*
-/testem.log
 
-# broccoli-debug
-/DEBUG/
+# playwright
+/test-results/
+/playwright-report/
+/playwright/.cache/
