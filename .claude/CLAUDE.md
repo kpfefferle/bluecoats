@@ -53,7 +53,7 @@ The repo Settings → Pages source must be set to "GitHub Actions". The CNAME is
 
 All changes go through a pull request — **never commit directly to `main`**. Before the first commit of any task, run `git branch --show-current`; if it returns `main`, branch off first with a descriptive name (e.g. `feat/score-history-zoom`, `chore/bump-deps`, `test/unit-daily-rankings`). When the work is ready, push the branch and open a PR with `gh pr create`.
 
-This applies even to small additive changes (new test files, doc tweaks) — the value of a clean PR history is uniform reviewability, not just safety against destructive changes.
+The rule is "no direct commits to `main`," not "one PR per change." If a follow-up is closely related to an open PR, it's fine to add it to that PR's branch rather than spinning up a new one. When the relationship is unclear, ask.
 
 ## Architecture
 
