@@ -49,6 +49,12 @@ Deployment is handled by `.github/workflows/ci.yml` on push to `main`:
 
 The repo Settings → Pages source must be set to "GitHub Actions". The CNAME is in `static/CNAME`. Because the site serves from a custom domain root, `BASE_PATH` is left empty in CI (do not set it to `/bluecoats`).
 
+## Workflow
+
+All changes go through a pull request — **never commit directly to `main`**. Before the first commit of any task, run `git branch --show-current`; if it returns `main`, branch off first with a descriptive name (e.g. `feat/score-history-zoom`, `chore/bump-deps`, `test/unit-daily-rankings`). When the work is ready, push the branch and open a PR with `gh pr create`.
+
+The rule is "no direct commits to `main`," not "one PR per change." If a follow-up is closely related to an open PR, it's fine to add it to that PR's branch rather than spinning up a new one. When the relationship is unclear, ask.
+
 ## Architecture
 
 ### Tech Stack
