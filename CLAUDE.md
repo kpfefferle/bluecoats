@@ -10,11 +10,11 @@ This is a SvelteKit application that displays historical DCI (Drum Corps Interna
 
 This codebase was migrated from Ember.js to SvelteKit in three phased PRs:
 
-- **PR 1 (this commit)**: Scaffold + layout/nav + CI. Both routes are stubs ("Coming soon").
-- **PR 2 (planned)**: Data layer + `/daily-rankings` route.
+- **PR 1**: Scaffold + layout/nav + CI. Both routes are stubs ("Coming soon").
+- **PR 2 (this commit)**: Data layer + `/daily-rankings` route.
 - **PR 3 (planned)**: `/` route with chart action and `buildChartOption`.
 
-Until PR 2/3 land, the app shell renders but no real content.
+Until PR 3 lands, `/` is still a stub.
 
 ## Development Commands
 
@@ -80,14 +80,14 @@ src/
 │   │   ├── nav/{NavigationBar,Logo,DesktopMenu,MobileMenu,MobileMenuToggle}.svelte
 │   │   ├── nav/types.ts              # NavItem type + NAV_ITEMS list
 │   │   └── shared/{Card,PageContent,PageHeader}.svelte
-│   ├── data/                         # (PR 2) base.ts, index.ts, seasons/[year].ts
+│   ├── data/                         # base.ts, index.ts, seasons/[year].ts
 │   ├── actions/                      # (PR 3) chart.ts
-│   └── utils/                        # (PR 2/3) url-state.ts, chart-options.ts, ordinal.ts
+│   └── utils/                        # url-state.ts, ordinal.ts, daily-rankings.ts, chart-options.ts (PR 3)
 └── routes/
     ├── +layout.svelte                # Renders <NavigationBar /> + children
     ├── +layout.ts                    # `export const prerender = true`
     ├── +page.svelte                  # Score History (stub until PR 3)
-    └── daily-rankings/+page.svelte   # Daily Rankings (stub until PR 2)
+    └── daily-rankings/+page.svelte   # Daily Rankings
 
 static/
 ├── CNAME                             # bluecoats.pfefferle.me
@@ -142,15 +142,23 @@ Direct string `href`s to internal routes will trigger `svelte/no-navigation-with
 
 For the active-link state, read `page.route.id` from `$app/state` (not `$app/stores` — Svelte 5 prefers `$app/state`).
 
-#### URL State (planned PR 2/3)
+#### URL State
 
-Query-param-driven UI state lives in the URL, written via a small helper at `src/lib/utils/url-state.ts` that wraps `goto(url, { replaceState: true, keepFocus: true, noScroll: true })`.
+Query-param-driven UI state lives in the URL, written via `setParam(key, value)` from `src/lib/utils/url-state.ts` (wraps `goto` with `replaceState: true, keepFocus: true, noScroll: true`).
+
+**Important**: prerendered pages cannot read `page.url.searchParams` at build time. Gate the read on `browser` from `$app/environment`:
+
+```svelte
+const dayParam = $derived(browser ? page.url.searchParams.get('day') : null);
+```
+
+The prerendered HTML reflects the default state (no query params); on hydration, the client picks up the real URL and re-derives.
 
 #### Chart Action (planned PR 3)
 
 ECharts is wired via a Svelte action at `src/lib/actions/chart.ts` that handles init, update (with `notMerge: true`), `ResizeObserver`, and `dispose()` on destroy. Import lazily inside the action body if bundle size is a concern.
 
-### Adding New Season Data (planned PR 2)
+### Adding New Season Data
 
 1. Create `src/lib/data/seasons/[year].ts` following the existing pattern.
 2. Export `SEASON_[year]` constant with type `SeasonScores`.
