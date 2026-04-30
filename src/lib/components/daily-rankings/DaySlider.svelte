@@ -8,11 +8,6 @@
     maximum: number;
     onChange: (day: number) => void;
   } = $props();
-
-  function handleInput(event: Event) {
-    const target = event.currentTarget as HTMLInputElement;
-    onChange(Math.abs(Number(target.value)));
-  }
 </script>
 
 <div>
@@ -23,7 +18,7 @@
     Days before Finals
   </label>
   <input
-    oninput={handleInput}
+    oninput={(e) => onChange(Math.abs(Number(e.currentTarget.value)))}
     class="w-full"
     id="day-slider"
     max="0"
