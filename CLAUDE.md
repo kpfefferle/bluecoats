@@ -4,7 +4,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is an Ember.js application that displays historical DCI (Drum Corps International) competition scores for the Bluecoats drum and bugle corps. The app visualizes score progression throughout competitive seasons and provides daily ranking data.
+This is a SvelteKit application that displays historical DCI (Drum Corps International) competition scores for the Bluecoats drum and bugle corps. The app visualizes score progression throughout competitive seasons and provides daily ranking data. It is a fully prerendered static SPA deployed to GitHub Pages under the custom domain `bluecoats.pfefferle.me`.
+
+## Migration Status
+
+This codebase was migrated from Ember.js to SvelteKit in three phased PRs:
+
+- **PR 1 (this commit)**: Scaffold + layout/nav + CI. Both routes are stubs ("Coming soon").
+- **PR 2 (planned)**: Data layer + `/daily-rankings` route.
+- **PR 3 (planned)**: `/` route with chart action and `buildChartOption`.
+
+Until PR 2/3 land, the app shell renders but no real content.
 
 ## Development Commands
 
@@ -15,169 +25,142 @@ This project uses **pnpm** (not npm or yarn). All commands should use `pnpm`.
 ### Common Commands
 
 - `pnpm install` - Install dependencies
-- `pnpm start` - Start development server (http://localhost:4200)
-- `pnpm test` - Build and run all tests
-- `pnpm lint` - Run all linters (JS, CSS, HBS, types)
+- `pnpm dev` (or `pnpm start`) - Start development server (http://localhost:5173)
+- `pnpm build` - Production build (outputs to `build/`)
+- `pnpm preview` - Preview the production build locally (http://localhost:4173)
+- `pnpm test` - Run Playwright E2E tests (auto-builds and previews)
+- `pnpm lint` - Run all linters (JS, CSS, types, format)
 - `pnpm lint:fix` - Auto-fix linting issues
-- `pnpm build` - Production build
-- `pnpm exec vite build --mode development` - Development build
+- `pnpm format` - Format code with Prettier
 
 ### Linting
 
 - `pnpm lint:js` - ESLint check
 - `pnpm lint:js:fix` - ESLint auto-fix
 - `pnpm lint:css` - Stylelint check
-- `pnpm lint:hbs` - Template linting
-- `pnpm lint:types` - TypeScript type checking (via ember-tsc)
-- `pnpm format` - Format code with Prettier
+- `pnpm lint:css:fix` - Stylelint auto-fix
+- `pnpm lint:types` - Type checking via `svelte-check`
+- `pnpm lint:format` - Prettier check
 
 ### Testing
 
-- Visit http://localhost:4200/tests in browser while dev server is running
-- Tests are in `tests/acceptance/`, `tests/integration/`, and `tests/unit/`
+- Playwright E2E tests live in `tests/e2e/`
+- `pnpm test` builds the app, starts `pnpm preview`, and runs the suite
 
 ### Deployment
 
-- `pnpm deploy` - Deploy to production (gh-pages branch)
+Deployment is handled by `.github/workflows/ci.yml` on push to `main`:
+
+1. Lint + Test jobs run.
+2. Deploy job uses `actions/upload-pages-artifact@v3` + `actions/deploy-pages@v4` to publish `build/` to GitHub Pages.
+
+The repo Settings → Pages source must be set to "GitHub Actions". The CNAME is in `static/CNAME`. Because the site serves from a custom domain root, `BASE_PATH` is left empty in CI (do not set it to `/bluecoats`).
 
 ## Architecture
 
 ### Tech Stack
 
-- **Ember.js** 6.8+ (Octane edition)
-- **TypeScript** with strict type checking
-- **Vite** build system (not Webpack)
-- **Embroider** for modern Ember builds
-- **Glint** for TypeScript support in templates
-- **Tailwind CSS 4** for styling
-- **ECharts** for data visualization
+- **SvelteKit 2.x** with **Svelte 5** runes (`$state`, `$derived`, `$props`)
+- **`@sveltejs/adapter-static`** with `fallback: '404.html'`, `strict: true`
+- **Vite 8** build system
+- **Tailwind CSS 4** via `@tailwindcss/vite` (no `tailwind.config.js`; theme customizations live in `src/app.css` under `@theme {}`)
+- **TypeScript** strict mode, type-checked via `svelte-check`
+- **ECharts** for data visualization (planned PR 3)
 - **Luxon** for date manipulation
+- **Playwright** for E2E tests
 
 ### File Structure
 
-#### Data Layer
+```
+src/
+├── app.html                          # HTML shell (root <html>/<body> classes live here)
+├── app.css                           # Tailwind 4 entry + custom range-input styles
+├── lib/
+│   ├── components/
+│   │   ├── nav/{NavigationBar,Logo,DesktopMenu,MobileMenu,MobileMenuToggle}.svelte
+│   │   ├── nav/types.ts              # NavItem type + NAV_ITEMS list
+│   │   └── shared/{Card,PageContent,PageHeader}.svelte
+│   ├── data/                         # (PR 2) base.ts, index.ts, seasons/[year].ts
+│   ├── actions/                      # (PR 3) chart.ts
+│   └── utils/                        # (PR 2/3) url-state.ts, chart-options.ts, ordinal.ts
+└── routes/
+    ├── +layout.svelte                # Renders <NavigationBar /> + children
+    ├── +layout.ts                    # `export const prerender = true`
+    ├── +page.svelte                  # Score History (stub until PR 3)
+    └── daily-rankings/+page.svelte   # Daily Rankings (stub until PR 2)
 
-- `app/data/base.ts` - Core TypeScript interfaces (`Score`, `SeasonScores`)
-- `app/data/[year].ts` - Individual season data files (1977-2025)
-- `app/data/index.ts` - Exports `ALL_SEASONS` array aggregating all season data
+static/
+├── CNAME                             # bluecoats.pfefferle.me
+├── .nojekyll
+├── favicon.png
+└── robots.txt
 
-Each season file exports a constant like `SEASON_2024` containing:
+tests/e2e/                            # Playwright tests
+```
 
-- `year`: string (e.g., "2024")
-- `color`: optional Tailwind color hex code for charts
-- `endDate`: ISO date string of DCI Finals
-- `scores`: array of performance scores with date, location, and score
+Path aliases (defined in `svelte.config.js`):
 
-#### Routes
-
-- `app/router.ts` - Route definitions (index, daily-rankings)
-- `app/routes/index.ts` - Score history route (loads all seasons)
-- `app/routes/daily-rankings.ts` - Daily rankings route
-- `app/controllers/index.ts` - Score history controller (manages selected years, fit-all state)
-- `app/controllers/daily-rankings.ts` - Daily rankings controller
-
-#### Components (GTS format)
-
-Components use `.gts` files (Glimmer TypeScript) with template-only components or class-based components:
-
-- `app/components/navigation-bar.gts` - Main navigation (composed of subcomponents)
-  - `navigation-bar/logo.gts`
-  - `navigation-bar/desktop-menu.gts`
-  - `navigation-bar/mobile-menu.gts`
-  - `navigation-bar/mobile-menu-toggle.gts`
-- `app/components/shared/` - Reusable UI components (card, page-header, page-content)
-- `app/components/score-history/` - Score visualization components
-  - `season-scores-chart.gts` - Main chart component using ECharts
-  - `season-select.gts` - Multi-select for seasons
-  - `fit-all-toggle.gts` - Toggle to fit all data in chart
-- `app/components/daily-rankings/` - Daily ranking components
-  - `table.gts` - Rankings table
-  - `day-slider.gts` - Slider to select competition day
-
-#### Templates
-
-- `app/templates/application.gts` - Root template
-- `app/templates/index.gts` - Score history page template
-- `app/templates/daily-rankings.gts` - Daily rankings page template
-
-#### Modifiers
-
-- `app/modifiers/render-echart.ts` - Ember modifier that initializes ECharts on an element
-  - Takes `EChartsOption` as positional argument
-  - Automatically initializes chart when element renders
+- `$lib` → `src/lib` (SvelteKit default)
+- `$components` → `src/lib/components`
+- `$data` → `src/lib/data`
+- `$app/*` → SvelteKit runtime (e.g. `$app/paths`, `$app/state`, `$app/navigation`)
 
 ### Key Patterns
 
-#### GTS Component Structure
+#### Svelte 5 Component Structure
 
-Components use the `<template>` tag syntax with TypeScript:
+Components use runes for props/state and snippets for slots:
 
-```typescript
-import Component from '@glimmer/component';
+```svelte
+<script lang="ts">
+  import type { Snippet } from "svelte";
 
-interface MyComponentSignature {
-  Args: {
-    foo: string;
-  };
-}
+  let { title, children }: { title: string; children?: Snippet } = $props();
+</script>
 
-export default class MyComponent extends Component<MyComponentSignature> {
-  // component logic
-
-  <template>
-    <div>{{@foo}}</div>
-  </template>
-}
+<h1>{title}</h1>
+{#if children}
+  {@render children()}
+{/if}
 ```
 
-Template-only components use `TOC` type:
+For local reactive state, use `$state(...)`; for computed values, `$derived(...)` or `$derived.by(() => ...)`.
 
-```typescript
-import { type TOC } from '@ember/component/template-only';
+#### Internal Navigation
 
-interface MySignature {
-  Args: {
-    foo: string;
-  };
-}
+Use `resolve()` from `$app/paths` for typed internal links:
 
-<template>
-  <div>{{@foo}}</div>
-</template> satisfies TOC<MySignature>;
+```svelte
+<script lang="ts">
+  import { resolve } from "$app/paths";
+</script>
+
+<a href={resolve("/daily-rankings")}>Daily Rankings</a>
 ```
 
-#### Chart Data Flow
+Direct string `href`s to internal routes will trigger `svelte/no-navigation-without-resolve`.
 
-1. Route loads season data from `app/data/index.ts`
-2. Controller maintains selected years and fit-all state
-3. Chart component computes ECharts options based on selected seasons
-4. Chart automatically adjusts X/Y axis ranges based on fit-all setting and selected data
-5. Chart displays scores relative to DCI Finals (X-axis is days before finals)
+For the active-link state, read `page.route.id` from `$app/state` (not `$app/stores` — Svelte 5 prefers `$app/state`).
 
-#### Adding New Season Data
+#### URL State (planned PR 2/3)
 
-1. Create `app/data/[year].ts` following existing pattern
-2. Export `SEASON_[year]` constant with type `SeasonScores`
-3. Import and add to `ALL_SEASONS` array in `app/data/index.ts`
-4. Dates should be ISO format (YYYY-MM-DD)
-5. Scores are numeric (decimals allowed)
+Query-param-driven UI state lives in the URL, written via a small helper at `src/lib/utils/url-state.ts` that wraps `goto(url, { replaceState: true, keepFocus: true, noScroll: true })`.
 
-### TypeScript Configuration
+#### Chart Action (planned PR 3)
 
-- Path aliases: `bluecoats/*` maps to `app/*`
-- Strict type checking enabled
-- Glint provides template type checking
+ECharts is wired via a Svelte action at `src/lib/actions/chart.ts` that handles init, update (with `notMerge: true`), `ResizeObserver`, and `dispose()` on destroy. Import lazily inside the action body if bundle size is a concern.
+
+### Adding New Season Data (planned PR 2)
+
+1. Create `src/lib/data/seasons/[year].ts` following the existing pattern.
+2. Export `SEASON_[year]` constant with type `SeasonScores`.
+3. Import and add to `ALL_SEASONS` array in `src/lib/data/index.ts`.
+4. Dates should be ISO format (YYYY-MM-DD).
+5. Scores are numeric (decimals allowed).
+6. `SeasonScores.year` is a **string** (e.g. `"2024"`); do not coerce to number.
 
 ### Styling
 
-- Tailwind CSS 4 utility classes
-- Custom styles in `app/app.css`
-- Uses Tailwind colors (e.g., `red-600`, `blue-700`)
-- Responsive design with mobile menu toggle
-
-### Testing
-
-- QUnit test framework
-- Test helpers from `@ember/test-helpers`
-- Acceptance tests use real browser rendering
-- Test files use `-test.ts` or `-test.gts` suffix
+- Tailwind CSS 4 utility classes; no separate config file.
+- Custom theme tokens (e.g. `--font-sans`) and custom CSS live in `src/app.css`.
+- Root background/height classes (`h-full bg-gray-100`, `h-full font-sans`) are on `<html>`/`<body>` in `src/app.html` — the page header relies on this gray background for visual contrast.

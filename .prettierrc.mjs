@@ -1,11 +1,16 @@
 export default {
-  plugins: ['prettier-plugin-ember-template-tag'],
+  plugins: ['prettier-plugin-svelte'],
   overrides: [
     {
-      files: '*.{js,gjs,ts,gts,mjs,mts,cjs,cts}',
+      files: '*.{js,ts,svelte,mjs,mts,cjs,cts}',
       options: {
         singleQuote: true,
-        templateSingleQuote: false,
+      },
+    },
+    {
+      files: '*.svelte',
+      options: {
+        parser: 'svelte',
       },
     },
   ],

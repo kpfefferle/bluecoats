@@ -1,132 +1,45 @@
-/**
- * Debugging:
- *   https://eslint.org/docs/latest/use/configure/debug
- *  ----------------------------------------------------
- *
- *   Print a file's calculated configuration
- *
- *     npx eslint --print-config path/to/file.js
- *
- *   Inspecting the config
- *
- *     npx eslint --inspect-config
- *
- */
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import globals from 'globals';
 import js from '@eslint/js';
-import { defineConfig, globalIgnores } from 'eslint/config';
-
+import svelte from 'eslint-plugin-svelte';
 import ts from 'typescript-eslint';
-
-import ember from 'eslint-plugin-ember/recommended';
+import globals from 'globals';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import qunit from 'eslint-plugin-qunit';
-import n from 'eslint-plugin-n';
 
-import babelParser from '@babel/eslint-parser';
-
-const parserOptions = {
-  esm: {
-    js: {
-      ecmaFeatures: { modules: true },
-      ecmaVersion: 'latest',
-    },
-    ts: {
-      projectService: true,
-      tsconfigRootDir: dirname(fileURLToPath(import.meta.url)),
-    },
-  },
-};
-
-export default defineConfig([
-  globalIgnores(['dist/', 'coverage/', '!**/.*']),
+export default ts.config(
   js.configs.recommended,
-  ember.configs.base,
-  ember.configs.gjs,
-  ember.configs.gts,
+  ...ts.configs.recommendedTypeChecked,
+  ...svelte.configs['flat/recommended'],
   eslintConfigPrettier,
-  /**
-   * https://eslint.org/docs/latest/use/configure/configuration-files#configuring-linter-options
-   */
+  ...svelte.configs['flat/prettier'],
   {
-    linterOptions: {
-      reportUnusedDisableDirectives: 'error',
-    },
-  },
-  {
-    files: ['**/*.js'],
     languageOptions: {
-      parser: babelParser,
-    },
-  },
-  {
-    files: ['**/*.{js,gjs}'],
-    languageOptions: {
-      parserOptions: parserOptions.esm.js,
       globals: {
         ...globals.browser,
-      },
-    },
-  },
-  {
-    files: ['**/*.{ts,gts}'],
-    languageOptions: {
-      parser: ember.parser,
-      parserOptions: parserOptions.esm.ts,
-      globals: {
-        ...globals.browser,
-      },
-    },
-    extends: [...ts.configs.recommendedTypeChecked, ember.configs.gts],
-    rules: {
-      'prefer-const': 'off',
-    },
-  },
-  {
-    ...qunit.configs.recommended,
-    files: ['tests/**/*-test.{js,gjs,ts,gts}'],
-    plugins: {
-      qunit,
-    },
-  },
-  /**
-   * CJS node files
-   */
-  {
-    ...n.configs['flat/recommended-script'],
-    files: ['**/*.cjs', 'config/**/*.js'],
-    plugins: {
-      n,
-    },
-
-    languageOptions: {
-      sourceType: 'script',
-      ecmaVersion: 'latest',
-      globals: {
         ...globals.node,
       },
-    },
-  },
-  /**
-   * ESM node files
-   */
-  {
-    ...n.configs['flat/recommended-module'],
-    files: ['**/*.mjs'],
-    plugins: {
-      n,
-    },
-
-    languageOptions: {
-      sourceType: 'module',
-      ecmaVersion: 'latest',
-      parserOptions: parserOptions.esm.js,
-      globals: {
-        ...globals.node,
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: dirname(fileURLToPath(import.meta.url)),
+        extraFileExtensions: ['.svelte'],
       },
     },
   },
-]);
+  {
+    files: ['**/*.svelte', '**/*.svelte.ts', '**/*.svelte.js'],
+    languageOptions: {
+      parserOptions: {
+        parser: ts.parser,
+      },
+    },
+  },
+  // Root config files are outside the TS project; disable type-checked rules for them
+  {
+    files: ['*.config.{ts,js,mjs,cjs}', '.prettierrc.mjs', '.stylelintrc.mjs'],
+    ...ts.configs.disableTypeChecked,
+  },
+  {
+    ignores: ['.svelte-kit/', 'build/', 'node_modules/'],
+  },
+);
