@@ -24,6 +24,9 @@
   </div>
 
   {#if isMobileMenuOpen}
-    <MobileMenu navItems={NAV_ITEMS} />
+    <MobileMenu
+      navItems={NAV_ITEMS}
+      onNavigate={() => setIsMobileMenuOpen(false)}
+    />
   {/if}
 </nav>

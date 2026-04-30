@@ -3,7 +3,10 @@
   import { page } from '$app/state';
   import type { NavItem } from './types.js';
 
-  let { navItems }: { navItems: ReadonlyArray<NavItem> } = $props();
+  let {
+    navItems,
+    onNavigate,
+  }: { navItems: ReadonlyArray<NavItem>; onNavigate: () => void } = $props();
 </script>
 
 <div class="md:hidden" id="mobile-menu">
@@ -11,6 +14,7 @@
     {#each navItems as item (item.href)}
       <a
         href={resolve(item.href)}
+        onclick={onNavigate}
         class="block rounded-md px-3 py-2 text-base font-medium text-white {page
           .route.id === item.href
           ? 'bg-blue-700 hover:!bg-blue-700'
