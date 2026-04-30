@@ -6,16 +6,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a SvelteKit application that displays historical DCI (Drum Corps International) competition scores for the Bluecoats drum and bugle corps. The app visualizes score progression throughout competitive seasons and provides daily ranking data. It is a fully prerendered static SPA deployed to GitHub Pages under the custom domain `bluecoats.pfefferle.me`.
 
-## Migration Status
-
-This codebase was migrated from Ember.js to SvelteKit in three phased PRs:
-
-- **PR 1**: Scaffold + layout/nav + CI. Both routes are stubs ("Coming soon").
-- **PR 2 (this commit)**: Data layer + `/daily-rankings` route.
-- **PR 3 (planned)**: `/` route with chart action and `buildChartOption`.
-
-Until PR 3 lands, `/` is still a stub.
-
 ## Development Commands
 
 ### Package Manager
@@ -28,7 +18,9 @@ This project uses **pnpm** (not npm or yarn). All commands should use `pnpm`.
 - `pnpm dev` (or `pnpm start`) - Start development server (http://localhost:5173)
 - `pnpm build` - Production build (outputs to `build/`)
 - `pnpm preview` - Preview the production build locally (http://localhost:4173)
-- `pnpm test` - Run Playwright E2E tests (auto-builds and previews)
+- `pnpm test` - Run unit (Vitest) + E2E (Playwright) tests in parallel
+- `pnpm test:unit` - Run Vitest unit tests only
+- `pnpm test:e2e` - Run Playwright E2E tests only (auto-builds and previews)
 - `pnpm lint` - Run all linters (JS, CSS, types, format)
 - `pnpm lint:fix` - Auto-fix linting issues
 - `pnpm format` - Format code with Prettier
@@ -44,8 +36,9 @@ This project uses **pnpm** (not npm or yarn). All commands should use `pnpm`.
 
 ### Testing
 
-- Playwright E2E tests live in `tests/e2e/`
-- `pnpm test` builds the app, starts `pnpm preview`, and runs the suite
+- Vitest unit tests live in `tests/unit/` (config at `vitest.config.ts`).
+- Playwright E2E tests live in `tests/e2e/`.
+- `pnpm test` runs both suites in parallel; the Playwright runner builds and previews the app.
 
 ### Deployment
 
@@ -65,9 +58,9 @@ The repo Settings → Pages source must be set to "GitHub Actions". The CNAME is
 - **Vite 8** build system
 - **Tailwind CSS 4** via `@tailwindcss/vite` (no `tailwind.config.js`; theme customizations live in `src/app.css` under `@theme {}`)
 - **TypeScript** strict mode, type-checked via `svelte-check`
-- **ECharts** for data visualization (planned PR 3)
+- **ECharts** for data visualization (wired via a Svelte action — see Chart Action below)
 - **Luxon** for date manipulation
-- **Playwright** for E2E tests
+- **Vitest** for unit tests, **Playwright** for E2E tests
 
 ### File Structure
 
@@ -79,14 +72,16 @@ src/
 │   ├── components/
 │   │   ├── nav/{NavigationBar,Logo,DesktopMenu,MobileMenu,MobileMenuToggle}.svelte
 │   │   ├── nav/types.ts              # NavItem type + NAV_ITEMS list
-│   │   └── shared/{Card,PageContent,PageHeader}.svelte
+│   │   ├── shared/{Card,PageContent,PageHeader}.svelte
+│   │   ├── daily-rankings/{Table,DaySlider}.svelte
+│   │   └── score-history/{SeasonScoresChart,SeasonSelect,FitAllToggle}.svelte
 │   ├── data/                         # base.ts, index.ts, seasons/[year].ts
-│   ├── actions/                      # (PR 3) chart.ts
-│   └── utils/                        # url-state.ts, ordinal.ts, daily-rankings.ts, chart-options.ts (PR 3)
+│   ├── actions/                      # chart.ts (ECharts lifecycle)
+│   └── utils/                        # url-state.ts, ordinal.ts, daily-rankings.ts, chart-options.ts
 └── routes/
     ├── +layout.svelte                # Renders <NavigationBar /> + children
     ├── +layout.ts                    # `export const prerender = true`
-    ├── +page.svelte                  # Score History (stub until PR 3)
+    ├── +page.svelte                  # Score History
     └── daily-rankings/+page.svelte   # Daily Rankings
 
 static/
@@ -95,7 +90,9 @@ static/
 ├── favicon.png
 └── robots.txt
 
-tests/e2e/                            # Playwright tests
+tests/
+├── e2e/                              # Playwright tests
+└── unit/                             # Vitest tests
 ```
 
 Path aliases (defined in `svelte.config.js`):
@@ -154,9 +151,11 @@ const dayParam = $derived(browser ? page.url.searchParams.get('day') : null);
 
 The prerendered HTML reflects the default state (no query params); on hydration, the client picks up the real URL and re-derives.
 
-#### Chart Action (planned PR 3)
+#### Chart Action
 
-ECharts is wired via a Svelte action at `src/lib/actions/chart.ts` that handles init, update (with `notMerge: true`), `ResizeObserver`, and `dispose()` on destroy. Import lazily inside the action body if bundle size is a concern.
+ECharts is wired via a Svelte action at `src/lib/actions/chart.ts` that handles init, update (with `notMerge: true` so series swaps replace rather than merge), `ResizeObserver` + `window.resize`, and `dispose()` on destroy.
+
+Pure chart-option construction lives in `src/lib/utils/chart-options.ts` (`buildChartOption(seasons, selectedYears, fitAllSeasons)`); it has its own Vitest suite. Components compute the option via `$derived(buildChartOption(...))` and pass it to `use:chart={chartOption}` — the action's `update` runs whenever the derived value changes.
 
 ### Adding New Season Data
 
