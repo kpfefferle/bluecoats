@@ -50,7 +50,7 @@
       </div>
     </Card>
     <Card>
-      <div class="min-h-svh flex flex-col overflow-x-auto">
+      <div class="flex min-h-svh flex-col overflow-x-auto">
         <SeasonScoresChart
           seasonScores={ALL_SEASONS}
           {selectedYears}

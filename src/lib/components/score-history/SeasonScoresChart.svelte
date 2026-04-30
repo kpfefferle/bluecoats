@@ -18,4 +18,4 @@
   );
 </script>
 
-<div class="grow min-w-200" use:chart={chartOption}></div>
+<div class="min-w-200 grow" use:chart={chartOption}></div>
