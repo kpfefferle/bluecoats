@@ -23,10 +23,11 @@
   const maxDay = $derived(maxDayBeforeFinals(ALL_SEASONS));
   const rankings = $derived(buildDailyRankings(ALL_SEASONS, selectedDay));
 
-  const subtitle = $derived.by(() => {
-    if (selectedDay === 0) return 'Finals Day';
-    return `${selectedDay} ${selectedDay === 1 ? 'day' : 'days'} before DCI Finals`;
-  });
+  const subtitle = $derived(
+    selectedDay === 0
+      ? 'Finals Day'
+      : `${selectedDay} ${selectedDay === 1 ? 'day' : 'days'} before DCI Finals`,
+  );
 
   function onDayChange(day: number) {
     void setParam('day', day === currentDay ? null : String(day));
