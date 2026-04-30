@@ -20,7 +20,9 @@
     "lint:types": "svelte-check --tsconfig ./tsconfig.json",
     "preview": "vite preview",
     "start": "vite dev",
-    "test": "playwright test"
+    "test": "concurrently --kill-others-on-fail --names \"unit,e2e\" --prefixColors auto \"vitest run\" \"playwright test\"",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -47,7 +49,8 @@
     "tailwindcss": "^4.2.4",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.59.1",
-    "vite": "^8.0.10"
+    "vite": "^8.0.10",
+    "vitest": "^4.1.5"
   },
   "engines": {
     "node": ">= 20.19.0"
