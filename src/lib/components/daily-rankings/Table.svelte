@@ -3,6 +3,8 @@
   import { ordinalSuffix } from '$lib/utils/ordinal';
 
   let { rankings }: { rankings: DailyRankingsItem[] } = $props();
+
+  const MEDALS: Record<number, string> = { 1: '🥇', 2: '🥈', 3: '🥉' };
 </script>
 
 <table class="min-w-full divide-y divide-gray-300">
@@ -40,7 +42,14 @@
         <td
           class="py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6"
         >
-          {ranking.rank}{ordinalSuffix(ranking.rank)}
+          {#if MEDALS[ranking.rank]}
+            <span aria-hidden="true">{MEDALS[ranking.rank]}</span>
+            <span class="sr-only"
+              >{ranking.rank}{ordinalSuffix(ranking.rank)}</span
+            >
+          {:else}
+            {ranking.rank}{ordinalSuffix(ranking.rank)}
+          {/if}
         </td>
         <td
           class="px-3 py-4 text-sm font-medium whitespace-nowrap text-gray-900"
