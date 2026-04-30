@@ -10,7 +10,7 @@
 
 <header class="bg-white shadow-xs">
   <div
-    class="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8 flex justify-between items-center"
+    class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
   >
     <div>
       <h1 class="text-lg/6 font-semibold text-gray-900">{title}</h1>
