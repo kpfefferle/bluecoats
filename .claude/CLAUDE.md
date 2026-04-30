@@ -49,6 +49,15 @@ Deployment is handled by `.github/workflows/ci.yml` on push to `main`:
 
 The repo Settings → Pages source must be set to "GitHub Actions". The CNAME is in `static/CNAME`. Because the site serves from a custom domain root, `BASE_PATH` is left empty in CI (do not set it to `/bluecoats`).
 
+## Svelte MCP Server
+
+This repo is configured with the Svelte MCP server, which exposes authoritative Svelte 5 / SvelteKit documentation and a Svelte-aware autofixer. Use it whenever you're writing or modifying Svelte/SvelteKit code — don't rely on training-data recall for API shapes.
+
+- **`list-sections`** — Call first, at the start of any Svelte/SvelteKit task, to discover available doc sections (titles, use-cases, paths).
+- **`get-documentation`** — After `list-sections`, fetch every section whose `use_cases` matches the task. Accepts single or multiple sections.
+- **`svelte-autofixer`** — Run on any Svelte code you produce, before showing it to the user. Iterate until it returns no issues or suggestions.
+- **`playground-link`** — Only offer when code is *not* being written to project files. Ask first; never call unprompted.
+
 ## Workflow
 
 All changes go through a pull request — **never commit directly to `main`**. Before the first commit of any task, run `git branch --show-current`; if it returns `main`, branch off first with a descriptive name (e.g. `feat/score-history-zoom`, `chore/bump-deps`, `test/unit-daily-rankings`). When the work is ready, push the branch and open a PR with `gh pr create`.
