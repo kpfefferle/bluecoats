@@ -1,7 +1,7 @@
 <script lang="ts">
   import { resolve } from '$app/paths';
   import { page } from '$app/state';
-  import type { NavItem } from './types.js';
+  import type { NavItem } from './types';
 
   let { navItems }: { navItems: ReadonlyArray<NavItem> } = $props();
 </script>

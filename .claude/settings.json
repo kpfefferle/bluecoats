@@ -5,7 +5,11 @@
       "Bash(cat:*)",
       "Bash(grep:*)",
       "Bash(pnpm:*)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(git checkout *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
     ]
   }
 }

@@ -19,3 +19,6 @@
 /test-results/
 /playwright-report/
 /playwright/.cache/
+
+# claude code local overrides
+/.claude/settings.local.json

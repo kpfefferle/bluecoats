@@ -21,9 +21,7 @@
       {/if}
     </div>
     <div>
-      {#if children}
-        {@render children()}
-      {/if}
+      {@render children?.()}
     </div>
   </div>
 </header>

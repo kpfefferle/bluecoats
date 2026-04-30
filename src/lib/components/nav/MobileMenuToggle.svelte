@@ -1,16 +1,11 @@
 <script lang="ts">
-  let {
-    isMobileMenuOpen,
-    setIsMobileMenuOpen,
-  }: {
-    isMobileMenuOpen: boolean;
-    setIsMobileMenuOpen: (value: boolean) => void;
-  } = $props();
+  let { isMobileMenuOpen = $bindable() }: { isMobileMenuOpen: boolean } =
+    $props();
 </script>
 
 <div class="-mr-2 flex md:hidden">
   <button
-    onclick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+    onclick={() => (isMobileMenuOpen = !isMobileMenuOpen)}
     type="button"
     class="relative inline-flex items-center justify-center rounded-md bg-blue-600 p-2 text-blue-200 hover:bg-blue-500/75 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600 focus:outline-hidden"
     aria-controls="mobile-menu"
