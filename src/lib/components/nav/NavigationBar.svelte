@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { NAV_ITEMS } from './types.js';
+  import { NAV_ITEMS } from './types';
   import DesktopMenu from './DesktopMenu.svelte';
   import Logo from './Logo.svelte';
   import MobileMenu from './MobileMenu.svelte';
