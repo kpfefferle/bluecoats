@@ -9,9 +9,12 @@ const GRID_OPTION: EChartsOption['grid'] = {
   bottom: '80px',
 };
 
+const X_AXIS_OPTION_MIN = -10 * 7;
+const Y_AXIS_OPTION_MIN = 30;
+
 const X_AXIS_OPTION: EChartsOption['xAxis'] = {
   type: 'value',
-  min: -10 * 7,
+  min: X_AXIS_OPTION_MIN,
   max: 0,
   interval: 7,
   minorTick: { show: true, splitNumber: 7 },
@@ -27,7 +30,7 @@ const X_AXIS_OPTION: EChartsOption['xAxis'] = {
 
 const Y_AXIS_OPTION: EChartsOption['yAxis'] = {
   type: 'value',
-  min: 30,
+  min: Y_AXIS_OPTION_MIN,
   max: 100,
   minorTick: { length: 0, show: true, splitNumber: 2 },
   minorSplitLine: { show: true },
@@ -59,11 +62,16 @@ function seriesForSeason(
   isSelected: boolean,
 ): SeriesOption {
   const finalDate = DateTime.fromISO(season.endDate);
-  const data = season.scores.map(({ date, location, score }) => {
-    const performanceDate = DateTime.fromISO(date);
-    const daysToFinal = finalDate.diff(performanceDate, 'days').days;
-    return [-daysToFinal, score, date, location];
-  });
+  const data = season.scores
+    .filter(
+      (score): score is { date: string; location: string; score: number } =>
+        score.score !== null,
+    )
+    .map(({ date, location, score }) => {
+      const performanceDate = DateTime.fromISO(date);
+      const daysToFinal = finalDate.diff(performanceDate, 'days').days;
+      return [-daysToFinal, score, date, location];
+    });
 
   return {
     ...LINE_SERIES_OPTION_BASE,
@@ -81,20 +89,29 @@ function seriesForSeason(
 }
 
 function xAxisMin(seasons: SeasonScores[]): number {
-  const lengths = seasons.map((season) => {
-    const finalDate = DateTime.fromISO(season.endDate);
-    const firstDate = DateTime.fromISO(season.scores[0].date);
-    return finalDate.diff(firstDate, 'days').days;
-  });
+  const lengths = seasons
+    .map((season) => {
+      const firstScored = season.scores.find((score) => score.score !== null);
+      if (!firstScored) return undefined;
+      const finalDate = DateTime.fromISO(season.endDate);
+      const firstDate = DateTime.fromISO(firstScored.date);
+      return finalDate.diff(firstDate, 'days').days;
+    })
+    .filter((days): days is number => days !== undefined);
+  if (lengths.length === 0) return X_AXIS_OPTION_MIN;
   const longest = Math.max(...lengths);
   const weeks = Math.ceil(longest / 7);
   return -weeks * 7;
 }
 
 function yAxisMin(seasons: SeasonScores[]): number {
-  const minScore = Math.min(
-    ...seasons.flatMap((season) => season.scores.map(({ score }) => score)),
+  const scores = seasons.flatMap((season) =>
+    season.scores
+      .map(({ score }) => score)
+      .filter((score): score is number => score !== null),
   );
+  if (scores.length === 0) return Y_AXIS_OPTION_MIN;
+  const minScore = Math.min(...scores);
   return Math.floor(minScore / 10) * 10;
 }
 

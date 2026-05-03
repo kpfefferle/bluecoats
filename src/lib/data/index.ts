@@ -45,6 +45,7 @@ import { SEASON_2022 } from './seasons/2022';
 import { SEASON_2023 } from './seasons/2023';
 import { SEASON_2024 } from './seasons/2024';
 import { SEASON_2025 } from './seasons/2025';
+import { SEASON_2026 } from './seasons/2026';
 
 export const ALL_SEASONS: SeasonScores[] = [
   SEASON_1977,
@@ -92,4 +93,9 @@ export const ALL_SEASONS: SeasonScores[] = [
   SEASON_2023,
   SEASON_2024,
   SEASON_2025,
+  SEASON_2026,
 ];
+
+export const POPULATED_SEASONS: SeasonScores[] = ALL_SEASONS.filter((season) =>
+  season.scores.some((score) => score.score !== null),
+);

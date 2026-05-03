@@ -54,4 +54,25 @@ describe('buildChartOption', () => {
     // min score 70 → floor(70/10)*10 = 70
     expect(yAxis.min).toBe(70);
   });
+
+  it('ignores null-scored entries when computing axis bounds and series data', () => {
+    const SEASON_PARTIAL: SeasonScores = {
+      year: '2026',
+      endDate: '2026-08-08',
+      color: '#445566',
+      scores: [
+        { date: '2026-06-20', location: 'TBD', score: null },
+        { date: '2026-07-25', location: 'Atlanta, GA', score: 88.0 },
+      ],
+    };
+    const opt = buildChartOption([SEASON_PARTIAL], ['2026'], false);
+    const xAxis = opt.xAxis as { min: number };
+    const yAxis = opt.yAxis as { min: number };
+    // First scored is 7/25 → 14 days → ceil(14/7)=2 weeks → -14
+    expect(xAxis.min).toBe(-14);
+    // Min score 88 → floor(88/10)*10 = 80
+    expect(yAxis.min).toBe(80);
+    const series = opt.series as Array<{ data: unknown[] }>;
+    expect(series[0].data).toHaveLength(1);
+  });
 });

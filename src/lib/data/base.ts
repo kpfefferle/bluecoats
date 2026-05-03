@@ -1,7 +1,8 @@
 export interface Score {
   date: string;
   location: string;
-  score: number;
+  // null means the event is scheduled but has not yet been competed
+  score: number | null;
 }
 
 export interface SeasonScores {

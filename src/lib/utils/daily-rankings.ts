@@ -5,7 +5,7 @@ export interface DailyRankingsItem {
   daysOld: number;
   location: Score['location'];
   rank: number;
-  score: Score['score'];
+  score: number;
   year: SeasonScores['year'];
 }
 
@@ -15,6 +15,7 @@ function rankingsItemForSelectedDay(
 ): Omit<DailyRankingsItem, 'rank'> | undefined {
   const finalsDateTime = DateTime.fromISO(season.endDate);
   const scores = season.scores.filter((score) => {
+    if (score.score === null) return false;
     const scoreDateTime = DateTime.fromISO(score.date);
     const daysToFinals = Math.ceil(
       finalsDateTime.diff(scoreDateTime, 'days').days,
@@ -22,7 +23,7 @@ function rankingsItemForSelectedDay(
     return daysToFinals >= selectedDay;
   });
   const latestScore = scores.at(-1);
-  if (latestScore === undefined) return undefined;
+  if (latestScore === undefined || latestScore.score === null) return undefined;
   return {
     daysOld:
       Math.ceil(
@@ -52,24 +53,30 @@ export function buildDailyRankings(
   });
 }
 
-export function currentDayUntilFinals(seasons: SeasonScores[]): number {
-  const latestSeason = seasons.at(-1);
-  if (!latestSeason) return 0;
-  const latestFinalsDate = DateTime.fromISO(latestSeason.endDate);
+export function currentDayUntilFinals(
+  seasons: SeasonScores[],
+  maxDay: number,
+): number {
   const now = DateTime.now();
-  if (now > latestFinalsDate) return 0;
-  return Math.ceil(latestFinalsDate.diff(now, 'days').days);
+  const upcomingFinals = seasons
+    .map((season) => DateTime.fromISO(season.endDate))
+    .filter((finalsDate) => finalsDate >= now)
+    .sort((a, b) => a.toMillis() - b.toMillis())[0];
+  if (!upcomingFinals) return 0;
+  const days = Math.ceil(upcomingFinals.diff(now, 'days').days);
+  return days > maxDay ? 0 : days;
 }
 
 export function maxDayBeforeFinals(seasons: SeasonScores[]): number {
   const seasonDays = seasons
     .map((season) => {
-      const firstScore = season.scores[0];
-      if (!firstScore) return undefined;
-      const firstScoreDate = DateTime.fromISO(firstScore.date);
+      const firstScored = season.scores.find((score) => score.score !== null);
+      if (!firstScored) return undefined;
+      const firstScoreDate = DateTime.fromISO(firstScored.date);
       const finalsDate = DateTime.fromISO(season.endDate);
       return finalsDate.diff(firstScoreDate, 'days').days;
     })
     .filter((days): days is number => days !== undefined);
+  if (seasonDays.length === 0) return 0;
   return Math.max(...seasonDays);
 }
