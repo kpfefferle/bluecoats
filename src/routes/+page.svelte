@@ -7,7 +7,7 @@
   import PageHeader from '$components/shared/PageHeader.svelte';
   import SeasonScoresChart from '$components/score-history/SeasonScoresChart.svelte';
   import SeasonSelect from '$components/score-history/SeasonSelect.svelte';
-  import { ALL_SEASONS } from '$data';
+  import { POPULATED_SEASONS } from '$data';
   import { setParam } from '$lib/utils/url-state';
 
   const yearsParam = $derived(
@@ -42,7 +42,7 @@
     <Card>
       <div class="grid grid-cols-1 gap-4">
         <SeasonSelect
-          seasonScores={ALL_SEASONS}
+          seasonScores={POPULATED_SEASONS}
           {selectedYears}
           onChange={onSelectedYearsChange}
         />
@@ -52,7 +52,7 @@
     <Card>
       <div class="flex min-h-svh flex-col overflow-x-auto">
         <SeasonScoresChart
-          seasonScores={ALL_SEASONS}
+          seasonScores={POPULATED_SEASONS}
           {selectedYears}
           {fitAllSeasons}
         />

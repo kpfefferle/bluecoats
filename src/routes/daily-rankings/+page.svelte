@@ -6,7 +6,7 @@
   import Table from '$components/daily-rankings/Table.svelte';
   import PageContent from '$components/shared/PageContent.svelte';
   import PageHeader from '$components/shared/PageHeader.svelte';
-  import { ALL_SEASONS } from '$data';
+  import { ALL_SEASONS_INCLUDING_SCHEDULED, POPULATED_SEASONS } from '$data';
   import {
     buildDailyRankings,
     currentDayUntilFinals,
@@ -14,14 +14,16 @@
   } from '$lib/utils/daily-rankings';
   import { setParam } from '$lib/utils/url-state';
 
-  const currentDay = $derived(currentDayUntilFinals(ALL_SEASONS));
+  const maxDay = $derived(maxDayBeforeFinals(POPULATED_SEASONS));
+  const currentDay = $derived(
+    currentDayUntilFinals(ALL_SEASONS_INCLUDING_SCHEDULED, maxDay),
+  );
   const dayParam = $derived(browser ? page.url.searchParams.get('day') : null);
   const selectedDay = $derived.by(() => {
     const raw = dayParam !== null ? Number(dayParam) : currentDay;
     return raw >= 0 ? raw : 0;
   });
-  const maxDay = $derived(maxDayBeforeFinals(ALL_SEASONS));
-  const rankings = $derived(buildDailyRankings(ALL_SEASONS, selectedDay));
+  const rankings = $derived(buildDailyRankings(POPULATED_SEASONS, selectedDay));
 
   const subtitle = $derived(
     selectedDay === 0

@@ -99,6 +99,36 @@ describe('buildDailyRankings', () => {
     const ranked = buildDailyRankings([SEASON_2024], 0);
     expect(ranked[0].daysOld).toBe(0);
   });
+
+  it('ignores scheduled entries (no score field)', () => {
+    const partial: SeasonScores = {
+      year: '2026',
+      endDate: '2026-08-08',
+      scores: [
+        { date: '2026-07-25', location: 'Atlanta, GA', score: 88.0 },
+        { date: '2026-08-08', location: 'Indianapolis, IN' },
+      ],
+    };
+    const ranked = buildDailyRankings([partial], 0);
+    expect(ranked).toHaveLength(1);
+    expect(ranked[0].score).toBe(88.0);
+    expect(ranked[0].location).toBe('Atlanta, GA');
+  });
+
+  it('ignores exhibition entries (score: null)', () => {
+    const exhibitionSeason: SeasonScores = {
+      year: '2026',
+      endDate: '2026-08-08',
+      scores: [
+        { date: '2026-07-04', location: 'Hometown, OH', score: null },
+        { date: '2026-07-25', location: 'Atlanta, GA', score: 88.0 },
+      ],
+    };
+    const ranked = buildDailyRankings([exhibitionSeason], 0);
+    expect(ranked).toHaveLength(1);
+    expect(ranked[0].score).toBe(88.0);
+    expect(ranked[0].location).toBe('Atlanta, GA');
+  });
 });
 
 describe('currentDayUntilFinals', () => {
@@ -110,18 +140,70 @@ describe('currentDayUntilFinals', () => {
   });
 
   it('returns 0 when there are no seasons', () => {
-    expect(currentDayUntilFinals([])).toBe(0);
+    expect(currentDayUntilFinals([], 60)).toBe(0);
   });
 
-  it('returns 0 when the latest finals date has passed', () => {
+  it('returns 0 when every finals date has passed', () => {
     vi.setSystemTime(new Date('2025-09-01T12:00:00Z'));
-    expect(currentDayUntilFinals([SEASON_2025])).toBe(0);
+    expect(currentDayUntilFinals([SEASON_2025], 60)).toBe(0);
   });
 
-  it('returns the days remaining until the latest finals', () => {
+  it('returns the days remaining until the next upcoming finals', () => {
     // 30 days before 2025-08-09 → 2025-07-10
     vi.setSystemTime(new Date('2025-07-10T12:00:00Z'));
-    expect(currentDayUntilFinals([SEASON_2025])).toBe(30);
+    expect(currentDayUntilFinals([SEASON_2025], 60)).toBe(30);
+  });
+
+  it('pivots to the next season once the prior finals has passed', () => {
+    const SEASON_2026: SeasonScores = {
+      year: '2026',
+      endDate: '2026-08-08',
+      scores: [],
+    };
+    // 30 days before 2026-08-08 → 2026-07-09
+    vi.setSystemTime(new Date('2026-07-09T12:00:00Z'));
+    expect(currentDayUntilFinals([SEASON_2025, SEASON_2026], 60)).toBe(30);
+  });
+
+  it('falls back to 0 when the next finals is further away than maxDay', () => {
+    const SEASON_2026: SeasonScores = {
+      year: '2026',
+      endDate: '2026-08-08',
+      scores: [],
+    };
+    // Off-season: 2025 finals just passed, 2026 finals is ~360 days out.
+    vi.setSystemTime(new Date('2025-08-15T12:00:00Z'));
+    expect(currentDayUntilFinals([SEASON_2025, SEASON_2026], 60)).toBe(0);
+  });
+
+  it('returns 0 on the exact finals date', () => {
+    // Midnight at the start of finals day — diff is ~0 days, ceil to 0.
+    vi.setSystemTime(new Date('2025-08-09T00:00:00Z'));
+    expect(currentDayUntilFinals([SEASON_2025], 60)).toBe(0);
+  });
+
+  it('picks the earliest upcoming finals when multiple are in the future', () => {
+    const SEASON_2026: SeasonScores = {
+      year: '2026',
+      endDate: '2026-08-08',
+      scores: [],
+    };
+    const SEASON_2027: SeasonScores = {
+      year: '2027',
+      endDate: '2027-08-14',
+      scores: [],
+    };
+    // 30 days before 2026-08-08; 2027 finals is much further out.
+    vi.setSystemTime(new Date('2026-07-09T12:00:00Z'));
+    expect(
+      currentDayUntilFinals([SEASON_2025, SEASON_2026, SEASON_2027], 60),
+    ).toBe(30);
+  });
+
+  it('falls back to 0 when maxDay is 0', () => {
+    // No populated seasons → maxDay is 0; any future finals exceeds the bound.
+    vi.setSystemTime(new Date('2025-07-10T12:00:00Z'));
+    expect(currentDayUntilFinals([SEASON_2025], 0)).toBe(0);
   });
 });
 
@@ -142,5 +224,49 @@ describe('maxDayBeforeFinals', () => {
       scores: [],
     };
     expect(maxDayBeforeFinals([empty, SEASON_2025])).toBe(28);
+  });
+
+  it('ignores trailing scheduled entries', () => {
+    const partial: SeasonScores = {
+      year: '2026',
+      endDate: '2026-08-08',
+      scores: [
+        { date: '2026-07-25', location: 'Atlanta, GA', score: 90.0 },
+        { date: '2026-08-08', location: 'Indianapolis, IN' },
+      ],
+    };
+    // Should measure from 2026-07-25 (14 days).
+    expect(maxDayBeforeFinals([partial])).toBe(14);
+  });
+
+  it('skips leading exhibition entries to find the first scored event', () => {
+    const exhibitionSeason: SeasonScores = {
+      year: '2026',
+      endDate: '2026-08-08',
+      scores: [
+        { date: '2026-06-15', location: 'Hometown, OH', score: null },
+        { date: '2026-07-25', location: 'Atlanta, GA', score: 90.0 },
+      ],
+    };
+    // Should measure from 2026-07-25 (14 days), not the 6/15 exhibition.
+    expect(maxDayBeforeFinals([exhibitionSeason])).toBe(14);
+  });
+
+  it('returns 0 when a season has only scheduled entries', () => {
+    const empty: SeasonScores = {
+      year: '2026',
+      endDate: '2026-08-08',
+      scores: [{ date: '2026-08-08', location: 'Indianapolis, IN' }],
+    };
+    expect(maxDayBeforeFinals([empty])).toBe(0);
+  });
+
+  it('returns 0 when a season has only exhibition entries', () => {
+    const exhibitionsOnly: SeasonScores = {
+      year: '2026',
+      endDate: '2026-08-08',
+      scores: [{ date: '2026-07-04', location: 'Hometown, OH', score: null }],
+    };
+    expect(maxDayBeforeFinals([exhibitionsOnly])).toBe(0);
   });
 });
