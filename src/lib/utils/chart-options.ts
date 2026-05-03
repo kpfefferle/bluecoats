@@ -94,7 +94,7 @@ function xAxisMin(seasons: SeasonScores[]): number {
       const firstDate = DateTime.fromISO(firstScored.date);
       return finalDate.diff(firstDate, 'days').days;
     })
-    .filter(Boolean) as number[];
+    .filter(Boolean);
   if (lengths.length === 0) return X_AXIS_OPTION_MIN;
   const longest = Math.max(...lengths);
   const weeks = Math.ceil(longest / 7);
@@ -104,7 +104,7 @@ function xAxisMin(seasons: SeasonScores[]): number {
 function yAxisMin(seasons: SeasonScores[]): number {
   const scores = seasons.flatMap((season) =>
     season.scores.map(({ score }) => score).filter(Boolean),
-  ) as number[];
+  );
   if (scores.length === 0) return Y_AXIS_OPTION_MIN;
   const minScore = Math.min(...scores);
   return Math.floor(minScore / 10) * 10;
