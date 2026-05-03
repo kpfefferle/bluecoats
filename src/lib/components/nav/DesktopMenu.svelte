@@ -11,7 +11,7 @@
     {@const active = page.route.id === item.href}
     <a
       href={resolve(item.href)}
-      class="rounded-md px-3 py-1.5 text-[13.5px] font-medium transition-colors {active
+      class="rounded-md px-3 py-1.5 text-[0.84375rem] font-medium transition-colors {active
         ? 'bg-white/10 text-white'
         : 'text-white/70 hover:bg-white/5 hover:text-white'}"
       aria-current={active ? 'page' : undefined}

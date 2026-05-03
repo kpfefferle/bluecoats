@@ -11,14 +11,14 @@
 </script>
 
 <nav
-  class="fixed inset-x-0 bottom-0 z-20 grid grid-cols-2 border-t border-gray-200 bg-white/90 px-1 pt-1.5 pb-[calc(0.625rem+env(safe-area-inset-bottom,0px))] backdrop-blur-lg backdrop-saturate-150 md:hidden"
+  class="fixed inset-x-0 bottom-0 z-20 grid grid-cols-2 border-t border-gray-200 bg-white/90 px-1 pt-1.5 pb-[calc(0.625rem+env(safe-area-inset-bottom,0))] backdrop-blur-lg backdrop-saturate-150 md:hidden"
   aria-label="Primary"
 >
   {#each NAV_ITEMS as item (item.href)}
     {@const active = page.route.id === item.href}
     <a
       href={resolve(item.href)}
-      class="flex flex-col items-center gap-0.5 rounded-[10px] px-0.5 py-1.5 text-[10px] font-semibold whitespace-nowrap {active
+      class="flex flex-col items-center gap-0.5 rounded-[0.625rem] px-0.5 py-1.5 text-[0.625rem] font-semibold whitespace-nowrap {active
         ? 'text-brand-600'
         : 'text-gray-500'}"
       aria-current={active ? 'page' : undefined}

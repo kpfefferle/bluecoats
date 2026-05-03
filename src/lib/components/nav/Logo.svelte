@@ -8,14 +8,16 @@
   aria-label="Bluecoats Scores — home"
 >
   <span
-    class="from-brand-500 to-brand-600 grid size-9 place-items-center rounded-lg bg-gradient-to-b text-sm font-extrabold tracking-tight text-white shadow-[inset_0_-2px_0_rgba(0,0,0,0.18),0_1px_0_rgba(255,255,255,0.15)]"
+    class="from-brand-500 to-brand-600 grid size-9 place-items-center rounded-lg bg-gradient-to-b text-sm font-extrabold tracking-tight text-white shadow-[inset_0_-0.125rem_0_rgba(0,0,0,0.18),0_0.0625rem_0_rgba(255,255,255,0.15)]"
     aria-hidden="true"
   >
     BC
   </span>
   <span class="flex flex-col leading-[1.05]">
-    <span class="text-[15px] font-bold tracking-tight">Bluecoats Scores</span>
-    <span class="text-[11px] font-medium text-white/60">
+    <span class="text-[0.9375rem] font-bold tracking-tight"
+      >Bluecoats Scores</span
+    >
+    <span class="text-[0.6875rem] font-medium text-white/60">
       Independent fan archive · 1977&ndash;2026
     </span>
   </span>

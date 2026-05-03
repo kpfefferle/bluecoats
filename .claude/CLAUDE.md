@@ -196,3 +196,4 @@ The data module exposes two arrays:
 - Tailwind CSS 4 utility classes; no separate config file.
 - Custom theme tokens (e.g. `--font-sans`) and custom CSS live in `src/app.css`.
 - Root background/height classes (`h-full bg-gray-100`, `h-full font-sans`) are on `<html>`/`<body>` in `src/app.html` — the page header relies on this gray background for visual contrast.
+- **NEVER** use `px` for arbitrary dimensions - always use `rem` (assuming a default of `1rem = 16px`)
