@@ -70,7 +70,7 @@ export function currentDayUntilFinals(
 export function maxDayBeforeFinals(seasons: SeasonScores[]): number {
   const seasonDays = seasons
     .map((season) => {
-      const firstScored = season.scores.find((score) => score.score !== null);
+      const firstScored = season.scores.find(({ score }) => Boolean(score));
       if (!firstScored) return undefined;
       const firstScoreDate = DateTime.fromISO(firstScored.date);
       const finalsDate = DateTime.fromISO(season.endDate);

@@ -181,16 +181,16 @@ describe('maxDayBeforeFinals', () => {
     expect(maxDayBeforeFinals([empty, SEASON_2025])).toBe(28);
   });
 
-  it('ignores leading entries whose score is null', () => {
+  it('ignores trailing entries whose score is null', () => {
     const partial: SeasonScores = {
       year: '2026',
       endDate: '2026-08-08',
       scores: [
-        { date: '2026-06-20', location: 'TBD', score: null },
         { date: '2026-07-25', location: 'Atlanta, GA', score: 90.0 },
+        { date: '2026-08-08', location: 'Indianapolis, IN', score: null },
       ],
     };
-    // Should measure from 2026-07-25 (14 days), not 2026-06-20 (49 days).
+    // Should measure from 2026-07-25 (14 days).
     expect(maxDayBeforeFinals([partial])).toBe(14);
   });
 
@@ -198,7 +198,9 @@ describe('maxDayBeforeFinals', () => {
     const empty: SeasonScores = {
       year: '2026',
       endDate: '2026-08-08',
-      scores: [{ date: '2026-06-20', location: 'TBD', score: null }],
+      scores: [
+        { date: '2026-08-08', location: 'Indianapolis, IN', score: null },
+      ],
     };
     expect(maxDayBeforeFinals([empty])).toBe(0);
   });

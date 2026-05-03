@@ -61,8 +61,8 @@ describe('buildChartOption', () => {
       endDate: '2026-08-08',
       color: '#445566',
       scores: [
-        { date: '2026-06-20', location: 'TBD', score: null },
         { date: '2026-07-25', location: 'Atlanta, GA', score: 88.0 },
+        { date: '2026-08-08', location: 'Indianapolis, IN', score: null },
       ],
     };
     const opt = buildChartOption([SEASON_PARTIAL], ['2026'], false);
