@@ -178,7 +178,12 @@ Pure chart-option construction lives in `src/lib/utils/chart-options.ts` (`build
 2. Export `SEASON_[year]` constant with type `SeasonScores`.
 3. Import and add to `ALL_SEASONS_INCLUDING_SCHEDULED` array in `src/lib/data/index.ts`.
 4. Dates should be ISO format (YYYY-MM-DD).
-5. Scores are numeric (decimals allowed). For an upcoming season you can pre-populate `scores` with known schedule entries that have `score: null` — each entry only surfaces in the chart, season select, and daily rankings once it has been assigned a numeric score.
+5. The `score` field is `number | null | undefined`:
+   - **omit** (or `undefined`) — event is on the schedule but has not yet been competed.
+   - **`null`** — event happened but produced no comparable score (e.g. exhibition performances).
+   - **number** — scored competition result (decimals allowed).
+
+   Only numeric-scored entries surface in the chart, season select, and daily rankings; both `null` and `undefined` are filtered out.
 6. `SeasonScores.year` is a **string** (e.g. `"2024"`); do not coerce to number.
 
 The data module exposes two arrays:

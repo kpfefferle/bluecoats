@@ -1,8 +1,10 @@
 export interface Score {
   date: string;
   location: string;
-  // null means the event is scheduled but has not yet been competed
-  score: number | null;
+  // omitted/undefined: scheduled but not yet competed
+  // null:              competed (e.g. exhibition) with no published score
+  // number:            scored competition result
+  score?: number | null;
 }
 
 export interface SeasonScores {

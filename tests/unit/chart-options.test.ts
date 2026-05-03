@@ -55,20 +55,22 @@ describe('buildChartOption', () => {
     expect(yAxis.min).toBe(70);
   });
 
-  it('ignores null-scored entries when computing axis bounds and series data', () => {
+  it('ignores scheduled and exhibition entries when computing axis bounds and series data', () => {
     const SEASON_PARTIAL: SeasonScores = {
       year: '2026',
       endDate: '2026-08-08',
       color: '#445566',
       scores: [
+        { date: '2026-07-04', location: 'Hometown, OH', score: null },
         { date: '2026-07-25', location: 'Atlanta, GA', score: 88.0 },
-        { date: '2026-08-08', location: 'Indianapolis, IN', score: null },
+        { date: '2026-08-08', location: 'Indianapolis, IN' },
       ],
     };
     const opt = buildChartOption([SEASON_PARTIAL], ['2026'], false);
     const xAxis = opt.xAxis as { min: number };
     const yAxis = opt.yAxis as { min: number };
     // First scored is 7/25 → 14 days → ceil(14/7)=2 weeks → -14
+    // (the 7/4 exhibition is ignored even though it's earlier)
     expect(xAxis.min).toBe(-14);
     // Min score 88 → floor(88/10)*10 = 80
     expect(yAxis.min).toBe(80);

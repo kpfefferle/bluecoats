@@ -100,16 +100,31 @@ describe('buildDailyRankings', () => {
     expect(ranked[0].daysOld).toBe(0);
   });
 
-  it('ignores entries whose score is null', () => {
+  it('ignores scheduled entries (no score field)', () => {
     const partial: SeasonScores = {
       year: '2026',
       endDate: '2026-08-08',
       scores: [
         { date: '2026-07-25', location: 'Atlanta, GA', score: 88.0 },
-        { date: '2026-08-08', location: 'Indianapolis, IN', score: null },
+        { date: '2026-08-08', location: 'Indianapolis, IN' },
       ],
     };
     const ranked = buildDailyRankings([partial], 0);
+    expect(ranked).toHaveLength(1);
+    expect(ranked[0].score).toBe(88.0);
+    expect(ranked[0].location).toBe('Atlanta, GA');
+  });
+
+  it('ignores exhibition entries (score: null)', () => {
+    const exhibitionSeason: SeasonScores = {
+      year: '2026',
+      endDate: '2026-08-08',
+      scores: [
+        { date: '2026-07-04', location: 'Hometown, OH', score: null },
+        { date: '2026-07-25', location: 'Atlanta, GA', score: 88.0 },
+      ],
+    };
+    const ranked = buildDailyRankings([exhibitionSeason], 0);
     expect(ranked).toHaveLength(1);
     expect(ranked[0].score).toBe(88.0);
     expect(ranked[0].location).toBe('Atlanta, GA');
@@ -211,27 +226,47 @@ describe('maxDayBeforeFinals', () => {
     expect(maxDayBeforeFinals([empty, SEASON_2025])).toBe(28);
   });
 
-  it('ignores trailing entries whose score is null', () => {
+  it('ignores trailing scheduled entries', () => {
     const partial: SeasonScores = {
       year: '2026',
       endDate: '2026-08-08',
       scores: [
         { date: '2026-07-25', location: 'Atlanta, GA', score: 90.0 },
-        { date: '2026-08-08', location: 'Indianapolis, IN', score: null },
+        { date: '2026-08-08', location: 'Indianapolis, IN' },
       ],
     };
     // Should measure from 2026-07-25 (14 days).
     expect(maxDayBeforeFinals([partial])).toBe(14);
   });
 
-  it('returns 0 when no seasons have any scored entries', () => {
-    const empty: SeasonScores = {
+  it('skips leading exhibition entries to find the first scored event', () => {
+    const exhibitionSeason: SeasonScores = {
       year: '2026',
       endDate: '2026-08-08',
       scores: [
-        { date: '2026-08-08', location: 'Indianapolis, IN', score: null },
+        { date: '2026-06-15', location: 'Hometown, OH', score: null },
+        { date: '2026-07-25', location: 'Atlanta, GA', score: 90.0 },
       ],
     };
+    // Should measure from 2026-07-25 (14 days), not the 6/15 exhibition.
+    expect(maxDayBeforeFinals([exhibitionSeason])).toBe(14);
+  });
+
+  it('returns 0 when a season has only scheduled entries', () => {
+    const empty: SeasonScores = {
+      year: '2026',
+      endDate: '2026-08-08',
+      scores: [{ date: '2026-08-08', location: 'Indianapolis, IN' }],
+    };
     expect(maxDayBeforeFinals([empty])).toBe(0);
+  });
+
+  it('returns 0 when a season has only exhibition entries', () => {
+    const exhibitionsOnly: SeasonScores = {
+      year: '2026',
+      endDate: '2026-08-08',
+      scores: [{ date: '2026-07-04', location: 'Hometown, OH', score: null }],
+    };
+    expect(maxDayBeforeFinals([exhibitionsOnly])).toBe(0);
   });
 });

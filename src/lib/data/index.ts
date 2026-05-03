@@ -110,5 +110,5 @@ export const ALL_SEASONS_INCLUDING_SCHEDULED: SeasonScores[] = [
  */
 export const POPULATED_SEASONS: SeasonScores[] =
   ALL_SEASONS_INCLUDING_SCHEDULED.filter((season) =>
-    season.scores.some((score) => score.score !== null),
+    season.scores.some((score) => typeof score.score === 'number'),
   );
