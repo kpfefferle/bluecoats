@@ -160,6 +160,36 @@ describe('currentDayUntilFinals', () => {
     vi.setSystemTime(new Date('2025-08-15T12:00:00Z'));
     expect(currentDayUntilFinals([SEASON_2025, SEASON_2026], 60)).toBe(0);
   });
+
+  it('returns 0 on the exact finals date', () => {
+    // Midnight at the start of finals day — diff is ~0 days, ceil to 0.
+    vi.setSystemTime(new Date('2025-08-09T00:00:00Z'));
+    expect(currentDayUntilFinals([SEASON_2025], 60)).toBe(0);
+  });
+
+  it('picks the earliest upcoming finals when multiple are in the future', () => {
+    const SEASON_2026: SeasonScores = {
+      year: '2026',
+      endDate: '2026-08-08',
+      scores: [],
+    };
+    const SEASON_2027: SeasonScores = {
+      year: '2027',
+      endDate: '2027-08-14',
+      scores: [],
+    };
+    // 30 days before 2026-08-08; 2027 finals is much further out.
+    vi.setSystemTime(new Date('2026-07-09T12:00:00Z'));
+    expect(
+      currentDayUntilFinals([SEASON_2025, SEASON_2026, SEASON_2027], 60),
+    ).toBe(30);
+  });
+
+  it('falls back to 0 when maxDay is 0', () => {
+    // No populated seasons → maxDay is 0; any future finals exceeds the bound.
+    vi.setSystemTime(new Date('2025-07-10T12:00:00Z'));
+    expect(currentDayUntilFinals([SEASON_2025], 0)).toBe(0);
+  });
 });
 
 describe('maxDayBeforeFinals', () => {

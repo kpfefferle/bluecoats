@@ -47,7 +47,15 @@ import { SEASON_2024 } from './seasons/2024';
 import { SEASON_2025 } from './seasons/2025';
 import { SEASON_2026 } from './seasons/2026';
 
-export const ALL_SEASONS: SeasonScores[] = [
+/**
+ * Every known season, including upcoming ones whose `scores` array is empty
+ * or contains only schedule entries (`score: null`). Reserved for
+ * forward-looking computations like locating the next upcoming finals date.
+ *
+ * For anything that renders scores (charts, dropdowns, rankings) use
+ * {@link POPULATED_SEASONS} instead.
+ */
+export const ALL_SEASONS_INCLUDING_SCHEDULED: SeasonScores[] = [
   SEASON_1977,
   SEASON_1978,
   SEASON_1980,
@@ -96,6 +104,11 @@ export const ALL_SEASONS: SeasonScores[] = [
   SEASON_2026,
 ];
 
-export const POPULATED_SEASONS: SeasonScores[] = ALL_SEASONS.filter((season) =>
-  season.scores.some((score) => score.score !== null),
-);
+/**
+ * Seasons with at least one scored entry. Use this for any UI that displays
+ * scores — chart, season select, daily rankings.
+ */
+export const POPULATED_SEASONS: SeasonScores[] =
+  ALL_SEASONS_INCLUDING_SCHEDULED.filter((season) =>
+    season.scores.some((score) => score.score !== null),
+  );
