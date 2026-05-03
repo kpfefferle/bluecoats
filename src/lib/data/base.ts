@@ -1,9 +1,11 @@
 export interface Score {
   date: string;
   location: string;
-  // omitted/undefined: scheduled but not yet competed
-  // null:              competed (e.g. exhibition) with no published score
-  // number:            scored competition result
+  /**
+   * - omitted/`undefined` — scheduled but not yet competed
+   * - `null` — competed (e.g. exhibition) with no published score
+   * - `number` — scored competition result
+   */
   score?: number | null;
 }
 
