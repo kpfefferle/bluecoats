@@ -2,6 +2,13 @@
 
 @theme {
   --font-sans: InterVariable, sans-serif;
+  --color-navy-950: #050a18;
+  --color-navy-900: #0a1531;
+  --color-navy-800: #142450;
+  --color-brand-300: #9ab8ff;
+  --color-brand-400: #5b8bff;
+  --color-brand-500: #2f6cff;
+  --color-brand-600: #1d57e8;
 }
 
 input[type="range"] {

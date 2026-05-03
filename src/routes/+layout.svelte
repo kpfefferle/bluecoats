@@ -10,7 +10,7 @@
   <title>Bluecoats Scores</title>
 </svelte:head>
 
-<div class="min-h-full">
+<div class="min-h-full pb-[calc(64px+env(safe-area-inset-bottom,0px))] md:pb-0">
   <NavigationBar />
   {@render children()}
 </div>

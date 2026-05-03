@@ -1,28 +1,26 @@
 <script lang="ts">
   import { NAV_ITEMS } from './types';
   import DesktopMenu from './DesktopMenu.svelte';
+  import FinalsPill from './FinalsPill.svelte';
   import Logo from './Logo.svelte';
-  import MobileMenu from './MobileMenu.svelte';
-  import MobileMenuToggle from './MobileMenuToggle.svelte';
-
-  let isMobileMenuOpen = $state(false);
+  import MobileTabBar from './MobileTabBar.svelte';
 </script>
 
-<nav class="bg-blue-600">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex h-16 items-center justify-between">
-      <div class="flex items-center">
-        <Logo />
-        <DesktopMenu navItems={NAV_ITEMS} />
-      </div>
-      <MobileMenuToggle bind:isMobileMenuOpen />
+<header class="bg-navy-900 border-b border-white/5 text-white">
+  <div
+    class="mx-auto flex max-w-[1200px] items-center gap-4 px-4 py-3 md:gap-7 md:px-6 md:py-3.5"
+  >
+    <Logo />
+    <DesktopMenu navItems={NAV_ITEMS} />
+    <div class="flex-1"></div>
+    <div class="hidden items-center gap-4 text-[12.5px] text-white/60 md:flex">
+      <span>2026 season</span>
+      <FinalsPill />
+    </div>
+    <div class="md:hidden">
+      <FinalsPill />
     </div>
   </div>
+</header>
 
-  {#if isMobileMenuOpen}
-    <MobileMenu
-      navItems={NAV_ITEMS}
-      onNavigate={() => (isMobileMenuOpen = false)}
-    />
-  {/if}
-</nav>
+<MobileTabBar />
