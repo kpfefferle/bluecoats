@@ -4,6 +4,9 @@
   import FinalsPill from './FinalsPill.svelte';
   import Logo from './Logo.svelte';
   import MobileTabBar from './MobileTabBar.svelte';
+  import { nextFinalsSeason } from '$lib/utils/days-to-finals';
+
+  const seasonYear = nextFinalsSeason()?.year;
 </script>
 
 <header class="bg-navy-900 border-b border-white/5 text-white">
@@ -16,10 +19,9 @@
     <div
       class="hidden items-center gap-4 text-[0.78125rem] text-white/60 md:flex"
     >
-      <span>2026 season</span>
-      <FinalsPill />
-    </div>
-    <div class="md:hidden">
+      {#if seasonYear}
+        <span>{seasonYear} season</span>
+      {/if}
       <FinalsPill />
     </div>
   </div>

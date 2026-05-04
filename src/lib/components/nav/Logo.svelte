@@ -1,5 +1,9 @@
 <script lang="ts">
   import { resolve } from '$app/paths';
+  import { daysToFinals, nextFinalsSeason } from '$lib/utils/days-to-finals';
+
+  const seasonYear = nextFinalsSeason()?.year;
+  const days = daysToFinals();
 </script>
 
 <a
@@ -14,11 +18,22 @@
     BC
   </span>
   <span class="flex flex-col leading-[1.05]">
-    <span class="text-[0.9375rem] font-bold tracking-tight"
-      >Bluecoats Scores</span
-    >
-    <span class="text-[0.6875rem] font-medium text-white/60">
-      Independent fan archive · 1977&ndash;2026
+    <span class="text-[0.9375rem] font-bold tracking-tight">
+      Bluecoats Scores
+    </span>
+    {#if seasonYear}
+      <span class="text-[0.6875rem] font-medium text-white/60 md:hidden">
+        {seasonYear} season ·
+        {#if days > 0}
+          {days}
+          {days === 1 ? 'day' : 'days'} to Finals
+        {:else}
+          Finals day
+        {/if}
+      </span>
+    {/if}
+    <span class="hidden text-[0.6875rem] font-medium text-white/60 md:inline">
+      Independent alumni archive · 1977&ndash;2026
     </span>
   </span>
 </a>
