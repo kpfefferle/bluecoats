@@ -9,7 +9,9 @@
   const seasonYear = nextFinalsSeason()?.year;
 </script>
 
-<header class="bg-navy-900 border-b border-white/5 text-white">
+<header
+  class="bg-navy-900 sticky top-0 z-30 border-b border-white/5 pt-[env(safe-area-inset-top,0)] text-white"
+>
   <div
     class="mx-auto flex max-w-300 items-center gap-4 px-4 py-3 md:gap-7 md:px-6 md:py-3.5"
   >
