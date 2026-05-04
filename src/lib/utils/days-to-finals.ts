@@ -1,4 +1,5 @@
 import { DateTime } from 'luxon';
+import { browser } from '$app/environment';
 import type { SeasonScores } from '$data/base';
 import { ALL_SEASONS_INCLUDING_SCHEDULED } from '$data';
 
@@ -30,4 +31,12 @@ export function daysToFinals(
   const today = now.startOf('day');
   const finalsDate = DateTime.fromISO(next.endDate, { zone: FINALS_ZONE });
   return Math.max(0, Math.ceil(finalsDate.diff(today, 'days').days));
+}
+
+// Returns the live day count when running in the browser, or null when
+// rendering server-side. Use this instead of daysToFinals() in any component
+// whose markup is prerendered, so the build snapshot doesn't bake in a
+// stale value.
+export function liveDaysToFinals(): number | null {
+  return browser ? daysToFinals() : null;
 }

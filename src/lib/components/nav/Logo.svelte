@@ -1,12 +1,14 @@
 <script lang="ts">
-  import { browser } from '$app/environment';
   import { resolve } from '$app/paths';
-  import { daysToFinals, nextFinalsSeason } from '$lib/utils/days-to-finals';
+  import {
+    liveDaysToFinals,
+    nextFinalsSeason,
+  } from '$lib/utils/days-to-finals';
   import { POPULATED_SEASONS } from '$data';
   import FinalsCountdown from './FinalsCountdown.svelte';
 
   const seasonYear = nextFinalsSeason()?.year;
-  const days = browser ? daysToFinals() : null;
+  const days = liveDaysToFinals();
   const firstYear = POPULATED_SEASONS[0]?.year;
   const lastYear = POPULATED_SEASONS.at(-1)?.year;
 </script>
@@ -41,7 +43,7 @@
         {seasonYear} season
         {#if days !== null}
           ·
-          <FinalsCountdown {days} />
+          <FinalsCountdown />
         {/if}
       </span>
     {/if}
