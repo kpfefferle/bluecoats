@@ -4,7 +4,7 @@
   import { NAV_ITEMS } from './types';
 </script>
 
-<nav class="ml-4 hidden items-center gap-1 md:flex">
+<nav aria-label="Primary" class="ml-4 hidden items-center gap-1 md:flex">
   {#each NAV_ITEMS as item (item.href)}
     {@const active = page.route.id === item.href}
     <a

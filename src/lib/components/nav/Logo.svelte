@@ -1,10 +1,11 @@
 <script lang="ts">
+  import { browser } from '$app/environment';
   import { resolve } from '$app/paths';
   import { daysToFinals, nextFinalsSeason } from '$lib/utils/days-to-finals';
   import { POPULATED_SEASONS } from '$data';
 
   const seasonYear = nextFinalsSeason()?.year;
-  const days = daysToFinals();
+  const days = browser ? daysToFinals() : null;
   const firstYear = POPULATED_SEASONS[0]?.year;
   const lastYear = POPULATED_SEASONS.at(-1)?.year;
 </script>
@@ -36,12 +37,15 @@
     </span>
     {#if seasonYear}
       <span class="text-[0.6875rem] font-medium text-white/60 md:hidden">
-        {seasonYear} season ·
-        {#if days > 0}
-          {days}
-          {days === 1 ? 'day' : 'days'} to Finals
-        {:else}
-          Finals day
+        {seasonYear} season
+        {#if days !== null}
+          ·
+          {#if days > 0}
+            {days}
+            {days === 1 ? 'day' : 'days'} to Finals
+          {:else}
+            Finals day
+          {/if}
         {/if}
       </span>
     {/if}
