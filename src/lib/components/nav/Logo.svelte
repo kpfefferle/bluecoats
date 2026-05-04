@@ -3,6 +3,7 @@
   import { resolve } from '$app/paths';
   import { daysToFinals, nextFinalsSeason } from '$lib/utils/days-to-finals';
   import { POPULATED_SEASONS } from '$data';
+  import FinalsCountdown from './FinalsCountdown.svelte';
 
   const seasonYear = nextFinalsSeason()?.year;
   const days = browser ? daysToFinals() : null;
@@ -40,12 +41,7 @@
         {seasonYear} season
         {#if days !== null}
           ·
-          {#if days > 0}
-            {days}
-            {days === 1 ? 'day' : 'days'} to Finals
-          {:else}
-            Finals day
-          {/if}
+          <FinalsCountdown {days} />
         {/if}
       </span>
     {/if}
