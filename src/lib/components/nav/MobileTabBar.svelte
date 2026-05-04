@@ -11,7 +11,7 @@
 </script>
 
 <nav
-  class="fixed inset-x-0 bottom-0 z-20 grid grid-cols-2 border-t border-gray-200 bg-white/90 px-1 pt-1.5 pb-[calc(0.625rem+env(safe-area-inset-bottom,0))] backdrop-blur-lg backdrop-saturate-150 md:hidden"
+  class="grid grid-cols-2 border-t border-gray-200 bg-white/90 px-1 pt-1.5 pb-[calc(0.625rem+env(safe-area-inset-bottom,0))] backdrop-blur-lg backdrop-saturate-150 md:hidden"
   aria-label="Primary"
 >
   {#each NAV_ITEMS as item (item.href)}
