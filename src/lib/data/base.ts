@@ -1,6 +1,7 @@
 export interface Score {
   date: string;
   location: string;
+  name?: string;
   /**
    * - omitted/`undefined` — scheduled but not yet competed
    * - `null` — competed (e.g. exhibition) with no published score
