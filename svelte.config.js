@@ -13,8 +13,9 @@ const config = {
       entries: ['*'],
     },
     alias: {
-      $data: 'src/lib/data',
       $components: 'src/lib/components',
+      $data: 'src/lib/data',
+      $src: 'src',
     },
   },
 };

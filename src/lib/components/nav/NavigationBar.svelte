@@ -1,28 +1,28 @@
 <script lang="ts">
-  import { NAV_ITEMS } from './types';
   import DesktopMenu from './DesktopMenu.svelte';
+  import FinalsPill from './FinalsPill.svelte';
   import Logo from './Logo.svelte';
-  import MobileMenu from './MobileMenu.svelte';
-  import MobileMenuToggle from './MobileMenuToggle.svelte';
+  import { nextFinalsSeason } from '$lib/utils/days-to-finals';
 
-  let isMobileMenuOpen = $state(false);
+  const seasonYear = nextFinalsSeason()?.year;
 </script>
 
-<nav class="bg-blue-600">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex h-16 items-center justify-between">
-      <div class="flex items-center">
-        <Logo />
-        <DesktopMenu navItems={NAV_ITEMS} />
-      </div>
-      <MobileMenuToggle bind:isMobileMenuOpen />
+<header
+  class="bg-navy-900 border-b border-white/5 pt-[env(safe-area-inset-top,0)] text-white"
+>
+  <div
+    class="mx-auto flex max-w-300 items-center gap-4 px-4 py-3 md:gap-7 md:px-6 md:py-3.5"
+  >
+    <Logo />
+    <DesktopMenu />
+    <div class="flex-1"></div>
+    <div
+      class="hidden items-center gap-4 text-[0.78125rem] text-white/60 md:flex"
+    >
+      {#if seasonYear}
+        <span>{seasonYear} season</span>
+      {/if}
+      <FinalsPill />
     </div>
   </div>
-
-  {#if isMobileMenuOpen}
-    <MobileMenu
-      navItems={NAV_ITEMS}
-      onNavigate={() => (isMobileMenuOpen = false)}
-    />
-  {/if}
-</nav>
+</header>

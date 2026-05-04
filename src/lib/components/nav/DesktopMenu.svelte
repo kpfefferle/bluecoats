@@ -1,23 +1,20 @@
 <script lang="ts">
   import { resolve } from '$app/paths';
   import { page } from '$app/state';
-  import type { NavItem } from './types';
-
-  let { navItems }: { navItems: ReadonlyArray<NavItem> } = $props();
+  import { NAV_ITEMS } from './types';
 </script>
 
-<div class="hidden md:block">
-  <div class="ml-10 flex items-baseline space-x-4">
-    {#each navItems as item (item.href)}
-      <a
-        href={resolve(item.href)}
-        class="rounded-md px-3 py-2 text-sm font-medium text-white {page.route
-          .id === item.href
-          ? 'bg-blue-700 hover:!bg-blue-700'
-          : 'hover:bg-blue-500/75'}"
-      >
-        {item.label}
-      </a>
-    {/each}
-  </div>
-</div>
+<nav aria-label="Primary" class="ml-4 hidden items-center gap-1 md:flex">
+  {#each NAV_ITEMS as item (item.href)}
+    {@const active = page.route.id === item.href}
+    <a
+      href={resolve(item.href)}
+      class="rounded-md px-3 py-1.5 text-[0.84375rem] font-medium transition-colors {active
+        ? 'bg-white/10 text-white'
+        : 'text-white/70 hover:bg-white/5 hover:text-white'}"
+      aria-current={active ? 'page' : undefined}
+    >
+      {item.label}
+    </a>
+  {/each}
+</nav>
