@@ -1,9 +1,12 @@
 <script lang="ts">
   import { resolve } from '$app/paths';
   import { daysToFinals, nextFinalsSeason } from '$lib/utils/days-to-finals';
+  import { POPULATED_SEASONS } from '$data';
 
   const seasonYear = nextFinalsSeason()?.year;
   const days = daysToFinals();
+  const firstYear = POPULATED_SEASONS[0]?.year;
+  const lastYear = POPULATED_SEASONS.at(-1)?.year;
 </script>
 
 <a
@@ -43,7 +46,7 @@
       </span>
     {/if}
     <span class="hidden text-[0.6875rem] font-medium text-white/60 md:inline">
-      Independent alumni archive · 1977&ndash;2026
+      Independent alumni archive · {firstYear}&ndash;{lastYear}
     </span>
   </span>
 </a>
