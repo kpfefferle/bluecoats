@@ -1,13 +1,11 @@
 <script lang="ts">
   import { resolve } from '$app/paths';
   import { page } from '$app/state';
-  import type { NavItem } from './types';
-
-  let { navItems }: { navItems: ReadonlyArray<NavItem> } = $props();
+  import { NAV_ITEMS } from './types';
 </script>
 
 <nav class="ml-4 hidden items-center gap-1 md:flex">
-  {#each navItems as item (item.href)}
+  {#each NAV_ITEMS as item (item.href)}
     {@const active = page.route.id === item.href}
     <a
       href={resolve(item.href)}

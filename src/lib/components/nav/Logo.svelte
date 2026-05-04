@@ -15,7 +15,7 @@
   aria-label="Bluecoats Scores — home"
 >
   <span
-    class="from-brand-500 to-brand-600 grid size-9 place-items-center rounded-lg bg-gradient-to-b text-sm font-extrabold tracking-tight text-white shadow-[inset_0_-0.125rem_0_rgba(0,0,0,0.18),0_0.0625rem_0_rgba(255,255,255,0.15)]"
+    class="from-brand-500 to-brand-600 grid size-9 place-items-center rounded-lg bg-linear-to-b text-sm font-extrabold tracking-tight text-white shadow-[inset_0_-0.125rem_0_rgba(0,0,0,0.18),0_0.0625rem_0_rgba(255,255,255,0.15)]"
     aria-hidden="true"
   >
     <svg
