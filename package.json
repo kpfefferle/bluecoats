@@ -6,6 +6,7 @@
   "license": "MIT",
   "author": "Kevin Pfefferle",
   "type": "module",
+  "packageManager": "pnpm@10.33.0",
   "scripts": {
     "build": "vite build",
     "dev": "vite dev",
