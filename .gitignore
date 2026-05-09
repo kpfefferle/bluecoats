@@ -4,6 +4,7 @@
 # compiled output
 /build/
 /tmp/
+/.wrangler/
 
 # dependencies
 /node_modules/
