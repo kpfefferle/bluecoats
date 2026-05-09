@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a SvelteKit application that displays historical DCI (Drum Corps International) competition scores for the Bluecoats drum and bugle corps. The app visualizes score progression throughout competitive seasons and provides daily ranking data. It is a fully prerendered static SPA deployed to GitHub Pages under the custom domain `bluecoats.pfefferle.me`.
+This is a SvelteKit application that displays historical DCI (Drum Corps International) competition scores for the Bluecoats drum and bugle corps. The app visualizes score progression throughout competitive seasons and provides daily ranking data. It is a fully prerendered static SPA deployed to Cloudflare Pages under the custom domain `bluecoatsscores.com`.
 
 ## Development Commands
 
@@ -42,12 +42,15 @@ This project uses **pnpm** (not npm or yarn). All commands should use `pnpm`.
 
 ### Deployment
 
-Deployment is handled by `.github/workflows/ci.yml` on push to `main`:
+Deployment is handled by Cloudflare Pages via its Git integration. Cloudflare watches the `main` branch and runs `pnpm build` on each push, serving the `.svelte-kit/cloudflare/` output. Cloudflare project settings:
 
-1. Lint + Test jobs run.
-2. Deploy job uses `actions/upload-pages-artifact@v3` + `actions/deploy-pages@v4` to publish `build/` to GitHub Pages.
+- Framework preset: SvelteKit
+- Build command: `pnpm build`
+- Build output directory: `.svelte-kit/cloudflare`
+- Runtime compatibility flag: `nodejs_als`
+- Custom domain: `bluecoatsscores.com` (configured in the Cloudflare Pages dashboard, not via a `static/CNAME` file)
 
-The repo Settings → Pages source must be set to "GitHub Actions". The CNAME is in `static/CNAME`. Because the site serves from a custom domain root, `BASE_PATH` is left empty in CI (do not set it to `/bluecoats`).
+`.github/workflows/ci.yml` only runs lint + test on PRs and `main` — it does not deploy.
 
 ## Svelte MCP Server
 
@@ -100,8 +103,6 @@ src/
     └── daily-rankings/+page.svelte   # Daily Rankings
 
 static/
-├── CNAME                             # bluecoats.pfefferle.me
-├── .nojekyll
 ├── favicon.png
 └── robots.txt
 

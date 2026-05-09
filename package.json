@@ -6,6 +6,7 @@
   "license": "MIT",
   "author": "Kevin Pfefferle",
   "type": "module",
+  "packageManager": "pnpm@10.33.0",
   "scripts": {
     "build": "vite build",
     "dev": "vite dev",
@@ -27,7 +28,7 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.53.0",
-    "@sveltejs/adapter-static": "^3.0.8",
+    "@sveltejs/adapter-cloudflare": "^7.2.8",
     "@sveltejs/kit": "^2.59.1",
     "@sveltejs/vite-plugin-svelte": "^7.1.2",
     "@tailwindcss/vite": "^4.2.4",
