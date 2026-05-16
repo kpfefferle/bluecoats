@@ -100,7 +100,7 @@ src/
     ├── +layout.svelte                # Renders <NavigationBar /> + children
     ├── +layout.ts                    # `export const prerender = true`
     ├── +page.svelte                  # Score History
-    └── daily-rankings/+page.svelte   # Daily Rankings
+    └── daily-ranking/+page.svelte    # Daily ranking
 
 static/
 ├── favicon.png
@@ -148,7 +148,7 @@ Use `resolve()` from `$app/paths` for typed internal links:
   import { resolve } from "$app/paths";
 </script>
 
-<a href={resolve("/daily-rankings")}>Daily Rankings</a>
+<a href={resolve("/daily-ranking")}>Daily ranking</a>
 ```
 
 Direct string `href`s to internal routes will trigger `svelte/no-navigation-without-resolve`.

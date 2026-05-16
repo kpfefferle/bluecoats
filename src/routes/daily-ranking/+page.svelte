@@ -41,10 +41,10 @@
 </script>
 
 <svelte:head>
-  <title>Daily Rankings | Bluecoats Scores</title>
+  <title>Daily ranking | Bluecoats Scores</title>
 </svelte:head>
 
-<PageHeader title="Daily Rankings" {subtitle}>
+<PageHeader title="Daily ranking" {subtitle}>
   {#if selectedDay !== currentDay}
     <button
       onclick={resetToToday}
