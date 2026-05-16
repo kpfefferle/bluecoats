@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon';
 import type { Score, SeasonScores } from '$data/base';
 
-export interface DailyRankingsItem {
+export interface DailyRankingItem {
   daysOld: number;
   location: Score['location'];
   rank: number;
@@ -13,7 +13,7 @@ export interface DailyRankingsItem {
 function rankingsItemForSelectedDay(
   season: SeasonScores,
   selectedDay: number,
-): Omit<DailyRankingsItem, 'rank'> | undefined {
+): Omit<DailyRankingItem, 'rank'> | undefined {
   const finalsDateTime = DateTime.fromISO(season.endDate);
   const scores = season.scores.filter((score) => {
     if (typeof score.score !== 'number') return false;
@@ -42,11 +42,11 @@ function rankingsItemForSelectedDay(
 export function buildDailyRankings(
   seasons: SeasonScores[],
   selectedDay: number,
-): DailyRankingsItem[] {
+): DailyRankingItem[] {
   const sorted = seasons
     .map((season) => rankingsItemForSelectedDay(season, selectedDay))
     .filter(
-      (item): item is Omit<DailyRankingsItem, 'rank'> => item !== undefined,
+      (item): item is Omit<DailyRankingItem, 'rank'> => item !== undefined,
     )
     .sort((a, b) => b.score - a.score);
   return sorted.map((item) => {

@@ -2,8 +2,8 @@
   import { browser } from '$app/environment';
   import { page } from '$app/state';
   import Card from '$components/shared/Card.svelte';
-  import DaySlider from '$components/daily-rankings/DaySlider.svelte';
-  import Table from '$components/daily-rankings/Table.svelte';
+  import DaySlider from '$components/daily-ranking/DaySlider.svelte';
+  import Table from '$components/daily-ranking/Table.svelte';
   import PageContent from '$components/shared/PageContent.svelte';
   import PageHeader from '$components/shared/PageHeader.svelte';
   import { ALL_SEASONS_INCLUDING_SCHEDULED, POPULATED_SEASONS } from '$data';
@@ -11,7 +11,7 @@
     buildDailyRankings,
     currentDayUntilFinals,
     maxDayBeforeFinals,
-  } from '$lib/utils/daily-rankings';
+  } from '$lib/utils/daily-ranking';
   import { setParam } from '$lib/utils/url-state';
 
   const maxDay = $derived(maxDayBeforeFinals(POPULATED_SEASONS));

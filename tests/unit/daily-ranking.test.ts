@@ -3,7 +3,7 @@ import {
   buildDailyRankings,
   currentDayUntilFinals,
   maxDayBeforeFinals,
-} from '../../src/lib/utils/daily-rankings';
+} from '../../src/lib/utils/daily-ranking';
 import type { SeasonScores } from '../../src/lib/data/base';
 
 const SEASON_2023: SeasonScores = {

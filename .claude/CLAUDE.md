@@ -91,11 +91,11 @@ src/
 │   │   ├── nav/{NavigationBar,Logo,DesktopMenu,MobileMenu,MobileMenuToggle}.svelte
 │   │   ├── nav/types.ts              # NavItem type + NAV_ITEMS list
 │   │   ├── shared/{Card,PageContent,PageHeader}.svelte
-│   │   ├── daily-rankings/{Table,DaySlider}.svelte
+│   │   ├── daily-ranking/{Table,DaySlider}.svelte
 │   │   └── score-history/{SeasonScoresChart,SeasonSelect,FitAllToggle}.svelte
 │   ├── data/                         # base.ts, index.ts, seasons/[year].ts
 │   ├── actions/                      # chart.ts (ECharts lifecycle)
-│   └── utils/                        # url-state.ts, ordinal.ts, daily-rankings.ts, chart-options.ts
+│   └── utils/                        # url-state.ts, ordinal.ts, daily-ranking.ts, chart-options.ts
 └── routes/
     ├── +layout.svelte                # Renders <NavigationBar /> + children
     ├── +layout.ts                    # `export const prerender = true`

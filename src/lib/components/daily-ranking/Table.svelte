@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { DailyRankingsItem } from '$lib/utils/daily-rankings';
+  import type { DailyRankingItem } from '$lib/utils/daily-ranking';
   import { ordinalSuffix } from '$lib/utils/ordinal';
 
-  let { rankings }: { rankings: DailyRankingsItem[] } = $props();
+  let { rankings }: { rankings: DailyRankingItem[] } = $props();
 
   const CHAMPIONSHIP_YEARS = new Set(['2016']);
 
