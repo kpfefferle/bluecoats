@@ -4,6 +4,7 @@ export const SEASON_2023: SeasonScores = {
   year: '2023',
   color: '#34d399', // emerald-400
   endDate: '2023-08-12',
+  show: 'The Garden of Love',
   scores: [
     {
       date: '2023-07-05',

@@ -3,6 +3,7 @@ import { type SeasonScores } from '$data/base';
 export const SEASON_2010: SeasonScores = {
   year: '2010',
   endDate: '2010-08-14',
+  show: 'Metropolis: The Future is Now',
   scores: [
     {
       date: '2010-06-21',

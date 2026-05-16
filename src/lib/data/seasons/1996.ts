@@ -3,6 +3,7 @@ import { type SeasonScores } from '$data/base';
 export const SEASON_1996: SeasonScores = {
   year: '1996',
   endDate: '1996-08-17',
+  show: 'American Celebrations',
   scores: [
     {
       date: '1996-06-28',

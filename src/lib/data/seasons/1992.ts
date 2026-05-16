@@ -3,6 +3,7 @@ import { type SeasonScores } from '$data/base';
 export const SEASON_1992: SeasonScores = {
   year: '1992',
   endDate: '1992-08-15',
+  show: 'A Day in the Life',
   scores: [
     {
       date: '1992-06-13',

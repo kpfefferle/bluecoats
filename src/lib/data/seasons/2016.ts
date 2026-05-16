@@ -3,6 +3,7 @@ import { type SeasonScores } from '$data/base';
 export const SEASON_2016: SeasonScores = {
   year: '2016',
   endDate: '2016-08-13',
+  show: 'Down Side Up',
   scores: [
     {
       date: '2016-06-23',
