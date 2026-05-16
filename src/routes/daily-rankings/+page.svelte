@@ -61,6 +61,20 @@
       <DaySlider value={selectedDay} maximum={maxDay} onChange={onDayChange} />
     </Card>
     <Card disablePadding>
+      <div
+        class="flex items-baseline justify-between border-b border-gray-200 px-4 py-4 sm:px-6"
+      >
+        <div>
+          <div class="text-sm font-semibold text-gray-900">
+            Leaderboard at {selectedDay}{selectedDay === 1 ? ' day' : ' days'} before
+            Finals
+          </div>
+          <div class="text-xs text-gray-500">
+            {rankings.length}
+            {rankings.length === 1 ? 'season' : 'seasons'} ranked
+          </div>
+        </div>
+      </div>
       <Table {rankings} />
     </Card>
   </div>
