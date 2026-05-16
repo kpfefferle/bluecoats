@@ -4,6 +4,7 @@ export const SEASON_2022: SeasonScores = {
   year: '2022',
   color: '#ec4899', // pink-500
   endDate: '2022-08-13',
+  show: 'Riffs and Revelations',
   scores: [
     {
       date: '2022-06-28',

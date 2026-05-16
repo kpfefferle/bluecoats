@@ -14,5 +14,6 @@ export interface SeasonScores {
   year: string;
   color?: string;
   endDate: string;
+  show?: string;
   scores: Array<Score>;
 }

@@ -3,6 +3,7 @@ import { type SeasonScores } from '$data/base';
 export const SEASON_1998: SeasonScores = {
   year: '1998',
   endDate: '1998-08-15',
+  show: 'The Four Seasons of Jazz',
   scores: [
     {
       date: '1998-06-23',

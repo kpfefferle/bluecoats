@@ -6,6 +6,7 @@ export interface DailyRankingsItem {
   location: Score['location'];
   rank: number;
   score: number;
+  show: SeasonScores['show'];
   year: SeasonScores['year'];
 }
 
@@ -33,6 +34,7 @@ function rankingsItemForSelectedDay(
       ) - selectedDay,
     location: latestScore.location,
     score: latestScore.score,
+    show: season.show,
     year: season.year,
   };
 }

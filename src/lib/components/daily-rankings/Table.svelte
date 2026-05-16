@@ -26,11 +26,17 @@
         scope="col"
         class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell"
       >
+        Show
+      </th>
+      <th
+        scope="col"
+        class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell"
+      >
         Score
       </th>
       <th
         scope="col"
-        class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+        class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell"
       >
         Location
       </th>
@@ -40,7 +46,7 @@
     {#each rankings as ranking (ranking.year)}
       <tr>
         <td
-          class="py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6"
+          class="w-px py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:w-auto sm:pl-6"
         >
           {#if MEDALS[ranking.rank]}
             <span aria-hidden="true">{MEDALS[ranking.rank]}</span>
@@ -52,10 +58,17 @@
           {/if}
         </td>
         <td
-          class="px-3 py-4 text-sm font-medium whitespace-nowrap text-gray-900"
+          class="w-full max-w-0 px-3 py-4 text-sm text-gray-900 sm:w-auto sm:max-w-none sm:whitespace-nowrap"
         >
-          {ranking.year}
-          <dl class="font-normal md:hidden">
+          <div class="flex items-baseline gap-2">
+            <span class="font-medium">{ranking.year}</span>
+            {#if ranking.show}
+              <span class="min-w-0 truncate text-gray-500 sm:hidden">
+                {ranking.show}
+              </span>
+            {/if}
+          </div>
+          <dl class="font-normal sm:hidden">
             <dt class="sr-only">Score</dt>
             <dd class="mt-1 truncate text-gray-500">{ranking.score}</dd>
           </dl>
@@ -63,9 +76,16 @@
         <td
           class="hidden px-3 py-4 text-sm whitespace-nowrap text-gray-500 sm:table-cell"
         >
+          {ranking.show ?? ''}
+        </td>
+        <td
+          class="hidden px-3 py-4 text-sm whitespace-nowrap text-gray-500 sm:table-cell"
+        >
           {ranking.score}
         </td>
-        <td class="px-3 py-4 text-sm whitespace-nowrap text-gray-500">
+        <td
+          class="hidden px-3 py-4 text-sm whitespace-nowrap text-gray-500 sm:table-cell"
+        >
           {ranking.location}
           {#if ranking.daysOld}
             <div class="text-gray-400">
