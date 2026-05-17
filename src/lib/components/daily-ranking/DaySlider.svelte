@@ -16,9 +16,9 @@
       ? 'Finals night'
       : value < 7
         ? 'last week'
-        : value < 21
+        : value < 14
           ? 'late tour'
-          : value < 42
+          : value < 28
             ? 'mid tour'
             : 'early tour',
   );
