@@ -21,6 +21,22 @@
     return 'bg-gray-100 text-gray-600';
   }
 
+  const MEDAL_LABEL: Record<number, string> = {
+    1: 'DCI World Champion',
+    2: 'DCI Silver Medalist',
+    3: 'DCI Bronze Medalist',
+  };
+  const MEDAL_STAR_CLASS: Record<number, string> = {
+    1: 'text-amber-500',
+    2: 'text-slate-400',
+    3: 'text-orange-400',
+  };
+  const MEDAL_BAR_CLASS: Record<number, string> = {
+    1: 'bg-amber-500',
+    2: 'bg-slate-400',
+    3: 'bg-orange-400',
+  };
+
   function barWidth(score: number) {
     const { max, min } = range;
     if (max === min) return 0;
@@ -54,7 +70,8 @@
   </thead>
   <tbody class="divide-y divide-gray-200 bg-white">
     {#each rankings as ranking (ranking.year)}
-      {@const isChamp = ranking.placement === 1}
+      {@const medal =
+        ranking.placement && ranking.placement <= 3 ? ranking.placement : null}
       <tr class="hover:bg-gray-50">
         <td class="py-3 pr-3 pl-4 align-middle sm:pl-6">
           <span
@@ -74,9 +91,9 @@
           </div>
           {#if ranking.show}
             <div class="mt-0.5 truncate text-xs text-gray-500 sm:hidden">
-              {ranking.show}{#if isChamp}<span
-                  class="ml-1 text-amber-500"
-                  aria-label="DCI World Champion">★</span
+              {ranking.show}{#if medal}<span
+                  class="ml-1 {MEDAL_STAR_CLASS[medal]}"
+                  aria-label={MEDAL_LABEL[medal]}>★</span
                 >{/if}
             </div>
           {/if}
@@ -85,9 +102,10 @@
           class="hidden px-3 py-3 align-middle text-sm whitespace-nowrap text-gray-600 sm:table-cell"
         >
           {ranking.show ?? '—'}
-          {#if isChamp}
-            <span class="ml-1.5 text-amber-500" aria-label="DCI World Champion"
-              >★</span
+          {#if medal}
+            <span
+              class="ml-1.5 {MEDAL_STAR_CLASS[medal]}"
+              aria-label={MEDAL_LABEL[medal]}>★</span
             >
           {/if}
         </td>
@@ -115,8 +133,8 @@
             role="presentation"
           >
             <span
-              class="absolute top-0 bottom-0 left-0 rounded-full {isChamp
-                ? 'bg-amber-500'
+              class="absolute top-0 bottom-0 left-0 rounded-full {medal
+                ? MEDAL_BAR_CLASS[medal]
                 : 'bg-brand-600'}"
               style="width: {barWidth(ranking.score)}%"
             ></span>
