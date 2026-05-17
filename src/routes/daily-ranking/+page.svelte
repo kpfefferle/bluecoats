@@ -54,8 +54,7 @@
       >
         <div>
           <div class="text-sm font-semibold text-gray-900">
-            Leaderboard at {selectedDay}{selectedDay === 1 ? ' day' : ' days'} before
-            Finals
+            {`Leaderboard at ${selectedDay} ${selectedDay === 1 ? 'day' : 'days'} before Finals`}
           </div>
           <div class="text-xs text-gray-500">
             {rankings.length}
