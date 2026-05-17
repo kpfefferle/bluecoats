@@ -14,7 +14,9 @@ test('renders rankings table and slider', async ({ page }) => {
 test('slider updates URL and "Reset to Today" clears it', async ({ page }) => {
   await page.goto('/daily-ranking?day=10');
   await expect(page).toHaveURL(/[?&]day=10\b/);
-  await expect(page.getByText(/10 days before DCI Finals/)).toBeVisible();
+  await expect(
+    page.getByText(/Leaderboard at 10 days before Finals/),
+  ).toBeVisible();
   await page.getByRole('button', { name: 'Reset to Today' }).click();
   await expect(page).not.toHaveURL(/[?&]day=/);
 });

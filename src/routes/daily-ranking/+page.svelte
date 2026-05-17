@@ -25,11 +25,8 @@
   });
   const rankings = $derived(buildDailyRankings(POPULATED_SEASONS, selectedDay));
 
-  const subtitle = $derived(
-    selectedDay === 0
-      ? 'Finals Day'
-      : `${selectedDay} ${selectedDay === 1 ? 'day' : 'days'} before DCI Finals`,
-  );
+  const subtitle =
+    'Where this season stacks up vs. every past Bluecoats season at the same point in the tour.';
 
   function onDayChange(day: number) {
     void setParam('day', day === currentDay ? null : String(day));
