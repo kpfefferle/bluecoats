@@ -39,10 +39,10 @@
       <th scope="col" class="px-3 py-3">Year</th>
       <th scope="col" class="hidden px-3 py-3 sm:table-cell">Show</th>
       <th scope="col" class="hidden px-3 py-3 sm:table-cell">Location</th>
-      <th scope="col" class="hidden px-3 py-3 text-right sm:table-cell">
-        Score
+      <th scope="col" class="px-3 py-3 pr-4 text-right sm:pr-3">Score</th>
+      <th scope="col" class="hidden w-40 px-3 py-3 pr-6 sm:table-cell">
+        Relative
       </th>
-      <th scope="col" class="w-32 px-3 py-3 pr-4 sm:w-40 sm:pr-6">Relative</th>
     </tr>
   </thead>
   <tbody class="divide-y divide-gray-200 bg-white">
@@ -59,31 +59,20 @@
             {ranking.rank}
           </span>
         </td>
-        <td class="px-3 py-3 align-middle">
+        <td
+          class="w-full max-w-0 px-3 py-3 align-middle sm:w-auto sm:max-w-none"
+        >
           <div class="text-sm font-semibold text-gray-900 tabular-nums">
             {ranking.year}
           </div>
-          <div class="sm:hidden">
-            {#if ranking.show}
-              <div class="truncate text-xs text-gray-500">
-                {ranking.show}{#if isChamp}<span
-                    class="ml-1 text-amber-500"
-                    aria-label="DCI World Champion">★</span
-                  >{/if}
-              </div>
-            {/if}
-            <div
-              class="mt-0.5 text-sm font-semibold text-gray-900 tabular-nums"
-            >
-              {ranking.score.toFixed(3)}
+          {#if ranking.show}
+            <div class="mt-0.5 truncate text-xs text-gray-500 sm:hidden">
+              {ranking.show}{#if isChamp}<span
+                  class="ml-1 text-amber-500"
+                  aria-label="DCI World Champion">★</span
+                >{/if}
             </div>
-            {#if ranking.daysOld}
-              <div class="text-xs text-gray-400">
-                {ranking.daysOld}
-                {ranking.daysOld === 1 ? 'day' : 'days'} prior
-              </div>
-            {/if}
-          </div>
+          {/if}
         </td>
         <td
           class="hidden px-3 py-3 align-middle text-sm text-gray-600 sm:table-cell"
@@ -100,20 +89,18 @@
         >
           {ranking.location}
         </td>
-        <td
-          class="hidden px-3 py-3 text-right align-middle tabular-nums sm:table-cell"
-        >
+        <td class="px-3 py-3 pr-4 text-right align-middle tabular-nums sm:pr-3">
           <div class="text-sm font-semibold text-gray-900">
             {ranking.score.toFixed(3)}
           </div>
           {#if ranking.daysOld}
-            <div class="mt-0.5 text-xs text-gray-400">
+            <div class="mt-0.5 text-xs whitespace-nowrap text-gray-400">
               {ranking.daysOld}
               {ranking.daysOld === 1 ? 'day' : 'days'} prior
             </div>
           {/if}
         </td>
-        <td class="px-3 py-3 pr-4 align-middle sm:pr-6">
+        <td class="hidden px-3 py-3 pr-6 align-middle sm:table-cell">
           <div
             class="relative h-1.5 overflow-hidden rounded-full bg-gray-100"
             role="presentation"
