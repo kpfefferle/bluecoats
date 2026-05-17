@@ -33,7 +33,7 @@
 <table class="min-w-full">
   <thead class="bg-gray-50">
     <tr
-      class="text-left text-[11px] font-semibold tracking-wider text-gray-500 uppercase"
+      class="border-b border-gray-200 text-left text-[11px] font-semibold tracking-wider text-gray-500 uppercase"
     >
       <th scope="col" class="w-14 py-3 pr-3 pl-4 sm:pl-6">Rank</th>
       <th scope="col" class="px-3 py-3">Year</th>
@@ -50,7 +50,7 @@
       <tr class="hover:bg-gray-50">
         <td class="py-3 pr-3 pl-4 align-middle sm:pl-6">
           <span
-            class="inline-flex h-6 min-w-[1.75rem] items-center justify-center rounded-md px-1.5 text-xs font-semibold tabular-nums {rankClass(
+            class="inline-flex h-6 min-w-7 items-center justify-center rounded-md px-1.5 text-xs font-semibold tabular-nums {rankClass(
               ranking.rank,
             )}"
             aria-label="{ranking.rank}{ordinalSuffix(ranking.rank)} place"
