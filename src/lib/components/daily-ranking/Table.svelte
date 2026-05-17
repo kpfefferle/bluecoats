@@ -4,8 +4,6 @@
 
   let { rankings }: { rankings: DailyRankingItem[] } = $props();
 
-  const CHAMPIONSHIP_YEARS = new Set(['2016']);
-
   const range = $derived.by(() => {
     if (rankings.length === 0) return { max: 0, min: 0 };
     const max = rankings[0].score;
@@ -56,7 +54,7 @@
   </thead>
   <tbody class="divide-y divide-gray-200 bg-white">
     {#each rankings as ranking (ranking.year)}
-      {@const isChamp = CHAMPIONSHIP_YEARS.has(String(ranking.year))}
+      {@const isChamp = ranking.placement === 1}
       <tr class="hover:bg-gray-50">
         <td class="py-3 pr-3 pl-4 align-middle sm:pl-6">
           <span

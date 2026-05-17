@@ -5,6 +5,7 @@ import { FINALS_ZONE } from './time';
 export interface DailyRankingItem {
   daysOld: number;
   location: Score['location'];
+  placement: SeasonScores['placement'];
   rank: number;
   score: number;
   show: SeasonScores['show'];
@@ -39,6 +40,7 @@ function rankingsItemForSelectedDay(
         ).days,
       ) - selectedDay,
     location: latestScore.location,
+    placement: season.placement,
     score: latestScore.score,
     show: season.show,
     year: season.year,
