@@ -29,12 +29,12 @@
   const MEDAL_STAR_CLASS: Record<number, string> = {
     1: 'text-amber-500',
     2: 'text-slate-400',
-    3: 'text-orange-400',
+    3: 'text-orange-700',
   };
   const MEDAL_BAR_CLASS: Record<number, string> = {
     1: 'bg-amber-500',
     2: 'bg-slate-400',
-    3: 'bg-orange-400',
+    3: 'bg-orange-700',
   };
 
   function barWidth(score: number) {
