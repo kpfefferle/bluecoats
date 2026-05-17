@@ -26,10 +26,10 @@
     2: 'DCI Silver Medalist',
     3: 'DCI Bronze Medalist',
   };
-  const MEDAL_STAR_CLASS: Record<number, string> = {
-    1: 'text-amber-500',
-    2: 'text-slate-400',
-    3: 'text-orange-700',
+  const MEDAL_EMOJI: Record<number, string> = {
+    1: '🥇',
+    2: '🥈',
+    3: '🥉',
   };
   const MEDAL_BAR_CLASS: Record<number, string> = {
     1: 'bg-amber-500',
@@ -92,8 +92,9 @@
           {#if ranking.show}
             <div class="mt-0.5 truncate text-xs text-gray-500 sm:hidden">
               {ranking.show}{#if medal}<span
-                  class="ml-1 {MEDAL_STAR_CLASS[medal]}"
-                  aria-label={MEDAL_LABEL[medal]}>★</span
+                  class="ml-1"
+                  role="img"
+                  aria-label={MEDAL_LABEL[medal]}>{MEDAL_EMOJI[medal]}</span
                 >{/if}
             </div>
           {/if}
@@ -103,9 +104,8 @@
         >
           {ranking.show ?? '—'}
           {#if medal}
-            <span
-              class="ml-1.5 {MEDAL_STAR_CLASS[medal]}"
-              aria-label={MEDAL_LABEL[medal]}>★</span
+            <span class="ml-1.5" role="img" aria-label={MEDAL_LABEL[medal]}
+              >{MEDAL_EMOJI[medal]}</span
             >
           {/if}
         </td>
