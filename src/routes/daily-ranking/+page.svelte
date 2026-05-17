@@ -54,9 +54,9 @@
 </PageHeader>
 <PageContent>
   <div class="grid grid-cols-1 gap-4">
-    <Card>
+    <div class="rounded-xl border border-gray-200 bg-gray-50 px-4 py-5 sm:p-6">
       <DaySlider value={selectedDay} maximum={maxDay} onChange={onDayChange} />
-    </Card>
+    </div>
     <Card disablePadding>
       <div
         class="flex items-baseline justify-between border-b border-gray-200 px-4 py-4 sm:px-6"
