@@ -35,12 +35,21 @@
     <tr
       class="border-b border-gray-200 text-left text-[11px] font-semibold tracking-wider text-gray-500 uppercase"
     >
-      <th scope="col" class="w-14 py-3 pr-3 pl-4 sm:pl-6">Rank</th>
-      <th scope="col" class="px-3 py-3">Year</th>
-      <th scope="col" class="hidden px-3 py-3 sm:table-cell">Show</th>
-      <th scope="col" class="hidden px-3 py-3 sm:table-cell">Location</th>
-      <th scope="col" class="px-3 py-3 pr-4 text-right sm:pr-3">Score</th>
-      <th scope="col" class="hidden w-40 px-3 py-3 pr-6 sm:table-cell">
+      <th scope="col" class="py-3 pr-3 pl-4 whitespace-nowrap sm:pl-6">Rank</th>
+      <th scope="col" class="px-3 py-3 whitespace-nowrap">Year</th>
+      <th scope="col" class="hidden px-3 py-3 whitespace-nowrap sm:table-cell">
+        Show
+      </th>
+      <th scope="col" class="hidden px-3 py-3 whitespace-nowrap sm:table-cell">
+        Location
+      </th>
+      <th
+        scope="col"
+        class="px-3 py-3 pr-4 text-right whitespace-nowrap sm:pr-3"
+      >
+        Score
+      </th>
+      <th scope="col" class="hidden w-full px-3 py-3 pr-6 sm:table-cell">
         Relative
       </th>
     </tr>
@@ -60,7 +69,7 @@
           </span>
         </td>
         <td
-          class="w-full max-w-0 px-3 py-3 align-middle sm:w-auto sm:max-w-none"
+          class="w-full max-w-0 px-3 py-3 align-middle sm:w-auto sm:max-w-none sm:whitespace-nowrap"
         >
           <div class="text-sm font-semibold text-gray-900 tabular-nums">
             {ranking.year}
@@ -75,7 +84,7 @@
           {/if}
         </td>
         <td
-          class="hidden px-3 py-3 align-middle text-sm text-gray-600 sm:table-cell"
+          class="hidden px-3 py-3 align-middle text-sm whitespace-nowrap text-gray-600 sm:table-cell"
         >
           {ranking.show ?? '—'}
           {#if isChamp}
@@ -85,11 +94,13 @@
           {/if}
         </td>
         <td
-          class="hidden px-3 py-3 align-middle text-sm text-gray-600 sm:table-cell"
+          class="hidden px-3 py-3 align-middle text-sm whitespace-nowrap text-gray-600 sm:table-cell"
         >
           {ranking.location}
         </td>
-        <td class="px-3 py-3 pr-4 text-right align-middle tabular-nums sm:pr-3">
+        <td
+          class="px-3 py-3 pr-4 text-right align-middle whitespace-nowrap tabular-nums sm:pr-3"
+        >
           <div class="text-sm font-semibold text-gray-900">
             {ranking.score.toFixed(3)}
           </div>
@@ -100,7 +111,7 @@
             </div>
           {/if}
         </td>
-        <td class="hidden px-3 py-3 pr-6 align-middle sm:table-cell">
+        <td class="hidden w-full px-3 py-3 pr-6 align-middle sm:table-cell">
           <div
             class="relative h-1.5 overflow-hidden rounded-full bg-gray-100"
             role="presentation"
