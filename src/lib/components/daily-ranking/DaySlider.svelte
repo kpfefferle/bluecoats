@@ -15,7 +15,7 @@
     value === 0
       ? 'Finals night'
       : value < 7
-        ? 'last weekend'
+        ? 'last week'
         : value < 21
           ? 'late tour'
           : value < 42
