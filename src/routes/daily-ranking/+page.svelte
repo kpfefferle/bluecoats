@@ -25,9 +25,6 @@
   });
   const rankings = $derived(buildDailyRankings(POPULATED_SEASONS, selectedDay));
 
-  const subtitle =
-    'Where this season stacks up vs. every past Bluecoats season at the same point in the tour.';
-
   function onDayChange(day: number) {
     void setParam('day', day === currentDay ? null : String(day));
   }
@@ -37,17 +34,20 @@
   <title>Daily ranking | Bluecoats Scores</title>
 </svelte:head>
 
-<PageHeader title="Daily ranking" {subtitle} />
+<PageHeader
+  title="Daily ranking"
+  subtitle="Where this season stacks up vs. every past Bluecoats season at the same point in the tour."
+/>
 <PageContent>
   <div class="grid grid-cols-1 gap-4">
-    <div class="rounded-xl border border-gray-200 bg-gray-50 px-4 py-5 sm:p-6">
+    <Card subtle>
       <DaySlider
         value={selectedDay}
         maximum={maxDay}
         {currentDay}
         onChange={onDayChange}
       />
-    </div>
+    </Card>
     <Card disablePadding>
       <div
         class="flex items-baseline justify-between border-b border-gray-200 px-4 py-4 sm:px-6"
