@@ -9,7 +9,7 @@
 </script>
 
 <header
-  class="mx-auto flex max-w-300 items-start justify-between gap-4 px-4 pt-8 md:px-6"
+  class="mx-auto flex max-w-300 items-start justify-between gap-4 px-4 pt-4 sm:pt-8 md:px-6"
 >
   <div>
     <h1 class="text-3xl font-bold tracking-tight text-gray-900">{title}</h1>
