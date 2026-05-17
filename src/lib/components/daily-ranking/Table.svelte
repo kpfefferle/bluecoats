@@ -49,7 +49,7 @@
       >
         Score
       </th>
-      <th scope="col" class="hidden w-full px-3 py-3 pr-6 sm:table-cell">
+      <th scope="col" class="hidden w-full px-3 py-3 pr-6 lg:table-cell">
         Relative
       </th>
     </tr>
@@ -111,7 +111,7 @@
             </div>
           {/if}
         </td>
-        <td class="hidden w-full px-3 py-3 pr-6 align-middle sm:table-cell">
+        <td class="hidden w-full px-3 py-3 pr-6 align-middle lg:table-cell">
           <div
             class="relative h-1.5 overflow-hidden rounded-full bg-gray-100"
             role="presentation"
