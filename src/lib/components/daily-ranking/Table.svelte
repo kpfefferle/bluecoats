@@ -77,19 +77,18 @@
               >★</span
             >
           {/if}
-          <div class="mt-0.5 text-xs text-gray-400">
-            {ranking.location}{#if ranking.daysOld}
-              <span>
-                · {ranking.daysOld}
-                {ranking.daysOld === 1 ? 'day' : 'days'} prior</span
-              >
-            {/if}
-          </div>
+          <div class="mt-0.5 text-xs text-gray-400">{ranking.location}</div>
         </td>
-        <td
-          class="px-3 py-3 text-right align-middle text-sm font-semibold text-gray-900 tabular-nums"
-        >
-          {ranking.score.toFixed(3)}
+        <td class="px-3 py-3 text-right align-middle tabular-nums">
+          <div class="text-sm font-semibold text-gray-900">
+            {ranking.score.toFixed(3)}
+          </div>
+          {#if ranking.daysOld}
+            <div class="mt-0.5 text-xs text-gray-400">
+              {ranking.daysOld}
+              {ranking.daysOld === 1 ? 'day' : 'days'} prior
+            </div>
+          {/if}
         </td>
         <td class="hidden px-3 py-3 align-middle sm:pr-6 md:table-cell">
           <div
