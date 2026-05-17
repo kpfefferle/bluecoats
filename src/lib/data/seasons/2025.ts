@@ -6,6 +6,7 @@ export const SEASON_2025: SeasonScores = {
   year: '2025',
   color: COLOR_OPTIONS[Math.floor(Math.random() * COLOR_OPTIONS.length)],
   endDate: '2025-08-09',
+  placement: 2,
   show: 'The Observer Effect',
   scores: [
     {

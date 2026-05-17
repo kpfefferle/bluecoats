@@ -3,6 +3,7 @@ import { type SeasonScores } from '$data/base';
 export const SEASON_2015: SeasonScores = {
   year: '2015',
   endDate: '2015-08-08',
+  placement: 3,
   show: 'Kinetic Noise',
   scores: [
     {

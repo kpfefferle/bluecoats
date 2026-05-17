@@ -3,6 +3,7 @@ import { type SeasonScores } from '$data/base';
 export const SEASON_1987: SeasonScores = {
   year: '1987',
   endDate: '1987-08-15',
+  placement: 11,
   scores: [
     {
       date: '1987-06-19',

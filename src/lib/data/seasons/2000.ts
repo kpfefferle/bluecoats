@@ -3,6 +3,7 @@ import { type SeasonScores } from '$data/base';
 export const SEASON_2000: SeasonScores = {
   year: '2000',
   endDate: '2000-08-12',
+  placement: 12,
   show: 'Threshold',
   scores: [
     {
