@@ -31,31 +31,22 @@
   function onDayChange(day: number) {
     void setParam('day', day === currentDay ? null : String(day));
   }
-
-  function resetToToday() {
-    void setParam('day', null);
-  }
 </script>
 
 <svelte:head>
   <title>Daily ranking | Bluecoats Scores</title>
 </svelte:head>
 
-<PageHeader title="Daily ranking" {subtitle}>
-  {#if selectedDay !== currentDay}
-    <button
-      onclick={resetToToday}
-      class="rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-      type="button"
-    >
-      Reset to Today
-    </button>
-  {/if}
-</PageHeader>
+<PageHeader title="Daily ranking" {subtitle} />
 <PageContent>
   <div class="grid grid-cols-1 gap-4">
     <div class="rounded-xl border border-gray-200 bg-gray-50 px-4 py-5 sm:p-6">
-      <DaySlider value={selectedDay} maximum={maxDay} onChange={onDayChange} />
+      <DaySlider
+        value={selectedDay}
+        maximum={maxDay}
+        {currentDay}
+        onChange={onDayChange}
+      />
     </div>
     <Card disablePadding>
       <div

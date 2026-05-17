@@ -11,12 +11,14 @@ test('renders rankings table and slider', async ({ page }) => {
   await expect(rows).toHaveCount(45);
 });
 
-test('slider updates URL and "Reset to Today" clears it', async ({ page }) => {
+test('day param drives the leaderboard and chips update the URL', async ({
+  page,
+}) => {
   await page.goto('/daily-ranking?day=10');
   await expect(page).toHaveURL(/[?&]day=10\b/);
   await expect(
     page.getByText(/Leaderboard at 10 days before Finals/),
   ).toBeVisible();
-  await page.getByRole('button', { name: 'Reset to Today' }).click();
-  await expect(page).not.toHaveURL(/[?&]day=/);
+  await page.getByRole('button', { name: '45d' }).click();
+  await expect(page).toHaveURL(/[?&]day=45\b/);
 });

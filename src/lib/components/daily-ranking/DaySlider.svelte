@@ -2,14 +2,28 @@
   let {
     value,
     maximum,
+    currentDay,
     onChange,
   }: {
     value: number;
     maximum: number;
+    currentDay: number;
     onChange: (day: number) => void;
   } = $props();
 
-  const QUICK_CHIPS = [0, 7, 14, 28, 45];
+  const BASE_CHIPS = [45, 28, 14, 7, 0];
+
+  const chips = $derived.by(() => {
+    const days = BASE_CHIPS.filter((d) => d <= maximum);
+    const showToday = currentDay > 0 && currentDay <= maximum;
+    if (showToday && !days.includes(currentDay)) days.push(currentDay);
+    return days
+      .sort((a, b) => b - a)
+      .map((day) => ({
+        day,
+        label: day === 0 ? 'Finals' : day === currentDay ? 'Today' : `${day}d`,
+      }));
+  });
 
   const descriptor = $derived(
     value === 0
@@ -47,20 +61,18 @@
       </div>
     </div>
     <div class="flex flex-wrap gap-1.5">
-      {#each QUICK_CHIPS as chip (chip)}
-        {#if chip <= maximum}
-          {@const active = value === chip}
-          <button
-            type="button"
-            onclick={() => onChange(chip)}
-            class="rounded-full border px-2.5 py-1 text-xs font-medium tabular-nums {active
-              ? 'border-transparent bg-blue-50 text-blue-700'
-              : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300 hover:text-gray-900'}"
-            aria-pressed={active}
-          >
-            {chip === 0 ? 'Finals' : `${chip}d`}
-          </button>
-        {/if}
+      {#each chips as chip (chip.day)}
+        {@const active = value === chip.day}
+        <button
+          type="button"
+          onclick={() => onChange(chip.day)}
+          class="rounded-full border px-2.5 py-1 text-xs font-medium tabular-nums {active
+            ? 'border-transparent bg-blue-50 text-blue-700'
+            : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300 hover:text-gray-900'}"
+          aria-pressed={active}
+        >
+          {chip.label}
+        </button>
       {/each}
     </div>
   </div>
