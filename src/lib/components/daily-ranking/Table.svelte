@@ -38,10 +38,11 @@
       <th scope="col" class="w-14 py-3 pr-3 pl-4 sm:pl-6">Rank</th>
       <th scope="col" class="px-3 py-3">Year</th>
       <th scope="col" class="hidden px-3 py-3 sm:table-cell">Show</th>
-      <th scope="col" class="px-3 py-3 text-right">Score</th>
-      <th scope="col" class="hidden w-40 px-3 py-3 sm:pr-6 md:table-cell">
-        Relative
+      <th scope="col" class="hidden px-3 py-3 sm:table-cell">Location</th>
+      <th scope="col" class="hidden px-3 py-3 text-right sm:table-cell">
+        Score
       </th>
+      <th scope="col" class="w-32 px-3 py-3 pr-4 sm:w-40 sm:pr-6">Relative</th>
     </tr>
   </thead>
   <tbody class="divide-y divide-gray-200 bg-white">
@@ -62,24 +63,46 @@
           <div class="text-sm font-semibold text-gray-900 tabular-nums">
             {ranking.year}
           </div>
-          {#if ranking.show}
-            <div class="mt-0.5 truncate text-xs text-gray-500 sm:hidden">
-              {ranking.show}
+          <div class="sm:hidden">
+            {#if ranking.show}
+              <div class="truncate text-xs text-gray-500">
+                {ranking.show}{#if isChamp}<span
+                    class="ml-1 text-amber-500"
+                    aria-label="DCI World Champion">★</span
+                  >{/if}
+              </div>
+            {/if}
+            <div
+              class="mt-0.5 text-sm font-semibold text-gray-900 tabular-nums"
+            >
+              {ranking.score.toFixed(3)}
             </div>
-          {/if}
+            {#if ranking.daysOld}
+              <div class="text-xs text-gray-400">
+                {ranking.daysOld}
+                {ranking.daysOld === 1 ? 'day' : 'days'} prior
+              </div>
+            {/if}
+          </div>
         </td>
         <td
-          class="hidden max-w-0 truncate px-3 py-3 align-middle text-sm text-gray-600 sm:table-cell"
+          class="hidden px-3 py-3 align-middle text-sm text-gray-600 sm:table-cell"
         >
-          <span class="truncate">{ranking.show ?? '—'}</span>
+          {ranking.show ?? '—'}
           {#if isChamp}
             <span class="ml-1.5 text-amber-500" aria-label="DCI World Champion"
               >★</span
             >
           {/if}
-          <div class="mt-0.5 text-xs text-gray-400">{ranking.location}</div>
         </td>
-        <td class="px-3 py-3 text-right align-middle tabular-nums">
+        <td
+          class="hidden px-3 py-3 align-middle text-sm text-gray-600 sm:table-cell"
+        >
+          {ranking.location}
+        </td>
+        <td
+          class="hidden px-3 py-3 text-right align-middle tabular-nums sm:table-cell"
+        >
           <div class="text-sm font-semibold text-gray-900">
             {ranking.score.toFixed(3)}
           </div>
@@ -90,7 +113,7 @@
             </div>
           {/if}
         </td>
-        <td class="hidden px-3 py-3 align-middle sm:pr-6 md:table-cell">
+        <td class="px-3 py-3 pr-4 align-middle sm:pr-6">
           <div
             class="relative h-1.5 overflow-hidden rounded-full bg-gray-100"
             role="presentation"
