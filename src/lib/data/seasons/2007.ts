@@ -3,6 +3,7 @@ import { type SeasonScores } from '$data/base';
 export const SEASON_2007: SeasonScores = {
   year: '2007',
   endDate: '2007-08-11',
+  placement: 7,
   show: 'Criminal',
   scores: [
     {

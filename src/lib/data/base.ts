@@ -15,5 +15,10 @@ export interface SeasonScores {
   color?: string;
   endDate: string;
   show?: string;
+  /**
+   * Final DCI placement. Omit for seasons that didn't reach a placed result
+   * (parade corps only, canceled tours, in-progress seasons).
+   */
+  placement?: number;
   scores: Array<Score>;
 }

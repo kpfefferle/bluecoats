@@ -1,9 +1,11 @@
 import { DateTime } from 'luxon';
 import type { Score, SeasonScores } from '$data/base';
+import { FINALS_ZONE } from './time';
 
-export interface DailyRankingsItem {
+export interface DailyRankingItem {
   daysOld: number;
   location: Score['location'];
+  placement: SeasonScores['placement'];
   rank: number;
   score: number;
   show: SeasonScores['show'];
@@ -13,11 +15,13 @@ export interface DailyRankingsItem {
 function rankingsItemForSelectedDay(
   season: SeasonScores,
   selectedDay: number,
-): Omit<DailyRankingsItem, 'rank'> | undefined {
-  const finalsDateTime = DateTime.fromISO(season.endDate);
+): Omit<DailyRankingItem, 'rank'> | undefined {
+  const finalsDateTime = DateTime.fromISO(season.endDate, {
+    zone: FINALS_ZONE,
+  });
   const scores = season.scores.filter((score) => {
     if (typeof score.score !== 'number') return false;
-    const scoreDateTime = DateTime.fromISO(score.date);
+    const scoreDateTime = DateTime.fromISO(score.date, { zone: FINALS_ZONE });
     const daysToFinals = Math.ceil(
       finalsDateTime.diff(scoreDateTime, 'days').days,
     );
@@ -30,9 +34,13 @@ function rankingsItemForSelectedDay(
   return {
     daysOld:
       Math.ceil(
-        finalsDateTime.diff(DateTime.fromISO(latestScore.date), 'days').days,
+        finalsDateTime.diff(
+          DateTime.fromISO(latestScore.date, { zone: FINALS_ZONE }),
+          'days',
+        ).days,
       ) - selectedDay,
     location: latestScore.location,
+    placement: season.placement,
     score: latestScore.score,
     show: season.show,
     year: season.year,
@@ -42,11 +50,11 @@ function rankingsItemForSelectedDay(
 export function buildDailyRankings(
   seasons: SeasonScores[],
   selectedDay: number,
-): DailyRankingsItem[] {
+): DailyRankingItem[] {
   const sorted = seasons
     .map((season) => rankingsItemForSelectedDay(season, selectedDay))
     .filter(
-      (item): item is Omit<DailyRankingsItem, 'rank'> => item !== undefined,
+      (item): item is Omit<DailyRankingItem, 'rank'> => item !== undefined,
     )
     .sort((a, b) => b.score - a.score);
   return sorted.map((item) => {
@@ -61,9 +69,9 @@ export function currentDayUntilFinals(
   seasons: SeasonScores[],
   maxDay: number,
 ): number {
-  const now = DateTime.now();
+  const now = DateTime.now().setZone(FINALS_ZONE);
   const upcomingFinals = seasons
-    .map((season) => DateTime.fromISO(season.endDate))
+    .map((season) => DateTime.fromISO(season.endDate, { zone: FINALS_ZONE }))
     .filter((finalsDate) => finalsDate >= now)
     .sort((a, b) => a.toMillis() - b.toMillis())[0];
   if (!upcomingFinals) return 0;
@@ -78,8 +86,12 @@ export function maxDayBeforeFinals(seasons: SeasonScores[]): number {
         ({ score }) => typeof score === 'number',
       );
       if (!firstScored) return undefined;
-      const firstScoreDate = DateTime.fromISO(firstScored.date);
-      const finalsDate = DateTime.fromISO(season.endDate);
+      const firstScoreDate = DateTime.fromISO(firstScored.date, {
+        zone: FINALS_ZONE,
+      });
+      const finalsDate = DateTime.fromISO(season.endDate, {
+        zone: FINALS_ZONE,
+      });
       return finalsDate.diff(firstScoreDate, 'days').days;
     })
     .filter((days): days is number => days !== undefined);

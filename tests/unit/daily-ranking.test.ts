@@ -3,7 +3,7 @@ import {
   buildDailyRankings,
   currentDayUntilFinals,
   maxDayBeforeFinals,
-} from '../../src/lib/utils/daily-rankings';
+} from '../../src/lib/utils/daily-ranking';
 import type { SeasonScores } from '../../src/lib/data/base';
 
 const SEASON_2023: SeasonScores = {
@@ -115,6 +115,27 @@ describe('buildDailyRankings', () => {
     expect(ranked[0].location).toBe('Atlanta, GA');
   });
 
+  it('passes the season placement through to each ranking item', () => {
+    const champion: SeasonScores = {
+      year: '2024',
+      endDate: '2024-08-10',
+      placement: 1,
+      scores: [
+        { date: '2024-08-10', location: 'Indianapolis, IN', score: 95.0 },
+      ],
+    };
+    const unranked: SeasonScores = {
+      year: '2099',
+      endDate: '2099-08-10',
+      scores: [
+        { date: '2099-08-10', location: 'Indianapolis, IN', score: 90.0 },
+      ],
+    };
+    const ranked = buildDailyRankings([champion, unranked], 0);
+    expect(ranked.find((r) => r.year === '2024')?.placement).toBe(1);
+    expect(ranked.find((r) => r.year === '2099')?.placement).toBeUndefined();
+  });
+
   it('ignores exhibition entries (score: null)', () => {
     const exhibitionSeason: SeasonScores = {
       year: '2026',
@@ -177,8 +198,8 @@ describe('currentDayUntilFinals', () => {
   });
 
   it('returns 0 on the exact finals date', () => {
-    // Midnight at the start of finals day — diff is ~0 days, ceil to 0.
-    vi.setSystemTime(new Date('2025-08-09T00:00:00Z'));
+    // Midnight Eastern at the start of finals day (EDT = UTC-4).
+    vi.setSystemTime(new Date('2025-08-09T04:00:00Z'));
     expect(currentDayUntilFinals([SEASON_2025], 60)).toBe(0);
   });
 

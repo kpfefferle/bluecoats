@@ -3,6 +3,7 @@ import { type SeasonScores } from '$data/base';
 export const SEASON_1993: SeasonScores = {
   year: '1993',
   endDate: '1993-08-21',
+  placement: 9,
   show: 'Standards in Blue: A Tribute to Dizzy Gillespie',
   scores: [
     {

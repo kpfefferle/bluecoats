@@ -4,6 +4,7 @@ export const SEASON_2024: SeasonScores = {
   year: '2024',
   color: '#dc2626', // red-600
   endDate: '2024-08-10',
+  placement: 1,
   show: 'Change Is Everything',
   scores: [
     {

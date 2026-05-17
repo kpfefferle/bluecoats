@@ -3,6 +3,7 @@ import { type SeasonScores } from '$data/base';
 export const SEASON_1999: SeasonScores = {
   year: '1999',
   endDate: '1999-08-14',
+  placement: 13,
   show: 'Music of Chick Corea',
   scores: [
     {

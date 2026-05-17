@@ -3,6 +3,7 @@ import { type SeasonScores } from '$data/base';
 export const SEASON_1997: SeasonScores = {
   year: '1997',
   endDate: '1997-08-16',
+  placement: 11,
   show: "Midnight Blue... Jazz After Dark, The Bluecoats' Way",
   scores: [
     {

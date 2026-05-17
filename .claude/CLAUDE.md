@@ -91,16 +91,16 @@ src/
 │   │   ├── nav/{NavigationBar,Logo,DesktopMenu,MobileMenu,MobileMenuToggle}.svelte
 │   │   ├── nav/types.ts              # NavItem type + NAV_ITEMS list
 │   │   ├── shared/{Card,PageContent,PageHeader}.svelte
-│   │   ├── daily-rankings/{Table,DaySlider}.svelte
+│   │   ├── daily-ranking/{Table,DaySlider}.svelte
 │   │   └── score-history/{SeasonScoresChart,SeasonSelect,FitAllToggle}.svelte
 │   ├── data/                         # base.ts, index.ts, seasons/[year].ts
 │   ├── actions/                      # chart.ts (ECharts lifecycle)
-│   └── utils/                        # url-state.ts, ordinal.ts, daily-rankings.ts, chart-options.ts
+│   └── utils/                        # url-state.ts, ordinal.ts, daily-ranking.ts, chart-options.ts
 └── routes/
     ├── +layout.svelte                # Renders <NavigationBar /> + children
     ├── +layout.ts                    # `export const prerender = true`
     ├── +page.svelte                  # Score History
-    └── daily-rankings/+page.svelte   # Daily Rankings
+    └── daily-ranking/+page.svelte    # Daily ranking
 
 static/
 ├── favicon.png
@@ -148,7 +148,7 @@ Use `resolve()` from `$app/paths` for typed internal links:
   import { resolve } from "$app/paths";
 </script>
 
-<a href={resolve("/daily-rankings")}>Daily Rankings</a>
+<a href={resolve("/daily-ranking")}>Daily ranking</a>
 ```
 
 Direct string `href`s to internal routes will trigger `svelte/no-navigation-without-resolve`.
@@ -196,7 +196,7 @@ The data module exposes two arrays:
 
 - Tailwind CSS 4 utility classes; no separate config file.
 - Custom theme tokens (e.g. `--font-sans`) and custom CSS live in `src/app.css`.
-- Root background/height classes (`h-full bg-gray-100`, `h-full font-sans`) are on `<html>`/`<body>` in `src/app.html` — the page header relies on this gray background for visual contrast.
+- Root background/height classes (`h-full bg-white`, `h-full font-sans`) are on `<html>`/`<body>` in `src/app.html`. The page sits on a white surface, with cards separated by a subtle gray border rather than a background contrast.
 - **NEVER** use `px` for arbitrary dimensions - always use `rem` (assuming a default of `1rem = 16px`)
 
 ## Reference Data
