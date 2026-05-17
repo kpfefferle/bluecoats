@@ -21,7 +21,7 @@ export function nextFinalsSeason(
     )[0];
 }
 
-export function daysToFinals(
+function daysToFinals(
   seasons: SeasonScores[] = ALL_SEASONS_INCLUDING_SCHEDULED,
   now: DateTime = DateTime.now(),
 ): number {
@@ -33,9 +33,8 @@ export function daysToFinals(
 }
 
 // Returns the live day count when running in the browser, or null when
-// rendering server-side. Use this instead of daysToFinals() in any component
-// whose markup is prerendered, so the build snapshot doesn't bake in a
-// stale value.
+// rendering server-side. Use this in any component whose markup is
+// prerendered, so the build snapshot doesn't bake in a stale value.
 export function liveDaysToFinals(): number | null {
   return browser ? daysToFinals() : null;
 }
