@@ -2,8 +2,7 @@ import { DateTime } from 'luxon';
 import { browser } from '$app/environment';
 import type { SeasonScores } from '$data/base';
 import { ALL_SEASONS_INCLUDING_SCHEDULED } from '$data';
-
-const FINALS_ZONE = 'America/New_York';
+import { FINALS_ZONE } from './time';
 
 export function nextFinalsSeason(
   seasons: SeasonScores[] = ALL_SEASONS_INCLUDING_SCHEDULED,

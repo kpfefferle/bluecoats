@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon';
 import type { EChartsOption, SeriesOption } from 'echarts';
 import type { SeasonScores } from '$data/base';
+import { FINALS_ZONE } from './time';
 
 const GRID_OPTION: EChartsOption['grid'] = {
   top: '32px',
@@ -45,9 +46,9 @@ const LINE_SERIES_OPTION_BASE = {
         seriesName: string;
         data: [number, number, string, string];
       };
-      const formattedDate = DateTime.fromISO(data[2]).toLocaleString(
-        DateTime.DATE_FULL,
-      );
+      const formattedDate = DateTime.fromISO(data[2], {
+        zone: FINALS_ZONE,
+      }).toLocaleString(DateTime.DATE_FULL);
       return `
         <div class="text-lg font-semibold">${data[1].toFixed(3)}</div>
         <div class="text-sm">${data[3]}</div>
@@ -61,14 +62,14 @@ function seriesForSeason(
   season: SeasonScores,
   isSelected: boolean,
 ): SeriesOption {
-  const finalDate = DateTime.fromISO(season.endDate);
+  const finalDate = DateTime.fromISO(season.endDate, { zone: FINALS_ZONE });
   const data = season.scores
     .filter(
       (entry): entry is { date: string; location: string; score: number } =>
         typeof entry.score === 'number',
     )
     .map(({ date, location, score }) => {
-      const performanceDate = DateTime.fromISO(date);
+      const performanceDate = DateTime.fromISO(date, { zone: FINALS_ZONE });
       const daysToFinal = finalDate.diff(performanceDate, 'days').days;
       return [-daysToFinal, score, date, location];
     });
@@ -95,8 +96,12 @@ function xAxisMin(seasons: SeasonScores[]): number {
         ({ score }) => typeof score === 'number',
       );
       if (!firstScored) return undefined;
-      const finalDate = DateTime.fromISO(season.endDate);
-      const firstDate = DateTime.fromISO(firstScored.date);
+      const finalDate = DateTime.fromISO(season.endDate, {
+        zone: FINALS_ZONE,
+      });
+      const firstDate = DateTime.fromISO(firstScored.date, {
+        zone: FINALS_ZONE,
+      });
       return finalDate.diff(firstDate, 'days').days;
     })
     .filter((days): days is number => days !== undefined);

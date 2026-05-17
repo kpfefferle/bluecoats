@@ -177,8 +177,8 @@ describe('currentDayUntilFinals', () => {
   });
 
   it('returns 0 on the exact finals date', () => {
-    // Midnight at the start of finals day — diff is ~0 days, ceil to 0.
-    vi.setSystemTime(new Date('2025-08-09T00:00:00Z'));
+    // Midnight Eastern at the start of finals day (EDT = UTC-4).
+    vi.setSystemTime(new Date('2025-08-09T04:00:00Z'));
     expect(currentDayUntilFinals([SEASON_2025], 60)).toBe(0);
   });
 
