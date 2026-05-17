@@ -17,7 +17,7 @@
     <DesktopMenu />
     <div class="flex-1"></div>
     <div
-      class="hidden items-center gap-4 text-[0.78125rem] text-white/60 md:flex"
+      class="hidden items-center gap-4 text-[0.78125rem] text-white/60 lg:flex"
     >
       {#if seasonYear}
         <span>{seasonYear} season</span>
