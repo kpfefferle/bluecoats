@@ -115,6 +115,27 @@ describe('buildDailyRankings', () => {
     expect(ranked[0].location).toBe('Atlanta, GA');
   });
 
+  it('passes the season placement through to each ranking item', () => {
+    const champion: SeasonScores = {
+      year: '2024',
+      endDate: '2024-08-10',
+      placement: 1,
+      scores: [
+        { date: '2024-08-10', location: 'Indianapolis, IN', score: 95.0 },
+      ],
+    };
+    const unranked: SeasonScores = {
+      year: '2099',
+      endDate: '2099-08-10',
+      scores: [
+        { date: '2099-08-10', location: 'Indianapolis, IN', score: 90.0 },
+      ],
+    };
+    const ranked = buildDailyRankings([champion, unranked], 0);
+    expect(ranked.find((r) => r.year === '2024')?.placement).toBe(1);
+    expect(ranked.find((r) => r.year === '2099')?.placement).toBeUndefined();
+  });
+
   it('ignores exhibition entries (score: null)', () => {
     const exhibitionSeason: SeasonScores = {
       year: '2026',

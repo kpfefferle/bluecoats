@@ -1,4 +1,9 @@
 <script lang="ts">
+  import {
+    buildDaySliderChips,
+    daySliderDescriptor,
+  } from '$lib/utils/day-slider';
+
   let {
     value,
     maximum,
@@ -11,32 +16,8 @@
     onChange: (day: number) => void;
   } = $props();
 
-  const BASE_CHIPS = [45, 28, 14, 7, 0];
-
-  const chips = $derived.by(() => {
-    const days = BASE_CHIPS.filter((d) => d <= maximum);
-    const showToday = currentDay > 0 && currentDay <= maximum;
-    if (showToday && !days.includes(currentDay)) days.push(currentDay);
-    return days
-      .sort((a, b) => b - a)
-      .map((day) => ({
-        day,
-        label: day === 0 ? 'Finals' : day === currentDay ? 'Today' : `${day}d`,
-      }));
-  });
-
-  const descriptor = $derived(
-    value === 0
-      ? 'Finals night'
-      : value < 7
-        ? 'last week'
-        : value < 14
-          ? 'late tour'
-          : value < 28
-            ? 'mid tour'
-            : 'early tour',
-  );
-
+  const chips = $derived(buildDaySliderChips(maximum, currentDay));
+  const descriptor = $derived(daySliderDescriptor(value));
   const fillPct = $derived(
     maximum === 0 ? 0 : ((maximum - value) / maximum) * 100,
   );
