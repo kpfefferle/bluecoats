@@ -31,7 +31,7 @@
 </script>
 
 <svelte:head>
-  <title>Daily ranking | Bluecoats Scores</title>
+  <title>Daily Ranking | Bluecoats Scores</title>
 </svelte:head>
 
 <PageHeader
