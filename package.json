@@ -60,6 +60,11 @@
   "engines": {
     "node": ">= 20.19.0"
   },
+  "pnpm": {
+    "overrides": {
+      "cookie@<0.7.0": ">=0.7.0"
+    }
+  },
   "volta": {
     "node": "24.13.1"
   }
