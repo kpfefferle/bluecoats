@@ -4,10 +4,10 @@ import type { SeasonScores } from '$data/base';
 import { FINALS_ZONE } from './time';
 
 const GRID_OPTION: EChartsOption['grid'] = {
-  top: '32px',
-  left: '32px',
+  top: '36px',
+  left: '36px',
   right: '48px',
-  bottom: '80px',
+  bottom: '48px',
 };
 
 const X_AXIS_OPTION_MIN = -10 * 7;
@@ -133,7 +133,7 @@ function seriesForSeason(
       itemStyle: { color: COLOR_CHAMPION },
       endLabel: {
         show: true,
-        formatter: `${season.year} ★`,
+        formatter: `${season.year}`,
         color: COLOR_CHAMPION_INK,
         fontWeight: 'bold',
         fontSize: 12,

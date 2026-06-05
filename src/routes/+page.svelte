@@ -70,7 +70,7 @@
         </div>
         <ChartLegend {featuredYear} />
       </div>
-      <div class="flex min-h-svh flex-col overflow-x-auto px-2 pt-2">
+      <div class="flex h-200 flex-col overflow-x-auto px-2 pt-2">
         <SeasonScoresChart
           seasonScores={POPULATED_SEASONS}
           {selectedYears}
