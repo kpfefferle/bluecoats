@@ -1,80 +1,218 @@
 import { describe, expect, it } from 'vitest';
-import { buildChartOption } from '../../src/lib/utils/chart-options';
+import {
+  buildChartOption,
+  COLOR_CHAMPION,
+  COLOR_FAINT,
+  COLOR_FEATURED,
+  COMPARE_PALETTE,
+} from '../../src/lib/utils/chart-options';
 import type { SeasonScores } from '../../src/lib/data/base';
 
-const SEASON_A: SeasonScores = {
+const SEASON_2023: SeasonScores = {
   year: '2023',
   endDate: '2023-08-12',
-  color: '#aabbcc',
+  placement: 5,
   scores: [
-    { date: '2023-06-22', location: 'Akron, OH', score: 70.0 },
+    { date: '2023-06-08', location: 'Akron, OH', score: 60.0 },
     { date: '2023-08-12', location: 'Indianapolis, IN', score: 92.5 },
   ],
 };
 
-const SEASON_B: SeasonScores = {
+const SEASON_2024: SeasonScores = {
   year: '2024',
   endDate: '2024-08-10',
-  color: '#112233',
+  placement: 1, // champion
+  color: '#dc2626',
   scores: [
-    { date: '2024-06-21', location: 'Akron, OH', score: 65.0 },
+    { date: '2024-07-06', location: 'Akron, OH', score: 70.0 },
     { date: '2024-08-10', location: 'Indianapolis, IN', score: 95.0 },
   ],
 };
 
-const SEASONS = [SEASON_A, SEASON_B];
+const SEASON_2025: SeasonScores = {
+  year: '2025',
+  endDate: '2025-08-09',
+  placement: 2,
+  scores: [
+    { date: '2025-07-19', location: 'Akron, OH', score: 80.0 },
+    { date: '2025-08-09', location: 'Indianapolis, IN', score: 98.25 },
+  ],
+};
+
+const SEASONS = [SEASON_2023, SEASON_2024, SEASON_2025];
+
+type Series = {
+  name: string;
+  data: unknown[];
+  z?: number;
+  symbol?: string;
+  lineStyle?: { color?: string; width?: number; opacity?: number };
+  itemStyle?: { color?: string };
+  endLabel?: { show?: boolean };
+  markPoint?: { data: Array<{ coord: [number, number] }> };
+};
+
+function seriesByName(opt: ReturnType<typeof buildChartOption>, name: string) {
+  const series = opt.series as Series[];
+  const match = series.find((s) => s.name === name);
+  if (!match) throw new Error(`no series for ${name}`);
+  return match;
+}
 
 describe('buildChartOption', () => {
-  it('falls back to the latest season when selectedYears is empty', () => {
-    const opt = buildChartOption(SEASONS, [], false);
-    const legend = opt.legend as { data: string[] };
-    expect(legend.data).toEqual(['2024']);
+  it('renders every season as a series so history stays visible as context', () => {
+    const opt = buildChartOption({
+      seasons: SEASONS,
+      selectedYears: [],
+      featuredYear: '2025',
+    });
+    expect((opt.series as Series[]).length).toBe(SEASONS.length);
   });
 
-  it('uses the selected years when provided', () => {
-    const opt = buildChartOption(SEASONS, ['2023'], false);
-    const legend = opt.legend as { data: string[] };
-    expect(legend.data).toEqual(['2023']);
+  it('does not attach an ECharts legend (a semantic legend is rendered in markup)', () => {
+    const opt = buildChartOption({
+      seasons: SEASONS,
+      selectedYears: [],
+      featuredYear: '2025',
+    });
+    expect(opt.legend).toBeUndefined();
   });
 
-  it('uses static x/y axis bounds when fitAllSeasons is true', () => {
-    const opt = buildChartOption(SEASONS, ['2023'], true);
-    const xAxis = opt.xAxis as { min: number };
-    const yAxis = opt.yAxis as { min: number };
-    expect(xAxis.min).toBe(-70);
-    expect(yAxis.min).toBe(30);
+  it('styles the featured season as the bold blue protagonist with an end label', () => {
+    const opt = buildChartOption({
+      seasons: SEASONS,
+      selectedYears: [],
+      featuredYear: '2025',
+    });
+    const featured = seriesByName(opt, '2025');
+    expect(featured.lineStyle?.color).toBe(COLOR_FEATURED);
+    expect(featured.symbol).toBe('circle');
+    expect(featured.endLabel?.show).toBe(true);
+    // protagonist sits on top of everything else
+    const others = (opt.series as Series[]).filter((s) => s.name !== '2025');
+    for (const s of others) expect(featured.z ?? 0).toBeGreaterThan(s.z ?? 0);
   });
 
-  it('zooms axes to selected season bounds when fitAllSeasons is false', () => {
-    const opt = buildChartOption(SEASONS, ['2023'], false);
-    const xAxis = opt.xAxis as { min: number };
-    const yAxis = opt.yAxis as { min: number };
-    // 2023 spans 51 days → ceil(51/7)=8 weeks → -56
-    expect(xAxis.min).toBe(-56);
-    // min score 70 → floor(70/10)*10 = 70
-    expect(yAxis.min).toBe(70);
-  });
-
-  it('ignores scheduled and exhibition entries when computing axis bounds and series data', () => {
-    const SEASON_PARTIAL: SeasonScores = {
+  it('pins a Today marker to the latest result only while in progress', () => {
+    const partial: SeasonScores = {
       year: '2026',
       endDate: '2026-08-08',
-      color: '#445566',
       scores: [
         { date: '2026-07-04', location: 'Hometown, OH', score: null },
         { date: '2026-07-25', location: 'Atlanta, GA', score: 88.0 },
         { date: '2026-08-08', location: 'Indianapolis, IN' },
       ],
     };
-    const opt = buildChartOption([SEASON_PARTIAL], ['2026'], false);
+    const live = buildChartOption({
+      seasons: [partial],
+      selectedYears: [],
+      featuredYear: '2026',
+      featuredInProgress: true,
+    });
+    const marker = seriesByName(live, '2026').markPoint;
+    expect(marker?.data[0].coord).toEqual([-14, 88.0]);
+
+    const offSeason = buildChartOption({
+      seasons: [partial],
+      selectedYears: [],
+      featuredYear: '2026',
+      featuredInProgress: false,
+    });
+    expect(seriesByName(offSeason, '2026').markPoint).toBeUndefined();
+  });
+
+  it('renders championship seasons (placement 1) in gold when not selected', () => {
+    const opt = buildChartOption({
+      seasons: SEASONS,
+      selectedYears: [],
+      featuredYear: '2025',
+    });
+    expect(seriesByName(opt, '2024').lineStyle?.color).toBe(COLOR_CHAMPION);
+    expect(seriesByName(opt, '2024').endLabel?.show).toBe(true);
+  });
+
+  it('renders ordinary unselected seasons as faint gray hairlines', () => {
+    const opt = buildChartOption({
+      seasons: SEASONS,
+      selectedYears: [],
+      featuredYear: '2025',
+    });
+    const other = seriesByName(opt, '2023');
+    expect(other.lineStyle?.color).toBe(COLOR_FAINT);
+    expect(other.endLabel?.show ?? false).toBe(false);
+  });
+
+  it('promotes selected seasons to a vivid compare line above the hairlines', () => {
+    const opt = buildChartOption({
+      seasons: SEASONS,
+      selectedYears: ['2023'],
+      featuredYear: '2025',
+    });
+    const selected = seriesByName(opt, '2023');
+    const champion = seriesByName(opt, '2024'); // champion, not selected
+    expect(selected.endLabel?.show).toBe(true);
+    expect(selected.lineStyle?.color).toBe(COMPARE_PALETTE[0]);
+    // a compare line sits above the gold championship hairlines
+    expect(selected.z ?? 0).toBeGreaterThan(champion.z ?? 0);
+  });
+
+  it('uses a selected season own color when it defines one', () => {
+    const opt = buildChartOption({
+      seasons: SEASONS,
+      selectedYears: ['2024'],
+      featuredYear: '2025',
+    });
+    expect(seriesByName(opt, '2024').lineStyle?.color).toBe('#dc2626');
+  });
+
+  it('fits axes to every season when nothing is selected', () => {
+    const opt = buildChartOption({
+      seasons: SEASONS,
+      selectedYears: [],
+      featuredYear: '2025',
+    });
     const xAxis = opt.xAxis as { min: number };
     const yAxis = opt.yAxis as { min: number };
-    // First scored is 7/25 → 14 days → ceil(14/7)=2 weeks → -14
-    // (the 7/4 exhibition is ignored even though it's earlier)
-    expect(xAxis.min).toBe(-14);
-    // Min score 88 → floor(88/10)*10 = 80
-    expect(yAxis.min).toBe(80);
-    const series = opt.series as Array<{ data: unknown[] }>;
-    expect(series[0].data).toHaveLength(1);
+    // longest span is 2023 (65 days) → ceil(65/7)=10 weeks → -70
+    expect(xAxis.min).toBe(-70);
+    // lowest score across all seasons is 60 → floor(60/10)*10 = 60
+    expect(yAxis.min).toBe(60);
+  });
+
+  it('zooms axes to the featured + selected seasons when a selection exists', () => {
+    const opt = buildChartOption({
+      seasons: SEASONS,
+      selectedYears: ['2024'],
+      featuredYear: '2025',
+    });
+    const xAxis = opt.xAxis as { min: number };
+    const yAxis = opt.yAxis as { min: number };
+    // focus = 2024 (35-day span, min 70) + 2025 (21-day span, min 80)
+    // longest span 35 → ceil(35/7)=5 weeks → -35
+    expect(xAxis.min).toBe(-35);
+    // lowest focus score is 70 → floor(70/10)*10 = 70
+    expect(yAxis.min).toBe(70);
+  });
+
+  it('ignores scheduled and exhibition entries in series data and axis bounds', () => {
+    const partial: SeasonScores = {
+      year: '2026',
+      endDate: '2026-08-08',
+      scores: [
+        { date: '2026-07-04', location: 'Hometown, OH', score: null },
+        { date: '2026-07-25', location: 'Atlanta, GA', score: 88.0 },
+        { date: '2026-08-08', location: 'Indianapolis, IN' },
+      ],
+    };
+    const opt = buildChartOption({
+      seasons: [partial],
+      selectedYears: ['2026'],
+      featuredYear: '2026',
+    });
+    const xAxis = opt.xAxis as { min: number };
+    const yAxis = opt.yAxis as { min: number };
+    expect(xAxis.min).toBe(-14); // first scored 7/25 → 14 days → -14
+    expect(yAxis.min).toBe(80); // min score 88 → 80
+    expect(seriesByName(opt, '2026').data).toHaveLength(1);
   });
 });

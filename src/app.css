@@ -5,10 +5,15 @@
   --color-navy-950: #050a18;
   --color-navy-900: #0a1531;
   --color-navy-800: #142450;
+  --color-brand-100: #e6efff;
   --color-brand-300: #9ab8ff;
   --color-brand-400: #5b8bff;
   --color-brand-500: #2f6cff;
   --color-brand-600: #1d57e8;
+  --color-gold-100: #faf0d6;
+  --color-gold-400: #e0b65a;
+  --color-gold-500: #c79a3a;
+  --color-gold-700: #7a5a1d;
 }
 
 input[type="range"] {

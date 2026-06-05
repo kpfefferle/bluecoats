@@ -1,0 +1,44 @@
+/**
+ * Editorial groupings of Bluecoats competitive history, surfaced as summary
+ * cards beneath the Score History chart. Boundaries and copy are authored from
+ * the corps' real placement record (see the `placement` field on each season).
+ */
+export interface Era {
+  /** First season year of the era (inclusive). */
+  from: number;
+  /** Last season year of the era (inclusive). */
+  to: number;
+  /** Short era name. */
+  name: string;
+  /** One-line description of what defined the era. */
+  description: string;
+}
+
+export const ERAS: ReadonlyArray<Era> = [
+  {
+    from: 1977,
+    to: 1986,
+    name: 'Founding years',
+    description:
+      'Open Class roots — building the corps toward a Finals presence.',
+  },
+  {
+    from: 1987,
+    to: 2000,
+    name: 'Finals breakthrough',
+    description: 'First World Championship Finals appearance in 1987.',
+  },
+  {
+    from: 2001,
+    to: 2013,
+    name: 'Climb to contention',
+    description: 'Into the top six. First medal — bronze — in 2010.',
+  },
+  {
+    from: 2014,
+    to: 2026,
+    name: 'Modern medalist',
+    description:
+      'Perennial top three. Champions in 2016 & 2024; best-ever 98.750.',
+  },
+];
