@@ -1,7 +1,11 @@
 import { expect, test } from '@playwright/test';
 
 test('renders rankings table and slider', async ({ page }) => {
-  await page.goto('/daily-ranking');
+  // Pin to day=0 so every populated season is included regardless of the
+  // calendar date. Without a day param the page defaults to the current day
+  // until the next finals, which early in a season surfaces only the few
+  // seasons that had scored that early — making the row count time-dependent.
+  await page.goto('/daily-ranking?day=0');
   await expect(
     page.getByRole('heading', { name: 'Daily ranking' }),
   ).toBeVisible();
