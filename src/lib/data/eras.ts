@@ -20,25 +20,25 @@ export const ERAS: ReadonlyArray<Era> = [
     to: 1986,
     name: 'Founding years',
     description:
-      'Open Class roots — building the corps toward a Finals presence.',
+      'Open Class roots - building the corps toward a Finals presence.',
   },
   {
     from: 1987,
     to: 2000,
     name: 'Finals breakthrough',
-    description: 'First World Championship Finals appearance in 1987.',
+    description: 'First ever World Championship Finals appearance in 1987.',
   },
   {
     from: 2001,
     to: 2013,
     name: 'Climb to contention',
-    description: 'Into the top six. First medal — bronze — in 2010.',
+    description: 'Into the top six. First medal in 2010 (bronze).',
   },
   {
     from: 2014,
     to: 2026,
     name: 'Modern medalist',
     description:
-      'Perennial top three. Champions in 2016 & 2024; best-ever 98.750.',
+      'Perennial top three. Champions in 2016 & 2024. Best ever 98.75 (2024).',
   },
 ];

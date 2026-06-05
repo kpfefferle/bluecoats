@@ -31,8 +31,9 @@ const Y_AXIS_OPTION: EChartsOption['yAxis'] = {
   type: 'value',
   min: Y_AXIS_OPTION_MIN,
   max: 100,
-  minorTick: { length: 0, show: true, splitNumber: 2 },
-  minorSplitLine: { show: true },
+  axisTick: {
+    show: false,
+  },
 };
 
 /** The protagonist (most recent / in-progress) season. */
