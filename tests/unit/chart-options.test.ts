@@ -2,9 +2,9 @@ import { describe, expect, it } from 'vitest';
 import {
   buildChartOption,
   COLOR_CHAMPION,
+  COLOR_COMPARE,
   COLOR_FAINT,
   COLOR_FEATURED,
-  COMPARE_PALETTE,
 } from '../../src/lib/utils/chart-options';
 import type { SeasonScores } from '../../src/lib/data/base';
 
@@ -142,7 +142,7 @@ describe('buildChartOption', () => {
     expect(other.endLabel?.show ?? false).toBe(false);
   });
 
-  it('promotes selected seasons to a vivid compare line above the hairlines', () => {
+  it('promotes selected seasons to the dark compare line above the hairlines', () => {
     const opt = buildChartOption({
       seasons: SEASONS,
       selectedYears: ['2023'],
@@ -151,18 +151,19 @@ describe('buildChartOption', () => {
     const selected = seriesByName(opt, '2023');
     const champion = seriesByName(opt, '2024'); // champion, not selected
     expect(selected.endLabel?.show).toBe(true);
-    expect(selected.lineStyle?.color).toBe(COMPARE_PALETTE[0]);
+    expect(selected.lineStyle?.color).toBe(COLOR_COMPARE);
     // a compare line sits above the gold championship hairlines
     expect(selected.z ?? 0).toBeGreaterThan(champion.z ?? 0);
   });
 
-  it('uses a selected season own color when it defines one', () => {
+  it('renders every selected season in the same compare color, even one with its own color', () => {
     const opt = buildChartOption({
       seasons: SEASONS,
-      selectedYears: ['2024'],
+      selectedYears: ['2023', '2024'], // 2024 defines color: '#dc2626'
       featuredYear: '2025',
     });
-    expect(seriesByName(opt, '2024').lineStyle?.color).toBe('#dc2626');
+    expect(seriesByName(opt, '2023').lineStyle?.color).toBe(COLOR_COMPARE);
+    expect(seriesByName(opt, '2024').lineStyle?.color).toBe(COLOR_COMPARE);
   });
 
   it('scales axes to the featured season alone when nothing is selected', () => {

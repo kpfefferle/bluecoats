@@ -43,25 +43,15 @@ export const COLOR_FEATURED = '#1d57e8';
 export const COLOR_CHAMPION = '#c79a3a';
 /** Every other season, rendered as faint historical context. */
 export const COLOR_FAINT = '#dfe3ea';
+/**
+ * Picker-selected "compare" seasons. A single dark navy that matches the
+ * "Compare" swatch in the legend — selected lines are told apart by their end
+ * labels, not by color.
+ */
+export const COLOR_COMPARE = '#0a1531';
 /** Surfaced on hover and used for the featured end label / Today marker. */
 const COLOR_INK = '#0a1531';
 const COLOR_CHAMPION_INK = '#7a5a1d';
-
-/**
- * Vivid, mutually distinct colors for picker-selected "compare" seasons that
- * don't define their own `color`. Deliberately avoids blue (featured) and gold
- * (champion) so the three roles stay legible together.
- */
-export const COMPARE_PALETTE = [
-  '#0a1531', // navy ink
-  '#dc2626', // red
-  '#7c3aed', // violet
-  '#0891b2', // cyan
-  '#ea580c', // orange
-  '#15803d', // green
-  '#db2777', // pink
-  '#475569', // slate
-];
 
 type Role = 'featured' | 'selected' | 'champion' | 'other';
 
@@ -112,7 +102,6 @@ function seasonData(season: SeasonScores) {
 function seriesForSeason(
   season: SeasonScores,
   role: Role,
-  compareColor: string,
   inProgress: boolean,
 ): SeriesOption {
   const base = {
@@ -161,12 +150,12 @@ function seriesForSeason(
       ...base,
       z: 30,
       symbol: 'none',
-      lineStyle: { color: compareColor, width: 2.25, opacity: 1 },
-      itemStyle: { color: compareColor },
+      lineStyle: { color: COLOR_COMPARE, width: 2.25, opacity: 1 },
+      itemStyle: { color: COLOR_COMPARE },
       endLabel: {
         show: true,
         formatter: season.year,
-        color: compareColor,
+        color: COLOR_COMPARE,
         fontWeight: 'bold',
         fontSize: 12,
       },
@@ -266,14 +255,6 @@ export function buildChartOption({
   featuredYear,
   featuredInProgress = false,
 }: ChartOptionInput): EChartsOption {
-  // Selected years drive the compare palette in a stable order.
-  const sortedSelected = [...selectedYears].sort();
-  const compareColor = (season: SeasonScores) =>
-    season.color ??
-    COMPARE_PALETTE[
-      sortedSelected.indexOf(season.year) % COMPARE_PALETTE.length
-    ];
-
   const roleFor = (season: SeasonScores): Role => {
     if (season.year === featuredYear) return 'featured';
     if (selectedYears.includes(season.year)) return 'selected';
@@ -292,7 +273,7 @@ export function buildChartOption({
     .map((season) => ({ season, role: roleFor(season) }))
     .sort((a, b) => order[a.role] - order[b.role])
     .map(({ season, role }) =>
-      seriesForSeason(season, role, compareColor(season), featuredInProgress),
+      seriesForSeason(season, role, featuredInProgress),
     );
 
   // Scale the axes to the featured season alone until the viewer picks seasons
