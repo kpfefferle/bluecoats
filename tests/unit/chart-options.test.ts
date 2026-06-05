@@ -165,12 +165,22 @@ describe('buildChartOption', () => {
     expect(seriesByName(opt, '2024').lineStyle?.color).toBe('#dc2626');
   });
 
-  it('fits axes to every season when nothing is selected', () => {
+  it('scales axes to the featured season alone when nothing is selected', () => {
     const opt = buildChartOption({
       seasons: SEASONS,
       selectedYears: [],
       featuredYear: '2025',
     });
+    const xAxis = opt.xAxis as { min: number };
+    const yAxis = opt.yAxis as { min: number };
+    // featured 2025 spans 21 days → ceil(21/7)=3 weeks → -21
+    expect(xAxis.min).toBe(-21);
+    // featured 2025 lowest score is 80 → floor(80/10)*10 = 80
+    expect(yAxis.min).toBe(80);
+  });
+
+  it('falls back to all seasons for bounds when no featured year resolves', () => {
+    const opt = buildChartOption({ seasons: SEASONS, selectedYears: [] });
     const xAxis = opt.xAxis as { min: number };
     const yAxis = opt.yAxis as { min: number };
     // longest span is 2023 (65 days) → ceil(65/7)=10 weeks → -70

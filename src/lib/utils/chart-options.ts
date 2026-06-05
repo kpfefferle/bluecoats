@@ -295,14 +295,16 @@ export function buildChartOption({
       seriesForSeason(season, role, compareColor(season), featuredInProgress),
     );
 
-  // With no selection, show the full historical range. Once the viewer picks
-  // seasons to compare, zoom to the featured + selected set.
-  const focusSeasons = selectedYears.length
-    ? seasons.filter(
-        (season) =>
-          season.year === featuredYear || selectedYears.includes(season.year),
-      )
-    : seasons;
+  // Scale the axes to the featured season alone until the viewer picks seasons
+  // to compare, at which point the focus widens to the featured + selected set.
+  // (Every season still renders as faint context regardless of the bounds.)
+  const focusSeasons = (() => {
+    const focus = seasons.filter(
+      (season) =>
+        season.year === featuredYear || selectedYears.includes(season.year),
+    );
+    return focus.length ? focus : seasons;
+  })();
 
   return {
     grid: GRID_OPTION,
