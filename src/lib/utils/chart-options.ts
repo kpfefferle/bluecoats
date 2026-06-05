@@ -18,8 +18,6 @@ const X_AXIS_OPTION: EChartsOption['xAxis'] = {
   min: X_AXIS_OPTION_MIN,
   max: 0,
   interval: 7,
-  minorTick: { show: true, splitNumber: 7 },
-  minorSplitLine: { show: true },
   axisLabel: {
     formatter(value: number) {
       if (value === 0) return 'DCI Finals';
