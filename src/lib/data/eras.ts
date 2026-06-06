@@ -32,13 +32,13 @@ export const ERAS: ReadonlyArray<Era> = [
     from: 2001,
     to: 2013,
     name: 'Climb to contention',
-    description: 'Into the top six. First medal in 2010 (bronze).',
+    description: 'First top-six finish in 2004. First medal in 2010 (bronze).',
   },
   {
     from: 2014,
     to: 2026,
     name: 'Modern medalist',
     description:
-      'Perennial top three. Champions in 2016 & 2024. Best ever 98.75 (2024).',
+      'Perennial top three. Champions in 2016 & 2024. Best ever score of 98.75 (2024).',
   },
 ];
