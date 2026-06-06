@@ -53,7 +53,7 @@
 </svelte:head>
 
 <PageHeader
-  title="Score History"
+  title="Score history"
   subtitle="Every Bluecoats season charted as a full tour toward DCI Finals"
 />
 <PageContent>
