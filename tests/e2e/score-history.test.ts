@@ -1,31 +1,52 @@
 import { expect, test } from '@playwright/test';
 
-test('renders chart, season select, and fit-all toggle', async ({ page }) => {
+function selectedYears(url: string): string | null {
+  return new URL(url).searchParams.get('years');
+}
+
+test('renders the chart and the decade season picker', async ({ page }) => {
   await page.goto('/');
   await expect(
     page.getByRole('heading', { name: 'Score History' }),
   ).toBeVisible();
-  await expect(page.getByLabel('Season', { exact: true })).toBeVisible();
-  await expect(page.getByLabel('Fit all seasons')).toBeVisible();
   // ECharts renders into a <canvas> inside the chart container
   await expect(page.locator('canvas')).toBeVisible();
+  // Season picker exposes each year as a toggle button
+  await expect(page.getByRole('button', { name: '2014' })).toBeVisible();
 });
 
-test('selecting a year and toggling fitAll updates the URL', async ({
+test('toggling a year pill adds and removes it from the URL', async ({
   page,
 }) => {
   await page.goto('/');
-  await page.getByLabel('Season', { exact: true }).selectOption('2014');
-  await expect(page).toHaveURL(/[?&]years=2014\b/);
+  await page.getByRole('button', { name: '2014' }).click();
+  await expect.poll(() => selectedYears(page.url())).toBe('2014');
 
-  await page.getByLabel('Fit all seasons').check();
-  await expect(page).toHaveURL(/[?&]fitAll=true\b/);
+  await page.getByRole('button', { name: '2014' }).click();
+  await expect.poll(() => selectedYears(page.url())).toBeNull();
 });
 
-test('reads selectedYears and fitAll from the URL on load', async ({
+test('selecting multiple years records a sorted list in the URL', async ({
   page,
 }) => {
-  await page.goto('/?years=2018&fitAll=true');
-  await expect(page.getByLabel('Season', { exact: true })).toHaveValue('2018');
-  await expect(page.getByLabel('Fit all seasons')).toBeChecked();
+  await page.goto('/');
+  await page.getByRole('button', { name: '2016' }).click();
+  await page.getByRole('button', { name: '2014' }).click();
+  await expect.poll(() => selectedYears(page.url())).toBe('2014,2016');
+});
+
+test('reads selected years from the URL on load', async ({ page }) => {
+  await page.goto('/?years=2016,2018');
+  await expect(page.getByRole('button', { name: '2016' })).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  );
+  await expect(page.getByRole('button', { name: '2018' })).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  );
+  await expect(page.getByRole('button', { name: '2014' })).toHaveAttribute(
+    'aria-pressed',
+    'false',
+  );
 });

@@ -4,10 +4,10 @@ import type { SeasonScores } from '$data/base';
 import { FINALS_ZONE } from './time';
 
 const GRID_OPTION: EChartsOption['grid'] = {
-  top: '32px',
-  left: '32px',
-  right: '32px',
-  bottom: '80px',
+  top: '36px',
+  left: '36px',
+  right: '48px',
+  bottom: '48px',
 };
 
 const X_AXIS_OPTION_MIN = -10 * 7;
@@ -18,8 +18,6 @@ const X_AXIS_OPTION: EChartsOption['xAxis'] = {
   min: X_AXIS_OPTION_MIN,
   max: 0,
   interval: 7,
-  minorTick: { show: true, splitNumber: 7 },
-  minorSplitLine: { show: true },
   axisLabel: {
     formatter(value: number) {
       if (value === 0) return 'DCI Finals';
@@ -33,9 +31,28 @@ const Y_AXIS_OPTION: EChartsOption['yAxis'] = {
   type: 'value',
   min: Y_AXIS_OPTION_MIN,
   max: 100,
-  minorTick: { length: 0, show: true, splitNumber: 2 },
-  minorSplitLine: { show: true },
+  axisTick: {
+    show: false,
+  },
 };
+
+/** The protagonist (most recent / in-progress) season. */
+export const COLOR_FEATURED = '#1d57e8';
+/** Championship seasons (placement 1). */
+export const COLOR_CHAMPION = '#c79a3a';
+/** Every other season, rendered as faint historical context. */
+export const COLOR_FAINT = '#dfe3ea';
+/**
+ * Picker-selected "compare" seasons. A single dark navy that matches the
+ * "Compare" swatch in the legend — selected lines are told apart by their end
+ * labels, not by color.
+ */
+export const COLOR_COMPARE = '#0a1531';
+/** Surfaced on hover and used for the featured end label / Today marker. */
+const COLOR_INK = '#0a1531';
+const COLOR_CHAMPION_INK = '#7a5a1d';
+
+type Role = 'featured' | 'selected' | 'champion' | 'other';
 
 const LINE_SERIES_OPTION_BASE = {
   type: 'line' as const,
@@ -58,51 +75,152 @@ const LINE_SERIES_OPTION_BASE = {
   },
 };
 
+type ScoredEntry = { date: string; location: string; score: number };
+
+function scoredEntries(season: SeasonScores): ScoredEntry[] {
+  return season.scores.filter(
+    (entry): entry is ScoredEntry => typeof entry.score === 'number',
+  );
+}
+
+function daysBeforeFinals(season: SeasonScores, date: string): number {
+  const finalDate = DateTime.fromISO(season.endDate, { zone: FINALS_ZONE });
+  const performanceDate = DateTime.fromISO(date, { zone: FINALS_ZONE });
+  return finalDate.diff(performanceDate, 'days').days;
+}
+
+function seasonData(season: SeasonScores) {
+  return scoredEntries(season).map(({ date, location, score }) => [
+    -daysBeforeFinals(season, date),
+    score,
+    date,
+    location,
+  ]);
+}
+
 function seriesForSeason(
   season: SeasonScores,
-  isSelected: boolean,
+  role: Role,
+  inProgress: boolean,
 ): SeriesOption {
-  const finalDate = DateTime.fromISO(season.endDate, { zone: FINALS_ZONE });
-  const data = season.scores
-    .filter(
-      (entry): entry is { date: string; location: string; score: number } =>
-        typeof entry.score === 'number',
-    )
-    .map(({ date, location, score }) => {
-      const performanceDate = DateTime.fromISO(date, { zone: FINALS_ZONE });
-      const daysToFinal = finalDate.diff(performanceDate, 'days').days;
-      return [-daysToFinal, score, date, location];
-    });
-
-  return {
+  const base = {
     ...LINE_SERIES_OPTION_BASE,
     name: season.year,
-    data,
-    z: isSelected ? 1 : 0,
-    itemStyle: {
-      color: isSelected ? (season.color ?? '#1d4ed8') : '#e5e7eb',
+    data: seasonData(season),
+  };
+
+  if (role === 'other') {
+    return {
+      ...base,
+      z: 1,
+      symbol: 'none',
+      lineStyle: { color: COLOR_FAINT, width: 1, opacity: 0.55 },
+      itemStyle: { color: COLOR_FAINT },
+      emphasis: {
+        focus: 'series',
+        lineStyle: { color: COLOR_INK, width: 2, opacity: 1 },
+      },
+    };
+  }
+
+  if (role === 'champion') {
+    return {
+      ...base,
+      z: 10,
+      symbol: 'none',
+      lineStyle: { color: COLOR_CHAMPION, width: 1.5, opacity: 0.75 },
+      itemStyle: { color: COLOR_CHAMPION },
+      endLabel: {
+        show: true,
+        formatter: `${season.year}`,
+        color: COLOR_CHAMPION_INK,
+        fontWeight: 'bold',
+        fontSize: 12,
+      },
+      emphasis: {
+        focus: 'series',
+        lineStyle: { width: 2.5, opacity: 1 },
+      },
+    };
+  }
+
+  if (role === 'selected') {
+    return {
+      ...base,
+      z: 30,
+      symbol: 'none',
+      lineStyle: { color: COLOR_COMPARE, width: 2.25, opacity: 1 },
+      itemStyle: { color: COLOR_COMPARE },
+      endLabel: {
+        show: true,
+        formatter: season.year,
+        color: COLOR_COMPARE,
+        fontWeight: 'bold',
+        fontSize: 12,
+      },
+      emphasis: { focus: 'series', lineStyle: { width: 3 } },
+    };
+  }
+
+  // featured protagonist
+  const latest = scoredEntries(season).at(-1);
+  const markPoint =
+    inProgress && latest
+      ? {
+          symbol: 'circle',
+          symbolSize: 12,
+          itemStyle: {
+            color: COLOR_FEATURED,
+            borderColor: '#fff',
+            borderWidth: 3,
+          },
+          label: {
+            show: true,
+            position: 'top' as const,
+            formatter: `Today · ${latest.score.toFixed(3)}`,
+            color: '#fff',
+            backgroundColor: COLOR_INK,
+            borderRadius: 4,
+            padding: [4, 8] as [number, number],
+            fontWeight: 'bold' as const,
+            fontSize: 11,
+          },
+          data: [
+            {
+              name: 'Today',
+              coord: [-daysBeforeFinals(season, latest.date), latest.score] as [
+                number,
+                number,
+              ],
+            },
+          ],
+        }
+      : undefined;
+
+  return {
+    ...base,
+    z: 100,
+    symbol: 'circle',
+    symbolSize: 6,
+    lineStyle: { color: COLOR_FEATURED, width: 3.25, opacity: 1 },
+    itemStyle: { color: COLOR_FEATURED, borderColor: '#fff', borderWidth: 2 },
+    endLabel: {
+      show: true,
+      formatter: season.year,
+      color: COLOR_FEATURED,
+      fontWeight: 'bold',
+      fontSize: 13,
     },
-    emphasis: {
-      itemStyle: { borderColor: season.color ?? '#2563eb' },
-      lineStyle: { color: season.color ?? '#2563eb' },
-    },
+    markPoint,
   };
 }
 
 function xAxisMin(seasons: SeasonScores[]): number {
   const lengths = seasons
     .map((season) => {
-      const firstScored = season.scores.find(
-        ({ score }) => typeof score === 'number',
-      );
+      const firstScored = scoredEntries(season)[0];
       if (!firstScored) return undefined;
-      const finalDate = DateTime.fromISO(season.endDate, {
-        zone: FINALS_ZONE,
-      });
-      const firstDate = DateTime.fromISO(firstScored.date, {
-        zone: FINALS_ZONE,
-      });
-      return finalDate.diff(firstDate, 'days').days;
+      return daysBeforeFinals(season, firstScored.date);
     })
     .filter((days): days is number => days !== undefined);
   if (lengths.length === 0) return X_AXIS_OPTION_MIN;
@@ -113,57 +231,66 @@ function xAxisMin(seasons: SeasonScores[]): number {
 
 function yAxisMin(seasons: SeasonScores[]): number {
   const scores = seasons.flatMap((season) =>
-    season.scores
-      .map(({ score }) => score)
-      .filter((score): score is number => typeof score === 'number'),
+    scoredEntries(season).map(({ score }) => score),
   );
   if (scores.length === 0) return Y_AXIS_OPTION_MIN;
   const minScore = Math.min(...scores);
   return Math.floor(minScore / 10) * 10;
 }
 
-export function buildChartOption(
-  seasonScores: SeasonScores[],
-  selectedYears: SeasonScores['year'][],
-  fitAllSeasons: boolean,
-): EChartsOption {
-  const matchedSelected = seasonScores.filter((season) =>
-    selectedYears.includes(season.year),
-  );
-  const selectedSeasons = matchedSelected.length
-    ? matchedSelected
-    : [seasonScores[seasonScores.length - 1]];
-  const unselectedSeasons = seasonScores.filter(
-    (season) => !selectedSeasons.includes(season),
-  );
+export interface ChartOptionInput {
+  seasons: SeasonScores[];
+  /** Picker-selected years to promote to compare lines. */
+  selectedYears: SeasonScores['year'][];
+  /** The protagonist season's year, highlighted in bold blue. */
+  featuredYear?: SeasonScores['year'];
+  /** True when the featured season's tour is still underway (shows Today marker). */
+  featuredInProgress?: boolean;
+}
 
-  const legend = {
-    data: selectedSeasons
-      .map(({ year }) => year)
-      .sort()
-      .reverse(),
-    selectedMode: false,
+export function buildChartOption({
+  seasons,
+  selectedYears,
+  featuredYear,
+  featuredInProgress = false,
+}: ChartOptionInput): EChartsOption {
+  const roleFor = (season: SeasonScores): Role => {
+    if (season.year === featuredYear) return 'featured';
+    if (selectedYears.includes(season.year)) return 'selected';
+    if (season.placement === 1) return 'champion';
+    return 'other';
   };
 
-  const series: SeriesOption[] = [
-    ...unselectedSeasons.map((season) => seriesForSeason(season, false)),
-    ...selectedSeasons.map((season) => seriesForSeason(season, true)),
-  ];
+  // Render order back-to-front so higher-priority roles paint last.
+  const order: Record<Role, number> = {
+    other: 0,
+    champion: 1,
+    selected: 2,
+    featured: 3,
+  };
+  const series: SeriesOption[] = [...seasons]
+    .map((season) => ({ season, role: roleFor(season) }))
+    .sort((a, b) => order[a.role] - order[b.role])
+    .map(({ season, role }) =>
+      seriesForSeason(season, role, featuredInProgress),
+    );
 
-  const xAxis = fitAllSeasons
-    ? X_AXIS_OPTION
-    : { ...X_AXIS_OPTION, min: xAxisMin(selectedSeasons) };
-
-  const yAxis = fitAllSeasons
-    ? Y_AXIS_OPTION
-    : { ...Y_AXIS_OPTION, min: yAxisMin(selectedSeasons) };
+  // Scale the axes to the featured season alone until the viewer picks seasons
+  // to compare, at which point the focus widens to the featured + selected set.
+  // (Every season still renders as faint context regardless of the bounds.)
+  const focusSeasons = (() => {
+    const focus = seasons.filter(
+      (season) =>
+        season.year === featuredYear || selectedYears.includes(season.year),
+    );
+    return focus.length ? focus : seasons;
+  })();
 
   return {
     grid: GRID_OPTION,
     tooltip: {},
-    legend,
     series,
-    xAxis,
-    yAxis,
+    xAxis: { ...X_AXIS_OPTION, min: xAxisMin(focusSeasons) },
+    yAxis: { ...Y_AXIS_OPTION, min: yAxisMin(focusSeasons) },
   };
 }

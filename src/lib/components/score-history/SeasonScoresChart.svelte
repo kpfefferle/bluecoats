@@ -6,15 +6,22 @@
   let {
     seasonScores,
     selectedYears,
-    fitAllSeasons,
+    featuredYear,
+    featuredInProgress = false,
   }: {
     seasonScores: SeasonScores[];
     selectedYears: SeasonScores['year'][];
-    fitAllSeasons: boolean;
+    featuredYear?: SeasonScores['year'];
+    featuredInProgress?: boolean;
   } = $props();
 
   const chartOption = $derived(
-    buildChartOption(seasonScores, selectedYears, fitAllSeasons),
+    buildChartOption({
+      seasons: seasonScores,
+      selectedYears,
+      featuredYear,
+      featuredInProgress,
+    }),
   );
 </script>
 
