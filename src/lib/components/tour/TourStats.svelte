@@ -27,7 +27,9 @@
       Climb across tour
     </div>
     <div class="mt-1 text-2xl font-semibold tabular-nums text-gray-900">
-      {summary.climb !== null ? `+${summary.climb.toFixed(2)}` : '—'}
+      {summary.climb !== null
+        ? `${summary.climb >= 0 ? '+' : ''}${summary.climb.toFixed(2)}`
+        : '—'}
     </div>
     <div class="mt-0.5 text-xs text-gray-400">first to latest score</div>
   </Card>
