@@ -59,7 +59,10 @@
         <span
           class="inline-flex items-center gap-1.5 rounded-full bg-gray-100 px-2.5 py-1 text-xs font-semibold text-gray-700"
         >
-          {#if season.placement === 1}🥇{:else if season.placement === 2}🥈{:else if season.placement === 3}🥉{/if}
+          {#if season.placement === 1}<span aria-hidden="true">🥇</span
+            >{:else if season.placement === 2}<span aria-hidden="true">🥈</span
+            >{:else if season.placement === 3}<span aria-hidden="true">🥉</span
+            >{/if}
           {placement}
         </span>
       {/if}
