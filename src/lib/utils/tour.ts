@@ -159,6 +159,9 @@ function finalsRank(
   const ahead = seasons.filter((s) => {
     if (s.year === season.year) return false;
     const other = finalsScore(s);
+    // `>=` (not `>`): a season tied at the best-ever finals score does not get
+    // sole credit for #1 — unlike the per-day rank-then/rank-now helpers, which
+    // share a rank on ties. Intentional asymmetry for the all-time finals stat.
     return other !== null && other >= mine;
   }).length;
   return ahead + 1;

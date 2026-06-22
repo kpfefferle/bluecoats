@@ -151,6 +151,19 @@ describe('tourSummary', () => {
     expect(s.climb).toBe(21); // 95 - 74 (null row ignored)
     expect(s.finalsScore).toBe(95);
     expect(s.finalsRank).toBe(1); // no other season's finals reached 95
+    expect(s.topFiveDays).toBe(3); // all three numeric stops (74,91,95) rank top-5 all-time
+    expect(s.allTimeBestDays).toBe(2); // day-49 (74) and day-0 (95) are #1 all-time; day-21 (91) is #2 because 2025 reached 92 by then
+  });
+
+  it('does not award sole rank-1 when a finals score is tied', () => {
+    const tie2030: SeasonScores = {
+      year: '2030',
+      endDate: '2030-08-10',
+      scores: [{ date: '2030-08-10', location: 'Indianapolis, IN', score: 95 }],
+    };
+    // 2030 ties S2024's 95 at finals → finalsRank 2 (>= semantics), not 1.
+    const s = tourSummary([...ALL, tie2030], tie2030);
+    expect(s.finalsRank).toBe(2);
   });
 
   it('reports no finals score/rank for an in-progress season', () => {
