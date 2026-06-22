@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon';
 import type { SeasonScores } from '$data/base';
 import { FINALS_ZONE } from './time';
+import { ordinalSuffix } from './ordinal';
 
 export interface TourStop {
   date: string;
@@ -112,4 +113,95 @@ export function buildTourLog(
       rankNow: rankNow(seasons, stop.daysBeforeFinals, stop.score, season.year),
     };
   });
+}
+
+export interface TourSummary {
+  seasonHigh: number | null;
+  /** Last numeric score − first numeric score. */
+  climb: number | null;
+  /** Shows whose rank-now is 5 or better. */
+  topFiveDays: number;
+  /** Shows whose rank-now is exactly 1 (still the all-time best at that day). */
+  allTimeBestDays: number;
+  /** Finals-night score (day 0), or null if the season has not reached finals. */
+  finalsScore: number | null;
+  /** All-time rank of this season's finals score, or null when there is none. */
+  finalsRank: number | null;
+}
+
+/** The numeric score on finals night (0 days before finals), else null. */
+function finalsScore(season: SeasonScores): number | null {
+  const finalsStops = buildTour(season).filter(
+    (s) => s.daysBeforeFinals === 0 && s.score !== null,
+  );
+  return finalsStops.length ? finalsStops[finalsStops.length - 1].score : null;
+}
+
+/** Latest numeric score of the season, else null. */
+function latestScore(season: SeasonScores): number | null {
+  const numeric = season.scores.filter(
+    (s): s is typeof s & { score: number } => typeof s.score === 'number',
+  );
+  return numeric.length ? numeric[numeric.length - 1].score : null;
+}
+
+/** Finals score when finished, otherwise the latest in-season score. */
+export function finalsOrLatestScore(season: SeasonScores): number | null {
+  return finalsScore(season) ?? latestScore(season);
+}
+
+function finalsRank(
+  seasons: SeasonScores[],
+  season: SeasonScores,
+): number | null {
+  const mine = finalsScore(season);
+  if (mine === null) return null;
+  const ahead = seasons.filter((s) => {
+    if (s.year === season.year) return false;
+    const other = finalsScore(s);
+    return other !== null && other >= mine;
+  }).length;
+  return ahead + 1;
+}
+
+export function tourSummary(
+  seasons: SeasonScores[],
+  season: SeasonScores,
+): TourSummary {
+  const log = buildTourLog(seasons, season);
+  const numeric = log.filter(
+    (r): r is TourLogRow & { score: number } => r.score !== null,
+  );
+  if (numeric.length === 0) {
+    return {
+      seasonHigh: null,
+      climb: null,
+      topFiveDays: 0,
+      allTimeBestDays: 0,
+      finalsScore: null,
+      finalsRank: null,
+    };
+  }
+  return {
+    seasonHigh: Math.max(...numeric.map((r) => r.score)),
+    climb: numeric[numeric.length - 1].score - numeric[0].score,
+    topFiveDays: numeric.filter((r) => r.rankNow !== null && r.rankNow <= 5)
+      .length,
+    allTimeBestDays: numeric.filter((r) => r.rankNow === 1).length,
+    finalsScore: finalsScore(season),
+    finalsRank: finalsRank(seasons, season),
+  };
+}
+
+/** Human label for a DCI placement, or null when unplaced. */
+export function placementLabel(placement: number | undefined): string | null {
+  if (placement == null) return null;
+  if (placement === 1) return 'DCI World Champion';
+  if (placement === 2) return 'DCI Silver Medalist';
+  if (placement === 3) return 'DCI Bronze Medalist';
+  if (placement <= 6)
+    return `Top 6 · ${placement}${ordinalSuffix(placement)} place`;
+  if (placement <= 12)
+    return `Top 12 · ${placement}${ordinalSuffix(placement)} place`;
+  return `${placement}${ordinalSuffix(placement)} place`;
 }

@@ -6,6 +6,9 @@ import {
   rankThen,
   rankNow,
   buildTourLog,
+  tourSummary,
+  finalsOrLatestScore,
+  placementLabel,
 } from '../../src/lib/utils/tour';
 import type { SeasonScores } from '../../src/lib/data/base';
 
@@ -138,5 +141,44 @@ describe('buildTourLog', () => {
     const exhibition = log.find((r) => r.score === null)!;
     expect(exhibition.rankThen).toBeNull();
     expect(exhibition.rankNow).toBeNull();
+  });
+});
+
+describe('tourSummary', () => {
+  it('summarizes a completed season', () => {
+    const s = tourSummary(ALL, S2024);
+    expect(s.seasonHigh).toBe(95);
+    expect(s.climb).toBe(21); // 95 - 74 (null row ignored)
+    expect(s.finalsScore).toBe(95);
+    expect(s.finalsRank).toBe(1); // no other season's finals reached 95
+  });
+
+  it('reports no finals score/rank for an in-progress season', () => {
+    const s = tourSummary(ALL, S2025_INPROGRESS);
+    expect(s.finalsScore).toBeNull();
+    expect(s.finalsRank).toBeNull();
+    expect(s.seasonHigh).toBe(92);
+  });
+});
+
+describe('finalsOrLatestScore', () => {
+  it('uses the finals score when the season finished', () => {
+    expect(finalsOrLatestScore(S2024)).toBe(95);
+  });
+
+  it('falls back to the latest score mid-season', () => {
+    expect(finalsOrLatestScore(S2025_INPROGRESS)).toBe(92);
+  });
+});
+
+describe('placementLabel', () => {
+  it('labels medals, top tiers, and plain places', () => {
+    expect(placementLabel(1)).toBe('DCI World Champion');
+    expect(placementLabel(2)).toBe('DCI Silver Medalist');
+    expect(placementLabel(3)).toBe('DCI Bronze Medalist');
+    expect(placementLabel(5)).toBe('Top 6 · 5th place');
+    expect(placementLabel(10)).toBe('Top 12 · 10th place');
+    expect(placementLabel(15)).toBe('15th place');
+    expect(placementLabel(undefined)).toBeNull();
   });
 });
