@@ -56,6 +56,10 @@ describe('scoreAsOfDay', () => {
   it('returns null when no scored show is that early', () => {
     expect(scoreAsOfDay(S2024, 60)).toBeNull();
   });
+
+  it('skips null-score stops when looking back', () => {
+    expect(scoreAsOfDay(S2024, 35)).toBe(74);
+  });
 });
 
 describe('isInProgress', () => {
