@@ -26,12 +26,12 @@
       class="border-b border-gray-200 text-left text-[11px] font-semibold tracking-wider text-gray-500 uppercase"
     >
       <th scope="col" class="py-3 pr-3 pl-4 whitespace-nowrap sm:pl-6">Date</th>
-      <th scope="col" class="hidden px-3 py-3 whitespace-nowrap sm:table-cell">
+      <th scope="col" class="hidden px-3 py-3 whitespace-nowrap lg:table-cell">
         Day
       </th>
       <th scope="col" class="px-3 py-3">Event</th>
       <th scope="col" class="px-3 py-3 text-right whitespace-nowrap">Score</th>
-      <th scope="col" class="hidden px-3 py-3 whitespace-nowrap lg:table-cell">
+      <th scope="col" class="hidden px-3 py-3 whitespace-nowrap sm:table-cell">
         Rank then
       </th>
       <th scope="col" class="px-3 py-3 whitespace-nowrap">Rank now</th>
@@ -52,7 +52,7 @@
           {formatDate(row.date)}
         </td>
         <td
-          class="hidden px-3 py-3 align-middle text-sm whitespace-nowrap text-gray-400 tabular-nums sm:table-cell"
+          class="hidden px-3 py-3 align-middle text-sm whitespace-nowrap text-gray-400 tabular-nums lg:table-cell"
         >
           {row.daysBeforeFinals}d
         </td>
@@ -77,7 +77,7 @@
           {/if}
         </td>
         <td
-          class="hidden px-3 py-3 align-middle whitespace-nowrap lg:table-cell"
+          class="hidden px-3 py-3 align-middle whitespace-nowrap sm:table-cell"
         >
           {#if row.rankThen !== null}
             <span
