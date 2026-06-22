@@ -50,3 +50,66 @@ export function isInProgress(season: SeasonScores): boolean {
   const hasNumeric = season.scores.some((s) => typeof s.score === 'number');
   return hasScheduled && hasNumeric;
 }
+
+export interface TourLogRow extends TourStop {
+  /** Rank among seasons *before* this one at this day. `null` for null-score rows. */
+  rankThen: number | null;
+  /** Rank among *all other* seasons at this day. `null` for null-score rows. */
+  rankNow: number | null;
+}
+
+function rankAmong(
+  seasons: SeasonScores[],
+  day: number,
+  score: number,
+): number {
+  const ahead = seasons.filter((s) => {
+    const peer = scoreAsOfDay(s, day);
+    return peer !== null && peer >= score;
+  }).length;
+  return ahead + 1;
+}
+
+/** Rank of `score` at `day` among seasons that came before `year`. */
+export function rankThen(
+  seasons: SeasonScores[],
+  year: string,
+  day: number,
+  score: number,
+): number {
+  const peers = seasons.filter((s) => Number(s.year) < Number(year));
+  return rankAmong(peers, day, score);
+}
+
+/** Rank of `score` at `day` among all seasons except `excludeYear`. */
+export function rankNow(
+  seasons: SeasonScores[],
+  day: number,
+  score: number,
+  excludeYear: string,
+): number {
+  const peers = seasons.filter((s) => s.year !== excludeYear);
+  return rankAmong(peers, day, score);
+}
+
+/** Per-show tour log for `season`, enriched with rank-then / rank-now. */
+export function buildTourLog(
+  seasons: SeasonScores[],
+  season: SeasonScores,
+): TourLogRow[] {
+  return buildTour(season).map((stop) => {
+    if (stop.score === null) {
+      return { ...stop, rankThen: null, rankNow: null };
+    }
+    return {
+      ...stop,
+      rankThen: rankThen(
+        seasons,
+        season.year,
+        stop.daysBeforeFinals,
+        stop.score,
+      ),
+      rankNow: rankNow(seasons, stop.daysBeforeFinals, stop.score, season.year),
+    };
+  });
+}
