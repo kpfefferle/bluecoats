@@ -1,6 +1,7 @@
 <script lang="ts">
   import { DateTime } from 'luxon';
   import type { TourLogRow } from '$lib/utils/tour';
+  import { ordinalSuffix } from '$lib/utils/ordinal';
 
   let { rows }: { rows: TourLogRow[] } = $props();
 
@@ -80,6 +81,9 @@
         >
           {#if row.rankThen !== null}
             <span
+              aria-label="ranked {row.rankThen}{ordinalSuffix(
+                row.rankThen,
+              )} at the time"
               class="inline-flex h-6 min-w-7 items-center justify-center rounded-md px-1.5 text-xs font-semibold tabular-nums {rankClass(
                 row.rankThen,
               )}">#{row.rankThen}</span
@@ -91,12 +95,15 @@
         <td class="px-3 py-3 align-middle whitespace-nowrap">
           {#if row.rankNow !== null}
             <span
+              aria-label="ranked {row.rankNow}{ordinalSuffix(
+                row.rankNow,
+              )} today"
               class="inline-flex h-6 min-w-7 items-center justify-center rounded-md px-1.5 text-xs font-semibold tabular-nums {rankClass(
                 row.rankNow,
               )}">#{row.rankNow}</span
             >
           {:else}
-            <span class="text-xs text-gray-400">no score</span>
+            <span class="text-xs text-gray-300">—</span>
           {/if}
         </td>
         <td
@@ -108,6 +115,9 @@
               <span class="text-xs text-gray-400">holds</span>
             {:else}
               <span
+                aria-label={delta > 0
+                  ? `dropped ${Math.abs(delta)} ${Math.abs(delta) === 1 ? 'place' : 'places'}`
+                  : `improved ${Math.abs(delta)} ${Math.abs(delta) === 1 ? 'place' : 'places'}`}
                 class="text-xs font-semibold {delta > 0
                   ? 'text-red-700'
                   : 'text-green-700'}"
