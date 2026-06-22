@@ -110,6 +110,23 @@ describe('rankThen / rankNow', () => {
     // 2025 reaches 92 by 22 days out, which beats 91 → 2024 drops to #2 now.
     expect(rankNow(ALL, 21, 91, '2024')).toBe(2);
   });
+
+  it('treats an exact tie as the same rank, not behind', () => {
+    const tieA: SeasonScores = {
+      year: '2010',
+      endDate: '2010-08-14',
+      scores: [{ date: '2010-08-14', location: 'Indianapolis, IN', score: 90 }],
+    };
+    const tieB: SeasonScores = {
+      year: '2011',
+      endDate: '2011-08-13',
+      scores: [{ date: '2011-08-13', location: 'Indianapolis, IN', score: 90 }],
+    };
+    // 2011's 90 ties 2010's 90 at finals — it shares #1, not pushed to #2.
+    expect(rankNow([tieA, tieB], 0, 90, '2011')).toBe(1);
+    // And "at the time", only 2010 existed and tied — still #1.
+    expect(rankThen([tieA, tieB], '2011', 0, 90)).toBe(1);
+  });
 });
 
 describe('buildTourLog', () => {

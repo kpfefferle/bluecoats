@@ -65,7 +65,7 @@ function rankAmong(
 ): number {
   const ahead = seasons.filter((s) => {
     const peer = scoreAsOfDay(s, day);
-    return peer !== null && peer >= score;
+    return peer !== null && peer > score;
   }).length;
   return ahead + 1;
 }
