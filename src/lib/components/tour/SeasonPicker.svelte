@@ -32,7 +32,7 @@
   <div class="flex items-center gap-2">
     <button
       type="button"
-      class="inline-flex h-9 items-center gap-1 rounded-md border border-gray-200 px-2.5 text-sm font-medium text-gray-700 enabled:hover:bg-gray-50 disabled:opacity-40"
+      class="inline-flex h-9 items-center gap-1 rounded-md border border-gray-200 px-2.5 text-sm font-medium text-gray-700 enabled:hover:bg-gray-50 disabled:opacity-40 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:outline-none"
       onclick={() => prev && onChange(prev.year)}
       disabled={!prev}
       aria-label="Previous season"
@@ -72,7 +72,7 @@
 
     <button
       type="button"
-      class="inline-flex h-9 items-center gap-1 rounded-md border border-gray-200 px-2.5 text-sm font-medium text-gray-700 enabled:hover:bg-gray-50 disabled:opacity-40"
+      class="inline-flex h-9 items-center gap-1 rounded-md border border-gray-200 px-2.5 text-sm font-medium text-gray-700 enabled:hover:bg-gray-50 disabled:opacity-40 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:outline-none"
       onclick={() => next && onChange(next.year)}
       disabled={!next}
       aria-label="Next season"
@@ -95,7 +95,7 @@
       {@const champ = season.placement === 1}
       <button
         type="button"
-        class="h-7 rounded px-1.5 text-xs font-semibold tabular-nums transition-colors {active
+        class="h-7 rounded px-1.5 text-xs font-semibold tabular-nums transition-colors focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:outline-none {active
           ? 'bg-brand-600 text-white'
           : champ
             ? 'bg-gold-100 text-gold-700 hover:bg-gold-400/30'
