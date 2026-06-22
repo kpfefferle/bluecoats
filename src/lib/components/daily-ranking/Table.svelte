@@ -87,15 +87,15 @@
           class="w-full max-w-0 px-3 py-3 align-middle sm:w-auto sm:max-w-none sm:whitespace-nowrap"
         >
           <div class="text-sm font-semibold text-gray-900 tabular-nums">
-            {ranking.year}
+            {ranking.year}{#if medal}<span
+                class="ml-1.5"
+                role="img"
+                aria-label={MEDAL_LABEL[medal]}>{MEDAL_EMOJI[medal]}</span
+              >{/if}
           </div>
           {#if ranking.show}
             <div class="mt-0.5 truncate text-xs text-gray-500 sm:hidden">
-              {ranking.show}{#if medal}<span
-                  class="ml-1"
-                  role="img"
-                  aria-label={MEDAL_LABEL[medal]}>{MEDAL_EMOJI[medal]}</span
-                >{/if}
+              {ranking.show}
             </div>
           {/if}
         </td>
@@ -103,11 +103,6 @@
           class="hidden px-3 py-3 align-middle text-sm whitespace-nowrap text-gray-600 sm:table-cell"
         >
           {ranking.show ?? '—'}
-          {#if medal}
-            <span class="ml-1.5" role="img" aria-label={MEDAL_LABEL[medal]}
-              >{MEDAL_EMOJI[medal]}</span
-            >
-          {/if}
         </td>
         <td
           class="hidden px-3 py-3 align-middle text-sm whitespace-nowrap text-gray-600 sm:table-cell"
