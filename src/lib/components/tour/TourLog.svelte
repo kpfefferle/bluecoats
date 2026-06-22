@@ -44,7 +44,7 @@
     </tr>
   </thead>
   <tbody class="divide-y divide-gray-200 bg-white">
-    {#each rows as row (row.date)}
+    {#each rows as row, i (i)}
       <tr class="hover:bg-gray-50">
         <td
           class="py-3 pr-3 pl-4 align-middle text-sm font-semibold whitespace-nowrap text-gray-900 sm:pl-6"

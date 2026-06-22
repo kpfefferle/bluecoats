@@ -102,6 +102,17 @@ const S2023: SeasonScores = {
 
 const ALL = [S2022, S2023, S2024, S2025_INPROGRESS];
 
+// A season with two scored shows on the SAME date (prelims + finals doubleheader).
+const S_DOUBLEHEADER: SeasonScores = {
+  year: '1986',
+  endDate: '1986-08-16',
+  scores: [
+    { date: '1986-07-01', location: 'Whitewater, WI', score: 70 },
+    { date: '1986-08-16', location: 'Madison, WI', name: 'Prelims', score: 80 },
+    { date: '1986-08-16', location: 'Madison, WI', name: 'Finals', score: 81 },
+  ],
+};
+
 describe('rankThen / rankNow', () => {
   it('rankThen counts only seasons before the given year', () => {
     // At 21 days out, 2024 scored 91. Among prior seasons (2022→85, 2023→88)
@@ -193,5 +204,21 @@ describe('placementLabel', () => {
     expect(placementLabel(10)).toBe('Top 12 · 10th place');
     expect(placementLabel(15)).toBe('15th place');
     expect(placementLabel(undefined)).toBeNull();
+  });
+});
+
+describe('same-date shows', () => {
+  it('keeps both shows on a shared date as distinct rows', () => {
+    const tour = buildTour(S_DOUBLEHEADER);
+    expect(tour).toHaveLength(3);
+    // Both day-0 shows are present and retain their distinct names/scores.
+    const finalsDay = tour.filter((s) => s.daysBeforeFinals === 0);
+    expect(finalsDay.map((s) => s.score)).toEqual([80, 81]);
+    expect(finalsDay.map((s) => s.name)).toEqual(['Prelims', 'Finals']);
+  });
+
+  it('builds a tour log with the same row count (no collapsing of shared dates)', () => {
+    const log = buildTourLog([...ALL, S_DOUBLEHEADER], S_DOUBLEHEADER);
+    expect(log).toHaveLength(3);
   });
 });

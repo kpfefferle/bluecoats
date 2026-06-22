@@ -20,3 +20,14 @@ test('year param drives the season and the picker updates the URL', async ({
   await expect(page).toHaveURL(/[?&]year=2023\b/);
   await expect(page.getByRole('heading', { name: /^2023 ·/ })).toBeVisible();
 });
+
+test('renders a season with same-date shows (doubleheader) without crashing', async ({
+  page,
+}) => {
+  // 1986 has prelims+finals on the same date — a duplicate-key hazard that
+  // previously blanked the page. The heading and table rows must render.
+  await page.goto('/tour?year=1986');
+  await expect(page.getByRole('heading', { name: /^1986 ·/ })).toBeVisible();
+  const rows = page.locator('tbody tr');
+  expect(await rows.count()).toBeGreaterThan(0);
+});
