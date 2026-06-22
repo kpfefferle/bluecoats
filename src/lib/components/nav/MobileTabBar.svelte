@@ -6,12 +6,14 @@
   function iconPath(kind: NavIconKind): string {
     if (kind === 'history')
       return 'M3 19h18 M5 17V9 M10 17V5 M15 17v-6 M20 17v-9';
+    if (kind === 'tour')
+      return 'M12 21s-6-5.3-6-10a6 6 0 1 1 12 0c0 4.7-6 10-6 10z M12 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4z';
     return 'M3 5h18v14H3z M3 9h18 M8 5v4 M16 5v4';
   }
 </script>
 
 <nav
-  class="absolute inset-x-0 bottom-0 z-20 grid grid-cols-2 border-t border-gray-200 bg-white/90 px-1 pt-1.5 pb-[calc(0.625rem+env(safe-area-inset-bottom,0))] backdrop-blur-lg backdrop-saturate-150 md:hidden"
+  class="absolute inset-x-0 bottom-0 z-20 grid grid-cols-3 border-t border-gray-200 bg-white/90 px-1 pt-1.5 pb-[calc(0.625rem+env(safe-area-inset-bottom,0))] backdrop-blur-lg backdrop-saturate-150 md:hidden"
   aria-label="Primary"
 >
   {#each NAV_ITEMS as item (item.href)}
