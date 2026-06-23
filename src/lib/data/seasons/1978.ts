@@ -8,26 +8,31 @@ export const SEASON_1978: SeasonScores = {
     {
       date: '1978-06-25',
       location: 'Bellevue, OH',
+      name: 'Cherries Jubilee Contest',
       score: 56.4,
     },
     {
       date: '1978-07-02',
       location: 'Columbus, OH',
+      name: 'VFW State Championships',
       score: 66.85,
     },
     {
       date: '1978-07-14',
       location: 'Cleveland, OH',
+      name: 'American Legion State Championships',
       score: 62.25,
     },
     {
       date: '1978-08-05',
       location: 'Marion, OH',
+      name: 'U.S. Open Finals - Class A',
       score: 65.4,
     },
     {
       date: '1978-08-16',
       location: 'Denver, CO',
+      name: 'DCI World Championship Prelims',
       score: 68.5,
     },
   ],

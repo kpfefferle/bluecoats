@@ -59,11 +59,13 @@ export const SEASON_2002: SeasonScores = {
     {
       date: '2002-07-12',
       location: 'DeKalb, IL',
+      name: 'Drum Corps Midwest Prelims',
       score: 80.8,
     },
     {
       date: '2002-07-13',
       location: 'DeKalb, IL',
+      name: 'Drum Corps Midwest Finals',
       score: 80.95,
     },
     {
@@ -84,6 +86,7 @@ export const SEASON_2002: SeasonScores = {
     {
       date: '2002-07-20',
       location: 'San Antonio, TX',
+      name: 'DCI Southwestern',
       score: 84.2,
     },
     {
@@ -104,11 +107,13 @@ export const SEASON_2002: SeasonScores = {
     {
       date: '2002-07-26',
       location: 'Murfreesboro, TN',
+      name: 'DCI Masters',
       score: 86.05,
     },
     {
       date: '2002-07-27',
       location: 'Indianapolis, IN',
+      name: 'DCI Midwestern',
       score: 87.85,
     },
     {
@@ -129,6 +134,7 @@ export const SEASON_2002: SeasonScores = {
     {
       date: '2002-08-03',
       location: 'Philadelphia, PA',
+      name: 'DCI Eastern Classic',
       score: 89.85,
     },
     {
@@ -139,16 +145,19 @@ export const SEASON_2002: SeasonScores = {
     {
       date: '2002-08-08',
       location: 'Madison, WI',
+      name: 'DCI World Championship Prelims',
       score: 92.7,
     },
     {
       date: '2002-08-09',
       location: 'Madison, WI',
+      name: 'DCI World Championship Semis',
       score: 92.25,
     },
     {
       date: '2002-08-10',
       location: 'Madison, WI',
+      name: 'DCI World Championship Finals',
       score: 91.5,
     },
   ],

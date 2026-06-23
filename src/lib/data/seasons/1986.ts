@@ -58,16 +58,19 @@ export const SEASON_1986: SeasonScores = {
     {
       date: '1986-07-06',
       location: 'Saint Louis, MO',
+      name: 'Germainia Bank Presents',
       score: 63.1,
     },
     {
       date: '1986-07-19',
       location: 'DeKalb, IL',
+      name: 'Drum Corps Midwest Prelims',
       score: 74.1,
     },
     {
       date: '1986-07-19',
       location: 'DeKalb, IL',
+      name: 'Drum Corps Midwest Finals',
       score: 71.3,
     },
     {
@@ -78,6 +81,7 @@ export const SEASON_1986: SeasonScores = {
     {
       date: '1986-07-22',
       location: 'Columbus, OH',
+      name: 'Pageant of Champions',
       score: 63.2,
     },
     {
@@ -88,11 +92,13 @@ export const SEASON_1986: SeasonScores = {
     {
       date: '1986-07-26',
       location: 'Hamilton, ONT',
+      name: 'DCI Canada Prelims',
       score: 72.2,
     },
     {
       date: '1986-07-26',
       location: 'Hamilton, ONT',
+      name: 'DCI Canada Finals',
       score: 70.2,
     },
     {
@@ -118,11 +124,13 @@ export const SEASON_1986: SeasonScores = {
     {
       date: '1986-08-09',
       location: 'Marion, OH',
+      name: 'U.S. Open Prelims',
       score: 77.4,
     },
     {
       date: '1986-08-09',
       location: 'Marion, OH',
+      name: 'U.S. Open Finals',
       score: 81.1,
     },
     {
@@ -138,11 +146,13 @@ export const SEASON_1986: SeasonScores = {
     {
       date: '1986-08-14',
       location: 'Madison, WI',
+      name: 'DCI World Championship Prelims',
       score: 83.1,
     },
     {
       date: '1986-08-15',
       location: 'Madison, WI',
+      name: 'DCI World Championship Semis',
       score: 80.3,
     },
   ],

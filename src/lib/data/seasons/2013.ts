@@ -74,31 +74,37 @@ export const SEASON_2013: SeasonScores = {
     {
       date: '2013-07-13',
       location: 'Minneapolis, MN',
+      name: 'DCI Minneapolis',
       score: 81.3,
     },
     {
       date: '2013-07-14',
       location: 'DeKalb, IL',
+      name: 'DCI Tour Of Champions',
       score: 79.75,
     },
     {
       date: '2013-07-19',
       location: 'Houston, TX',
+      name: 'DCI Houston',
       score: 83.35,
     },
     {
       date: '2013-07-20',
       location: 'San Antonio, TX',
+      name: 'DCI Southwestern',
       score: 85.05,
     },
     {
       date: '2013-07-21',
       location: 'Round Rock, TX',
+      name: 'DCI Tour Of Champions',
       score: 84.5,
     },
     {
       date: '2013-07-23',
       location: 'Dallas, TX',
+      name: 'DCI Dallas',
       score: 85.95,
     },
     {
@@ -109,16 +115,19 @@ export const SEASON_2013: SeasonScores = {
     {
       date: '2013-07-26',
       location: 'Murfreesboro, TN',
+      name: 'DCI Masters',
       score: 87.1,
     },
     {
       date: '2013-07-27',
       location: 'Charlotte, NC',
+      name: 'NightBeat - Tour of Champions',
       score: 86.7,
     },
     {
       date: '2013-07-28',
       location: 'Atlanta, GA',
+      name: 'DCI Southeastern',
       score: 88.2,
     },
     {
@@ -139,6 +148,7 @@ export const SEASON_2013: SeasonScores = {
     {
       date: '2013-08-04',
       location: 'Allentown, PA',
+      name: 'DCI East',
       score: 90.85,
     },
     {
@@ -154,16 +164,19 @@ export const SEASON_2013: SeasonScores = {
     {
       date: '2013-08-08',
       location: 'Indianapolis, IN',
+      name: 'DCI World Championship Prelims',
       score: 92.9,
     },
     {
       date: '2013-08-09',
       location: 'Indianapolis, IN',
+      name: 'DCI World Championship Semis',
       score: 93.05,
     },
     {
       date: '2013-08-10',
       location: 'Indianapolis, IN',
+      name: 'DCI World Championship Finals',
       score: 93.35,
     },
   ],

@@ -44,6 +44,7 @@ export const SEASON_1996: SeasonScores = {
     {
       date: '1996-07-13',
       location: 'Allentown, PA',
+      name: 'Drum Corps East',
       score: 75,
     },
     {
@@ -69,6 +70,7 @@ export const SEASON_1996: SeasonScores = {
     {
       date: '1996-07-27',
       location: 'Madison, WI',
+      name: 'DCI Preview of Champions',
       score: 80.8,
     },
     {
@@ -79,16 +81,19 @@ export const SEASON_1996: SeasonScores = {
     {
       date: '1996-07-29',
       location: 'Marion, OH',
+      name: 'U.S. Open',
       score: 80.3,
     },
     {
       date: '1996-07-31',
       location: 'Massilon, OH',
+      name: 'DCI North',
       score: 83,
     },
     {
       date: '1996-08-02',
       location: 'Allentown, PA',
+      name: 'DCI East Preview',
       score: 81,
     },
     {
@@ -104,6 +109,7 @@ export const SEASON_1996: SeasonScores = {
     {
       date: '1996-08-07',
       location: 'Columbus, OH',
+      name: 'Pageant of Champions',
       score: 85.5,
     },
     {
@@ -114,21 +120,25 @@ export const SEASON_1996: SeasonScores = {
     {
       date: '1996-08-10',
       location: 'Atlanta, GA',
+      name: 'DCI Atlanta',
       score: 84.5,
     },
     {
       date: '1996-08-15',
       location: 'Orlando, FL',
+      name: 'DCI World Championship Prelims',
       score: 87.4,
     },
     {
       date: '1996-08-16',
       location: 'Orlando, FL',
+      name: 'DCI World Championship Semis',
       score: 88.1,
     },
     {
       date: '1996-08-17',
       location: 'Orlando, FL',
+      name: 'DCI World Championship Finals',
       score: 86.3,
     },
   ],

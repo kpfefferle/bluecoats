@@ -19,6 +19,7 @@ export const SEASON_2003: SeasonScores = {
     {
       date: '2003-06-21',
       location: 'Louisville, KY',
+      name: 'DCI Louisville',
       score: 66.35,
     },
     {
@@ -79,6 +80,7 @@ export const SEASON_2003: SeasonScores = {
     {
       date: '2003-07-12',
       location: 'DeKalb, IL',
+      name: 'DCI Midwest #2',
       score: 80.3,
     },
     {
@@ -94,6 +96,7 @@ export const SEASON_2003: SeasonScores = {
     {
       date: '2003-07-19',
       location: 'San Antonio, TX',
+      name: 'DCI Southwestern',
       score: 83.15,
     },
     {
@@ -104,11 +107,13 @@ export const SEASON_2003: SeasonScores = {
     {
       date: '2003-07-25',
       location: 'Murfreesboro, TN',
+      name: 'DCI Masters',
       score: 84.15,
     },
     {
       date: '2003-07-26',
       location: 'Indianapolis, IN',
+      name: 'DCI Midwestern',
       score: 86.55,
     },
     {
@@ -134,16 +139,19 @@ export const SEASON_2003: SeasonScores = {
     {
       date: '2003-08-07',
       location: 'Orlando, FL',
+      name: 'DCI World Championship Prelims',
       score: 89.7,
     },
     {
       date: '2003-08-08',
       location: 'Orlando, FL',
+      name: 'DCI World Championship Semis',
       score: 90.4,
     },
     {
       date: '2003-08-09',
       location: 'Orlando, FL',
+      name: 'DCI World Championship Finals',
       score: 90.75,
     },
   ],

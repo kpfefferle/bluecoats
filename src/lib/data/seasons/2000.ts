@@ -44,11 +44,13 @@ export const SEASON_2000: SeasonScores = {
     {
       date: '2000-07-07',
       location: 'DeKalb, IL',
+      name: 'Drum Corps Midwest Prelims',
       score: 73.4,
     },
     {
       date: '2000-07-08',
       location: 'DeKalb, IL',
+      name: 'Drum Corps Midwest Finals',
       score: 72.1,
     },
     {
@@ -94,11 +96,13 @@ export const SEASON_2000: SeasonScores = {
     {
       date: '2000-07-22',
       location: 'Indianapolis, IN',
+      name: 'DCI Midwestern',
       score: 80,
     },
     {
       date: '2000-07-23',
       location: 'Centerville, OH',
+      name: 'Soaring Sounds',
       score: 81.6,
     },
     {
@@ -114,6 +118,7 @@ export const SEASON_2000: SeasonScores = {
     {
       date: '2000-07-28',
       location: 'Murfreesboro, TN',
+      name: 'DCI Mid-America',
       score: 80.5,
     },
     {
@@ -134,21 +139,25 @@ export const SEASON_2000: SeasonScores = {
     {
       date: '2000-08-05',
       location: 'Allentown, PA',
+      name: 'DCI East',
       score: 85.6,
     },
     {
       date: '2000-08-10',
       location: 'College Park, MD',
+      name: 'DCI World Championship Prelims',
       score: 85.1,
     },
     {
       date: '2000-08-11',
       location: 'College Park, MD',
+      name: 'DCI World Championship Semis',
       score: 85.15,
     },
     {
       date: '2000-08-12',
       location: 'College Park, MD',
+      name: 'DCI World Championship Finals',
       score: 84.4,
     },
   ],

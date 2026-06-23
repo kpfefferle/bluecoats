@@ -14,6 +14,7 @@ export const SEASON_2004: SeasonScores = {
     {
       date: '2004-06-20',
       location: 'DeKalb, IL',
+      name: 'DCI DeKalb',
       score: 72.7,
     },
     {
@@ -24,11 +25,13 @@ export const SEASON_2004: SeasonScores = {
     {
       date: '2004-06-25',
       location: 'Bloomington-Normal, IL',
+      name: 'DCI Central Illinois',
       score: 74.25,
     },
     {
       date: '2004-06-26',
       location: 'Louisville, KY',
+      name: 'DCI Louisville',
       score: 72.9,
     },
     {
@@ -59,6 +62,7 @@ export const SEASON_2004: SeasonScores = {
     {
       date: '2004-07-10',
       location: 'San Antonio, TX',
+      name: 'DCI Southwestern',
       score: 83.05,
     },
     {
@@ -79,6 +83,7 @@ export const SEASON_2004: SeasonScores = {
     {
       date: '2004-07-17',
       location: 'Orlando, FL',
+      name: 'DCI Orlando',
       score: 86.35,
     },
     {
@@ -94,6 +99,7 @@ export const SEASON_2004: SeasonScores = {
     {
       date: '2004-07-23',
       location: 'Allentown, PA',
+      name: 'DCI East',
       score: 87.075,
     },
     {
@@ -114,11 +120,13 @@ export const SEASON_2004: SeasonScores = {
     {
       date: '2004-07-30',
       location: 'Murfreesboro, TN',
+      name: 'DCI Masters',
       score: 88.825,
     },
     {
       date: '2004-07-31',
       location: 'Indianapolis, IN',
+      name: 'DCI Midwestern',
       score: 90.6,
     },
     {
@@ -129,16 +137,19 @@ export const SEASON_2004: SeasonScores = {
     {
       date: '2004-08-05',
       location: 'Denver, CO',
+      name: 'DCI World Championship Prelims',
       score: 90.575,
     },
     {
       date: '2004-08-06',
       location: 'Denver, CO',
+      name: 'DCI World Championship Semis',
       score: 91.925,
     },
     {
       date: '2004-08-07',
       location: 'Denver, CO',
+      name: 'DCI World Championship Finals',
       score: 92.125,
     },
   ],

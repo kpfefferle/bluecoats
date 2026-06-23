@@ -14,6 +14,7 @@ export const SEASON_2015: SeasonScores = {
     {
       date: '2015-06-20',
       location: 'Akron, OH',
+      name: 'Innovations in Brass',
       score: 73.25,
     },
     {
@@ -29,6 +30,7 @@ export const SEASON_2015: SeasonScores = {
     {
       date: '2015-06-24',
       location: 'Pittsburgh, PA',
+      name: 'Innovations in Brass II',
       score: 74.9,
     },
     {
@@ -69,11 +71,13 @@ export const SEASON_2015: SeasonScores = {
     {
       date: '2015-07-11',
       location: 'Denver, CO',
+      name: 'Drums Along the Rockies',
       score: 83.5,
     },
     {
       date: '2015-07-13',
       location: 'Warrensburg, MO',
+      name: 'Tour of Champions',
       score: 83.45,
     },
     {
@@ -84,11 +88,13 @@ export const SEASON_2015: SeasonScores = {
     {
       date: '2015-07-17',
       location: 'Houston, TX',
+      name: 'Tour of Champions',
       score: 85.25,
     },
     {
       date: '2015-07-18',
       location: 'San Antonio, TX',
+      name: 'DCI Southwestern',
       score: 85.625,
     },
     {
@@ -109,16 +115,19 @@ export const SEASON_2015: SeasonScores = {
     {
       date: '2015-07-24',
       location: 'Murfreesboro, TN',
+      name: 'DCI Masters',
       score: 88.15,
     },
     {
       date: '2015-07-25',
       location: 'Atlanta, GA',
+      name: 'DCI Southeastern',
       score: 89.525,
     },
     {
       date: '2015-07-26',
       location: 'Winston-Salem, NC',
+      name: 'Tour of Champions',
       score: 89.95,
     },
     {
@@ -129,36 +138,43 @@ export const SEASON_2015: SeasonScores = {
     {
       date: '2015-07-30',
       location: 'Chester, PA',
+      name: 'Tour of Champions',
       score: 93.05,
     },
     {
       date: '2015-08-01',
       location: 'Allentown, PA',
+      name: 'DCI East',
       score: 93.125,
     },
     {
       date: '2015-08-02',
       location: 'Buffalo, NY',
+      name: 'Tour of Champions',
       score: 93.85,
     },
     {
       date: '2015-08-03',
       location: 'Massillon, OH',
+      name: 'Tour of Champions',
       score: 94.65,
     },
     {
       date: '2015-08-06',
       location: 'Indianapolis, IN',
+      name: 'DCI World Championship Prelims',
       score: 95.425,
     },
     {
       date: '2015-08-07',
       location: 'Indianapolis, IN',
+      name: 'DCI World Championship Semis',
       score: 95.775,
     },
     {
       date: '2015-08-08',
       location: 'Indianapolis, IN',
+      name: 'DCI World Championship Finals',
       score: 96.925,
     },
   ],

@@ -9,6 +9,7 @@ export const SEASON_2014: SeasonScores = {
     {
       date: '2014-06-21',
       location: 'Akron, OH',
+      name: 'Innovations in Brass',
       score: 72.8,
     },
     {
@@ -64,11 +65,13 @@ export const SEASON_2014: SeasonScores = {
     {
       date: '2014-07-13',
       location: 'DeKalb, IL',
+      name: 'DCI Tour of Champions',
       score: 84.1,
     },
     {
       date: '2014-07-14',
       location: 'Warrensburg, MO',
+      name: 'DCI Tour of Champions',
       score: 85.4,
     },
     {
@@ -79,11 +82,13 @@ export const SEASON_2014: SeasonScores = {
     {
       date: '2014-07-18',
       location: 'Houston, TX',
+      name: 'DCI Tour of Champions',
       score: 89.4,
     },
     {
       date: '2014-07-19',
       location: 'San Antonio, TX',
+      name: 'DCI Southwestern',
       score: 89.85,
     },
     {
@@ -104,11 +109,13 @@ export const SEASON_2014: SeasonScores = {
     {
       date: '2014-07-25',
       location: 'Nashville, TN',
+      name: 'DCI Masters',
       score: 91.5,
     },
     {
       date: '2014-07-26',
       location: 'Atlanta, GA',
+      name: 'DCI Southeastern',
       score: 92.95,
     },
     {
@@ -124,16 +131,19 @@ export const SEASON_2014: SeasonScores = {
     {
       date: '2014-07-31',
       location: 'Piscataway, NJ',
+      name: 'DCI Tour of Champions',
       score: 93.85,
     },
     {
       date: '2014-08-02',
       location: 'Allentown, PA',
+      name: 'DCI East',
       score: 94.9,
     },
     {
       date: '2014-08-03',
       location: 'Buffalo, NY',
+      name: 'DCI Tour of Champions',
       score: 95.2,
     },
     {
@@ -144,16 +154,19 @@ export const SEASON_2014: SeasonScores = {
     {
       date: '2014-08-07',
       location: 'Indianapolis, IN',
+      name: 'DCI World Championship Prelims',
       score: 95.8,
     },
     {
       date: '2014-08-08',
       location: 'Indianapolis, IN',
+      name: 'DCI World Championship Semis',
       score: 96.55,
     },
     {
       date: '2014-08-09',
       location: 'Indianapolis, IN',
+      name: 'DCI World Championship Finals',
       score: 97.175,
     },
   ],

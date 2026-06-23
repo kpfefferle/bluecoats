@@ -13,6 +13,7 @@ export const SEASON_1989: SeasonScores = {
     {
       date: '1989-06-17',
       location: 'Canton, OH',
+      name: 'Innovations in Brass',
       score: 63.2,
     },
     {
@@ -83,11 +84,13 @@ export const SEASON_1989: SeasonScores = {
     {
       date: '1989-07-15',
       location: 'DeKalb, IL',
+      name: 'Drum Corps Midwest Prelims',
       score: 77.4,
     },
     {
       date: '1989-07-15',
       location: 'DeKalb, IL',
+      name: 'Drum Corps Midwest Finals',
       score: 79.5,
     },
     {
@@ -108,12 +111,19 @@ export const SEASON_1989: SeasonScores = {
     {
       date: '1989-07-29',
       location: 'Bloomington, IN',
+      name: 'DCI Mid-America',
       score: 82.6,
     },
     {
       date: '1989-08-01',
       location: 'Perry Township, OH',
       score: 85.3,
+    },
+    {
+      date: '1989-08-05',
+      location: 'Allentown, PA',
+      name: 'DCI East',
+      score: null,
     },
     {
       date: '1989-08-06',
@@ -138,11 +148,13 @@ export const SEASON_1989: SeasonScores = {
     {
       date: '1989-08-12',
       location: 'Whitewater, WI',
+      name: 'DCI Midwest Prelims',
       score: 88.6,
     },
     {
       date: '1989-08-12',
       location: 'Whitewater, WI',
+      name: 'DCI Midwest Finals',
       score: 86.7,
     },
     {
@@ -153,16 +165,19 @@ export const SEASON_1989: SeasonScores = {
     {
       date: '1989-08-17',
       location: 'Kansas City, MO',
+      name: 'DCI World Championship Prelims',
       score: 87,
     },
     {
       date: '1989-08-18',
       location: 'Kansas City, MO',
+      name: 'DCI World Championship Semis',
       score: 90.3,
     },
     {
       date: '1989-08-19',
       location: 'Kansas City, MO',
+      name: 'DCI World Championship Finals',
       score: 90.3,
     },
   ],

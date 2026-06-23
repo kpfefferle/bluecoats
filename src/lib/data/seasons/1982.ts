@@ -8,6 +8,7 @@ export const SEASON_1982: SeasonScores = {
     {
       date: '1982-06-19',
       location: 'Cleveland, OH',
+      name: 'VFW State Championships',
       score: 71.2,
     },
     {
@@ -18,26 +19,31 @@ export const SEASON_1982: SeasonScores = {
     {
       date: '1982-07-17',
       location: 'Titusville, PA',
+      name: 'Junior Corps Division',
       score: 67.6,
     },
     {
       date: '1982-07-31',
       location: 'Lynn, MA',
+      name: 'Drum Corps East Prelims',
       score: 47.6,
     },
     {
       date: '1982-08-04',
       location: 'Toledo, OH',
+      name: 'Key to the Sea Prelims',
       score: 50.4,
     },
     {
       date: '1982-08-09',
       location: 'Marion, OH',
+      name: 'U.S. Open - Open Class Prelims',
       score: 54.4,
     },
     {
       date: '1982-08-12',
       location: 'Canton, OH',
+      name: 'Innovations in Brass',
       score: 52.2,
     },
     {
@@ -48,6 +54,7 @@ export const SEASON_1982: SeasonScores = {
     {
       date: '1982-08-20',
       location: 'Montreal, QUE',
+      name: 'DCI World Championship Prelims',
       score: 56.25,
     },
   ],

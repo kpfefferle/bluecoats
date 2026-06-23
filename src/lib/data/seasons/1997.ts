@@ -79,6 +79,7 @@ export const SEASON_1997: SeasonScores = {
     {
       date: '1997-07-25',
       location: 'Whitewater, WI',
+      name: 'DCI Midwest Preview',
       score: 82.9,
     },
     {
@@ -99,6 +100,7 @@ export const SEASON_1997: SeasonScores = {
     {
       date: '1997-08-01',
       location: 'Allentown, PA',
+      name: 'DCI East Preview',
       score: 83.9,
     },
     {
@@ -114,6 +116,7 @@ export const SEASON_1997: SeasonScores = {
     {
       date: '1997-08-09',
       location: 'Jacksonville, FL',
+      name: 'DCI Jacksonville',
       score: 86.7,
     },
     {
@@ -124,16 +127,19 @@ export const SEASON_1997: SeasonScores = {
     {
       date: '1997-08-14',
       location: 'Orlando, FL',
+      name: 'DCI World Championship Prelims',
       score: 88.6,
     },
     {
       date: '1997-08-15',
       location: 'Orlando, FL',
+      name: 'DCI World Championship Semis',
       score: 87.5,
     },
     {
       date: '1997-08-16',
       location: 'Orlando, FL',
+      name: 'DCI World Championship Finals',
       score: 85.6,
     },
   ],

@@ -53,6 +53,7 @@ export const SEASON_1988: SeasonScores = {
     {
       date: '1988-06-28',
       location: 'Canton, OH',
+      name: 'Innovations in Brass',
       score: 75,
     },
     {
@@ -88,11 +89,13 @@ export const SEASON_1988: SeasonScores = {
     {
       date: '1988-07-15',
       location: 'DeKalb, IL',
+      name: 'Drum Corps Midwest Prelims',
       score: 77.8,
     },
     {
       date: '1988-07-16',
       location: 'DeKalb, IL',
+      name: 'Drum Corps Midwest Finals',
       score: 78.3,
     },
     {
@@ -113,11 +116,13 @@ export const SEASON_1988: SeasonScores = {
     {
       date: '1988-07-30',
       location: 'Hamilton, ONT',
+      name: 'DCI Canada Prelims',
       score: 82.7,
     },
     {
       date: '1988-07-30',
       location: 'Hamilton, ONT',
+      name: 'DCI Canada Finals',
       score: 83,
     },
     {
@@ -143,11 +148,13 @@ export const SEASON_1988: SeasonScores = {
     {
       date: '1988-08-06',
       location: 'Allentown, PA',
+      name: 'DCI East Prelims',
       score: 85.9,
     },
     {
       date: '1988-08-06',
       location: 'Allentown, PA',
+      name: 'DCI East Finals',
       score: 85.4,
     },
     {
@@ -158,6 +165,7 @@ export const SEASON_1988: SeasonScores = {
     {
       date: '1988-08-09',
       location: 'Columbus, OH',
+      name: 'Pageant of Champions',
       score: 87.2,
     },
     {
@@ -173,6 +181,7 @@ export const SEASON_1988: SeasonScores = {
     {
       date: '1988-08-13',
       location: 'Saint Louis, MO',
+      name: 'DCI Mid-America',
       score: 88.4,
     },
     {
@@ -183,11 +192,13 @@ export const SEASON_1988: SeasonScores = {
     {
       date: '1988-08-19',
       location: 'Kansas City, MO',
+      name: 'DCI World Championship Semis',
       score: 88.6,
     },
     {
       date: '1988-08-20',
       location: 'Kansas City, MO',
+      name: 'DCI World Championship Finals',
       score: 86.7,
     },
   ],

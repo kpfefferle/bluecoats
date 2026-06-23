@@ -98,11 +98,13 @@ export const SEASON_1990: SeasonScores = {
     {
       date: '1990-07-20',
       location: 'DeKalb, IL',
+      name: 'Drum Corps Midwest Prelims',
       score: 78.3,
     },
     {
       date: '1990-07-21',
       location: 'DeKalb, IL',
+      name: 'Drum Corps Midwest Finals',
       score: 78.7,
     },
     {
@@ -123,21 +125,25 @@ export const SEASON_1990: SeasonScores = {
     {
       date: '1990-07-28',
       location: 'Whitewater, WI',
+      name: 'DCI Midwest Prelims',
       score: 80.5,
     },
     {
       date: '1990-07-28',
       location: 'Whitewater, WI',
+      name: 'DCI Midwest Finals',
       score: 82.8,
     },
     {
       date: '1990-07-30',
       location: 'Columbus, OH',
+      name: 'Pageant of Champions',
       score: 84.3,
     },
     {
       date: '1990-07-31',
       location: 'Canton, OH',
+      name: 'Innovations in Brass',
       score: 83.1,
     },
     {
@@ -153,6 +159,7 @@ export const SEASON_1990: SeasonScores = {
     {
       date: '1990-08-07',
       location: 'Centerville, OH',
+      name: 'Soaring Sounds',
       score: 84.6,
     },
     {
@@ -163,11 +170,13 @@ export const SEASON_1990: SeasonScores = {
     {
       date: '1990-08-09',
       location: 'Marion, OH',
+      name: 'U.S. Open',
       score: 86.7,
     },
     {
       date: '1990-08-11',
       location: 'Bloomington, IN',
+      name: 'DCI Mid-America',
       score: 86.5,
     },
     {
@@ -183,16 +192,19 @@ export const SEASON_1990: SeasonScores = {
     {
       date: '1990-08-16',
       location: 'Buffalo, NY',
+      name: 'DCI World Championship Prelims',
       score: 90.3,
     },
     {
       date: '1990-08-17',
       location: 'Buffalo, NY',
+      name: 'DCI World Championship Semis',
       score: 90.3,
     },
     {
       date: '1990-08-18',
       location: 'Buffalo, NY',
+      name: 'DCI World Championship Finals',
       score: 89.2,
     },
   ],

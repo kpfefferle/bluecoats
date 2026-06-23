@@ -14,6 +14,7 @@ export const SEASON_2012: SeasonScores = {
     {
       date: '2012-06-17',
       location: 'Louisville, KY',
+      name: 'DCI Louisville',
       score: 68.45,
     },
     {
@@ -59,6 +60,7 @@ export const SEASON_2012: SeasonScores = {
     {
       date: '2012-07-07',
       location: 'Kalamazoo, MI',
+      name: 'DCI Kalamazoo',
       score: 78.65,
     },
     {
@@ -79,6 +81,7 @@ export const SEASON_2012: SeasonScores = {
     {
       date: '2012-07-14',
       location: 'Minneapolis, MN',
+      name: 'DCI Minneapolis',
       score: 81.35,
     },
     {
@@ -89,31 +92,43 @@ export const SEASON_2012: SeasonScores = {
     {
       date: '2012-07-19',
       location: 'Denton, TX',
+      name: 'DCI North Texas',
       score: 83.1,
     },
     {
       date: '2012-07-20',
       location: 'Houston, TX',
+      name: 'DCI Houston',
       score: 83.2,
     },
     {
       date: '2012-07-21',
       location: 'San Antonio, TX',
+      name: 'DCI Southwestern',
       score: 84.85,
     },
     {
       date: '2012-07-24',
       location: 'Dallas, TX',
+      name: 'DCI Dallas',
       score: 86.1,
+    },
+    {
+      date: '2012-07-26',
+      location: 'Little Rock, AR',
+      name: 'DCI Arkansas',
+      score: null,
     },
     {
       date: '2012-07-27',
       location: 'Murfreesboro, TN',
+      name: 'DCI Masters',
       score: 86.95,
     },
     {
       date: '2012-07-28',
       location: 'Atlanta, GA',
+      name: 'DCI Southeastern',
       score: 88.2,
     },
     {
@@ -124,6 +139,7 @@ export const SEASON_2012: SeasonScores = {
     {
       date: '2012-08-03',
       location: 'Allentown, PA',
+      name: 'DCI East',
       score: 90.3,
     },
     {
@@ -134,16 +150,19 @@ export const SEASON_2012: SeasonScores = {
     {
       date: '2012-08-09',
       location: 'Indianapolis, IN',
+      name: 'DCI World Championship Prelims',
       score: 92.25,
     },
     {
       date: '2012-08-10',
       location: 'Indianapolis, IN',
+      name: 'DCI World Championship Semis',
       score: 92.8,
     },
     {
       date: '2012-08-11',
       location: 'Indianapolis, IN',
+      name: 'DCI World Championship Finals',
       score: 92.55,
     },
   ],

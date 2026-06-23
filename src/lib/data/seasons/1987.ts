@@ -78,11 +78,13 @@ export const SEASON_1987: SeasonScores = {
     {
       date: '1987-07-18',
       location: 'DeKalb, IL',
+      name: 'Drum Corps Midwest Prelims',
       score: 77.9,
     },
     {
       date: '1987-07-18',
       location: 'DeKalb, IL',
+      name: 'Drum Corps Midwest Finals',
       score: 80.5,
     },
     {
@@ -108,11 +110,13 @@ export const SEASON_1987: SeasonScores = {
     {
       date: '1987-07-25',
       location: 'Hamilton, ONT',
+      name: 'DCI Canada Prelims',
       score: 82.5,
     },
     {
       date: '1987-07-25',
       location: 'Hamilton, ONT',
+      name: 'DCI Canada Finals',
       score: 83.1,
     },
     {
@@ -123,6 +127,7 @@ export const SEASON_1987: SeasonScores = {
     {
       date: '1987-07-29',
       location: 'Columbus, OH',
+      name: 'Pageant of Champions',
       score: 83.8,
     },
     {
@@ -133,11 +138,13 @@ export const SEASON_1987: SeasonScores = {
     {
       date: '1987-08-01',
       location: 'Birmingham, AL',
+      name: 'DCI South Prelims',
       score: 81,
     },
     {
       date: '1987-08-01',
       location: 'Birmingham, AL',
+      name: 'DCI South Finals',
       score: 84.3,
     },
     {
@@ -148,11 +155,13 @@ export const SEASON_1987: SeasonScores = {
     {
       date: '1987-08-08',
       location: 'Marion, OH',
+      name: 'US Open Prelims',
       score: 85.8,
     },
     {
       date: '1987-08-08',
       location: 'Marion, OH',
+      name: 'US Open Finals',
       score: 87.4,
     },
     {
@@ -163,16 +172,19 @@ export const SEASON_1987: SeasonScores = {
     {
       date: '1987-08-13',
       location: 'Madison, WI',
+      name: 'DCI World Championship Prelims',
       score: 86.2,
     },
     {
       date: '1987-08-14',
       location: 'Madison, WI',
+      name: 'DCI World Championship Semis',
       score: 89,
     },
     {
       date: '1987-08-15',
       location: 'Madison, WI',
+      name: 'DCI World Championship Finals',
       score: 85.7,
     },
   ],

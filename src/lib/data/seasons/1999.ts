@@ -44,11 +44,13 @@ export const SEASON_1999: SeasonScores = {
     {
       date: '1999-07-10',
       location: 'Hershey, PA',
+      name: 'DCI Atlantic Division',
       score: 74.7,
     },
     {
       date: '1999-07-12',
       location: 'Marion, OH',
+      name: 'U.S. Open',
       score: 72.5,
     },
     {
@@ -124,6 +126,7 @@ export const SEASON_1999: SeasonScores = {
     {
       date: '1999-08-06',
       location: 'Allentown, PA',
+      name: 'DCI East',
       score: 82,
     },
     {
@@ -134,11 +137,13 @@ export const SEASON_1999: SeasonScores = {
     {
       date: '1999-08-12',
       location: 'Madison, WI',
+      name: 'DCI World Championship Prelims',
       score: 84.5,
     },
     {
       date: '1999-08-13',
       location: 'Madison, WI',
+      name: 'DCI World Championship Semis',
       score: 83,
     },
   ],

@@ -14,6 +14,7 @@ export const SEASON_2018: SeasonScores = {
     {
       date: '2018-06-23',
       location: 'Akron, OH',
+      name: 'Innovations in Brass',
       score: 71.6,
     },
     {
@@ -24,6 +25,7 @@ export const SEASON_2018: SeasonScores = {
     {
       date: '2018-06-28',
       location: 'Moon Township, PA',
+      name: 'Innovations in Brass II',
       score: 76.4,
     },
     {
@@ -79,6 +81,7 @@ export const SEASON_2018: SeasonScores = {
     {
       date: '2018-07-15',
       location: 'St. Louis, MO',
+      name: 'DCI Midwestern',
       score: 87.125,
     },
     {
@@ -94,11 +97,13 @@ export const SEASON_2018: SeasonScores = {
     {
       date: '2018-07-20',
       location: 'Katy, TX',
+      name: 'Tour of Champions',
       score: 89.725,
     },
     {
       date: '2018-07-21',
       location: 'San Antonio, TX',
+      name: 'DCI Southwestern',
       score: 90.675,
     },
     {
@@ -114,51 +119,67 @@ export const SEASON_2018: SeasonScores = {
     {
       date: '2018-07-27',
       location: 'Murfreesboro, TN',
+      name: 'DCI Masters',
       score: 92.25,
     },
     {
       date: '2018-07-28',
       location: 'Atlanta, GA',
+      name: 'DCI Southeastern',
       score: 92.775,
     },
     {
       date: '2018-07-29',
       location: 'Winston-Salem, NC',
+      name: 'Tour of Champions',
       score: 91.625,
     },
     {
       date: '2018-07-30',
       location: 'Centerville, OH',
+      name: 'Soaring Sounds',
       score: 92.725,
     },
     {
       date: '2018-08-01',
       location: 'Chester, PA',
+      name: 'Tour of Champions',
       score: 93.15,
+    },
+    {
+      date: '2018-08-03',
+      location: 'Allentown, PA',
+      name: 'DCI East',
+      score: 94.2,
     },
     {
       date: '2018-08-05',
       location: 'Buffalo, NY',
+      name: 'Tour of Champions',
       score: 94.2,
     },
     {
       date: '2018-08-06',
       location: 'Massillon, OH',
+      name: 'Tour of Champions',
       score: 94.825,
     },
     {
       date: '2018-08-09',
       location: 'Indianapolis, IN',
+      name: 'DCI World Championship Prelims',
       score: 95.2125,
     },
     {
       date: '2018-08-10',
       location: 'Indianapolis, IN',
+      name: 'DCI World Championship Semis',
       score: 96.5875,
     },
     {
       date: '2018-08-11',
       location: 'Indianapolis, IN',
+      name: 'DCI World Championship Finals',
       score: 96.95,
     },
   ],
