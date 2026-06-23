@@ -144,16 +144,19 @@ export const SEASON_1994: SeasonScores = {
     {
       date: '1994-08-17',
       location: 'Boston, MA',
+      name: 'DCI World Championship Prelims',
       score: 84.1,
     },
     {
       date: '1994-08-18',
       location: 'Boston, MA',
+      name: 'DCI World Championship Semis',
       score: 84.1,
     },
     {
       date: '1994-08-19',
       location: 'Boston, MA',
+      name: 'DCI World Championship Finals',
       score: 84.3,
     },
   ],

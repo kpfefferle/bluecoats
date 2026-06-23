@@ -153,16 +153,19 @@ export const SEASON_1989: SeasonScores = {
     {
       date: '1989-08-17',
       location: 'Kansas City, MO',
+      name: 'DCI World Championship Prelims',
       score: 87,
     },
     {
       date: '1989-08-18',
       location: 'Kansas City, MO',
+      name: 'DCI World Championship Semis',
       score: 90.3,
     },
     {
       date: '1989-08-19',
       location: 'Kansas City, MO',
+      name: 'DCI World Championship Finals',
       score: 90.3,
     },
   ],

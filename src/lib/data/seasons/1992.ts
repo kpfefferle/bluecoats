@@ -174,16 +174,19 @@ export const SEASON_1992: SeasonScores = {
     {
       date: '1992-08-13',
       location: 'Madison, WI',
+      name: 'DCI World Championship Prelims',
       score: 85.6,
     },
     {
       date: '1992-08-14',
       location: 'Madison, WI',
+      name: 'DCI World Championship Semis',
       score: 85.5,
     },
     {
       date: '1992-08-15',
       location: 'Madison, WI',
+      name: 'DCI World Championship Finals',
       score: 84.6,
     },
   ],

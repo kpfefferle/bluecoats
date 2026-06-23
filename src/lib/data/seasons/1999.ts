@@ -134,11 +134,13 @@ export const SEASON_1999: SeasonScores = {
     {
       date: '1999-08-12',
       location: 'Madison, WI',
+      name: 'DCI World Championship Prelims',
       score: 84.5,
     },
     {
       date: '1999-08-13',
       location: 'Madison, WI',
+      name: 'DCI World Championship Semis',
       score: 83,
     },
   ],

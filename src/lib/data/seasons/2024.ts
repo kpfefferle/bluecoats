@@ -85,16 +85,19 @@ export const SEASON_2024: SeasonScores = {
     {
       date: '2024-08-08',
       location: 'Indianapolis, IN',
+      name: 'DCI World Championship Prelims',
       score: 97.525,
     },
     {
       date: '2024-08-09',
       location: 'Indianapolis, IN',
+      name: 'DCI World Championship Semis',
       score: 97.925,
     },
     {
       date: '2024-08-10',
       location: 'Indianapolis, IN',
+      name: 'DCI World Championship Finals',
       score: 98.75,
     },
   ],

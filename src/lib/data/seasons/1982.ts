@@ -48,6 +48,7 @@ export const SEASON_1982: SeasonScores = {
     {
       date: '1982-08-20',
       location: 'Montreal, QUE',
+      name: 'DCI World Championship Prelims',
       score: 56.25,
     },
   ],

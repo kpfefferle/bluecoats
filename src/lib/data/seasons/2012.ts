@@ -134,16 +134,19 @@ export const SEASON_2012: SeasonScores = {
     {
       date: '2012-08-09',
       location: 'Indianapolis, IN',
+      name: 'DCI World Championship Prelims',
       score: 92.25,
     },
     {
       date: '2012-08-10',
       location: 'Indianapolis, IN',
+      name: 'DCI World Championship Semis',
       score: 92.8,
     },
     {
       date: '2012-08-11',
       location: 'Indianapolis, IN',
+      name: 'DCI World Championship Finals',
       score: 92.55,
     },
   ],

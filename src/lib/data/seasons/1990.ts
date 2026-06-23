@@ -183,16 +183,19 @@ export const SEASON_1990: SeasonScores = {
     {
       date: '1990-08-16',
       location: 'Buffalo, NY',
+      name: 'DCI World Championship Prelims',
       score: 90.3,
     },
     {
       date: '1990-08-17',
       location: 'Buffalo, NY',
+      name: 'DCI World Championship Semis',
       score: 90.3,
     },
     {
       date: '1990-08-18',
       location: 'Buffalo, NY',
+      name: 'DCI World Championship Finals',
       score: 89.2,
     },
   ],

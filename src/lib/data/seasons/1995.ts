@@ -119,16 +119,19 @@ export const SEASON_1995: SeasonScores = {
     {
       date: '1995-08-10',
       location: 'Buffalo, NY',
+      name: 'DCI World Championship Prelims',
       score: 88.7,
     },
     {
       date: '1995-08-11',
       location: 'Buffalo, NY',
+      name: 'DCI World Championship Semis',
       score: 89.4,
     },
     {
       date: '1995-08-12',
       location: 'Buffalo, NY',
+      name: 'DCI World Championship Finals',
       score: 89.5,
     },
   ],

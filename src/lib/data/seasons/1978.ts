@@ -28,6 +28,7 @@ export const SEASON_1978: SeasonScores = {
     {
       date: '1978-08-16',
       location: 'Denver, CO',
+      name: 'DCI World Championship Prelims',
       score: 68.5,
     },
   ],

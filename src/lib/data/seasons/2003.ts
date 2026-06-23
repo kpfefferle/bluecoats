@@ -134,16 +134,19 @@ export const SEASON_2003: SeasonScores = {
     {
       date: '2003-08-07',
       location: 'Orlando, FL',
+      name: 'DCI World Championship Prelims',
       score: 89.7,
     },
     {
       date: '2003-08-08',
       location: 'Orlando, FL',
+      name: 'DCI World Championship Semis',
       score: 90.4,
     },
     {
       date: '2003-08-09',
       location: 'Orlando, FL',
+      name: 'DCI World Championship Finals',
       score: 90.75,
     },
   ],

@@ -58,6 +58,7 @@ export const SEASON_1981: SeasonScores = {
     {
       date: '1981-08-21',
       location: 'Montreal, QUE',
+      name: 'DCI World Championship Prelims',
       score: 59.6,
     },
   ],

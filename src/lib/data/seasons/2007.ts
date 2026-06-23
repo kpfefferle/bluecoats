@@ -139,16 +139,19 @@ export const SEASON_2007: SeasonScores = {
     {
       date: '2007-08-09',
       location: 'Pasadena, CA',
+      name: 'DCI World Championship Prelims',
       score: 93.7,
     },
     {
       date: '2007-08-10',
       location: 'Pasadena, CA',
+      name: 'DCI World Championship Semis',
       score: 93.75,
     },
     {
       date: '2007-08-11',
       location: 'Pasadena, CA',
+      name: 'DCI World Championship Finals',
       score: 94.05,
     },
   ],

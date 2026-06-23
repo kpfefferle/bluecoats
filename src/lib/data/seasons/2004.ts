@@ -129,16 +129,19 @@ export const SEASON_2004: SeasonScores = {
     {
       date: '2004-08-05',
       location: 'Denver, CO',
+      name: 'DCI World Championship Prelims',
       score: 90.575,
     },
     {
       date: '2004-08-06',
       location: 'Denver, CO',
+      name: 'DCI World Championship Semis',
       score: 91.925,
     },
     {
       date: '2004-08-07',
       location: 'Denver, CO',
+      name: 'DCI World Championship Finals',
       score: 92.125,
     },
   ],

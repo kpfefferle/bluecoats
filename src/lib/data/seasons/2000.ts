@@ -139,16 +139,19 @@ export const SEASON_2000: SeasonScores = {
     {
       date: '2000-08-10',
       location: 'College Park, MD',
+      name: 'DCI World Championship Prelims',
       score: 85.1,
     },
     {
       date: '2000-08-11',
       location: 'College Park, MD',
+      name: 'DCI World Championship Semis',
       score: 85.15,
     },
     {
       date: '2000-08-12',
       location: 'College Park, MD',
+      name: 'DCI World Championship Finals',
       score: 84.4,
     },
   ],

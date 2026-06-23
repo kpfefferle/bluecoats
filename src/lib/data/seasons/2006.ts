@@ -149,16 +149,19 @@ export const SEASON_2006: SeasonScores = {
     {
       date: '2006-08-10',
       location: 'Madison, WI',
+      name: 'DCI World Championship Prelims',
       score: 92.975,
     },
     {
       date: '2006-08-11',
       location: 'Madison, WI',
+      name: 'DCI World Championship Semis',
       score: 93.5,
     },
     {
       date: '2006-08-12',
       location: 'Madison, WI',
+      name: 'DCI World Championship Finals',
       score: 93.175,
     },
   ],

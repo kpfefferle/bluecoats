@@ -173,16 +173,19 @@ export const SEASON_1991: SeasonScores = {
     {
       date: '1991-08-15',
       location: 'Dallas, TX',
+      name: 'DCI World Championship Prelims',
       score: 86.9,
     },
     {
       date: '1991-08-16',
       location: 'Dallas, TX',
+      name: 'DCI World Championship Semis',
       score: 87,
     },
     {
       date: '1991-08-17',
       location: 'Dallas, TX',
+      name: 'DCI World Championship Finals',
       score: 84.4,
     },
   ],

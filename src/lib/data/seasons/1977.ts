@@ -43,11 +43,13 @@ export const SEASON_1977: SeasonScores = {
     {
       date: '1977-08-17',
       location: 'Denver, CO',
+      name: 'DCI World Championship Prelims',
       score: 65.5,
     },
     // {
     //   date: '1977-08-20',
     //   location: 'Denver, CO',
+    //   name: 'American Legion National Prelims',
     //   score: 67.7,
     // },
   ],

@@ -149,16 +149,19 @@ export const SEASON_2005: SeasonScores = {
     {
       date: '2005-08-11',
       location: 'Foxboro, MA',
+      name: 'DCI World Championship Prelims',
       score: 92.4,
     },
     {
       date: '2005-08-12',
       location: 'Foxboro, MA',
+      name: 'DCI World Championship Semis',
       score: 92.6,
     },
     {
       date: '2005-08-13',
       location: 'Foxboro, MA',
+      name: 'DCI World Championship Finals',
       score: 94.45,
     },
   ],

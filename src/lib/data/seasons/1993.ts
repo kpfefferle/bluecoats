@@ -169,16 +169,19 @@ export const SEASON_1993: SeasonScores = {
     {
       date: '1993-08-19',
       location: 'Jackson, MS',
+      name: 'DCI World Championship Prelims',
       score: 88.3,
     },
     {
       date: '1993-08-20',
       location: 'Jackson, MS',
+      name: 'DCI World Championship Semis',
       score: 88,
     },
     {
       date: '1993-08-21',
       location: 'Jackson, MS',
+      name: 'DCI World Championship Finals',
       score: 87.2,
     },
   ],

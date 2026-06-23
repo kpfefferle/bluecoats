@@ -28,6 +28,7 @@ export const SEASON_1980: SeasonScores = {
     {
       date: '1980-08-15',
       location: 'Birmingham, AL',
+      name: 'DCI World Championship Prelims',
       score: 52.05,
     },
   ],

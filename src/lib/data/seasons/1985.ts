@@ -93,11 +93,13 @@ export const SEASON_1985: SeasonScores = {
     {
       date: '1985-08-14',
       location: 'Madison, WI',
+      name: 'DCI World Championship Prelims',
       score: 67.3,
     },
     {
       date: '1985-08-15',
       location: 'Madison, WI',
+      name: 'DCI World Championship Semis',
       score: 70.2,
     },
   ],

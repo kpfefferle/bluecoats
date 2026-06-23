@@ -53,11 +53,13 @@ export const SEASON_1984: SeasonScores = {
     {
       date: '1984-08-15',
       location: 'Atlanta, GA',
+      name: 'DCI World Championship Prelims',
       score: 65.9,
     },
     {
       date: '1984-08-16',
       location: 'Atlanta, GA',
+      name: 'DCI World Championship Semis',
       score: 66.6,
     },
   ],
