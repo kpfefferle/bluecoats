@@ -24,6 +24,7 @@ export const SEASON_2009: SeasonScores = {
     {
       date: '2009-06-27',
       location: 'Stanford, CA',
+      name: 'DCI West',
       score: 76.2,
     },
     {
@@ -59,6 +60,7 @@ export const SEASON_2009: SeasonScores = {
     {
       date: '2009-07-11',
       location: 'Denver, CO',
+      name: 'Drums Along the Rockies',
       score: 84,
     },
     {
@@ -69,16 +71,19 @@ export const SEASON_2009: SeasonScores = {
     {
       date: '2009-07-16',
       location: 'Dallas, TX',
+      name: 'DCI Dallas',
       score: 85.45,
     },
     {
       date: '2009-07-17',
       location: 'Houston, TX',
+      name: 'DCI Houston',
       score: 86.05,
     },
     {
       date: '2009-07-18',
       location: 'San Antonio, TX',
+      name: 'DCI Southwestern',
       score: 86.5,
     },
     {
@@ -99,11 +104,13 @@ export const SEASON_2009: SeasonScores = {
     {
       date: '2009-07-24',
       location: 'Murfreesboro, TN',
+      name: 'DCI Masters',
       score: 87,
     },
     {
       date: '2009-07-25',
       location: 'Atlanta, GA',
+      name: 'DCI Southeastern',
       score: 89.8,
     },
     {
@@ -114,11 +121,13 @@ export const SEASON_2009: SeasonScores = {
     {
       date: '2009-07-29',
       location: 'Centerville, OH',
+      name: 'Soaring Sounds',
       score: 90.95,
     },
     {
       date: '2009-07-31',
       location: 'Allentown, PA',
+      name: 'DCI East',
       score: 91.1,
     },
     {

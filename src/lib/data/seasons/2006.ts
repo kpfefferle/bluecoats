@@ -14,6 +14,7 @@ export const SEASON_2006: SeasonScores = {
     {
       date: '2006-06-18',
       location: 'Lisle, IL',
+      name: 'DCI Lisle',
       score: 72.7,
     },
     {
@@ -34,6 +35,7 @@ export const SEASON_2006: SeasonScores = {
     {
       date: '2006-06-24',
       location: 'Columbia, MO',
+      name: 'DCI Columbia',
       score: 75.3,
     },
     {
@@ -49,6 +51,7 @@ export const SEASON_2006: SeasonScores = {
     {
       date: '2006-06-30',
       location: 'Bloomington-Normal, IL',
+      name: 'DCI Central Illinois',
       score: 80.15,
     },
     {
@@ -69,6 +72,7 @@ export const SEASON_2006: SeasonScores = {
     {
       date: '2006-07-08',
       location: 'Indianapolis, IN',
+      name: 'DCI Indianapolis',
       score: 82.35,
     },
     {
@@ -84,11 +88,13 @@ export const SEASON_2006: SeasonScores = {
     {
       date: '2006-07-15',
       location: 'Battle Creek, MI',
+      name: 'DCI Battle Creek',
       score: 86.45,
     },
     {
       date: '2006-07-16',
       location: 'Centerville, OH',
+      name: 'Soaring Sounds',
       score: 87.05,
     },
     {
@@ -104,6 +110,7 @@ export const SEASON_2006: SeasonScores = {
     {
       date: '2006-07-22',
       location: 'San Antonio, TX',
+      name: 'DCI San Antonio',
       score: 89.05,
     },
     {
@@ -124,11 +131,13 @@ export const SEASON_2006: SeasonScores = {
     {
       date: '2006-07-29',
       location: 'Atlanta, GA',
+      name: 'DCI Atlanta',
       score: 90.725,
     },
     {
       date: '2006-07-30',
       location: 'Charlotte, NC',
+      name: 'NightBeat',
       score: 91.05,
     },
     {
@@ -144,6 +153,7 @@ export const SEASON_2006: SeasonScores = {
     {
       date: '2006-08-05',
       location: 'Allentown, PA',
+      name: 'DCI East',
       score: 92.35,
     },
     {

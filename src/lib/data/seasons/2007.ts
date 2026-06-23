@@ -9,6 +9,7 @@ export const SEASON_2007: SeasonScores = {
     {
       date: '2007-06-16',
       location: 'Annapolis, MD',
+      name: 'DCI Annapolis',
       score: 71.6,
     },
     {
@@ -39,11 +40,13 @@ export const SEASON_2007: SeasonScores = {
     {
       date: '2007-06-29',
       location: 'Normal, IL',
+      name: 'DCI Central Illinois',
       score: 80.2,
     },
     {
       date: '2007-06-30',
       location: 'Kalamazoo, MI',
+      name: 'DCI Kalamazoo',
       score: 80.9,
     },
     {
@@ -69,6 +72,7 @@ export const SEASON_2007: SeasonScores = {
     {
       date: '2007-07-08',
       location: 'Allentown, PA',
+      name: 'DCI East',
       score: 84.75,
     },
     {
@@ -79,11 +83,13 @@ export const SEASON_2007: SeasonScores = {
     {
       date: '2007-07-13',
       location: 'Murfreesboro, TN',
+      name: 'DCI Masters',
       score: 84.75,
     },
     {
       date: '2007-07-14',
       location: 'Atlanta, GA',
+      name: 'DCI Atlanta',
       score: 85.925,
     },
     {
@@ -94,6 +100,7 @@ export const SEASON_2007: SeasonScores = {
     {
       date: '2007-07-21',
       location: 'San Antonio, TX',
+      name: 'DCI San Antonio',
       score: 89.075,
     },
     {
@@ -114,6 +121,7 @@ export const SEASON_2007: SeasonScores = {
     {
       date: '2007-07-28',
       location: 'Denver, CO',
+      name: 'Drums Along the Rockies',
       score: 89.75,
     },
     {
@@ -129,6 +137,7 @@ export const SEASON_2007: SeasonScores = {
     {
       date: '2007-08-04',
       location: 'Stanford, CA',
+      name: 'DCI West',
       score: 92.075,
     },
     {

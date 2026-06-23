@@ -39,6 +39,7 @@ export const SEASON_2001: SeasonScores = {
     {
       date: '2001-06-27',
       location: 'Bloomington-Normal, IL',
+      name: 'DCI Central Illinois',
       score: 69.5,
     },
     {
@@ -64,11 +65,13 @@ export const SEASON_2001: SeasonScores = {
     {
       date: '2001-07-13',
       location: 'DeKalb, IL',
+      name: 'Drum Corps Midwest Prelims',
       score: 77.7,
     },
     {
       date: '2001-07-14',
       location: 'DeKalb, IL',
+      name: 'Drum Corps Midwest Finals',
       score: 77.4,
     },
     {
@@ -94,11 +97,13 @@ export const SEASON_2001: SeasonScores = {
     {
       date: '2001-07-21',
       location: 'San Antonio, TX',
+      name: 'DCI Southwestern Prelims',
       score: 82.55,
     },
     {
       date: '2001-07-21',
       location: 'San Antonio, TX',
+      name: 'DCI Southwestern Finals',
       score: 80.3,
     },
     {
@@ -114,16 +119,19 @@ export const SEASON_2001: SeasonScores = {
     {
       date: '2001-07-28',
       location: 'Indianapolis, IN',
+      name: 'DCI Midwestern Prelims',
       score: 85.65,
     },
     {
       date: '2001-07-28',
       location: 'Indianapolis, IN',
+      name: 'DCI Midwestern Finals',
       score: 85.35,
     },
     {
       date: '2001-07-29',
       location: 'Centerville, OH',
+      name: 'Soaring Sounds',
       score: 86.65,
     },
     {
@@ -139,6 +147,7 @@ export const SEASON_2001: SeasonScores = {
     {
       date: '2001-08-03',
       location: 'Philadelphia, PA',
+      name: 'DCI East',
       score: 86.85,
     },
     {

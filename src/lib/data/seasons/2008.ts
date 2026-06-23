@@ -24,11 +24,13 @@ export const SEASON_2008: SeasonScores = {
     {
       date: '2008-06-27',
       location: 'Normal, IL',
+      name: 'DCI Central Illinois',
       score: 74.7,
     },
     {
       date: '2008-06-28',
       location: 'Madison, WI',
+      name: 'DCI Madison',
       score: 75,
     },
     {
@@ -44,6 +46,7 @@ export const SEASON_2008: SeasonScores = {
     {
       date: '2008-07-05',
       location: 'Kalamazoo, MI',
+      name: 'DCI Kalamazoo',
       score: 79.8,
     },
     {
@@ -59,6 +62,7 @@ export const SEASON_2008: SeasonScores = {
     {
       date: '2008-07-12',
       location: 'Orlando, FL',
+      name: 'DCI Orlando',
       score: 82.55,
     },
     {
@@ -79,6 +83,7 @@ export const SEASON_2008: SeasonScores = {
     {
       date: '2008-07-19',
       location: 'San Antonio, TX',
+      name: 'DCI San Antonio',
       score: 86.65,
     },
     {
@@ -94,16 +99,19 @@ export const SEASON_2008: SeasonScores = {
     {
       date: '2008-07-25',
       location: 'Murfreesboro, TN',
+      name: 'DCI Masters',
       score: 88.2,
     },
     {
       date: '2008-07-26',
       location: 'Atlanta, GA',
+      name: 'DCI Southeastern',
       score: 88.1,
     },
     {
       date: '2008-07-29',
       location: 'Centerville, OH',
+      name: 'Soaring Sounds',
       score: 88.95,
     },
     {
@@ -114,6 +122,7 @@ export const SEASON_2008: SeasonScores = {
     {
       date: '2008-08-01',
       location: 'Allentown, PA',
+      name: 'DCI East',
       score: 90.8,
     },
     {

@@ -73,7 +73,7 @@ export const SEASON_2023: SeasonScores = {
     {
       date: '2023-07-30',
       location: 'Winston-Salem, NC',
-      name: 'Nightbeat',
+      name: 'NightBeat',
       score: 92.9,
     },
     {

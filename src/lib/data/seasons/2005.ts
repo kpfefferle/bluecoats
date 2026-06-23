@@ -19,6 +19,7 @@ export const SEASON_2005: SeasonScores = {
     {
       date: '2005-06-19',
       location: 'Lisle, IL',
+      name: 'DCI Lisle',
       score: 70.25,
     },
     {
@@ -34,6 +35,7 @@ export const SEASON_2005: SeasonScores = {
     {
       date: '2005-06-25',
       location: 'Orlando, FL',
+      name: 'DCI Orlando',
       score: 76.325,
     },
     {
@@ -54,6 +56,7 @@ export const SEASON_2005: SeasonScores = {
     {
       date: '2005-07-01',
       location: 'Bloomington, IL',
+      name: 'DCI Central Illinois',
       score: 79.175,
     },
     {
@@ -64,6 +67,7 @@ export const SEASON_2005: SeasonScores = {
     {
       date: '2005-07-09',
       location: 'Columbia, MO',
+      name: 'DCI Columbia',
       score: 80.875,
     },
     {
@@ -79,6 +83,7 @@ export const SEASON_2005: SeasonScores = {
     {
       date: '2005-07-15',
       location: 'Kalamazoo, MI',
+      name: 'DCI Central Division Championships',
       score: 83,
     },
     {
@@ -104,6 +109,7 @@ export const SEASON_2005: SeasonScores = {
     {
       date: '2005-07-23',
       location: 'San Antonio, TX',
+      name: 'DCI Southewestern',
       score: 82.425,
     },
     {
@@ -119,11 +125,13 @@ export const SEASON_2005: SeasonScores = {
     {
       date: '2005-07-29',
       location: 'Murfreesboro, TN',
+      name: 'DCI Masters',
       score: 88.525,
     },
     {
       date: '2005-07-30',
       location: 'Indianapolis, IN',
+      name: 'DCI Midwestern',
       score: 88.975,
     },
     {
@@ -144,6 +152,7 @@ export const SEASON_2005: SeasonScores = {
     {
       date: '2005-08-05',
       location: 'Allentown, PA',
+      name: 'DCI East',
       score: 91.4,
     },
     {
