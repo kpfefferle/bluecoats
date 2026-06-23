@@ -20,11 +20,10 @@
   const next = $derived(index < ordered.length - 1 ? ordered[index + 1] : null);
 
   function optionLabel(season: SeasonScores): string {
-    const champ = season.placement === 1 ? ' ★' : '';
     const progress = isInProgress(season) ? ' · in progress' : '';
     const score = finalsOrLatestScore(season);
     const scoreText = score !== null ? ` — ${score.toFixed(3)}` : '';
-    return `${season.year}${champ}${progress}${scoreText}`;
+    return `${season.year}${progress}${scoreText}`;
   }
 </script>
 
