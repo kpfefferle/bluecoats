@@ -64,11 +64,13 @@ export const SEASON_1993: SeasonScores = {
     {
       date: '1993-07-16',
       location: 'Toledo, OH',
+      name: 'Drum Corps Midwest Prelims',
       score: 72.6,
     },
     {
       date: '1993-07-17',
       location: 'Toledo, OH',
+      name: 'Drum Corps Midwest Finals',
       score: 71.1,
     },
     {
@@ -89,6 +91,7 @@ export const SEASON_1993: SeasonScores = {
     {
       date: '1993-07-24',
       location: 'Buffalo, NY',
+      name: 'DCI North',
       score: 76.5,
     },
     {
@@ -109,11 +112,13 @@ export const SEASON_1993: SeasonScores = {
     {
       date: '1993-07-30',
       location: 'Ypsilanti, MI',
+      name: 'DCI Preview of Champions Prelims',
       score: 76.9,
     },
     {
       date: '1993-07-31',
       location: 'Ypsilanti, MI',
+      name: 'DCI Preview of Champions Finals',
       score: 77.1,
     },
     {
@@ -134,11 +139,13 @@ export const SEASON_1993: SeasonScores = {
     {
       date: '1993-08-07',
       location: 'Allentown, PA',
+      name: 'DCI East Prelims',
       score: 83.1,
     },
     {
       date: '1993-08-07',
       location: 'Allentown, PA',
+      name: 'DCI East Finals',
       score: 84.8,
     },
     {
@@ -149,6 +156,7 @@ export const SEASON_1993: SeasonScores = {
     {
       date: '1993-08-09',
       location: 'Charlotte, NC',
+      name: 'NightBeat',
       score: 86,
     },
     {
@@ -159,11 +167,13 @@ export const SEASON_1993: SeasonScores = {
     {
       date: '1993-08-13',
       location: 'Marion, OH',
+      name: 'U.S. Open',
       score: 88.2,
     },
     {
       date: '1993-08-14',
       location: 'Bloomington, IN',
+      name: 'DCI Mid-America',
       score: 87.3,
     },
     {

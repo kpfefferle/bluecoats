@@ -59,6 +59,7 @@ export const SEASON_1998: SeasonScores = {
     {
       date: '1998-07-11',
       location: 'Rochester, NY',
+      name: 'DCI Atlantic Division',
       score: 79,
     },
     {
@@ -109,6 +110,7 @@ export const SEASON_1998: SeasonScores = {
     {
       date: '1998-07-25',
       location: 'Champaign, IL',
+      name: 'DCI Mid-America',
       score: 81.9,
     },
     {
@@ -119,6 +121,7 @@ export const SEASON_1998: SeasonScores = {
     {
       date: '1998-07-31',
       location: 'Ypsilanti, MI',
+      name: 'DCI Midwest',
       score: 84.7,
     },
     {
@@ -139,6 +142,7 @@ export const SEASON_1998: SeasonScores = {
     {
       date: '1998-08-08',
       location: 'Allentown, PA',
+      name: 'DCI East',
       score: 87.2,
     },
     {

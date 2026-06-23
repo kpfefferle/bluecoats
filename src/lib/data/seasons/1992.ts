@@ -79,16 +79,19 @@ export const SEASON_1992: SeasonScores = {
     {
       date: '1992-07-17',
       location: 'Toledo, OH',
+      name: 'Drum Corps Midwest Prelims',
       score: 73.8,
     },
     {
       date: '1992-07-18',
       location: 'Toledo, OH',
+      name: 'Drum Corps Midwest Finals',
       score: 73.5,
     },
     {
       date: '1992-07-19',
       location: 'Buffalo, NY',
+      name: 'DCI North',
       score: 72.7,
     },
     {
@@ -99,16 +102,19 @@ export const SEASON_1992: SeasonScores = {
     {
       date: '1992-07-22',
       location: 'Centerville, OH',
+      name: 'Soaring Sounds',
       score: 71.5,
     },
     {
       date: '1992-07-24',
       location: 'Nashville, TN',
+      name: 'DCI Preview of Champions Prelims',
       score: 78,
     },
     {
       date: '1992-07-25',
       location: 'Nashville, TN',
+      name: 'DCI Preview of Champions Finals',
       score: 76,
     },
     {
@@ -119,6 +125,7 @@ export const SEASON_1992: SeasonScores = {
     {
       date: '1992-07-28',
       location: 'Canton, OH',
+      name: 'Innovations in Brass',
       score: 79.9,
     },
     {
@@ -134,11 +141,13 @@ export const SEASON_1992: SeasonScores = {
     {
       date: '1992-08-01',
       location: 'Allentown, PA',
+      name: 'DCI East Prelims',
       score: 79.1,
     },
     {
       date: '1992-08-01',
       location: 'Allentown, PA',
+      name: 'DCI East Finals',
       score: 80.6,
     },
     {
@@ -164,6 +173,7 @@ export const SEASON_1992: SeasonScores = {
     {
       date: '1992-08-08',
       location: 'Bloomington, IN',
+      name: 'DCI Mid-America',
       score: 80.7,
     },
     {

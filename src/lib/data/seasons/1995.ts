@@ -29,6 +29,7 @@ export const SEASON_1995: SeasonScores = {
     {
       date: '1995-07-08',
       location: 'Allentown, PA',
+      name: 'Drum Corps East',
       score: 71.9,
     },
     {
@@ -59,6 +60,7 @@ export const SEASON_1995: SeasonScores = {
     {
       date: '1995-07-22',
       location: 'Massillon, OH',
+      name: 'DCI North',
       score: 80.1,
     },
     {
@@ -79,11 +81,13 @@ export const SEASON_1995: SeasonScores = {
     {
       date: '1995-07-28',
       location: 'Ypsilanti, MI',
+      name: 'Preview of Champions Prelims',
       score: 83.4,
     },
     {
       date: '1995-07-29',
       location: 'Ypsilanti, MI',
+      name: 'Preview of Champions Finals',
       score: 85,
     },
     {
@@ -104,6 +108,7 @@ export const SEASON_1995: SeasonScores = {
     {
       date: '1995-08-05',
       location: 'Champaign, IL',
+      name: 'DCI Mid-America',
       score: 86.9,
     },
     {
@@ -114,6 +119,7 @@ export const SEASON_1995: SeasonScores = {
     {
       date: '1995-08-07',
       location: 'Marion, OH',
+      name: 'U.S. Open',
       score: 87.6,
     },
     {

@@ -79,6 +79,7 @@ export const SEASON_1997: SeasonScores = {
     {
       date: '1997-07-25',
       location: 'Whitewater, WI',
+      name: 'DCI Midwest Preview',
       score: 82.9,
     },
     {
@@ -99,6 +100,7 @@ export const SEASON_1997: SeasonScores = {
     {
       date: '1997-08-01',
       location: 'Allentown, PA',
+      name: 'DCI East Preview',
       score: 83.9,
     },
     {
@@ -114,6 +116,7 @@ export const SEASON_1997: SeasonScores = {
     {
       date: '1997-08-09',
       location: 'Jacksonville, FL',
+      name: 'DCI Jacksonville',
       score: 86.7,
     },
     {

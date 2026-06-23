@@ -33,6 +33,7 @@ export const SEASON_1991: SeasonScores = {
     {
       date: '1991-06-23',
       location: 'Normal, IL',
+      name: 'DCM All-Stars',
       score: 69.7,
     },
     {
@@ -83,11 +84,13 @@ export const SEASON_1991: SeasonScores = {
     {
       date: '1991-07-19',
       location: 'Toledo, OH',
+      name: 'Drum Corps Midwest Prelims',
       score: 76.6,
     },
     {
       date: '1991-07-20',
       location: 'Toledo, OH',
+      name: 'Drum Corps Midwest Finals',
       score: 76.6,
     },
     {
@@ -103,16 +106,19 @@ export const SEASON_1991: SeasonScores = {
     {
       date: '1991-07-25',
       location: 'Plymouth, MI',
+      name: 'DCI North',
       score: 78.9,
     },
     {
       date: '1991-07-27',
       location: 'Madison, WI',
+      name: 'DCI Preview of Champions Prelims',
       score: 80.3,
     },
     {
       date: '1991-07-27',
       location: 'Madison, WI',
+      name: 'DCI Preview of Champions Finals',
       score: 78.9,
     },
     {
@@ -133,11 +139,13 @@ export const SEASON_1991: SeasonScores = {
     {
       date: '1991-08-03',
       location: 'Hamilton, ONT',
+      name: 'DCI Canada Prelims',
       score: 83.2,
     },
     {
       date: '1991-08-03',
       location: 'Hamilton, ONT',
+      name: 'DCI Canada Finals',
       score: 83.3,
     },
     {
@@ -153,11 +161,13 @@ export const SEASON_1991: SeasonScores = {
     {
       date: '1991-08-09',
       location: 'Marion, OH',
+      name: 'U.S. Open',
       score: 86.7,
     },
     {
       date: '1991-08-10',
       location: 'Bloomington, IN',
+      name: 'DCI Mid-America',
       score: 86.4,
     },
     {

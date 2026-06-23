@@ -59,6 +59,7 @@ export const SEASON_1994: SeasonScores = {
     {
       date: '1994-07-09',
       location: 'Boston, MA',
+      name: 'Drum Corps East',
       score: 68.4,
     },
     {
@@ -89,16 +90,19 @@ export const SEASON_1994: SeasonScores = {
     {
       date: '1994-07-23',
       location: 'Nashville, TN',
+      name: 'DCI South',
       score: 74.6,
     },
     {
       date: '1994-07-29',
       location: 'Madison, WI',
+      name: 'DCI Preview of Champions Prelims',
       score: 77.7,
     },
     {
       date: '1994-07-30',
       location: 'Madison, WI',
+      name: 'DCI Preview of Champions Finals',
       score: 77.5,
     },
     {
@@ -109,11 +113,13 @@ export const SEASON_1994: SeasonScores = {
     {
       date: '1994-08-03',
       location: 'Centerville, OH',
+      name: 'Soaring Sounds',
       score: 80.3,
     },
     {
       date: '1994-08-06',
       location: 'Canton, OH',
+      name: 'DCI North',
       score: 80.2,
     },
     {
