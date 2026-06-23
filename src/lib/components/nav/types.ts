@@ -1,9 +1,9 @@
-export type NavIconKind = 'history' | 'daily';
+export type NavIconKind = 'history' | 'daily' | 'tour';
 
 export interface NavItem {
   label: string;
   shortLabel: string;
-  href: '/' | '/daily-ranking';
+  href: '/' | '/daily-ranking' | '/tour';
   icon: NavIconKind;
 }
 
@@ -15,4 +15,5 @@ export const NAV_ITEMS: ReadonlyArray<NavItem> = [
     href: '/daily-ranking',
     icon: 'daily',
   },
+  { label: 'Tour', shortLabel: 'Tour', href: '/tour', icon: 'tour' },
 ];
