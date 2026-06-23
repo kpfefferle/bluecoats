@@ -8,6 +8,7 @@ export const SEASON_1977: SeasonScores = {
     {
       date: '1977-07-16',
       location: 'Scarborough, ONT',
+      name: 'Canadian Classic',
       score: 65.5,
     },
     {
@@ -18,6 +19,7 @@ export const SEASON_1977: SeasonScores = {
     {
       date: '1977-08-01',
       location: 'North Tonawanda, NY',
+      name: 'North Tonawanda Open',
       score: 65.05,
     },
     {
@@ -33,11 +35,13 @@ export const SEASON_1977: SeasonScores = {
     {
       date: '1977-08-05',
       location: 'Marion, OH',
+      name: 'U.S. Open Finals - Class A',
       score: 70.7,
     },
     {
       date: '1977-08-10',
       location: 'Butler, PA',
+      name: 'American International Open Finals',
       score: 65.2,
     },
     {

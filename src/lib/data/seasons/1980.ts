@@ -13,16 +13,19 @@ export const SEASON_1980: SeasonScores = {
     {
       date: '1980-08-01',
       location: 'Marion, OH',
+      name: 'U.S. Open Prelims - Class A',
       score: 52.75,
     },
     {
       date: '1980-08-02',
       location: 'Marion, OH',
+      name: 'U.S. Open Finals - Class A',
       score: 52.75,
     },
     {
       date: '1980-08-06',
       location: 'Butler, PA',
+      name: 'American International Open Prelims',
       score: 47.9,
     },
     {

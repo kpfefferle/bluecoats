@@ -18,6 +18,7 @@ export const SEASON_1984: SeasonScores = {
     {
       date: '1984-06-28',
       location: 'Canton, OH',
+      name: 'Innovations in Brass',
       score: 38.8,
     },
     {
@@ -38,11 +39,13 @@ export const SEASON_1984: SeasonScores = {
     {
       date: '1984-08-07',
       location: 'Toledo, OH',
+      name: 'Key to the Sea Prelims',
       score: 56.8,
     },
     {
       date: '1984-08-08',
       location: 'Butler, PA',
+      name: 'American International Prelims',
       score: 52.4,
     },
     {
