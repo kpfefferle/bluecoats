@@ -7,7 +7,7 @@
     if (kind === 'history')
       return 'M3 19h18 M5 17V9 M10 17V5 M15 17v-6 M20 17v-9';
     if (kind === 'tour')
-      return 'M12 21s-6-5.3-6-10a6 6 0 1 1 12 0c0 4.7-6 10-6 10z M12 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4z';
+      return 'M5 12h14 M5 12l-2-2 2-2 M5 12l-2 2 2 2 M17 6a2 2 0 1 0 4 0 2 2 0 1 0-4 0 M17 18a2 2 0 1 0 4 0 2 2 0 1 0-4 0';
     return 'M3 5h18v14H3z M3 9h18 M8 5v4 M16 5v4';
   }
 </script>
