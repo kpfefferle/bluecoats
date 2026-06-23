@@ -63,9 +63,6 @@
           {#if row.name}
             <div class="text-xs text-gray-400">{row.location}</div>
           {/if}
-          {#if row.score === null}
-            <div class="text-xs text-gray-400">Exhibition · no score</div>
-          {/if}
         </td>
         <td
           class="px-3 py-3 text-right align-middle text-sm font-semibold whitespace-nowrap text-gray-900 tabular-nums"

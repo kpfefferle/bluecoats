@@ -14,6 +14,7 @@ export const SEASON_2010: SeasonScores = {
     {
       date: '2010-06-22',
       location: 'Louisville, KY',
+      name: 'DCI Louisville',
       score: 75.6,
     },
     {
@@ -24,6 +25,7 @@ export const SEASON_2010: SeasonScores = {
     {
       date: '2010-06-26',
       location: 'Arlington, VA',
+      name: 'DCI Salutes America',
       score: 78.1,
     },
     {
@@ -59,6 +61,7 @@ export const SEASON_2010: SeasonScores = {
     {
       date: '2010-07-10',
       location: 'Kalamazoo, MI',
+      name: 'DCI Kalamazoo',
       score: 86.25,
     },
     {
@@ -77,6 +80,12 @@ export const SEASON_2010: SeasonScores = {
       score: 87.35,
     },
     {
+      date: '2010-07-17',
+      location: 'Minneapolis, MN',
+      name: 'DCI Minnesota',
+      score: null,
+    },
+    {
       date: '2010-07-18',
       location: 'Des Moines, IA',
       score: 88.25,
@@ -89,16 +98,19 @@ export const SEASON_2010: SeasonScores = {
     {
       date: '2010-07-22',
       location: 'Houston, TX',
+      name: 'DCI Houston',
       score: 89.05,
     },
     {
       date: '2010-07-23',
       location: 'Dallas, TX',
+      name: 'DCI Dallas',
       score: 89.55,
     },
     {
       date: '2010-07-25',
       location: 'Converse, TX',
+      name: 'DCI Southwestern',
       score: 89.95,
     },
     {
@@ -109,21 +121,25 @@ export const SEASON_2010: SeasonScores = {
     {
       date: '2010-07-29',
       location: 'Gadsden, AL',
+      name: 'DCI Gadsden',
       score: 91.9,
     },
     {
       date: '2010-07-30',
       location: 'Murfreesboro, TN',
+      name: 'DCI Masters',
       score: 93.55,
     },
     {
       date: '2010-07-31',
       location: 'Atlanta, GA',
+      name: 'DCI Southeastern',
       score: 93.75,
     },
     {
       date: '2010-08-02',
       location: 'Centerville, OH',
+      name: 'Soaring Sounds',
       score: 92.8,
     },
     {
@@ -144,6 +160,7 @@ export const SEASON_2010: SeasonScores = {
     {
       date: '2010-08-07',
       location: 'Allentown, PA',
+      name: 'DCI East',
       score: 94.65,
     },
     {

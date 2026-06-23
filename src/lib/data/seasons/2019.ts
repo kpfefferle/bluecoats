@@ -14,6 +14,7 @@ export const SEASON_2019: SeasonScores = {
     {
       date: '2019-06-22',
       location: 'North Canton, OH',
+      name: 'Innovations in Brass',
       score: 71.85,
     },
     {
@@ -74,11 +75,13 @@ export const SEASON_2019: SeasonScores = {
     {
       date: '2019-07-13',
       location: 'DeKalb, IL',
+      name: 'Tour of Champions',
       score: 87.5,
     },
     {
       date: '2019-07-14',
       location: 'Belleville, IL',
+      name: 'DCI St. Louis',
       score: 88.1,
     },
     {
@@ -94,6 +97,7 @@ export const SEASON_2019: SeasonScores = {
     {
       date: '2019-07-19',
       location: 'Katy, TX',
+      name: 'Tour of Champions',
       score: 90.725,
     },
     {
@@ -114,26 +118,31 @@ export const SEASON_2019: SeasonScores = {
     {
       date: '2019-07-26',
       location: 'Murfreesboro, TN',
+      name: 'DCI Masters',
       score: 93.425,
     },
     {
       date: '2019-07-27',
       location: 'Atlanta, GA',
+      name: 'DCI Southeastern',
       score: 93.7625,
     },
     {
       date: '2019-07-28',
       location: 'Winston-Salem, NC',
+      name: 'Tour of Champions',
       score: 94.075,
     },
     {
       date: '2019-07-29',
       location: 'Centerville, OH',
+      name: 'Soaring Sounds',
       score: 94.35,
     },
     {
       date: '2019-08-02',
       location: 'Allentown, PA',
+      name: 'DCI East',
       score: 95.175,
     },
     {
@@ -144,6 +153,7 @@ export const SEASON_2019: SeasonScores = {
     {
       date: '2019-08-05',
       location: 'Akron, OH',
+      name: 'Tour of Champions',
       score: 96.15,
     },
     {

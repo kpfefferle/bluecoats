@@ -14,6 +14,7 @@ export const SEASON_2017: SeasonScores = {
     {
       date: '2017-06-24',
       location: 'Massillon, OH',
+      name: 'Innovations in Brass',
       score: 72.7,
     },
     {
@@ -24,6 +25,7 @@ export const SEASON_2017: SeasonScores = {
     {
       date: '2017-06-27',
       location: 'Pittsburgh, PA',
+      name: 'Innovations in Brass II',
       score: 74.7,
     },
     {
@@ -40,6 +42,11 @@ export const SEASON_2017: SeasonScores = {
       date: '2017-07-03',
       location: 'Mankato, MN',
       score: 78.3,
+    },
+    {
+      date: '2017-07-06',
+      location: 'Wausau, WI',
+      score: null,
     },
     {
       date: '2017-07-07',
@@ -64,6 +71,7 @@ export const SEASON_2017: SeasonScores = {
     {
       date: '2017-07-15',
       location: 'Denver, CO',
+      name: 'Drums Along the Rockies',
       score: 83.85,
     },
     {
@@ -74,6 +82,7 @@ export const SEASON_2017: SeasonScores = {
     {
       date: '2017-07-18',
       location: 'Broken Arrow, OK',
+      name: 'Tour of Champions',
       score: 85.15,
     },
     {
@@ -84,11 +93,13 @@ export const SEASON_2017: SeasonScores = {
     {
       date: '2017-07-21',
       location: 'Houston, TX',
+      name: 'Tour of Champions',
       score: 86.45,
     },
     {
       date: '2017-07-22',
       location: 'San Antonio, TX',
+      name: 'DCI Southwestern',
       score: 88.025,
     },
     {
@@ -104,16 +115,19 @@ export const SEASON_2017: SeasonScores = {
     {
       date: '2017-07-28',
       location: 'Nashville, TN',
+      name: 'DCI Masters',
       score: 90.475,
     },
     {
       date: '2017-07-29',
       location: 'Powder Springs, GA',
+      name: 'DCI Southeastern',
       score: 91.175,
     },
     {
       date: '2017-07-30',
       location: 'Winston-Salem, NC',
+      name: 'Tour of Champions',
       score: 91.2,
     },
     {
@@ -124,21 +138,25 @@ export const SEASON_2017: SeasonScores = {
     {
       date: '2017-08-03',
       location: 'Chester, PA',
+      name: 'Tour of Champions',
       score: 92.825,
     },
     {
       date: '2017-08-04',
       location: 'Allentown, PA',
+      name: 'DCI East',
       score: 93.4,
     },
     {
       date: '2017-08-06',
       location: 'Buffalo, NY',
+      name: 'Tour of Champions',
       score: 93.725,
     },
     {
       date: '2017-08-07',
       location: 'Massillon, OH',
+      name: 'Tour of Champions',
       score: 94.025,
     },
     {

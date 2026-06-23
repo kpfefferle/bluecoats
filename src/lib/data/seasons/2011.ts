@@ -74,6 +74,7 @@ export const SEASON_2011: SeasonScores = {
     {
       date: '2011-07-16',
       location: 'Minneapolis, MN',
+      name: 'DCI Minneapolis',
       score: 82.9,
     },
     {
@@ -94,31 +95,37 @@ export const SEASON_2011: SeasonScores = {
     {
       date: '2011-07-22',
       location: 'Houston, TX',
+      name: 'DCI Houston',
       score: 84.15,
     },
     {
       date: '2011-07-23',
       location: 'San Antonio, TX',
+      name: 'DCI Southwestern',
       score: 86.6,
     },
     {
       date: '2011-07-25',
       location: 'Dallas, TX',
+      name: 'DCI Dallas',
       score: 86.9,
     },
     {
       date: '2011-07-26',
       location: 'Yukon, OK',
+      name: 'DCI Central Oklahoma',
       score: 86.95,
     },
     {
       date: '2011-07-29',
       location: 'Murfreesboro, TN',
+      name: 'DCI Masters',
       score: 87.2,
     },
     {
       date: '2011-07-30',
       location: 'Atlanta, GA',
+      name: 'DCI Southeastern',
       score: 88.65,
     },
     {
@@ -134,12 +141,18 @@ export const SEASON_2011: SeasonScores = {
     {
       date: '2011-08-05',
       location: 'Allentown, PA',
+      name: 'DCI East',
       score: 90.15,
     },
     {
       date: '2011-08-07',
       location: 'East Rutherford, NJ',
       score: 89.25,
+    },
+    {
+      date: '2011-08-09',
+      location: 'Massilon, OH',
+      score: null,
     },
     {
       date: '2011-08-11',

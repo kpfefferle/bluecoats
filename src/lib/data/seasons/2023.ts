@@ -8,6 +8,12 @@ export const SEASON_2023: SeasonScores = {
   show: 'The Garden of Love',
   scores: [
     {
+      date: '2023-07-01',
+      location: 'Alliance, OH',
+      name: 'Bluecoats Opening Night',
+      score: null,
+    },
+    {
       date: '2023-07-05',
       location: 'Mason, OH',
       score: 79.85,
@@ -50,16 +56,24 @@ export const SEASON_2023: SeasonScores = {
     {
       date: '2023-07-22',
       location: 'San Antonio, TX',
+      name: 'DCI Southwestern Regional',
       score: 90.95,
+    },
+    {
+      date: '2023-07-28',
+      location: 'Murfreesboro, TN',
+      score: null,
     },
     {
       date: '2023-07-29',
       location: 'Atlanta, GA',
+      name: 'DCI Southeastern Regional',
       score: 91.975,
     },
     {
       date: '2023-07-30',
       location: 'Winston-Salem, NC',
+      name: 'Nightbeat',
       score: 92.9,
     },
     {
@@ -75,7 +89,14 @@ export const SEASON_2023: SeasonScores = {
     {
       date: '2023-08-04',
       location: 'Allentown, PA',
+      name: 'DCI Eastern Regional',
       score: 95.25,
+    },
+    {
+      date: '2023-08-07',
+      location: 'Canton, OH',
+      name: 'Innovations in Brass',
+      score: null,
     },
     {
       date: '2023-08-10',

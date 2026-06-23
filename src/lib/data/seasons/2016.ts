@@ -14,6 +14,7 @@ export const SEASON_2016: SeasonScores = {
     {
       date: '2016-06-25',
       location: 'Massillon, OH',
+      name: 'Innovations in Brass',
       score: 71.5,
     },
     {
@@ -24,12 +25,18 @@ export const SEASON_2016: SeasonScores = {
     {
       date: '2016-06-28',
       location: 'Pittsburgh, PA',
+      name: 'Innovations in Brass II',
       score: 73.1,
     },
     {
       date: '2016-06-30',
       location: 'Allentown, PA',
       score: 74.75,
+    },
+    {
+      date: '2016-07-01',
+      location: 'Clifton, NJ',
+      score: null,
     },
     {
       date: '2016-07-02',
@@ -74,11 +81,13 @@ export const SEASON_2016: SeasonScores = {
     {
       date: '2016-07-17',
       location: 'DeKalb, IL',
+      name: 'Tour of Champions',
       score: 84.1,
     },
     {
       date: '2016-07-18',
       location: 'Warrensburg, MO',
+      name: 'Tour of Champions',
       score: 84.65,
     },
     {
@@ -89,11 +98,13 @@ export const SEASON_2016: SeasonScores = {
     {
       date: '2016-07-22',
       location: 'Houston, TX',
+      name: 'Tour of Champions',
       score: 86.15,
     },
     {
       date: '2016-07-23',
       location: 'San Antonio, TX',
+      name: 'DCI Southwestern',
       score: 87.0625,
     },
     {
@@ -109,11 +120,13 @@ export const SEASON_2016: SeasonScores = {
     {
       date: '2016-07-29',
       location: 'Nashville, TN',
+      name: 'Tour of Champions',
       score: 90.8,
     },
     {
       date: '2016-07-30',
       location: 'Atlanta, GA',
+      name: 'DCI Southeastern',
       score: 91.7125,
     },
     {
@@ -129,21 +142,25 @@ export const SEASON_2016: SeasonScores = {
     {
       date: '2016-08-04',
       location: 'Chester, PA',
+      name: 'Tour of Champions',
       score: 93.45,
     },
     {
       date: '2016-08-05',
       location: 'Allentown, PA',
+      name: 'DCI East',
       score: 94.625,
     },
     {
       date: '2016-08-07',
       location: 'Buffalo, NY',
+      name: 'Tour of Champions',
       score: 94.5,
     },
     {
       date: '2016-08-08',
       location: 'Massillon, OH',
+      name: 'Tour of Champions',
       score: 94.95,
     },
     {
