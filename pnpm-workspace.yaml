@@ -5,4 +5,8 @@ allowBuilds:
   sharp: true
   workerd: true
 overrides:
-  cookie@<0.7.0: ">=0.7.0"
+  # Lift cookie above the <0.7.0 security advisory, but cap below 2.0.0:
+  # SvelteKit imports the named `parse`/`serialize` exports, which cookie@2
+  # removed. Without the upper bound, lockfile regeneration floats cookie to
+  # 2.x and breaks the build.
+  cookie@<0.7.0: ">=0.7.0 <2.0.0"
