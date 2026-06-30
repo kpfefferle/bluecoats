@@ -2,5 +2,14 @@
   "$schema": "https://unpkg.com/knip@6/schema.json",
   "playwright": {
     "entry": "tests/e2e/**/*.{test,spec}.ts"
+  },
+  "paths": {
+    "$components": ["src/lib/components"],
+    "$components/*": ["src/lib/components/*"],
+    "$data": ["src/lib/data"],
+    "$data/*": ["src/lib/data/*"],
+    "$lib": ["src/lib"],
+    "$lib/*": ["src/lib/*"],
+    "$src/*": ["src/*"]
   }
 }
