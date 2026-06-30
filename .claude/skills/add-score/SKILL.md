@@ -5,7 +5,7 @@ description: Use when the user asks to log/record a result for a Bluecoats DCI e
 
 # Add Score
 
-Record a single event result into a season's data file and open a PR. The result is either a **number** (a scored competition) or **`null`** (the event happened but produced no comparable score — exhibitions, rained-out shows, etc.). The user provides the value inline; this skill never fetches scores from an external source.
+Record a single event result into a season's data file, open a PR, and merge it as soon as CI is green so the deployed site shows the new score ASAP. The result is either a **number** (a scored competition) or **`null`** (the event happened but produced no comparable score — exhibitions, rained-out shows, etc.). The user provides the value inline; this skill never fetches scores from an external source.
 
 ## Background
 
@@ -40,6 +40,8 @@ Create a todo per step and work through them in order.
 6. **Verify.** Run `pnpm lint` and `pnpm test:unit`; both must pass. (Node is pinned to 24.13.1 via `.node-version`/mise — pnpm runs directly, no prefix needed.)
 
 7. **Commit, push, open the PR.** Commit message of the form `Log <event> score for <year>` (or `Log <event> as non-scored for <year>` for a `null`). Push and run `gh pr create` with a one-line summary of the event, value, and the lint/test result.
+
+8. **Watch the PR and merge as soon as it's green.** Getting the score deployed is the point — Cloudflare Pages auto-deploys `main` on every push, so the score is **not live until the PR merges**. Watch the PR's checks with `gh pr checks <number> --watch`; once all required checks pass, squash-merge and delete the branch with `gh pr merge <number> --squash --delete-branch`. If any check **fails**, stop and report it to the user — do not merge. After merging, sync local `main` (`git checkout main && git pull --ff-only`) and tell the user the deploy is underway.
 
 ## Notes
 
