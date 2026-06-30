@@ -5,6 +5,10 @@ updates:
     schedule:
       interval: "daily"
     open-pull-requests-limit: 15
+    # Wait for releases to age past pnpm's ~24h minimumReleaseAge supply-chain
+    # policy before opening PRs, so fresh bumps don't fail CI on install.
+    cooldown:
+      default-days: 2
     groups:
       eslint:
         applies-to: version-updates
