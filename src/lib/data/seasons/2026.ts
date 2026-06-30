@@ -3,11 +3,13 @@ import { type SeasonScores } from '$data/base';
 export const SEASON_2026: SeasonScores = {
   year: '2026',
   endDate: '2026-08-08',
+  show: 'Gravity & Grace',
   scores: [
     {
       date: '2026-06-27',
       location: 'Alliance, OH',
       name: 'Bluecoats Opening Night Community Celebration',
+      score: null,
     },
     { date: '2026-07-02', location: 'Camarillo, CA', name: 'MidCal Showcase' },
     {
