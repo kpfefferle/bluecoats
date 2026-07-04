@@ -10,6 +10,7 @@
   import {
     buildDailyRankings,
     currentDayUntilFinals,
+    currentSeasonYear,
     maxDayBeforeFinals,
   } from '$lib/utils/daily-ranking';
   import { setParam } from '$lib/utils/url-state';
@@ -24,6 +25,7 @@
     return raw >= 0 ? raw : 0;
   });
   const rankings = $derived(buildDailyRankings(POPULATED_SEASONS, selectedDay));
+  const currentYear = $derived(currentSeasonYear(POPULATED_SEASONS));
 
   function onDayChange(day: number) {
     void setParam('day', day === currentDay ? null : String(day));
@@ -62,7 +64,7 @@
           </div>
         </div>
       </div>
-      <Table {rankings} />
+      <Table {rankings} {currentYear} />
     </Card>
   </div>
 </PageContent>

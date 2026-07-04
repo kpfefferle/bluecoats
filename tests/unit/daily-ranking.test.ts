@@ -2,6 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   buildDailyRankings,
   currentDayUntilFinals,
+  currentSeasonYear,
   maxDayBeforeFinals,
 } from '../../src/lib/utils/daily-ranking';
 import type { SeasonScores } from '../../src/lib/data/base';
@@ -225,6 +226,39 @@ describe('currentDayUntilFinals', () => {
     // No populated seasons → maxDay is 0; any future finals exceeds the bound.
     vi.setSystemTime(new Date('2025-07-10T12:00:00Z'));
     expect(currentDayUntilFinals([SEASON_2025], 0)).toBe(0);
+  });
+});
+
+describe('currentSeasonYear', () => {
+  it('returns undefined for an empty array', () => {
+    expect(currentSeasonYear([])).toBeUndefined();
+  });
+
+  it('returns the highest year as a string', () => {
+    expect(currentSeasonYear([SEASON_2023, SEASON_2024, SEASON_2025])).toBe(
+      '2025',
+    );
+  });
+
+  it('returns the max for unordered input', () => {
+    expect(currentSeasonYear([SEASON_2024, SEASON_2025, SEASON_2023])).toBe(
+      '2025',
+    );
+  });
+
+  it('compares years numerically, not lexically', () => {
+    // Lexical comparison would put '999' after '2010' since '9' > '2'.
+    const seasonShort: SeasonScores = {
+      year: '999',
+      endDate: '0999-08-12',
+      scores: [],
+    };
+    const seasonLong: SeasonScores = {
+      year: '2010',
+      endDate: '2010-08-12',
+      scores: [],
+    };
+    expect(currentSeasonYear([seasonShort, seasonLong])).toBe('2010');
   });
 });
 
