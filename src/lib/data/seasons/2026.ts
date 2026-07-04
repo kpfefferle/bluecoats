@@ -16,6 +16,7 @@ export const SEASON_2026: SeasonScores = {
       date: '2026-07-03',
       location: 'Sacramento, CA',
       name: 'DCI Capital Classic',
+      score: 82.2,
     },
     { date: '2026-07-05', location: 'Stanford, CA', name: 'DCI West' },
     {
