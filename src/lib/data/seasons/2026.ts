@@ -11,7 +11,12 @@ export const SEASON_2026: SeasonScores = {
       name: 'Bluecoats Opening Night Community Celebration',
       score: null,
     },
-    { date: '2026-07-02', location: 'Camarillo, CA', name: 'MidCal Showcase' },
+    {
+      date: '2026-07-02',
+      location: 'Camarillo, CA',
+      name: 'MidCal Showcase',
+      score: null,
+    },
     {
       date: '2026-07-03',
       location: 'Sacramento, CA',
