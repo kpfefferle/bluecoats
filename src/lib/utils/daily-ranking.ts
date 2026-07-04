@@ -79,6 +79,13 @@ export function currentDayUntilFinals(
   return days > maxDay ? 0 : days;
 }
 
+export function currentSeasonYear(seasons: SeasonScores[]): string | undefined {
+  if (seasons.length === 0) return undefined;
+  return seasons.reduce((newest, season) =>
+    Number(season.year) > Number(newest.year) ? season : newest,
+  ).year;
+}
+
 export function maxDayBeforeFinals(seasons: SeasonScores[]): number {
   const seasonDays = seasons
     .map((season) => {

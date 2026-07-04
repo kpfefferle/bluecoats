@@ -2,7 +2,10 @@
   import type { DailyRankingItem } from '$lib/utils/daily-ranking';
   import { ordinalSuffix } from '$lib/utils/ordinal';
 
-  let { rankings }: { rankings: DailyRankingItem[] } = $props();
+  let {
+    rankings,
+    currentYear,
+  }: { rankings: DailyRankingItem[]; currentYear?: string } = $props();
 
   const range = $derived.by(() => {
     if (rankings.length === 0) return { max: 0, min: 0 };
@@ -72,8 +75,17 @@
     {#each rankings as ranking (ranking.year)}
       {@const medal =
         ranking.placement && ranking.placement <= 3 ? ranking.placement : null}
-      <tr class="hover:bg-gray-50">
-        <td class="py-3 pr-3 pl-4 align-middle sm:pl-6">
+      {@const isCurrent = ranking.year === currentYear}
+      <tr
+        class={isCurrent
+          ? 'bg-gradient-to-r from-brand-600/8 to-brand-600/2'
+          : 'hover:bg-gray-50'}
+      >
+        <td
+          class="py-3 pr-3 pl-4 align-middle sm:pl-6 {isCurrent
+            ? 'shadow-[inset_0.1875rem_0_0_0_var(--color-brand-600)]'
+            : ''}"
+        >
           <span
             class="inline-flex h-6 min-w-7 items-center justify-center rounded-md px-1.5 text-xs font-semibold tabular-nums {rankClass(
               ranking.rank,
@@ -86,11 +98,17 @@
         <td
           class="w-full max-w-0 px-3 py-3 align-middle sm:w-auto sm:max-w-none sm:whitespace-nowrap"
         >
-          <div class="text-sm font-semibold text-gray-900 tabular-nums">
+          <div
+            class="text-sm font-semibold tabular-nums {isCurrent
+              ? 'text-navy-800'
+              : 'text-gray-900'}"
+          >
             {ranking.year}{#if medal}<span
                 class="ml-1.5"
                 role="img"
                 aria-label={MEDAL_LABEL[medal]}>{MEDAL_EMOJI[medal]}</span
+              >{/if}{#if isCurrent}<span class="sr-only">
+                (current season)</span
               >{/if}
           </div>
           {#if ranking.show}
@@ -112,7 +130,11 @@
         <td
           class="px-3 py-3 pr-4 text-right align-middle whitespace-nowrap tabular-nums sm:pr-3"
         >
-          <div class="text-sm font-semibold text-gray-900">
+          <div
+            class="text-sm font-semibold {isCurrent
+              ? 'text-brand-600'
+              : 'text-gray-900'}"
+          >
             {ranking.score.toFixed(3)}
           </div>
           {#if ranking.daysOld}
@@ -128,9 +150,11 @@
             role="presentation"
           >
             <span
-              class="absolute top-0 bottom-0 left-0 rounded-full {medal
-                ? MEDAL_BAR_CLASS[medal]
-                : 'bg-brand-600'}"
+              class="absolute top-0 bottom-0 left-0 rounded-full {isCurrent
+                ? 'bg-brand-600 ring-[1.5px] ring-brand-600/25'
+                : medal
+                  ? MEDAL_BAR_CLASS[medal]
+                  : 'bg-brand-600'}"
               style="width: {barWidth(ranking.score)}%"
             ></span>
           </div>
