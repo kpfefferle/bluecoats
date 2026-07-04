@@ -10,9 +10,9 @@ test('renders rankings table and slider', async ({ page }) => {
     page.getByRole('heading', { name: 'Daily ranking' }),
   ).toBeVisible();
   await expect(page.getByLabel('Days before Finals')).toBeVisible();
-  // 45 ranked seasons means 45 data rows in the tbody
+  // 46 ranked seasons means 46 data rows in the tbody
   const rows = page.locator('tbody tr');
-  await expect(rows).toHaveCount(45);
+  await expect(rows).toHaveCount(46);
 });
 
 test('day param drives the leaderboard and chips update the URL', async ({
