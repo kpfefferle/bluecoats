@@ -201,6 +201,17 @@ describe('buildTodayPage projection', () => {
     );
     expect(result?.hero.projected).toBeUndefined();
   });
+
+  it('omits the projection in-season when too few peers qualify', () => {
+    const sparse = MODERN.slice(0, 7);
+    const result = buildTodayPage(
+      [...sparse, CURRENT],
+      { season: CURRENT, inProgress: true },
+      21,
+    );
+    expect(result?.hero.projected).toBeUndefined();
+    expect(result?.hero.best).toBeDefined();
+  });
 });
 
 function ranking(year: string, rank: number): DailyRankingItem {

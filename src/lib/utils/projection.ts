@@ -1,7 +1,5 @@
-import { DateTime } from 'luxon';
 import type { SeasonScores } from '$data/base';
-import { FINALS_ZONE } from './time';
-import { finalsScore, scoreAsOfDay } from './tour';
+import { daysBeforeFinals, finalsScore, scoreAsOfDay } from './tour';
 
 /**
  * First season year of the training era. Scoring regimes drifted enormously
@@ -44,11 +42,9 @@ function latestScoredDay(
   );
   const latest = scored.at(-1);
   if (!latest) return null;
-  const finals = DateTime.fromISO(season.endDate, { zone: FINALS_ZONE });
-  const date = DateTime.fromISO(latest.date, { zone: FINALS_ZONE });
   return {
     score: latest.score,
-    day: Math.ceil(finals.diff(date, 'days').days),
+    day: daysBeforeFinals(season, latest.date),
   };
 }
 
