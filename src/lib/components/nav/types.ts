@@ -1,14 +1,20 @@
-export type NavIconKind = 'history' | 'daily' | 'tour';
+export type NavIconKind = 'today' | 'history' | 'daily' | 'tour';
 
 export interface NavItem {
   label: string;
   shortLabel: string;
-  href: '/' | '/daily-ranking' | '/tour';
+  href: '/' | '/score-history' | '/daily-ranking' | '/tour';
   icon: NavIconKind;
 }
 
 export const NAV_ITEMS: ReadonlyArray<NavItem> = [
-  { label: 'Score history', shortLabel: 'History', href: '/', icon: 'history' },
+  { label: 'Today', shortLabel: 'Today', href: '/', icon: 'today' },
+  {
+    label: 'Score history',
+    shortLabel: 'History',
+    href: '/score-history',
+    icon: 'history',
+  },
   {
     label: 'Daily ranking',
     shortLabel: 'Daily',
