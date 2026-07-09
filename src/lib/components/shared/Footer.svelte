@@ -2,6 +2,9 @@
   const year = new Date().getFullYear();
 </script>
 
+<!-- Not redundant: the layout nests this inside <main>, which strips the
+     implicit contentinfo landmark, so it must be restored explicitly. -->
+<!-- svelte-ignore a11y_no_redundant_roles -->
 <footer class="border-t border-gray-200" role="contentinfo">
   <div
     class="mx-auto flex max-w-300 flex-wrap items-center justify-center gap-x-2 gap-y-1 px-4 py-6 text-xs text-gray-400 md:px-6"
