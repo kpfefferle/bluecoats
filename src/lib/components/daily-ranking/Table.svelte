@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { DailyRankingItem } from '$lib/utils/daily-ranking';
   import { ordinalSuffix } from '$lib/utils/ordinal';
+  import { rankBadgeClass } from '$lib/utils/rank-style';
 
   let {
     rankings,
@@ -13,16 +14,6 @@
     const min = rankings[rankings.length - 1].score - 0.5;
     return { max, min };
   });
-
-  function rankClass(rank: number) {
-    if (rank === 1)
-      return 'bg-amber-100 text-amber-900 ring-1 ring-inset ring-amber-300';
-    if (rank === 2)
-      return 'bg-slate-100 text-slate-700 ring-1 ring-inset ring-slate-300';
-    if (rank === 3)
-      return 'bg-orange-50 text-orange-800 ring-1 ring-inset ring-orange-200';
-    return 'bg-gray-100 text-gray-600';
-  }
 
   const MEDAL_LABEL: Record<number, string> = {
     1: 'DCI World Champion',
@@ -87,7 +78,7 @@
             : ''}"
         >
           <span
-            class="inline-flex h-6 min-w-7 items-center justify-center rounded-md px-1.5 text-xs font-semibold tabular-nums {rankClass(
+            class="inline-flex h-6 min-w-7 items-center justify-center rounded-md px-1.5 text-xs font-semibold tabular-nums {rankBadgeClass(
               ranking.rank,
             )}"
             aria-label="{ranking.rank}{ordinalSuffix(ranking.rank)} place"

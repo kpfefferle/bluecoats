@@ -130,7 +130,7 @@ export interface TourSummary {
 }
 
 /** The numeric score on finals night (0 days before finals), else null. */
-function finalsScore(season: SeasonScores): number | null {
+export function finalsScore(season: SeasonScores): number | null {
   const finalsStops = buildTour(season).filter(
     (s) => s.daysBeforeFinals === 0 && s.score !== null,
   );
