@@ -1,6 +1,7 @@
 <script lang="ts">
   import { browser } from '$app/environment';
   import FinalsCountdown from '$components/nav/FinalsCountdown.svelte';
+  import { ordinalSuffix } from '$lib/utils/ordinal';
   import { daysAgo, type TodayHeroData } from '$lib/utils/today';
 
   let { hero }: { hero: TodayHeroData } = $props();
@@ -19,7 +20,9 @@
   });
 </script>
 
-<section class="bg-navy-900 relative overflow-hidden rounded-xl text-white">
+<section
+  class="bg-navy-900 relative -mx-4 -mt-6 overflow-hidden rounded-none text-white md:mx-0 md:mt-0 md:rounded-xl"
+>
   <div
     class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_0%,rgba(91,139,255,0.18),transparent_55%),radial-gradient(circle_at_0%_100%,rgba(199,154,58,0.1),transparent_50%)]"
     aria-hidden="true"
@@ -40,10 +43,16 @@
         With <em class="text-brand-300 not-italic"
           >{hero.latest.score.toFixed(3)}</em
         >
-        in {hero.latest.location}, {hero.year} ranks
-        <em class="text-brand-300 not-italic"
-          >#{hero.rank} of {hero.totalSeasons}</em
-        > Bluecoats seasons at this point in the tour.
+        in {hero.latest.location}, {hero.year} ranks as
+        {#if hero.rank === 1}
+          the <em class="text-brand-300 not-italic">best</em> Bluecoats season
+        {:else}
+          the
+          <em class="text-brand-300 not-italic"
+            >{hero.rank}{ordinalSuffix(hero.rank)} best</em
+          > Bluecoats season
+        {/if}
+        at this point in the tour.
       {:else}
         {hero.year} closed at
         <em class="text-brand-300 not-italic">{hero.latest.score.toFixed(3)}</em
@@ -66,7 +75,9 @@
     <dl
       class="mt-6 grid grid-cols-1 gap-4 border-t border-white/10 pt-4 sm:grid-cols-3 sm:gap-0 sm:pt-0"
     >
-      <div class="sm:border-r sm:border-white/10 sm:py-4 sm:pr-5">
+      <div
+        class="hidden sm:block sm:border-r sm:border-white/10 sm:py-4 sm:pr-5"
+      >
         <dt class="text-[0.71875rem] font-medium text-white/60">
           {hero.inProgress ? 'Latest score' : 'Final score'}
         </dt>
@@ -80,7 +91,9 @@
             · {latestAgeLabel}{/if}
         </dd>
       </div>
-      <div class="sm:border-r sm:border-white/10 sm:px-5 sm:py-4">
+      <div
+        class="hidden sm:block sm:border-r sm:border-white/10 sm:px-5 sm:py-4"
+      >
         <dt class="text-[0.71875rem] font-medium text-white/60">
           Rank vs. all seasons {hero.inProgress ? 'today' : 'at Finals'}
         </dt>

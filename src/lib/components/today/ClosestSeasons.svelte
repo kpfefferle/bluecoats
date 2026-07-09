@@ -1,7 +1,11 @@
 <script lang="ts">
   import type { DailyRankingItem } from '$lib/utils/daily-ranking';
   import { ordinalSuffix } from '$lib/utils/ordinal';
-  import { rankBadgeClass } from '$lib/utils/rank-style';
+  import {
+    MEDAL_EMOJI,
+    MEDAL_LABEL,
+    rankBadgeClass,
+  } from '$lib/utils/rank-style';
 
   let {
     items,
@@ -34,10 +38,15 @@
       >
         Show
       </th>
-      <th scope="col" class="px-3 py-3 text-right whitespace-nowrap">Score</th>
       <th
         scope="col"
-        class="px-3 py-3 pr-4 text-right whitespace-nowrap sm:pr-6"
+        class="px-3 py-3 pr-4 text-right whitespace-nowrap sm:pr-3"
+      >
+        Score
+      </th>
+      <th
+        scope="col"
+        class="hidden px-3 py-3 pr-4 text-right whitespace-nowrap sm:table-cell sm:pr-6"
       >
         {featuredYear ? `Δ vs. ${featuredYear}` : 'Δ'}
       </th>
@@ -45,6 +54,8 @@
   </thead>
   <tbody class="divide-y divide-gray-200 bg-white">
     {#each items as item (item.year)}
+      {@const medal =
+        item.placement && item.placement <= 3 ? item.placement : null}
       {@const isCurrent = item.year === featuredYear}
       {@const delta = isCurrent ? null : deltaLabel(item.score)}
       <tr
@@ -71,7 +82,11 @@
             ? 'text-navy-800'
             : 'text-gray-900'}"
         >
-          {item.year}{#if isCurrent}<span class="sr-only">
+          {item.year}{#if medal}<span
+              class="ml-1.5"
+              role="img"
+              aria-label={MEDAL_LABEL[medal]}>{MEDAL_EMOJI[medal]}</span
+            >{/if}{#if isCurrent}<span class="sr-only">
               (current season)</span
             >{/if}
           {#if item.show}
@@ -88,14 +103,26 @@
           {item.show ?? '—'}
         </td>
         <td
-          class="px-3 py-3 text-right align-middle text-sm font-semibold whitespace-nowrap tabular-nums {isCurrent
-            ? 'text-brand-600'
-            : 'text-gray-900'}"
+          class="px-3 py-3 pr-4 text-right align-middle whitespace-nowrap tabular-nums sm:pr-3"
         >
-          {item.score.toFixed(3)}
+          <div
+            class="text-sm font-semibold {isCurrent
+              ? 'text-brand-600'
+              : 'text-gray-900'}"
+          >
+            {item.score.toFixed(3)}
+          </div>
+          {#if item.daysOld}
+            <div
+              class="mt-0.5 text-xs font-normal whitespace-nowrap text-gray-400"
+            >
+              {item.daysOld}
+              {item.daysOld === 1 ? 'day' : 'days'} prior
+            </div>
+          {/if}
         </td>
         <td
-          class="px-3 py-3 pr-4 text-right align-middle text-sm whitespace-nowrap text-gray-500 tabular-nums sm:pr-6"
+          class="hidden px-3 py-3 pr-4 text-right align-middle text-sm whitespace-nowrap text-gray-500 tabular-nums sm:table-cell sm:pr-6"
         >
           {delta ?? '—'}
         </td>

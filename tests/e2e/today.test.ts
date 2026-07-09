@@ -33,3 +33,10 @@ test('view full ranking navigates to the daily ranking page', async ({
     page.getByRole('heading', { name: 'Daily ranking' }),
   ).toBeVisible();
 });
+
+test('drops the delta column at phone width', async ({ page }) => {
+  await page.setViewportSize({ width: 393, height: 852 });
+  await page.goto('/');
+  await expect(page.getByRole('columnheader', { name: /Δ vs\./ })).toBeHidden();
+  await expect(page.getByRole('columnheader', { name: 'Score' })).toBeVisible();
+});

@@ -1,7 +1,11 @@
 <script lang="ts">
   import type { DailyRankingItem } from '$lib/utils/daily-ranking';
   import { ordinalSuffix } from '$lib/utils/ordinal';
-  import { rankBadgeClass } from '$lib/utils/rank-style';
+  import {
+    MEDAL_EMOJI,
+    MEDAL_LABEL,
+    rankBadgeClass,
+  } from '$lib/utils/rank-style';
 
   let {
     rankings,
@@ -15,16 +19,6 @@
     return { max, min };
   });
 
-  const MEDAL_LABEL: Record<number, string> = {
-    1: 'DCI World Champion',
-    2: 'DCI Silver Medalist',
-    3: 'DCI Bronze Medalist',
-  };
-  const MEDAL_EMOJI: Record<number, string> = {
-    1: '🥇',
-    2: '🥈',
-    3: '🥉',
-  };
   const MEDAL_BAR_CLASS: Record<number, string> = {
     1: 'bg-amber-500',
     2: 'bg-slate-400',
