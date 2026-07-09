@@ -48,6 +48,18 @@ export function daysAgo(date: string, now: DateTime = DateTime.now()): number {
   return Math.max(0, Math.round(today.diff(then, 'days').days));
 }
 
+/**
+ * Human label for how long ago a result landed, given a whole-day count:
+ * `0 → "today"`, `1 → "yesterday"`, `n → "n days ago"`. Lowercase so it reads
+ * naturally mid-sentence; capitalize at the call site where a leading label is
+ * wanted.
+ */
+export function ageLabel(days: number): string {
+  if (days <= 0) return 'today';
+  if (days === 1) return 'yesterday';
+  return `${days} days ago`;
+}
+
 export interface TodayHeroData {
   year: string;
   inProgress: boolean;

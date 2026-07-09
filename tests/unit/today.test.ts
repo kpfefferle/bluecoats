@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon';
 import { describe, expect, it } from 'vitest';
 import {
+  ageLabel,
   bestFinals,
   buildTodayPage,
   closestSeasons,
@@ -106,6 +107,21 @@ describe('daysAgo', () => {
 
   it('clamps future dates to 0', () => {
     expect(daysAgo('2026-07-12', now)).toBe(0);
+  });
+});
+
+describe('ageLabel', () => {
+  it('reads "today" for the current day', () => {
+    expect(ageLabel(0)).toBe('today');
+  });
+
+  it('reads "yesterday" for one day back', () => {
+    expect(ageLabel(1)).toBe('yesterday');
+  });
+
+  it('pluralizes for older results', () => {
+    expect(ageLabel(2)).toBe('2 days ago');
+    expect(ageLabel(11)).toBe('11 days ago');
   });
 });
 

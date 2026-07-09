@@ -102,6 +102,7 @@ function seriesForSeason(
   season: SeasonScores,
   role: Role,
   inProgress: boolean,
+  ageLabel: string,
 ): SeriesOption {
   const base = {
     ...LINE_SERIES_OPTION_BASE,
@@ -177,7 +178,7 @@ function seriesForSeason(
           label: {
             show: true,
             position: 'top' as const,
-            formatter: `Today · ${latest.score.toFixed(3)}`,
+            formatter: `${ageLabel} · ${latest.score.toFixed(3)}`,
             color: '#fff',
             backgroundColor: COLOR_INK,
             borderRadius: 4,
@@ -187,7 +188,7 @@ function seriesForSeason(
           },
           data: [
             {
-              name: 'Today',
+              name: ageLabel,
               coord: [-daysBeforeFinals(season, latest.date), latest.score] as [
                 number,
                 number,
@@ -244,8 +245,14 @@ export interface ChartOptionInput {
   selectedYears: SeasonScores['year'][];
   /** The protagonist season's year, highlighted in bold blue. */
   featuredYear?: SeasonScores['year'];
-  /** True when the featured season's tour is still underway (shows Today marker). */
+  /** True when the featured season's tour is still underway (shows the marker). */
   featuredInProgress?: boolean;
+  /**
+   * Capitalized label for the featured marker describing how long ago the
+   * latest score landed, e.g. `"Today"`, `"Yesterday"`, `"3 days ago"`.
+   * Defaults to `"Today"`.
+   */
+  featuredAgeLabel?: string;
 }
 
 export function buildChartOption({
@@ -253,6 +260,7 @@ export function buildChartOption({
   selectedYears,
   featuredYear,
   featuredInProgress = false,
+  featuredAgeLabel = 'Today',
 }: ChartOptionInput): EChartsOption {
   const roleFor = (season: SeasonScores): Role => {
     if (season.year === featuredYear) return 'featured';
@@ -272,7 +280,7 @@ export function buildChartOption({
     .map((season) => ({ season, role: roleFor(season) }))
     .sort((a, b) => order[a.role] - order[b.role])
     .map(({ season, role }) =>
-      seriesForSeason(season, role, featuredInProgress),
+      seriesForSeason(season, role, featuredInProgress, featuredAgeLabel),
     );
 
   // Scale the axes to the featured season alone until the viewer picks seasons

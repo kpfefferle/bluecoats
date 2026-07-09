@@ -49,7 +49,10 @@ type Series = {
   lineStyle?: { color?: string; width?: number; opacity?: number };
   itemStyle?: { color?: string };
   endLabel?: { show?: boolean };
-  markPoint?: { data: Array<{ coord: [number, number] }> };
+  markPoint?: {
+    label?: { formatter?: string };
+    data: Array<{ coord: [number, number]; name?: string }>;
+  };
 };
 
 function seriesByName(opt: ReturnType<typeof buildChartOption>, name: string) {
@@ -111,6 +114,9 @@ describe('buildChartOption', () => {
     });
     const marker = seriesByName(live, '2026').markPoint;
     expect(marker?.data[0].coord).toEqual([-14, 88.0]);
+    // Defaults to "Today" when no age label is supplied.
+    expect(marker?.data[0].name).toBe('Today');
+    expect(marker?.label?.formatter).toBe('Today · 88.000');
 
     const offSeason = buildChartOption({
       seasons: [partial],
@@ -119,6 +125,24 @@ describe('buildChartOption', () => {
       featuredInProgress: false,
     });
     expect(seriesByName(offSeason, '2026').markPoint).toBeUndefined();
+  });
+
+  it('labels the marker with the supplied age label as days pass', () => {
+    const partial: SeasonScores = {
+      year: '2026',
+      endDate: '2026-08-08',
+      scores: [{ date: '2026-07-25', location: 'Atlanta, GA', score: 88.0 }],
+    };
+    const opt = buildChartOption({
+      seasons: [partial],
+      selectedYears: [],
+      featuredYear: '2026',
+      featuredInProgress: true,
+      featuredAgeLabel: '3 days ago',
+    });
+    const marker = seriesByName(opt, '2026').markPoint;
+    expect(marker?.data[0].name).toBe('3 days ago');
+    expect(marker?.label?.formatter).toBe('3 days ago · 88.000');
   });
 
   it('renders championship seasons (placement 1) in gold when not selected', () => {
