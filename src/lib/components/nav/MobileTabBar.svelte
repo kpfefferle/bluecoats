@@ -4,6 +4,8 @@
   import { NAV_ITEMS, type NavIconKind } from './types';
 
   function iconPath(kind: NavIconKind): string {
+    if (kind === 'today')
+      return 'M3 10.5 12 3l9 7.5 M5 8.75V21h14V8.75 M9.5 21v-5.5h5V21';
     if (kind === 'history')
       return 'M3 19h18 M5 17V9 M10 17V5 M15 17v-6 M20 17v-9';
     if (kind === 'tour')
@@ -13,7 +15,7 @@
 </script>
 
 <nav
-  class="absolute inset-x-0 bottom-0 z-20 grid grid-cols-3 border-t border-gray-200 bg-white/90 px-1 pt-1.5 pb-[calc(0.625rem+env(safe-area-inset-bottom,0))] backdrop-blur-lg backdrop-saturate-150 md:hidden"
+  class="absolute inset-x-0 bottom-0 z-20 grid grid-cols-4 border-t border-gray-200 bg-white/90 px-1 pt-1.5 pb-[calc(0.625rem+env(safe-area-inset-bottom,0))] backdrop-blur-lg backdrop-saturate-150 md:hidden"
   aria-label="Primary"
 >
   {#each NAV_ITEMS as item (item.href)}

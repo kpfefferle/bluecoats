@@ -5,7 +5,7 @@ function selectedYears(url: string): string | null {
 }
 
 test('renders the chart and the decade season picker', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/score-history');
   await expect(
     page.getByRole('heading', { name: 'Score History' }),
   ).toBeVisible();
@@ -18,7 +18,7 @@ test('renders the chart and the decade season picker', async ({ page }) => {
 test('toggling a year pill adds and removes it from the URL', async ({
   page,
 }) => {
-  await page.goto('/');
+  await page.goto('/score-history');
   await page.getByRole('button', { name: '2014' }).click();
   await expect.poll(() => selectedYears(page.url())).toBe('2014');
 
@@ -29,14 +29,14 @@ test('toggling a year pill adds and removes it from the URL', async ({
 test('selecting multiple years records a sorted list in the URL', async ({
   page,
 }) => {
-  await page.goto('/');
+  await page.goto('/score-history');
   await page.getByRole('button', { name: '2016' }).click();
   await page.getByRole('button', { name: '2014' }).click();
   await expect.poll(() => selectedYears(page.url())).toBe('2014,2016');
 });
 
 test('reads selected years from the URL on load', async ({ page }) => {
-  await page.goto('/?years=2016,2018');
+  await page.goto('/score-history?years=2016,2018');
   await expect(page.getByRole('button', { name: '2016' })).toHaveAttribute(
     'aria-pressed',
     'true',

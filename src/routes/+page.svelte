@@ -1,112 +1,100 @@
 <script lang="ts">
-  import { browser } from '$app/environment';
-  import { page } from '$app/state';
+  import { resolve } from '$app/paths';
   import Card from '$components/shared/Card.svelte';
-  import ChartLegend from '$components/score-history/ChartLegend.svelte';
-  import DecadeYearPicker from '$components/score-history/DecadeYearPicker.svelte';
-  import EraSummary from '$components/score-history/EraSummary.svelte';
   import PageContent from '$components/shared/PageContent.svelte';
-  import PageHeader from '$components/shared/PageHeader.svelte';
   import SeasonScoresChart from '$components/score-history/SeasonScoresChart.svelte';
-  import { POPULATED_SEASONS } from '$data';
+  import ClosestSeasons from '$components/today/ClosestSeasons.svelte';
+  import TodayHero from '$components/today/TodayHero.svelte';
+  import { ALL_SEASONS_INCLUDING_SCHEDULED, POPULATED_SEASONS } from '$data';
+  import {
+    currentDayUntilFinals,
+    maxDayBeforeFinals,
+  } from '$lib/utils/daily-ranking';
   import { getFeaturedSeason } from '$lib/utils/featured-season';
-  import { setParam } from '$lib/utils/url-state';
+  import { buildTodayPage } from '$lib/utils/today';
 
-  // The most recent season that has competed is the chart's protagonist; while
-  // its tour is underway it also gets a "Today" marker.
   const featured = getFeaturedSeason(POPULATED_SEASONS);
-  const featuredYear = featured?.season.year;
-  const featuredInProgress = featured?.inProgress ?? false;
-
-  const yearsParam = $derived(
-    browser ? page.url.searchParams.get('years') : null,
+  const maxDay = maxDayBeforeFinals(POPULATED_SEASONS);
+  const currentDay = currentDayUntilFinals(
+    ALL_SEASONS_INCLUDING_SCHEDULED,
+    maxDay,
   );
-  const selectedYears = $derived((yearsParam ?? '').split(',').filter(Boolean));
-
-  // Compare lines are the picked seasons other than the always-on protagonist.
-  const compareYears = $derived(
-    selectedYears
-      .filter((year) => year !== featuredYear)
-      .slice()
-      .sort()
-      .reverse(),
-  );
-
-  const headline = $derived(
-    compareYears.length
-      ? `All seasons · comparing ${featuredYear} with ${compareYears.join(', ')}`
-      : `All seasons · ${featuredYear ?? 'latest'} featured`,
-  );
-
-  function onSelectedYearsChange(years: string[]) {
-    const next = years.slice().sort();
-    void setParam('years', next.length ? next.join(',') : null);
-  }
-
-  function clearSelection() {
-    void setParam('years', null);
-  }
+  // A completed featured season ranks on finals night; a live one ranks today.
+  const day = featured?.inProgress ? currentDay : 0;
+  const today = featured
+    ? buildTodayPage(POPULATED_SEASONS, featured, day)
+    : undefined;
+  const topFive = today?.rankings.slice(0, 5) ?? [];
+  const dayLabel =
+    day === 0 ? 'at Finals night' : `at ${day} days before Finals`;
 </script>
 
 <svelte:head>
-  <title>Score History | Bluecoats Scores</title>
+  <title>Today | Bluecoats Scores</title>
 </svelte:head>
 
-<PageHeader
-  title="Score history"
-  subtitle="Every Bluecoats season charted as a full tour toward DCI Finals"
-/>
-<PageContent>
-  <div class="grid grid-cols-1 gap-4">
-    <Card disablePadding>
-      <div
-        class="flex flex-wrap items-center justify-between gap-3 border-b border-gray-200 px-4 py-4 sm:px-6"
-      >
-        <div>
-          <div class="text-sm font-semibold text-gray-900">{headline}</div>
-          <div class="text-xs text-gray-500">
-            Hover any line to surface it · gold marks championship seasons
-          </div>
-        </div>
-        <ChartLegend {featuredYear} />
-      </div>
-      <div class="flex h-200 flex-col overflow-x-auto px-2 pt-2">
-        <SeasonScoresChart
-          seasonScores={POPULATED_SEASONS}
-          {selectedYears}
-          {featuredYear}
-          {featuredInProgress}
-        />
-      </div>
-      <div class="px-4 pb-5 sm:px-6">
-        <EraSummary />
-      </div>
-    </Card>
+{#if featured && today}
+  <PageContent>
+    <div class="grid grid-cols-1 gap-4">
+      <TodayHero hero={today.hero} />
 
-    <Card>
-      <div class="mb-4 flex items-center justify-between gap-3">
-        <div>
-          <div class="text-sm font-semibold text-gray-900">Compare seasons</div>
-          <div class="text-xs text-gray-500">
-            Tap any year to promote it to a bold line on the chart above
+      <Card disablePadding>
+        <div
+          class="flex flex-wrap items-center justify-between gap-3 border-b border-gray-200 px-4 py-4 sm:px-6"
+        >
+          <div>
+            <div class="text-sm font-semibold text-gray-900">
+              {today.hero.year} in context
+            </div>
+            <div class="text-xs text-gray-500">
+              Each thin line is one past season's tour · gold marks championship
+              seasons
+            </div>
           </div>
-        </div>
-        {#if compareYears.length}
-          <button
-            type="button"
+          <a
+            href={resolve('/score-history')}
             class="rounded-md px-2.5 py-1.5 text-xs font-semibold text-gray-600 hover:bg-gray-100"
-            onclick={clearSelection}
           >
-            Clear
-          </button>
-        {/if}
-      </div>
-      <DecadeYearPicker
-        seasonScores={POPULATED_SEASONS}
-        {selectedYears}
-        {featuredYear}
-        onChange={onSelectedYearsChange}
-      />
-    </Card>
-  </div>
-</PageContent>
+            Open full chart →
+          </a>
+        </div>
+        <div class="flex h-100 flex-col overflow-x-auto px-2 py-2">
+          <SeasonScoresChart
+            seasonScores={POPULATED_SEASONS}
+            selectedYears={[]}
+            featuredYear={featured.season.year}
+            featuredInProgress={featured.inProgress}
+          />
+        </div>
+      </Card>
+
+      <Card disablePadding>
+        <div
+          class="flex flex-wrap items-center justify-between gap-3 border-b border-gray-200 px-4 py-4 sm:px-6"
+        >
+          <div>
+            <div class="text-sm font-semibold text-gray-900">
+              {today.hero.inProgress
+                ? `Closest to ${today.hero.year} right now`
+                : 'All-time finals leaderboard'}
+            </div>
+            <div class="text-xs text-gray-500">
+              Top 5 seasons {dayLabel}
+            </div>
+          </div>
+          <a
+            href={resolve('/daily-ranking')}
+            class="rounded-md px-2.5 py-1.5 text-xs font-semibold text-gray-600 hover:bg-gray-100"
+          >
+            View full ranking →
+          </a>
+        </div>
+        <ClosestSeasons
+          items={topFive}
+          featuredYear={featured.season.year}
+          featuredScore={today.hero.latest.score}
+        />
+      </Card>
+    </div>
+  </PageContent>
+{/if}
