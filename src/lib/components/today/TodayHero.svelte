@@ -2,17 +2,14 @@
   import { browser } from '$app/environment';
   import FinalsCountdown from '$components/nav/FinalsCountdown.svelte';
   import { ordinalSuffix } from '$lib/utils/ordinal';
-  import { daysAgo, type TodayHeroData } from '$lib/utils/today';
+  import { ageLabel, daysAgo, type TodayHeroData } from '$lib/utils/today';
 
   let { hero }: { hero: TodayHeroData } = $props();
 
   const latestDaysAgo = $derived(browser ? daysAgo(hero.latest.date) : null);
-  const latestAgeLabel = $derived.by(() => {
-    if (latestDaysAgo === null) return null;
-    if (latestDaysAgo === 0) return 'today';
-    if (latestDaysAgo === 1) return 'yesterday';
-    return `${latestDaysAgo} days ago`;
-  });
+  const latestAgeLabel = $derived(
+    latestDaysAgo === null ? null : ageLabel(latestDaysAgo),
+  );
   const rankFoot = $derived.by(() => {
     if (hero.rank === 1) return 'ahead of every past season at this stage';
     if (hero.behindYears.length === 0) return null;
@@ -87,8 +84,7 @@
           {hero.latest.score.toFixed(3)}
         </dd>
         <dd class="text-xs text-white/55">
-          {hero.latest.location}{#if latestAgeLabel}
-            · {latestAgeLabel}{/if}
+          {hero.latest.location}{#if latestAgeLabel}&nbsp;· {latestAgeLabel}{/if}
         </dd>
       </div>
       <div
@@ -121,8 +117,7 @@
           </dd>
           <dd class="text-xs text-white/55">
             <span class="text-gold-400 font-semibold">{hero.best.year}</span
-            >{#if hero.best.show}
-              · {hero.best.show}{/if}
+            >{#if hero.best.show}&nbsp;· {hero.best.show}{/if}
           </dd>
         </div>
       {/if}
