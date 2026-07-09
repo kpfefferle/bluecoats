@@ -119,7 +119,6 @@ describe('buildTodayPage', () => {
     // At 21 days out: 2024 → 90.15, 2025 → 89.4, 2026 → 83.95 (its latest).
     expect(result?.hero).toMatchObject({
       year: '2026',
-      show: 'Gravity & Grace',
       inProgress: true,
       rank: 3,
       totalSeasons: 3,

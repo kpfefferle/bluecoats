@@ -29,7 +29,9 @@
       ? closestSeasons(today.rankings, featured.season.year)
       : [];
   const dayLabel =
-    day === 0 ? 'at Finals night' : `at ${day} days before Finals`;
+    day === 0
+      ? 'at Finals night'
+      : `at ${day} ${day === 1 ? 'day' : 'days'} before Finals`;
 </script>
 
 <svelte:head>

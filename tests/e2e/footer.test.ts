@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-test('every page shows the shared footer', async ({ page }) => {
+test('the root layout renders the shared footer', async ({ page }) => {
   await page.goto('/daily-ranking');
   const footer = page.locator('footer');
   await expect(footer.getByText(/© \d{4} Kevin Pfefferle/)).toBeVisible();

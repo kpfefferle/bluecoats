@@ -28,8 +28,10 @@
     <div
       class="text-brand-300 text-[0.71875rem] font-semibold tracking-[0.08em] uppercase"
     >
-      {hero.year} season{#if hero.inProgress}&nbsp;·&nbsp;<FinalsCountdown
-        />{:else}&nbsp;·&nbsp;season complete{/if}
+      {hero.year} season{#if hero.inProgress}&nbsp;<span aria-hidden="true"
+          >·</span
+        >&nbsp;<FinalsCountdown />{:else}&nbsp;<span aria-hidden="true">·</span
+        >&nbsp;season complete{/if}
     </div>
     <h1
       class="mt-2 max-w-3xl text-2xl font-bold tracking-tight text-balance sm:text-[1.75rem]"

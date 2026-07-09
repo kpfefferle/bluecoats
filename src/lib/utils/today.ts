@@ -50,7 +50,6 @@ export function daysAgo(date: string, now: DateTime = DateTime.now()): number {
 
 export interface TodayHeroData {
   year: string;
-  show?: string;
   inProgress: boolean;
   latest: LatestResult;
   /** Rank of the featured season among all seasons as of `day`. */
@@ -107,7 +106,6 @@ export function buildTodayPage(
   return {
     hero: {
       year: featured.season.year,
-      show: featured.season.show,
       inProgress: featured.inProgress,
       latest,
       rank: rankings[index].rank,
