@@ -12,7 +12,8 @@ export interface TourStop {
   score: number | null;
 }
 
-function daysBeforeFinals(season: SeasonScores, date: string): number {
+/** Whole days from `date` to the season's finals, in the Finals time zone. */
+export function daysBeforeFinals(season: SeasonScores, date: string): number {
   const finals = DateTime.fromISO(season.endDate, { zone: FINALS_ZONE });
   const day = DateTime.fromISO(date, { zone: FINALS_ZONE });
   return Math.ceil(finals.diff(day, 'days').days);

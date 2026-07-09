@@ -2,6 +2,7 @@ import { DateTime } from 'luxon';
 import type { SeasonScores } from '$data/base';
 import { buildDailyRankings, type DailyRankingItem } from './daily-ranking';
 import type { FeaturedSeason } from './featured-season';
+import { projectFinals, type ProjectedFinals } from './projection';
 import { FINALS_ZONE } from './time';
 import { finalsScore } from './tour';
 
@@ -70,6 +71,8 @@ export interface TodayHeroData {
   /** Up to two years ranked directly above the featured season, best first. */
   behindYears: string[];
   best?: BestFinals;
+  /** Projected finals score while the season is in progress. */
+  projected?: ProjectedFinals;
 }
 
 /**
@@ -126,6 +129,9 @@ export function buildTodayPage(
         .slice(Math.max(0, index - 2), index)
         .map((item) => item.year),
       best: bestFinals(seasons),
+      projected: featured.inProgress
+        ? (projectFinals(seasons, featured.season) ?? undefined)
+        : undefined,
     },
     rankings,
   };
