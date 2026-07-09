@@ -3,10 +3,12 @@ import { describe, expect, it } from 'vitest';
 import {
   bestFinals,
   buildTodayPage,
+  closestSeasons,
   daysAgo,
   latestScoredEntry,
 } from '../../src/lib/utils/today';
 import type { SeasonScores } from '../../src/lib/data/base';
+import type { DailyRankingItem } from '../../src/lib/utils/daily-ranking';
 
 const SEASON_2024: SeasonScores = {
   year: '2024',
@@ -155,5 +157,79 @@ describe('buildTodayPage', () => {
     expect(
       buildTodayPage(SEASONS, { season: SEASON_2026, inProgress: true }, 45),
     ).toBeUndefined();
+  });
+});
+
+function ranking(year: string, rank: number): DailyRankingItem {
+  return {
+    daysOld: 0,
+    location: 'Indianapolis, IN',
+    placement: undefined,
+    rank,
+    score: 100 - rank,
+    show: undefined,
+    year,
+  };
+}
+
+describe('closestSeasons', () => {
+  const RANKINGS = [
+    ranking('2020', 1),
+    ranking('2021', 2),
+    ranking('2022', 3),
+    ranking('2023', 4),
+    ranking('2024', 5),
+    ranking('2025', 6),
+    ranking('2026', 7),
+  ];
+
+  it('returns the first 5 when the featured season ranks 1st', () => {
+    expect(closestSeasons(RANKINGS, '2020').map((r) => r.year)).toEqual([
+      '2020',
+      '2021',
+      '2022',
+      '2023',
+      '2024',
+    ]);
+  });
+
+  it('centers the window on the featured season in the middle of a long list', () => {
+    // 2023 is rank 4 (index 3): expect 2 above, featured, 2 below.
+    expect(closestSeasons(RANKINGS, '2023').map((r) => r.year)).toEqual([
+      '2021',
+      '2022',
+      '2023',
+      '2024',
+      '2025',
+    ]);
+  });
+
+  it('returns the last 5 when the featured season ranks last', () => {
+    expect(closestSeasons(RANKINGS, '2026').map((r) => r.year)).toEqual([
+      '2022',
+      '2023',
+      '2024',
+      '2025',
+      '2026',
+    ]);
+  });
+
+  it('returns all rankings when there are fewer than the window count', () => {
+    const short = RANKINGS.slice(0, 3);
+    expect(closestSeasons(short, '2022').map((r) => r.year)).toEqual([
+      '2020',
+      '2021',
+      '2022',
+    ]);
+  });
+
+  it('falls back to the top 5 when the featured year is absent', () => {
+    expect(closestSeasons(RANKINGS, '1999').map((r) => r.year)).toEqual([
+      '2020',
+      '2021',
+      '2022',
+      '2023',
+      '2024',
+    ]);
   });
 });

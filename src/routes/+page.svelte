@@ -11,7 +11,7 @@
     maxDayBeforeFinals,
   } from '$lib/utils/daily-ranking';
   import { getFeaturedSeason } from '$lib/utils/featured-season';
-  import { buildTodayPage } from '$lib/utils/today';
+  import { buildTodayPage, closestSeasons } from '$lib/utils/today';
 
   const featured = getFeaturedSeason(POPULATED_SEASONS);
   const maxDay = maxDayBeforeFinals(POPULATED_SEASONS);
@@ -24,7 +24,10 @@
   const today = featured
     ? buildTodayPage(POPULATED_SEASONS, featured, day)
     : undefined;
-  const topFive = today?.rankings.slice(0, 5) ?? [];
+  const closest =
+    featured && today
+      ? closestSeasons(today.rankings, featured.season.year)
+      : [];
   const dayLabel =
     day === 0 ? 'at Finals night' : `at ${day} days before Finals`;
 </script>
@@ -79,7 +82,13 @@
                 : 'All-time finals leaderboard'}
             </div>
             <div class="text-xs text-gray-500">
-              Top 5 seasons {dayLabel}
+              {#if closest.length > 0 && closest[0] !== today.rankings[0]}
+                Seasons ranked #{closest[0].rank}–#{closest[closest.length - 1]
+                  .rank}
+                {dayLabel}
+              {:else}
+                Top {closest.length} seasons {dayLabel}
+              {/if}
             </div>
           </div>
           <a
@@ -90,7 +99,7 @@
           </a>
         </div>
         <ClosestSeasons
-          items={topFive}
+          items={closest}
           featuredYear={featured.season.year}
           featuredScore={today.hero.latest.score}
         />

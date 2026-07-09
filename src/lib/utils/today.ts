@@ -61,6 +61,25 @@ export interface TodayHeroData {
   best?: BestFinals;
 }
 
+/**
+ * The `count` seasons nearest the featured season by rank — a window centered
+ * on the featured entry, clamped to the list bounds. Equals the top of the
+ * leaderboard whenever the featured season ranks in the top three.
+ */
+export function closestSeasons(
+  rankings: DailyRankingItem[],
+  featuredYear: string,
+  count = 5,
+): DailyRankingItem[] {
+  const index = rankings.findIndex((item) => item.year === featuredYear);
+  if (index === -1) return rankings.slice(0, count);
+  const start = Math.min(
+    Math.max(index - Math.floor(count / 2), 0),
+    Math.max(rankings.length - count, 0),
+  );
+  return rankings.slice(start, start + count);
+}
+
 export interface TodayPageData {
   hero: TodayHeroData;
   /** Full leaderboard at `day`, best score first. */
