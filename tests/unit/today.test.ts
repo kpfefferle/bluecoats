@@ -159,6 +159,50 @@ describe('buildTodayPage', () => {
   });
 });
 
+describe('buildTodayPage projection', () => {
+  // Eight modern peers: early score 80 thirty days out, finals 90..97.
+  const MODERN: SeasonScores[] = Array.from({ length: 8 }, (_, i) => {
+    const year = String(2010 + i);
+    return {
+      year,
+      endDate: `${year}-08-10`,
+      scores: [
+        { date: `${year}-07-11`, location: 'Akron, OH', score: 80 },
+        { date: `${year}-08-10`, location: 'Indianapolis, IN', score: 90 + i },
+      ],
+    };
+  });
+  const CURRENT: SeasonScores = {
+    year: '2026',
+    endDate: '2026-08-08',
+    scores: [
+      { date: '2026-07-09', location: 'Stanford, CA', score: 82 },
+      { date: '2026-08-08', location: 'Indianapolis, IN' },
+    ],
+  };
+
+  it('includes a projection for an in-progress season with enough peers', () => {
+    const result = buildTodayPage(
+      [...MODERN, CURRENT],
+      { season: CURRENT, inProgress: true },
+      21,
+    );
+    // Anchored to the score's day (30), not the ranking day (21):
+    // 82 + median climb 13.5 = 95.5; finals ≥ 95.5 are 96, 97 → rank 3.
+    expect(result?.hero.projected).toEqual({ score: 95.5, allTimeRank: 3 });
+  });
+
+  it('omits the projection when the featured season is complete', () => {
+    const done = MODERN[MODERN.length - 1];
+    const result = buildTodayPage(
+      MODERN,
+      { season: done, inProgress: false },
+      0,
+    );
+    expect(result?.hero.projected).toBeUndefined();
+  });
+});
+
 function ranking(year: string, rank: number): DailyRankingItem {
   return {
     daysOld: 0,

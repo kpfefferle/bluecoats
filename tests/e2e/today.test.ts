@@ -40,3 +40,12 @@ test('drops the delta column at phone width', async ({ page }) => {
   await expect(page.getByRole('columnheader', { name: /Δ vs\./ })).toBeHidden();
   await expect(page.getByRole('columnheader', { name: 'Score' })).toBeVisible();
 });
+
+test('hero shows a projection in season or the all-time best otherwise', async ({
+  page,
+}) => {
+  await page.goto('/');
+  await expect(
+    page.getByText(/Projected finals score|All-time best finals score/),
+  ).toBeVisible();
+});

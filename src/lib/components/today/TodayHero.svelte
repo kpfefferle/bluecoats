@@ -109,7 +109,27 @@
           <dd class="text-xs text-white/55">{rankFoot}</dd>
         {/if}
       </div>
-      {#if hero.best}
+      {#if hero.projected}
+        <div class="sm:py-4 sm:pl-5">
+          <dt class="text-[0.71875rem] font-medium text-white/60">
+            Projected finals score
+          </dt>
+          <dd
+            class="mt-0.5 text-[1.625rem] font-semibold tracking-tight tabular-nums"
+          >
+            {hero.projected.score.toFixed(1)}
+          </dd>
+          <dd class="text-xs text-white/55">
+            on pace for the
+            {#if hero.projected.allTimeRank > 1}
+              {hero.projected.allTimeRank}{ordinalSuffix(
+                hero.projected.allTimeRank,
+              )}
+            {/if}
+            best finals score ever
+          </dd>
+        </div>
+      {:else if hero.best}
         <div class="sm:py-4 sm:pl-5">
           <dt class="text-[0.71875rem] font-medium text-white/60">
             All-time best finals score
