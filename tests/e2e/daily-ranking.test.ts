@@ -50,12 +50,28 @@ test('a day page has its own countdown title', async ({ page }) => {
 
 test('chips navigate between day pages', async ({ page }) => {
   await page.goto('/daily-ranking/10');
-  // NOTE: this is a button in Task 1; Task 2 turns it into a link.
-  await page.getByRole('button', { name: '45d' }).click();
+  // Quick-jump chips are real links now.
+  await page.getByRole('link', { name: '45d' }).click();
   await expect(page).toHaveURL(/\/daily-ranking\/45$/);
   await expect(
     page.getByText(/Leaderboard at 45 days before Finals/),
   ).toBeVisible();
+});
+
+test('the active chip is marked as the current page', async ({ page }) => {
+  await page.goto('/daily-ranking/0');
+  // Day 0's chip is always labeled "Finals" (never "Today").
+  await expect(page.getByRole('link', { name: 'Finals' })).toHaveAttribute(
+    'aria-current',
+    'page',
+  );
+});
+
+test('day 1 uses the singular title', async ({ page }) => {
+  await page.goto('/daily-ranking/1');
+  await expect(page).toHaveTitle(
+    '1 Day Before Finals · Daily Ranking | Bluecoats Scores',
+  );
 });
 
 test('the slider navigates and replaces history', async ({ page }) => {
