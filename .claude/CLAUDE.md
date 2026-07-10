@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a SvelteKit application that displays historical DCI (Drum Corps International) competition scores for the Bluecoats drum and bugle corps. The app visualizes score progression throughout competitive seasons and provides daily ranking data. It is a fully prerendered static SPA deployed to Cloudflare Pages under the custom domain `bluecoatsscores.com`.
+This is a SvelteKit application that displays historical DCI (Drum Corps International) competition scores for the Bluecoats drum and bugle corps. The app visualizes score progression throughout competitive seasons and provides daily ranking data. It is a prerendered static site deployed to Cloudflare Pages under the custom domain `bluecoatsscores.com`; every route is prerendered except `/tour`, which is a server-side redirect (to the latest season's `/tour/[year]` page) handled by the Cloudflare worker.
 
 ## Development Commands
 
@@ -72,7 +72,7 @@ The rule is "no direct commits to `main`," not "one PR per change." If a follow-
 ### Tech Stack
 
 - **SvelteKit 2.x** with **Svelte 5** runes (`$state`, `$derived`, `$props`)
-- **`@sveltejs/adapter-static`** with `fallback: '404.html'`, `strict: true`
+- **`@sveltejs/adapter-cloudflare`** — all routes prerendered except the `/tour` redirect
 - **Vite 8** build system
 - **Tailwind CSS 4** via `@tailwindcss/vite` (no `tailwind.config.js`; theme customizations live in `src/app.css` under `@theme {}`)
 - **TypeScript** strict mode, type-checked via `svelte-check`
@@ -99,8 +99,15 @@ src/
 └── routes/
     ├── +layout.svelte                # Renders <NavigationBar /> + children
     ├── +layout.ts                    # `export const prerender = true`
-    ├── +page.svelte                  # Score History
-    └── daily-ranking/+page.svelte    # Daily ranking
+    ├── +page.svelte                  # Today home page
+    ├── score-history/+page.svelte    # Score History
+    ├── daily-ranking/+page.svelte    # Daily ranking
+    └── tour/
+        ├── +page.ts                  # prerender=false; 302 → /tour/[year] (handles legacy ?year=)
+        ├── +page.svelte              # never-rendered stub (route registration only)
+        └── [year]/
+            ├── +page.ts              # entries() = populated years; load() 404s unknown years
+            └── +page.svelte          # Tour page for one season
 
 static/
 ├── favicon.png
@@ -166,6 +173,8 @@ const dayParam = $derived(browser ? page.url.searchParams.get('day') : null);
 ```
 
 The prerendered HTML reflects the default state (no query params); on hydration, the client picks up the real URL and re-derives.
+
+Season selection on the Tour page is **path** state, not query state: each season lives at `/tour/[year]` (prerendered per year via `entries()`), and `/tour` redirects. Use `resolve('/tour/[year]', { year })` to link to a season.
 
 #### Chart Action
 
