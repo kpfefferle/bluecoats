@@ -1,6 +1,7 @@
 import { redirect } from '@sveltejs/kit';
 import { resolve } from '$app/paths';
 import { POPULATED_SEASONS } from '$data';
+import { seasonForYear } from '$lib/utils/tour';
 import type { PageLoad } from './$types';
 
 // This route alone is served dynamically (by the Cloudflare worker in
@@ -9,9 +10,8 @@ import type { PageLoad } from './$types';
 export const prerender = false;
 
 export const load: PageLoad = ({ url }) => {
-  const yearParam = url.searchParams.get('year');
   const target =
-    POPULATED_SEASONS.find((s) => s.year === yearParam) ??
+    seasonForYear(POPULATED_SEASONS, url.searchParams.get('year')) ??
     POPULATED_SEASONS[POPULATED_SEASONS.length - 1];
   redirect(302, resolve('/tour/[year]', { year: target.year }));
 };
