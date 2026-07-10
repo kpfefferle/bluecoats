@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { POPULATED_SEASONS } from '../../src/lib/data';
 
 test('/daily-ranking redirects to the current day', async ({ page }) => {
   await page.goto('/daily-ranking');
@@ -33,8 +34,10 @@ test('day 0 renders every ranked season with the Finals title', async ({
   // calendar date (the same determinism rationale as the old suite).
   await page.goto('/daily-ranking/0');
   await expect(page).toHaveTitle('Finals Ranking | Bluecoats Scores');
+  // One row per populated season — derived from the data so the assertion
+  // stays exact when a new season records its first score.
   const rows = page.locator('tbody tr');
-  await expect(rows).toHaveCount(46);
+  await expect(rows).toHaveCount(POPULATED_SEASONS.length);
 });
 
 test('a day page has its own countdown title', async ({ page }) => {
@@ -44,8 +47,9 @@ test('a day page has its own countdown title', async ({ page }) => {
 
 test('chips navigate between day pages', async ({ page }) => {
   await page.goto('/daily-ranking/10');
-  // Quick-jump chips are real links now.
-  await page.getByRole('link', { name: '45d' }).click();
+  // Locate the chip by href, not label: the label reads "45d" except on the
+  // one day a year when currentDay === 45, when it relabels to "Today".
+  await page.locator('a[href="/daily-ranking/45"]').click();
   await expect(page).toHaveURL(/\/daily-ranking\/45$/);
   await expect(page.getByText(/Day 45 Leaderboard/)).toBeVisible();
 });
