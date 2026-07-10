@@ -5,7 +5,17 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 const config = {
   preprocess: vitePreprocess(),
   kit: {
-    adapter: adapter(),
+    adapter: adapter({
+      // Only the two server-side redirect routes invoke the Pages worker; every
+      // other path is served as a static asset. Without this, the adapter emits
+      // one exclude rule per prerendered page (~180) and Cloudflare's 100-rule
+      // _routes.json cap silently drops the overflow, sending those pages
+      // through the worker on every request.
+      routes: {
+        include: ['/tour', '/daily-ranking'],
+        exclude: [],
+      },
+    }),
     prerender: {
       entries: ['*'],
     },

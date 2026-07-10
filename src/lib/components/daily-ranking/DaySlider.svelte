@@ -3,6 +3,8 @@
     buildDaySliderChips,
     daySliderDescriptor,
   } from '$lib/utils/day-slider';
+  import { resolve } from '$app/paths';
+  import type { ResolvedPathname } from '$app/types';
 
   let {
     value,
@@ -21,6 +23,10 @@
   const fillPct = $derived(
     maximum === 0 ? 0 : ((maximum - value) / maximum) * 100,
   );
+
+  function dayHref(day: number): ResolvedPathname {
+    return resolve('/daily-ranking/[day]', { day: String(day) });
+  }
 </script>
 
 <div>
@@ -44,16 +50,15 @@
     <div class="flex flex-wrap gap-1.5">
       {#each chips as chip (chip.day)}
         {@const active = value === chip.day}
-        <button
-          type="button"
-          onclick={() => onChange(chip.day)}
+        <a
+          href={dayHref(chip.day)}
           class="rounded-full border px-2.5 py-1 text-xs font-medium tabular-nums {active
             ? 'border-transparent bg-blue-50 text-blue-700'
             : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300 hover:text-gray-900'}"
-          aria-pressed={active}
+          aria-current={active ? 'page' : undefined}
         >
           {chip.label}
-        </button>
+        </a>
       {/each}
     </div>
   </div>

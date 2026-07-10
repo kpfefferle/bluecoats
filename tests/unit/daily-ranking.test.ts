@@ -3,6 +3,7 @@ import {
   buildDailyRankings,
   currentDayUntilFinals,
   currentSeasonYear,
+  dayRankingLabel,
   maxDayBeforeFinals,
 } from '../../src/lib/utils/daily-ranking';
 import type { SeasonScores } from '../../src/lib/data/base';
@@ -323,5 +324,18 @@ describe('maxDayBeforeFinals', () => {
       scores: [{ date: '2026-07-04', location: 'Hometown, OH', score: null }],
     };
     expect(maxDayBeforeFinals([exhibitionsOnly])).toBe(0);
+  });
+});
+
+describe('dayRankingLabel', () => {
+  it('names the championship rounds', () => {
+    expect(dayRankingLabel(0)).toBe('Finals');
+    expect(dayRankingLabel(1)).toBe('Semis');
+    expect(dayRankingLabel(2)).toBe('Prelims');
+  });
+
+  it('uses Day N for the rest of the season', () => {
+    expect(dayRankingLabel(3)).toBe('Day 3');
+    expect(dayRankingLabel(28)).toBe('Day 28');
   });
 });
