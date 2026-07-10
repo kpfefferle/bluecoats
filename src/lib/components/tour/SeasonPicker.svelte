@@ -20,8 +20,8 @@
   const prev = $derived(index > 0 ? ordered[index - 1] : null);
   const next = $derived(index < ordered.length - 1 ? ordered[index + 1] : null);
 
-  function seasonHref(year: string): ResolvedPathname {
-    return resolve('/tour/[year]', { year });
+  function seasonHref(target: string): ResolvedPathname {
+    return resolve('/tour/[year]', { year: target });
   }
 
   function optionLabel(season: SeasonScores): string {
@@ -71,7 +71,8 @@
         id="tour-season"
         class="h-9 w-full appearance-none rounded-md border border-gray-200 bg-white pr-9 pl-3 text-sm font-semibold tabular-nums text-gray-900 focus:border-brand-500 focus:outline-none"
         value={year}
-        onchange={(e) => void goto(seasonHref(e.currentTarget.value))}
+        onchange={(e) =>
+          void goto(seasonHref(e.currentTarget.value), { keepFocus: true })}
       >
         {#each [...ordered].reverse() as season (season.year)}
           <option value={season.year}>{optionLabel(season)}</option>

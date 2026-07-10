@@ -1,5 +1,11 @@
 import { expect, test } from '@playwright/test';
 
+test('/tour issues a real server-side 302', async ({ request }) => {
+  const res = await request.get('/tour?year=2010', { maxRedirects: 0 });
+  expect(res.status()).toBe(302);
+  expect(res.headers()['location']).toMatch(/\/tour\/2010$/);
+});
+
 test('/tour redirects to the latest populated season', async ({ page }) => {
   await page.goto('/tour');
   await expect(page).toHaveURL(/\/tour\/\d{4}$/);
