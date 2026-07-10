@@ -6,6 +6,7 @@ export default defineConfig({
     command: 'pnpm build && pnpm preview',
     port: 4173,
     reuseExistingServer: !process.env['CI'],
+    timeout: 300_000,
   },
   testDir: 'tests/e2e',
   testMatch: /(.+\.)?(test|spec)\.[jt]s/,
