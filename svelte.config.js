@@ -6,6 +6,10 @@ const config = {
   preprocess: vitePreprocess(),
   kit: {
     adapter: adapter({
+      // Unknown paths bypass the worker (routes.include below), so the static
+      // 404.html Cloudflare serves for asset misses must be an SPA shell that
+      // hydrates into src/routes/+error.svelte instead of unstyled plaintext.
+      fallback: 'spa',
       // Only the two server-side redirect routes invoke the Pages worker; every
       // other path is served as a static asset. Without this, the adapter emits
       // one exclude rule per prerendered page (~180) and Cloudflare's 100-rule

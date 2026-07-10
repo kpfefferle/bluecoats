@@ -97,6 +97,7 @@ src/
 │   ├── actions/                      # chart.ts (ECharts lifecycle)
 │   └── utils/                        # url-state.ts, ordinal.ts, daily-ranking.ts, chart-options.ts
 └── routes/
+    ├── +error.svelte                 # Branded error page (404s render here)
     ├── +layout.svelte                # Renders <NavigationBar /> + children
     ├── +layout.ts                    # `export const prerender = true`
     ├── +page.svelte                  # Today home page
@@ -179,7 +180,7 @@ const dayParam = $derived(browser ? page.url.searchParams.get('day') : null);
 
 The prerendered HTML reflects the default state (no query params); on hydration, the client picks up the real URL and re-derives.
 
-Season selection on the Tour page and day selection on the Daily Ranking page are **path** state, not query state: each season lives at `/tour/[year]` and each day at `/daily-ranking/[day]` (both prerendered via `entries()`); `/tour` and `/daily-ranking` redirect to the latest season / current day. Link with `resolve('/tour/[year]', { year })` or `resolve('/daily-ranking/[day]', { day })`.
+Season selection on the Tour page and day selection on the Daily Ranking page are **path** state, not query state: each season lives at `/tour/[year]` and each day at `/daily-ranking/[day]` (both prerendered via `entries()`); `/tour` and `/daily-ranking` redirect to the latest season / current day. Link with `resolve('/tour/[year]', { year })` or `resolve('/daily-ranking/[day]', { day })`. Unknown paths never reach the worker (the `_routes.json` include-list), so Cloudflare serves the adapter's SPA-shell `404.html` (`fallback: 'spa'` in `svelte.config.js`), which hydrates into `src/routes/+error.svelte`.
 
 #### Chart Action
 
