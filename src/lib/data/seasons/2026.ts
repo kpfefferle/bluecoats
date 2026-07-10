@@ -33,6 +33,7 @@ export const SEASON_2026: SeasonScores = {
       date: '2026-07-09',
       location: 'Santa Clarita, CA',
       name: 'Gold Showcase',
+      score: 85.3,
     },
     {
       date: '2026-07-10',
