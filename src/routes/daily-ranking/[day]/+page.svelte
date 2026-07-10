@@ -25,11 +25,13 @@
   const rankings = $derived(buildDailyRankings(POPULATED_SEASONS, selectedDay));
   const currentYear = $derived(currentSeasonYear(POPULATED_SEASONS));
 
+  // The last three days of the season are DCI championship rounds:
+  // Prelims (2 days out), Semis (1 day out), Finals (day 0).
   const pageTitle = $derived.by(() => {
-    if (selectedDay === 0)
-      return 'Finals Night · Daily Ranking | Bluecoats Scores';
-    const unit = selectedDay === 1 ? 'Day' : 'Days';
-    return `${selectedDay} ${unit} Before Finals · Daily Ranking | Bluecoats Scores`;
+    if (selectedDay === 0) return 'Finals Ranking | Bluecoats Scores';
+    if (selectedDay === 1) return 'Semis Ranking | Bluecoats Scores';
+    if (selectedDay === 2) return 'Prelims Ranking | Bluecoats Scores';
+    return `Day ${selectedDay} Ranking | Bluecoats Scores`;
   });
 
   function onDayChange(day: number) {

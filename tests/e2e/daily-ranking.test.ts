@@ -34,18 +34,14 @@ test('day 0 renders every ranked season with the Finals title', async ({
   // Pinned to day 0 so every populated season is included regardless of the
   // calendar date (the same determinism rationale as the old suite).
   await page.goto('/daily-ranking/0');
-  await expect(page).toHaveTitle(
-    'Finals Night · Daily Ranking | Bluecoats Scores',
-  );
+  await expect(page).toHaveTitle('Finals Ranking | Bluecoats Scores');
   const rows = page.locator('tbody tr');
   await expect(rows).toHaveCount(46);
 });
 
 test('a day page has its own countdown title', async ({ page }) => {
   await page.goto('/daily-ranking/28');
-  await expect(page).toHaveTitle(
-    '28 Days Before Finals · Daily Ranking | Bluecoats Scores',
-  );
+  await expect(page).toHaveTitle('Day 28 Ranking | Bluecoats Scores');
 });
 
 test('chips navigate between day pages', async ({ page }) => {
@@ -67,11 +63,11 @@ test('the active chip is marked as the current page', async ({ page }) => {
   );
 });
 
-test('day 1 uses the singular title', async ({ page }) => {
+test('the last three days use championship round titles', async ({ page }) => {
+  await page.goto('/daily-ranking/2');
+  await expect(page).toHaveTitle('Prelims Ranking | Bluecoats Scores');
   await page.goto('/daily-ranking/1');
-  await expect(page).toHaveTitle(
-    '1 Day Before Finals · Daily Ranking | Bluecoats Scores',
-  );
+  await expect(page).toHaveTitle('Semis Ranking | Bluecoats Scores');
 });
 
 test('the slider navigates and replaces history', async ({ page }) => {
