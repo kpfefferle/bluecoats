@@ -28,7 +28,7 @@ test('view full ranking navigates to the daily ranking page', async ({
 }) => {
   await page.goto('/');
   await page.getByRole('link', { name: 'View full ranking →' }).click();
-  await expect(page).toHaveURL(/\/daily-ranking$/);
+  await expect(page).toHaveURL(/\/daily-ranking\/\d+$/);
   await expect(
     page.getByRole('heading', { name: 'Daily ranking' }),
   ).toBeVisible();
