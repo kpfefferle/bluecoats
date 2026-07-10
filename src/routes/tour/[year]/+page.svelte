@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { goto } from '$app/navigation';
-  import { resolve } from '$app/paths';
   import Card from '$components/shared/Card.svelte';
   import PageContent from '$components/shared/PageContent.svelte';
   import SeasonPicker from '$components/tour/SeasonPicker.svelte';
@@ -38,10 +36,6 @@
       ? `${count} · season high ${summary.seasonHigh.toFixed(3)}`
       : count;
   });
-
-  function onYearChange(year: string) {
-    void goto(resolve('/tour/[year]', { year }));
-  }
 </script>
 
 <svelte:head>
@@ -83,11 +77,7 @@
 <PageContent>
   <div class="grid grid-cols-1 gap-4">
     <Card subtle>
-      <SeasonPicker
-        seasons={POPULATED_SEASONS}
-        year={season.year}
-        onChange={onYearChange}
-      />
+      <SeasonPicker seasons={POPULATED_SEASONS} year={season.year} />
     </Card>
     <TourStats {summary} {inProgress} />
     <Card disablePadding>

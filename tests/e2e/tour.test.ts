@@ -31,11 +31,16 @@ test('a season page renders directly with its own title', async ({ page }) => {
 
 test('the picker navigates to another season page', async ({ page }) => {
   await page.goto('/tour/2024');
-  // Jump to 2023 via the scrubber tick (aria-label "2023 season").
-  // NOTE: this is a button in Task 1; Task 2 turns it into a link.
-  await page.getByRole('button', { name: '2023 season' }).click();
+  // Jump to 2023 via the scrubber tick — now a real link.
+  await page.getByRole('link', { name: '2023 season' }).click();
   await expect(page).toHaveURL(/\/tour\/2023$/);
   await expect(page.getByRole('heading', { name: /^2023 ·/ })).toBeVisible();
+  // Prev/next are links too.
+  await page.getByRole('link', { name: 'Previous season' }).click();
+  await expect(page).toHaveURL(/\/tour\/2022$/);
+  // The select still navigates.
+  await page.locator('#tour-season').selectOption('2019');
+  await expect(page).toHaveURL(/\/tour\/2019$/);
 });
 
 test('renders a season with same-date shows (doubleheader) without crashing', async ({
