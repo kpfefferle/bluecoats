@@ -18,9 +18,7 @@ test('/daily-ranking issues a real server-side 302', async ({ request }) => {
 test('legacy ?day= links redirect to that day page', async ({ page }) => {
   await page.goto('/daily-ranking?day=10');
   await expect(page).toHaveURL(/\/daily-ranking\/10$/);
-  await expect(
-    page.getByText(/Leaderboard at 10 days before Finals/),
-  ).toBeVisible();
+  await expect(page.getByText(/Day 10 Leaderboard/)).toBeVisible();
 });
 
 test('an invalid ?day= falls back to the current day', async ({ page }) => {
@@ -49,9 +47,7 @@ test('chips navigate between day pages', async ({ page }) => {
   // Quick-jump chips are real links now.
   await page.getByRole('link', { name: '45d' }).click();
   await expect(page).toHaveURL(/\/daily-ranking\/45$/);
-  await expect(
-    page.getByText(/Leaderboard at 45 days before Finals/),
-  ).toBeVisible();
+  await expect(page.getByText(/Day 45 Leaderboard/)).toBeVisible();
 });
 
 test('the active chip is marked as the current page', async ({ page }) => {
@@ -77,9 +73,7 @@ test('the slider navigates and replaces history', async ({ page }) => {
   // Range input: value is negated days (min=-maxDay, max=0).
   await page.getByLabel('Days before Finals').fill('-7');
   await expect(page).toHaveURL(/\/daily-ranking\/7$/);
-  await expect(
-    page.getByText(/Leaderboard at 7 days before Finals/),
-  ).toBeVisible();
+  await expect(page.getByText(/Day 7 Leaderboard/)).toBeVisible();
   // replaceState semantics: /7 replaced /10, so back lands on /28 — the /10
   // entry must be gone.
   await page.goBack();

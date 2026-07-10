@@ -105,3 +105,15 @@ export function maxDayBeforeFinals(seasons: SeasonScores[]): number {
   if (seasonDays.length === 0) return 0;
   return Math.max(...seasonDays);
 }
+
+/**
+ * Human label for a "days before Finals" value. The last three days of the
+ * season are DCI championship rounds: Prelims (2 days out), Semis (1 day
+ * out), Finals (day 0).
+ */
+export function dayRankingLabel(day: number): string {
+  if (day === 0) return 'Finals';
+  if (day === 1) return 'Semis';
+  if (day === 2) return 'Prelims';
+  return `Day ${day}`;
+}

@@ -11,6 +11,7 @@
     buildDailyRankings,
     currentDayUntilFinals,
     currentSeasonYear,
+    dayRankingLabel,
     maxDayBeforeFinals,
   } from '$lib/utils/daily-ranking';
   import type { PageData } from './$types';
@@ -25,14 +26,8 @@
   const rankings = $derived(buildDailyRankings(POPULATED_SEASONS, selectedDay));
   const currentYear = $derived(currentSeasonYear(POPULATED_SEASONS));
 
-  // The last three days of the season are DCI championship rounds:
-  // Prelims (2 days out), Semis (1 day out), Finals (day 0).
-  const pageTitle = $derived.by(() => {
-    if (selectedDay === 0) return 'Finals Ranking | Bluecoats Scores';
-    if (selectedDay === 1) return 'Semis Ranking | Bluecoats Scores';
-    if (selectedDay === 2) return 'Prelims Ranking | Bluecoats Scores';
-    return `Day ${selectedDay} Ranking | Bluecoats Scores`;
-  });
+  const dayLabel = $derived(dayRankingLabel(selectedDay));
+  const pageTitle = $derived(`${dayLabel} Ranking | Bluecoats Scores`);
 
   function onDayChange(day: number) {
     void goto(resolve('/daily-ranking/[day]', { day: String(day) }), {
@@ -67,7 +62,7 @@
       >
         <div>
           <div class="text-sm font-semibold text-gray-900">
-            {`Leaderboard at ${selectedDay} ${selectedDay === 1 ? 'day' : 'days'} before Finals`}
+            {`${dayLabel} Leaderboard`}
           </div>
           <div class="text-xs text-gray-500">
             {rankings.length}
