@@ -1,15 +1,16 @@
 <script lang="ts">
+  import { goto } from '$app/navigation';
+  import { resolve } from '$app/paths';
+  import type { ResolvedPathname } from '$app/types';
   import type { SeasonScores } from '$data/base';
   import { isInProgress, finalsOrLatestScore } from '$lib/utils/tour';
 
   let {
     seasons,
     year,
-    onChange,
   }: {
     seasons: SeasonScores[];
     year: string;
-    onChange: (year: string) => void;
   } = $props();
 
   const ordered = $derived(
@@ -18,6 +19,10 @@
   const index = $derived(ordered.findIndex((s) => s.year === year));
   const prev = $derived(index > 0 ? ordered[index - 1] : null);
   const next = $derived(index < ordered.length - 1 ? ordered[index + 1] : null);
+
+  function seasonHref(target: string): ResolvedPathname {
+    return resolve('/tour/[year]', { year: target });
+  }
 
   function optionLabel(season: SeasonScores): string {
     const progress = isInProgress(season) ? ' · in progress' : '';
@@ -29,23 +34,36 @@
 
 <div class="flex flex-col gap-3">
   <div class="flex items-center gap-2">
-    <button
-      type="button"
-      class="inline-flex h-9 items-center gap-1 rounded-md border border-gray-200 px-2.5 text-sm font-medium text-gray-700 enabled:hover:bg-gray-50 disabled:opacity-40 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:outline-none"
-      onclick={() => prev && onChange(prev.year)}
-      disabled={!prev}
-      aria-label="Previous season"
-    >
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2.25"
-        class="size-4"
-        aria-hidden="true"><path d="M15 18l-6-6 6-6" /></svg
+    {#if prev}
+      <a
+        href={seasonHref(prev.year)}
+        class="inline-flex h-9 items-center gap-1 rounded-md border border-gray-200 px-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:outline-none"
+        aria-label="Previous season"
       >
-      {#if prev}<span class="tabular-nums">{prev.year}</span>{/if}
-    </button>
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.25"
+          class="size-4"
+          aria-hidden="true"><path d="M15 18l-6-6 6-6" /></svg
+        >
+        <span class="tabular-nums">{prev.year}</span>
+      </a>
+    {:else}
+      <span
+        class="inline-flex h-9 items-center gap-1 rounded-md border border-gray-200 px-2.5 text-sm font-medium text-gray-700 opacity-40"
+        aria-hidden="true"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.25"
+          class="size-4"><path d="M15 18l-6-6 6-6" /></svg
+        >
+      </span>
+    {/if}
 
     <div class="relative flex-1">
       <label class="sr-only" for="tour-season">Season</label>
@@ -53,7 +71,8 @@
         id="tour-season"
         class="h-9 w-full appearance-none rounded-md border border-gray-200 bg-white pr-9 pl-3 text-sm font-semibold tabular-nums text-gray-900 focus:border-brand-500 focus:outline-none"
         value={year}
-        onchange={(e) => onChange(e.currentTarget.value)}
+        onchange={(e) =>
+          void goto(seasonHref(e.currentTarget.value), { keepFocus: true })}
       >
         {#each [...ordered].reverse() as season (season.year)}
           <option value={season.year}>{optionLabel(season)}</option>
@@ -69,42 +88,54 @@
       >
     </div>
 
-    <button
-      type="button"
-      class="inline-flex h-9 items-center gap-1 rounded-md border border-gray-200 px-2.5 text-sm font-medium text-gray-700 enabled:hover:bg-gray-50 disabled:opacity-40 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:outline-none"
-      onclick={() => next && onChange(next.year)}
-      disabled={!next}
-      aria-label="Next season"
-    >
-      {#if next}<span class="tabular-nums">{next.year}</span>{/if}
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2.25"
-        class="size-4"
-        aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg
+    {#if next}
+      <a
+        href={seasonHref(next.year)}
+        class="inline-flex h-9 items-center gap-1 rounded-md border border-gray-200 px-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:outline-none"
+        aria-label="Next season"
       >
-    </button>
+        <span class="tabular-nums">{next.year}</span>
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.25"
+          class="size-4"
+          aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg
+        >
+      </a>
+    {:else}
+      <span
+        class="inline-flex h-9 items-center gap-1 rounded-md border border-gray-200 px-2.5 text-sm font-medium text-gray-700 opacity-40"
+        aria-hidden="true"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.25"
+          class="size-4"><path d="M9 6l6 6-6 6" /></svg
+        >
+      </span>
+    {/if}
   </div>
 
   <div class="flex flex-wrap gap-1">
     {#each ordered as season (season.year)}
       {@const active = season.year === year}
       {@const champ = season.placement === 1}
-      <button
-        type="button"
-        class="h-7 rounded px-1.5 text-xs font-semibold tabular-nums transition-colors focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:outline-none {active
+      <a
+        href={seasonHref(season.year)}
+        class="inline-flex h-7 items-center rounded px-1.5 text-xs font-semibold tabular-nums transition-colors focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:outline-none {active
           ? 'bg-brand-600 text-white'
           : champ
             ? 'bg-gold-100 text-gold-700 hover:bg-gold-400/30'
             : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}"
-        onclick={() => onChange(season.year)}
         aria-label="{season.year} season"
-        aria-current={active ? 'true' : undefined}
+        aria-current={active ? 'page' : undefined}
       >
         {season.year.slice(2)}
-      </button>
+      </a>
     {/each}
   </div>
 </div>
