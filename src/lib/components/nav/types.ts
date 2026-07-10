@@ -23,3 +23,10 @@ export const NAV_ITEMS: ReadonlyArray<NavItem> = [
   },
   { label: 'Tour', shortLabel: 'Tour', href: '/tour', icon: 'tour' },
 ];
+
+export function isActiveRoute(
+  routeId: string | null,
+  href: NavItem['href'],
+): boolean {
+  return routeId === href || routeId?.startsWith(`${href}/`) === true;
+}

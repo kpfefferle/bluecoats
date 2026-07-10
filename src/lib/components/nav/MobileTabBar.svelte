@@ -1,7 +1,7 @@
 <script lang="ts">
   import { resolve } from '$app/paths';
   import { page } from '$app/state';
-  import { NAV_ITEMS, type NavIconKind } from './types';
+  import { NAV_ITEMS, isActiveRoute, type NavIconKind } from './types';
 
   function iconPath(kind: NavIconKind): string {
     if (kind === 'today')
@@ -19,7 +19,7 @@
   aria-label="Primary"
 >
   {#each NAV_ITEMS as item (item.href)}
-    {@const active = page.route.id === item.href}
+    {@const active = isActiveRoute(page.route.id, item.href)}
     <a
       href={resolve(item.href)}
       class="flex flex-col items-center gap-0.5 rounded-[0.625rem] px-0.5 py-1.5 text-[0.625rem] font-semibold whitespace-nowrap {active

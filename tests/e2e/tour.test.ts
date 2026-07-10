@@ -58,3 +58,12 @@ test('an unknown year returns 404', async ({ page }) => {
   const response = await page.goto('/tour/banana');
   expect(response?.status()).toBe(404);
 });
+
+test('the Tour nav item is highlighted on a season page', async ({ page }) => {
+  await page.goto('/tour/2010');
+  // Default viewport is desktop-width, so only the desktop nav link is visible.
+  await expect(page.getByRole('link', { name: 'Tour' })).toHaveAttribute(
+    'aria-current',
+    'page',
+  );
+});
