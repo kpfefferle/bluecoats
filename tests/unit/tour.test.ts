@@ -9,6 +9,7 @@ import {
   tourSummary,
   finalsOrLatestScore,
   placementLabel,
+  seasonForYear,
 } from '../../src/lib/utils/tour';
 import type { SeasonScores } from '../../src/lib/data/base';
 
@@ -220,5 +221,16 @@ describe('same-date shows', () => {
   it('builds a tour log with the same row count (no collapsing of shared dates)', () => {
     const log = buildTourLog([...ALL, S_DOUBLEHEADER], S_DOUBLEHEADER);
     expect(log).toHaveLength(3);
+  });
+});
+
+describe('seasonForYear', () => {
+  it('finds a season by exact year string', () => {
+    expect(seasonForYear(ALL, '2024')?.year).toBe('2024');
+  });
+
+  it('returns undefined for unknown years and null', () => {
+    expect(seasonForYear(ALL, '1999')).toBeUndefined();
+    expect(seasonForYear(ALL, null)).toBeUndefined();
   });
 });

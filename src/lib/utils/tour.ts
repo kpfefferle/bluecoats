@@ -209,3 +209,15 @@ export function placementLabel(placement: number | undefined): string | null {
     return `Top 12 · ${placement}${ordinalSuffix(placement)} place`;
   return `${placement}${ordinalSuffix(placement)} place`;
 }
+
+/**
+ * Look up a season by its exact year string (from /tour/[year] or a legacy
+ * ?year= query). Years are valid by membership, not parsing.
+ */
+export function seasonForYear(
+  seasons: SeasonScores[],
+  year: string | null,
+): SeasonScores | undefined {
+  if (year === null) return undefined;
+  return seasons.find((season) => season.year === year);
+}

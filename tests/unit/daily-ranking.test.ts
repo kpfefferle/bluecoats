@@ -5,6 +5,7 @@ import {
   currentSeasonYear,
   dayRankingLabel,
   maxDayBeforeFinals,
+  parseCanonicalDay,
 } from '../../src/lib/utils/daily-ranking';
 import type { SeasonScores } from '../../src/lib/data/base';
 
@@ -337,5 +338,28 @@ describe('dayRankingLabel', () => {
   it('uses Day N for the rest of the season', () => {
     expect(dayRankingLabel(3)).toBe('Day 3');
     expect(dayRankingLabel(28)).toBe('Day 28');
+  });
+});
+
+describe('parseCanonicalDay', () => {
+  it('accepts canonical integers within range', () => {
+    expect(parseCanonicalDay('0', 64)).toBe(0);
+    expect(parseCanonicalDay('28', 64)).toBe(28);
+    expect(parseCanonicalDay('64', 64)).toBe(64);
+  });
+
+  it('rejects null (absent param)', () => {
+    expect(parseCanonicalDay(null, 64)).toBeUndefined();
+  });
+
+  it('rejects non-numeric, non-canonical, and fractional forms', () => {
+    expect(parseCanonicalDay('banana', 64)).toBeUndefined();
+    expect(parseCanonicalDay('07', 64)).toBeUndefined();
+    expect(parseCanonicalDay('3.5', 64)).toBeUndefined();
+  });
+
+  it('rejects out-of-range integers', () => {
+    expect(parseCanonicalDay('-1', 64)).toBeUndefined();
+    expect(parseCanonicalDay('65', 64)).toBeUndefined();
   });
 });

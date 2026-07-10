@@ -117,3 +117,25 @@ export function dayRankingLabel(day: number): string {
   if (day === 2) return 'Prelims';
   return `Day ${day}`;
 }
+
+/**
+ * Parse a raw day param (from /daily-ranking/[day] or a legacy ?day= query)
+ * into a day number. Canonical non-negative integers only: rejects null,
+ * "banana", "07", "-1", "3.5", and anything beyond maxDay.
+ */
+export function parseCanonicalDay(
+  raw: string | null,
+  maxDay: number,
+): number | undefined {
+  if (raw === null) return undefined;
+  const day = Number(raw);
+  if (
+    !Number.isInteger(day) ||
+    day < 0 ||
+    day > maxDay ||
+    String(day) !== raw
+  ) {
+    return undefined;
+  }
+  return day;
+}
