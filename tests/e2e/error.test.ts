@@ -24,7 +24,7 @@ test('the error page keeps the nav with no active item', async ({ page }) => {
 test('Back to Today returns home', async ({ page }) => {
   await page.goto('/definitely-not-a-page');
   await page.getByRole('link', { name: 'Back to Today →' }).click();
-  await expect(page).toHaveURL(/\/$/);
+  await expect(page).toHaveURL(/^http:\/\/[^/]+\/$/);
 });
 
 test('an invalid tour year shows the branded 404', async ({ page }) => {
