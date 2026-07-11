@@ -12,11 +12,9 @@
   <title>Bluecoats Scores</title>
 </svelte:head>
 
-<div class="relative flex h-full flex-col">
+<div class="flex min-h-full flex-col">
   <NavigationBar />
-  <main
-    class="flex-1 overflow-y-auto overscroll-contain pb-[calc(4rem+env(safe-area-inset-bottom,0))] md:pb-0"
-  >
+  <main class="flex-1 pb-[calc(4rem+env(safe-area-inset-bottom,0))] md:pb-0">
     {@render children()}
     <Footer />
   </main>
