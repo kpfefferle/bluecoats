@@ -39,6 +39,7 @@ export const SEASON_2026: SeasonScores = {
       date: '2026-07-10',
       location: 'Walnut, CA',
       name: 'Western Corps Connection',
+      score: 86.75,
     },
     {
       date: '2026-07-11',
