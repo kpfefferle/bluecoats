@@ -7,7 +7,7 @@
 <!-- svelte-ignore a11y_no_redundant_roles -->
 <footer class="border-t border-gray-200" role="contentinfo">
   <div
-    class="mx-auto flex max-w-300 flex-wrap items-center justify-center gap-x-2 gap-y-1 px-4 py-6 text-xs text-gray-400 md:px-6"
+    class="mx-auto flex max-w-300 flex-wrap items-center justify-center gap-x-2 gap-y-1 px-4 py-6 text-xs text-gray-500 md:px-6"
   >
     <span>© {year} Kevin Pfefferle</span>
     <span aria-hidden="true">·</span>
@@ -17,7 +17,7 @@
       href="https://github.com/kpfefferle/bluecoats"
       target="_blank"
       rel="noopener"
-      class="inline-flex items-center gap-1 font-medium text-gray-500 transition-colors hover:text-gray-900"
+      class="inline-flex items-center gap-1 font-medium text-gray-600 transition-colors hover:text-gray-900"
     >
       <svg
         viewBox="0 0 16 16"

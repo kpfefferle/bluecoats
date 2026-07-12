@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+/* Self-hosted Inter — replaces the render-blocking rsms.me stylesheet.
+   Roman-only, subset to Latin (see scripts/subset-inter-font.sh); the app
+   never renders italic text. */
+@font-face {
+  font-family: InterVariable;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/InterVariable.woff2") format("woff2");
+}
+
 @theme {
   --font-sans: InterVariable, sans-serif;
   --color-navy-950: #050a18;
