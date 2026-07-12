@@ -45,6 +45,7 @@ export const SEASON_2026: SeasonScores = {
       date: '2026-07-11',
       location: 'Pasadena, CA',
       name: 'Drum Corps at the Rose Bowl',
+      score: 87.575,
     },
     {
       date: '2026-07-13',
