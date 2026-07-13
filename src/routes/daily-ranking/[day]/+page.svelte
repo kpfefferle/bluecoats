@@ -6,6 +6,7 @@
   import Table from '$components/daily-ranking/Table.svelte';
   import PageContent from '$components/shared/PageContent.svelte';
   import PageHeader from '$components/shared/PageHeader.svelte';
+  import Seo from '$components/shared/Seo.svelte';
   import { ALL_SEASONS_INCLUDING_SCHEDULED, POPULATED_SEASONS } from '$data';
   import {
     buildDailyRankings,
@@ -27,7 +28,6 @@
   const currentYear = $derived(currentSeasonYear(POPULATED_SEASONS));
 
   const dayLabel = $derived(dayRankingLabel(selectedDay));
-  const pageTitle = $derived(`${dayLabel} Ranking | Bluecoats Scores`);
 
   function onDayChange(day: number) {
     void goto(resolve('/daily-ranking/[day]', { day: String(day) }), {
@@ -38,9 +38,10 @@
   }
 </script>
 
-<svelte:head>
-  <title>{pageTitle}</title>
-</svelte:head>
+<Seo
+  title={`${dayLabel} Ranking`}
+  description={`Where every Bluecoats season ranks at ${dayLabel} — each corps compared by score at the same point in the tour.`}
+/>
 
 <PageHeader
   title="Daily ranking"

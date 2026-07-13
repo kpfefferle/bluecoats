@@ -3,6 +3,7 @@
   import { page } from '$app/state';
   import PageContent from '$components/shared/PageContent.svelte';
   import PageHeader from '$components/shared/PageHeader.svelte';
+  import Seo from '$components/shared/Seo.svelte';
 
   const notFound = $derived(page.status === 404);
   const title = $derived(notFound ? 'Page not found' : 'Something went wrong');
@@ -13,9 +14,11 @@
   );
 </script>
 
-<svelte:head>
-  <title>{notFound ? 'Page not found' : 'Error'} | Bluecoats Scores</title>
-</svelte:head>
+<Seo
+  title={notFound ? 'Page not found' : 'Error'}
+  description="This page never made it past prelims. Head back to the Bluecoats scores."
+  noindex
+/>
 
 <PageHeader {title} {subtitle} />
 <PageContent>
