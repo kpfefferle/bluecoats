@@ -50,3 +50,17 @@ test('the error page is marked noindex', async ({ page }) => {
     'noindex',
   );
 });
+
+test('sitemap.xml lists canonical pages and no redirect stubs', async ({
+  request,
+}) => {
+  const res = await request.get('/sitemap.xml');
+  expect(res.status()).toBe(200);
+  expect(res.headers()['content-type']).toContain('xml');
+  const body = await res.text();
+  expect(body).toContain('https://bluecoatsscores.com/score-history</loc>');
+  expect(body).toContain('https://bluecoatsscores.com/tour/2024</loc>');
+  // redirect stubs must not appear as their own <loc>
+  expect(body).not.toContain('bluecoatsscores.com/tour</loc>');
+  expect(body).not.toContain('bluecoatsscores.com/daily-ranking</loc>');
+});
