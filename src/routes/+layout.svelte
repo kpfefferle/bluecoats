@@ -8,10 +8,6 @@
   let { children }: { children: Snippet } = $props();
 </script>
 
-<svelte:head>
-  <title>Bluecoats Scores</title>
-</svelte:head>
-
 <div class="flex min-h-full flex-col">
   <NavigationBar />
   <main class="flex-1 pb-[calc(4rem+env(safe-area-inset-bottom,0))] md:pb-0">

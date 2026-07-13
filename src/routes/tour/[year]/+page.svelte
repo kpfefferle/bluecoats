@@ -1,6 +1,7 @@
 <script lang="ts">
   import Card from '$components/shared/Card.svelte';
   import PageContent from '$components/shared/PageContent.svelte';
+  import Seo from '$components/shared/Seo.svelte';
   import SeasonPicker from '$components/tour/SeasonPicker.svelte';
   import TourStats from '$components/tour/TourStats.svelte';
   import TourLog from '$components/tour/TourLog.svelte';
@@ -38,9 +39,10 @@
   });
 </script>
 
-<svelte:head>
-  <title>{season.year} Tour | Bluecoats Scores</title>
-</svelte:head>
+<Seo
+  title={`${season.year} Tour`}
+  description={`Every ${season.year} Bluecoats show, score by score — the corps' full ${season.year} DCI tour from first competition through Finals.`}
+/>
 
 <header class="mx-auto flex max-w-300 flex-col gap-2 px-4 pt-4 sm:pt-8 md:px-6">
   {#if placement || inProgress}

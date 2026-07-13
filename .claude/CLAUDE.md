@@ -67,6 +67,10 @@ All changes go through a pull request — **never commit directly to `main`**. B
 
 The rule is "no direct commits to `main`," not "one PR per change." If a follow-up is closely related to an open PR, it's fine to add it to that PR's branch rather than spinning up a new one. When the relationship is unclear, ask.
 
+### Executing implementation plans
+
+When an implementation plan is ready to execute, **always use subagent-driven execution** (the `superpowers:subagent-driven-development` skill): dispatch a fresh subagent per task with review between tasks. This is the default — do not ask which execution approach to use. The exception is a task that requires tools a subagent lacks (e.g. the Chrome browser MCP for rendering an image); run those in the main session.
+
 ## Architecture
 
 ### Tech Stack

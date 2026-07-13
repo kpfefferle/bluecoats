@@ -7,6 +7,7 @@
   import EraSummary from '$components/score-history/EraSummary.svelte';
   import PageContent from '$components/shared/PageContent.svelte';
   import PageHeader from '$components/shared/PageHeader.svelte';
+  import Seo from '$components/shared/Seo.svelte';
   import SeasonScoresChart from '$components/score-history/SeasonScoresChart.svelte';
   import { POPULATED_SEASONS } from '$data';
   import { getFeaturedSeason } from '$lib/utils/featured-season';
@@ -48,9 +49,10 @@
   }
 </script>
 
-<svelte:head>
-  <title>Score History | Bluecoats Scores</title>
-</svelte:head>
+<Seo
+  title="Score History"
+  description="An interactive chart of Bluecoats DCI competition scores across every season, from 1977 to today."
+/>
 
 <PageHeader
   title="Score history"

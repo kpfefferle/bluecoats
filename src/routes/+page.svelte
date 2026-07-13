@@ -2,6 +2,7 @@
   import { resolve } from '$app/paths';
   import Card from '$components/shared/Card.svelte';
   import PageContent from '$components/shared/PageContent.svelte';
+  import Seo from '$components/shared/Seo.svelte';
   import SeasonScoresChart from '$components/score-history/SeasonScoresChart.svelte';
   import ClosestSeasons from '$components/today/ClosestSeasons.svelte';
   import TodayHero from '$components/today/TodayHero.svelte';
@@ -34,9 +35,10 @@
       : `at ${day} ${day === 1 ? 'day' : 'days'} before Finals`;
 </script>
 
-<svelte:head>
-  <title>Today | Bluecoats Scores</title>
-</svelte:head>
+<Seo
+  title="Bluecoats Scores"
+  description="See how the current Bluecoats season is scoring and where it ranks against every past Bluecoats season at the same point in the tour."
+/>
 
 {#if featured && today}
   <PageContent>
