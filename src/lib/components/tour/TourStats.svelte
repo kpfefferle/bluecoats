@@ -14,7 +14,7 @@
     <div class="mt-1 text-2xl font-semibold tabular-nums text-gray-900">
       {summary.seasonHigh !== null ? summary.seasonHigh.toFixed(3) : '—'}
     </div>
-    <div class="mt-0.5 text-xs text-gray-400">
+    <div class="mt-0.5 text-xs text-gray-500">
       {inProgress
         ? 'so far'
         : summary.finalsRank !== null
@@ -31,7 +31,7 @@
         ? `${summary.climb >= 0 ? '+' : ''}${summary.climb.toFixed(2)}`
         : '—'}
     </div>
-    <div class="mt-0.5 text-xs text-gray-400">first to latest score</div>
+    <div class="mt-0.5 text-xs text-gray-500">first to latest score</div>
   </Card>
   <Card>
     <div class="text-xs font-medium tracking-wide text-gray-500 uppercase">
@@ -40,7 +40,7 @@
     <div class="mt-1 text-2xl font-semibold tabular-nums text-gray-900">
       {summary.topFiveDays}
     </div>
-    <div class="mt-0.5 text-xs text-gray-400">shows ranked top 5 all-time</div>
+    <div class="mt-0.5 text-xs text-gray-500">shows ranked top 5 all-time</div>
   </Card>
   <Card>
     <div class="text-xs font-medium tracking-wide text-gray-500 uppercase">
@@ -49,6 +49,6 @@
     <div class="mt-1 text-2xl font-semibold tabular-nums text-gray-900">
       {summary.allTimeBestDays}
     </div>
-    <div class="mt-0.5 text-xs text-gray-400">scores still #1 today</div>
+    <div class="mt-0.5 text-xs text-gray-500">scores still #1 today</div>
   </Card>
 </div>

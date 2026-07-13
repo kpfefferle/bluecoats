@@ -123,7 +123,7 @@
             {ranking.score.toFixed(3)}
           </div>
           {#if ranking.daysOld}
-            <div class="mt-0.5 text-xs whitespace-nowrap text-gray-400">
+            <div class="mt-0.5 text-xs whitespace-nowrap text-gray-500">
               {ranking.daysOld}
               {ranking.daysOld === 1 ? 'day' : 'days'} prior
             </div>
