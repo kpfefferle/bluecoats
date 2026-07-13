@@ -114,7 +114,7 @@
           </div>
           {#if item.daysOld}
             <div
-              class="mt-0.5 text-xs font-normal whitespace-nowrap text-gray-400"
+              class="mt-0.5 text-xs font-normal whitespace-nowrap text-gray-500"
             >
               {item.daysOld}
               {item.daysOld === 1 ? 'day' : 'days'} prior

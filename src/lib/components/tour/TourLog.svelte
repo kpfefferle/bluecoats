@@ -52,7 +52,7 @@
           {formatDate(row.date)}
         </td>
         <td
-          class="hidden px-3 py-3 align-middle text-sm whitespace-nowrap text-gray-400 tabular-nums lg:table-cell"
+          class="hidden px-3 py-3 align-middle text-sm whitespace-nowrap text-gray-500 tabular-nums lg:table-cell"
         >
           {row.daysBeforeFinals}d
         </td>
@@ -61,7 +61,7 @@
             {row.name ?? row.location}
           </div>
           {#if row.name}
-            <div class="text-xs text-gray-400">{row.location}</div>
+            <div class="text-xs text-gray-500">{row.location}</div>
           {/if}
         </td>
         <td
@@ -109,7 +109,7 @@
           {#if row.rankThen !== null && row.rankNow !== null}
             {@const delta = row.rankNow - row.rankThen}
             {#if delta === 0}
-              <span class="text-xs text-gray-400">holds</span>
+              <span class="text-xs text-gray-500">holds</span>
             {:else}
               <span
                 aria-label={delta > 0
