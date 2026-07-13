@@ -130,7 +130,7 @@
           ? 'bg-brand-600 text-white'
           : champ
             ? 'bg-gold-100 text-gold-700 hover:bg-gold-400/30'
-            : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}"
+            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}"
         aria-label="{season.year} season"
         aria-current={active ? 'page' : undefined}
       >
