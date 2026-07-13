@@ -5,7 +5,7 @@
 # The app only uses the InterVariable (variable) family via `--font-sans`
 # (src/app.css) and never renders italic text, so we ship a single roman
 # woff2, subset to the characters this English-language site actually uses.
-# This takes the upstream 344 KB file down to ~68 KB.
+# This takes the upstream 344 KB file down to ~70 KB.
 #
 # Requirements: Python 3 with fonttools + brotli.
 #   python3 -m venv .venv && .venv/bin/pip install fonttools brotli
@@ -35,9 +35,12 @@ curl -sSf -o "$tmp/InterVariable.woff2" "$SRC_URL"
 echo "Subsetting to Latin range (variable weight axis preserved)..."
 # Default layout features keep kern/liga/calt etc.; the optional cv##/ss##
 # stylesets are dropped because the app sets no font-feature-settings.
+# tnum (tabular figures) is NOT in pyftsubset's default set, so append it —
+# the UI relies on `tabular-nums` to align numbers in tables and pickers.
 "$PYFTSUBSET" "$tmp/InterVariable.woff2" \
   --output-file="$OUT" \
   --flavor=woff2 \
+  --layout-features+=tnum \
   --unicodes="$UNICODES"
 
 echo "Wrote $OUT ($(wc -c < "$OUT") bytes)"
