@@ -21,6 +21,10 @@ test('home page emits description, canonical, and og tags', async ({
   expect(await meta(page, 'meta[name="twitter:card"]')).toBe(
     'summary_large_image',
   );
+  expect(await meta(page, 'meta[property="og:image:width"]')).toBe('1200');
+  expect(await meta(page, 'meta[property="og:image:height"]')).toBe('630');
+  expect(await meta(page, 'meta[property="og:image:alt"]')).toBeTruthy();
+  expect(await meta(page, 'meta[name="twitter:image:alt"]')).toBeTruthy();
 });
 
 test('score history canonical matches its path', async ({ page }) => {

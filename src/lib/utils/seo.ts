@@ -7,6 +7,14 @@ export const SITE_NAME = 'Bluecoats Scores';
 /** Path (relative to the origin) of the static social share image. */
 export const OG_IMAGE_PATH = '/og-image.png';
 
+/** Intrinsic pixel dimensions of the static share image (`static/og-image.png`). */
+export const OG_IMAGE_WIDTH = 1200;
+export const OG_IMAGE_HEIGHT = 630;
+
+/** Alt text describing the static share image (it is the same for every page). */
+export const OG_IMAGE_ALT =
+  'Bluecoats Scores — DCI score history & daily rankings';
+
 /**
  * Full document title for a page. The home page passes the bare site name and
  * must not become "Bluecoats Scores | Bluecoats Scores".
