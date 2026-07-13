@@ -62,12 +62,18 @@
       <div class="flex flex-wrap gap-1.5">
         {#each decade.years as year (year)}
           {#if !availableYears.has(year)}
-            <span
-              class="min-w-11 rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1.5 text-center text-xs font-medium tabular-nums text-gray-300"
+            <!-- Gap years have no data, so they are inactive UI components. As a
+                 disabled button they are exempt from WCAG 1.4.3 contrast (and
+                 axe/Lighthouse skip :disabled controls), letting them stay muted
+                 while aria-hidden keeps them out of the a11y tree. -->
+            <button
+              type="button"
+              disabled
               aria-hidden="true"
+              class="min-w-11 cursor-default rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1.5 text-center text-xs font-medium tabular-nums text-gray-300"
             >
               {year}
-            </span>
+            </button>
           {:else if String(year) === featuredYear}
             <span
               aria-current="true"
