@@ -53,7 +53,12 @@ export const SEASON_2026: SeasonScores = {
       name: 'Drums Across the Desert',
       score: null,
     },
-    { date: '2026-07-14', location: 'Albuquerque, NM', name: 'DCI New Mexico' },
+    {
+      date: '2026-07-14',
+      location: 'Albuquerque, NM',
+      name: 'DCI New Mexico',
+      score: 89.3,
+    },
     { date: '2026-07-16', location: 'Denton, TX', name: 'DCI Denton' },
     { date: '2026-07-17', location: 'Houston, TX', name: 'DCI Houston' },
     {
