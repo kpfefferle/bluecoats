@@ -59,7 +59,12 @@ export const SEASON_2026: SeasonScores = {
       name: 'DCI New Mexico',
       score: 89.3,
     },
-    { date: '2026-07-16', location: 'Denton, TX', name: 'DCI Denton' },
+    {
+      date: '2026-07-16',
+      location: 'Denton, TX',
+      name: 'DCI Denton',
+      score: 90.4,
+    },
     { date: '2026-07-17', location: 'Houston, TX', name: 'DCI Houston' },
     {
       date: '2026-07-18',
