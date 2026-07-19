@@ -60,9 +60,9 @@
       {/if}
       {#if inProgress}
         <span
-          class="inline-flex items-center gap-1.5 rounded-full bg-brand-100 px-2.5 py-1 text-xs font-semibold text-brand-600"
+          class="bg-brand-100 text-brand-600 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold"
         >
-          <span class="size-1.5 rounded-full bg-brand-600"></span>Season in
+          <span class="bg-brand-600 size-1.5 rounded-full"></span>Season in
           progress
         </span>
       {/if}
