@@ -6,7 +6,7 @@
   "license": "MIT",
   "author": "Kevin Pfefferle",
   "type": "module",
-  "packageManager": "pnpm@11.10.0",
+  "packageManager": "pnpm@11.15.0",
   "scripts": {
     "build": "vite build",
     "dev": "vite dev",
@@ -42,7 +42,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-svelte": "^3.20.0",
     "globals": "^17.6.0",
-    "knip": "^6.26.0",
+    "knip": "^6.27.0",
     "luxon": "^3.7.2",
     "prettier": "^3.9.5",
     "prettier-plugin-svelte": "^4.1.1",

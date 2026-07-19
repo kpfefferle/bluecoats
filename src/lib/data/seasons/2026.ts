@@ -65,13 +65,23 @@ export const SEASON_2026: SeasonScores = {
       name: 'DCI Denton',
       score: 90.4,
     },
-    { date: '2026-07-17', location: 'Houston, TX', name: 'DCI Houston' },
+    {
+      date: '2026-07-17',
+      location: 'Houston, TX',
+      name: 'DCI Houston',
+      score: 91.15,
+    },
     {
       date: '2026-07-18',
       location: 'San Antonio, TX',
       name: 'DCI Southwestern Championship',
+      score: 93.05,
     },
-    { date: '2026-07-24', location: 'Nashville, TN', name: 'DCI Nashville' },
+    {
+      date: '2026-07-24',
+      location: 'Murfreesboro, TN',
+      name: 'DCI Middle Tennessee',
+    },
     {
       date: '2026-07-25',
       location: 'Atlanta, GA',
