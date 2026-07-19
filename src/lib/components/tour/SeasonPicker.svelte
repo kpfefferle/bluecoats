@@ -37,7 +37,7 @@
     {#if prev}
       <a
         href={seasonHref(prev.year)}
-        class="inline-flex h-9 items-center gap-1 rounded-md border border-gray-200 px-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:outline-none"
+        class="focus-visible:ring-brand-500 inline-flex h-9 items-center gap-1 rounded-md border border-gray-200 px-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 focus-visible:ring-2 focus-visible:outline-none"
         aria-label="Previous season"
       >
         <svg
@@ -69,7 +69,7 @@
       <label class="sr-only" for="tour-season">Season</label>
       <select
         id="tour-season"
-        class="h-9 w-full appearance-none rounded-md border border-gray-200 bg-white pr-9 pl-3 text-sm font-semibold tabular-nums text-gray-900 focus:border-brand-500 focus:outline-none"
+        class="focus:border-brand-500 h-9 w-full appearance-none rounded-md border border-gray-200 bg-white pr-9 pl-3 text-sm font-semibold text-gray-900 tabular-nums focus:outline-none"
         value={year}
         onchange={(e) =>
           void goto(seasonHref(e.currentTarget.value), { keepFocus: true })}
@@ -91,7 +91,7 @@
     {#if next}
       <a
         href={seasonHref(next.year)}
-        class="inline-flex h-9 items-center gap-1 rounded-md border border-gray-200 px-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:outline-none"
+        class="focus-visible:ring-brand-500 inline-flex h-9 items-center gap-1 rounded-md border border-gray-200 px-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 focus-visible:ring-2 focus-visible:outline-none"
         aria-label="Next season"
       >
         <span class="tabular-nums">{next.year}</span>
@@ -126,7 +126,7 @@
       {@const champ = season.placement === 1}
       <a
         href={seasonHref(season.year)}
-        class="inline-flex h-7 items-center rounded px-1.5 text-xs font-semibold tabular-nums transition-colors focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:outline-none {active
+        class="focus-visible:ring-brand-500 inline-flex h-7 items-center rounded px-1.5 text-xs font-semibold tabular-nums transition-colors focus-visible:ring-2 focus-visible:outline-none {active
           ? 'bg-brand-600 text-white'
           : champ
             ? 'bg-gold-100 text-gold-700 hover:bg-gold-400/30'

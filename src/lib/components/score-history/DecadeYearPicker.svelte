@@ -70,7 +70,7 @@
               type="button"
               disabled
               aria-hidden="true"
-              class="min-w-11 cursor-default rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1.5 text-center text-xs font-medium tabular-nums text-gray-300"
+              class="min-w-11 cursor-default rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1.5 text-center text-xs font-medium text-gray-300 tabular-nums"
             >
               {year}
             </button>
@@ -78,9 +78,9 @@
             <span
               aria-current="true"
               title="Featured season"
-              class="inline-flex min-w-11 items-center justify-center gap-1 rounded-md border border-brand-600 px-2.5 py-1.5 text-center text-xs font-semibold tabular-nums text-brand-600 ring-1 ring-brand-600"
+              class="border-brand-600 text-brand-600 ring-brand-600 inline-flex min-w-11 items-center justify-center gap-1 rounded-md border px-2.5 py-1.5 text-center text-xs font-semibold tabular-nums ring-1"
             >
-              <span class="size-1.5 rounded-full bg-brand-600"></span>{year}
+              <span class="bg-brand-600 size-1.5 rounded-full"></span>{year}
             </span>
           {:else}
             <button

@@ -60,7 +60,7 @@
       {@const delta = isCurrent ? null : deltaLabel(item.score)}
       <tr
         class={isCurrent
-          ? 'bg-gradient-to-r from-brand-600/8 to-brand-600/2'
+          ? 'from-brand-600/8 to-brand-600/2 bg-gradient-to-r'
           : 'hover:bg-gray-50'}
       >
         <td

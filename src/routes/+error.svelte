@@ -24,7 +24,7 @@
 <PageContent>
   <a
     href={resolve('/')}
-    class="text-sm font-semibold text-brand-600 hover:text-brand-500"
+    class="text-brand-600 hover:text-brand-500 text-sm font-semibold"
   >
     Back to Today →
   </a>

@@ -63,7 +63,7 @@
       {@const isCurrent = ranking.year === currentYear}
       <tr
         class={isCurrent
-          ? 'bg-gradient-to-r from-brand-600/8 to-brand-600/2'
+          ? 'from-brand-600/8 to-brand-600/2 bg-gradient-to-r'
           : 'hover:bg-gray-50'}
       >
         <td
@@ -136,7 +136,7 @@
           >
             <span
               class="absolute top-0 bottom-0 left-0 rounded-full {isCurrent
-                ? 'bg-brand-600 ring-[1.5px] ring-brand-600/25'
+                ? 'bg-brand-600 ring-brand-600/25 ring-[1.5px]'
                 : medal
                   ? MEDAL_BAR_CLASS[medal]
                   : 'bg-brand-600'}"
