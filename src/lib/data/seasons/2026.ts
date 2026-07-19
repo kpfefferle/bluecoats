@@ -77,7 +77,11 @@ export const SEASON_2026: SeasonScores = {
       name: 'DCI Southwestern Championship',
       score: 93.05,
     },
-    { date: '2026-07-24', location: 'Nashville, TN', name: 'DCI Nashville' },
+    {
+      date: '2026-07-24',
+      location: 'Murfreesboro, TN',
+      name: 'DCI Middle Tennessee',
+    },
     {
       date: '2026-07-25',
       location: 'Atlanta, GA',
