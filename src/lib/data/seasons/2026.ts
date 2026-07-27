@@ -89,7 +89,12 @@ export const SEASON_2026: SeasonScores = {
       name: 'DCI Southeastern Championship',
       score: 94.725,
     },
-    { date: '2026-07-26', location: 'Winston-Salem, NC', name: 'NightBEAT' },
+    {
+      date: '2026-07-26',
+      location: 'Winston-Salem, NC',
+      name: 'NightBEAT',
+      score: 94.85,
+    },
     {
       date: '2026-07-30',
       location: 'Lawrence, MA',
