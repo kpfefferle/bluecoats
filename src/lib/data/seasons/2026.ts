@@ -99,6 +99,7 @@ export const SEASON_2026: SeasonScores = {
       date: '2026-07-30',
       location: 'Lawrence, MA',
       name: 'DCI East Coast Showcase',
+      score: 96.25,
     },
     {
       date: '2026-07-31',
