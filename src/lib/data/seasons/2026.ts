@@ -105,6 +105,7 @@ export const SEASON_2026: SeasonScores = {
       date: '2026-07-31',
       location: 'Allentown, PA',
       name: 'DCI Eastern Classic',
+      score: 96.825,
     },
     { date: '2026-08-03', location: 'Akron, OH', name: 'Innovations in Brass' },
     {
