@@ -117,6 +117,7 @@ export const SEASON_2026: SeasonScores = {
       date: '2026-08-06',
       location: 'Indianapolis, IN',
       name: 'DCI World Championship Prelims',
+      score: 98.3,
     },
     {
       date: '2026-08-07',
