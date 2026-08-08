@@ -123,6 +123,7 @@ export const SEASON_2026: SeasonScores = {
       date: '2026-08-07',
       location: 'Indianapolis, IN',
       name: 'DCI World Championship Semis',
+      score: 98.563,
     },
     {
       date: '2026-08-08',
