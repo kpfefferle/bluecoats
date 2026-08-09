@@ -3,6 +3,7 @@ import { type SeasonScores } from '$data/base';
 export const SEASON_2026: SeasonScores = {
   year: '2026',
   endDate: '2026-08-08',
+  placement: 1,
   show: 'Gravity & Grace',
   scores: [
     {
@@ -129,6 +130,7 @@ export const SEASON_2026: SeasonScores = {
       date: '2026-08-08',
       location: 'Indianapolis, IN',
       name: 'DCI World Championship Finals',
+      score: 99.1,
     },
   ],
 };
