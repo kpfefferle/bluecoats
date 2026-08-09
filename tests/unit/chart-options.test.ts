@@ -51,6 +51,7 @@ type Series = {
   endLabel?: { show?: boolean };
   markPoint?: {
     label?: { formatter?: string };
+    itemStyle?: { color?: string };
     data: Array<{ coord: [number, number]; name?: string }>;
   };
 };
@@ -153,6 +154,46 @@ describe('buildChartOption', () => {
     });
     expect(seriesByName(opt, '2024').lineStyle?.color).toBe(COLOR_CHAMPION);
     expect(seriesByName(opt, '2024').endLabel?.show).toBe(true);
+  });
+
+  it('paints the featured season gold once it places 1st, keeping protagonist weight', () => {
+    const champion: SeasonScores = { ...SEASON_2025, placement: 1 };
+    const opt = buildChartOption({
+      seasons: [SEASON_2023, SEASON_2024, champion],
+      selectedYears: [],
+      featuredYear: '2025',
+    });
+    const featured = seriesByName(opt, '2025');
+    expect(featured.lineStyle?.color).toBe(COLOR_CHAMPION);
+    expect(featured.itemStyle?.color).toBe(COLOR_CHAMPION);
+    // still the protagonist: heaviest line, symbols, and on top of everything
+    expect(featured.lineStyle?.width).toBe(3.25);
+    expect(featured.symbol).toBe('circle');
+    const others = (opt.series as Series[]).filter((s) => s.name !== '2025');
+    for (const s of others) expect(featured.z ?? 0).toBeGreaterThan(s.z ?? 0);
+  });
+
+  it('keeps the featured season blue while its placement is still unset', () => {
+    const inProgress: SeasonScores = { ...SEASON_2025, placement: undefined };
+    const opt = buildChartOption({
+      seasons: [inProgress],
+      selectedYears: [],
+      featuredYear: '2025',
+    });
+    expect(seriesByName(opt, '2025').lineStyle?.color).toBe(COLOR_FEATURED);
+  });
+
+  it('golds the featured marker so it matches the line it pins to', () => {
+    const champion: SeasonScores = { ...SEASON_2025, placement: 1 };
+    const opt = buildChartOption({
+      seasons: [champion],
+      selectedYears: [],
+      featuredYear: '2025',
+      featuredInProgress: true,
+    });
+    expect(seriesByName(opt, '2025').markPoint?.itemStyle?.color).toBe(
+      COLOR_CHAMPION,
+    );
   });
 
   it('renders ordinary unselected seasons as faint gray hairlines', () => {

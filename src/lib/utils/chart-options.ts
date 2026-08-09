@@ -163,7 +163,12 @@ function seriesForSeason(
     };
   }
 
-  // featured protagonist
+  // Featured protagonist. A featured season that won its championship keeps the
+  // protagonist's weight, symbols and marker but wears the gold palette, so the
+  // title reads at a glance instead of looking like any other current season.
+  const isChampion = season.placement === 1;
+  const featuredColor = isChampion ? COLOR_CHAMPION : COLOR_FEATURED;
+  const featuredLabelColor = isChampion ? COLOR_CHAMPION_INK : COLOR_FEATURED;
   const latest = scoredEntries(season).at(-1);
   const markPoint =
     inProgress && latest
@@ -171,7 +176,7 @@ function seriesForSeason(
           symbol: 'circle',
           symbolSize: 12,
           itemStyle: {
-            color: COLOR_FEATURED,
+            color: featuredColor,
             borderColor: '#fff',
             borderWidth: 3,
           },
@@ -203,12 +208,12 @@ function seriesForSeason(
     z: 100,
     symbol: 'circle',
     symbolSize: 6,
-    lineStyle: { color: COLOR_FEATURED, width: 3.25, opacity: 1 },
-    itemStyle: { color: COLOR_FEATURED, borderColor: '#fff', borderWidth: 2 },
+    lineStyle: { color: featuredColor, width: 3.25, opacity: 1 },
+    itemStyle: { color: featuredColor, borderColor: '#fff', borderWidth: 2 },
     endLabel: {
       show: true,
       formatter: season.year,
-      color: COLOR_FEATURED,
+      color: featuredLabelColor,
       fontWeight: 'bold',
       fontSize: 13,
     },
