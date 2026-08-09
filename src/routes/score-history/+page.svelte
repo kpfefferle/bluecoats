@@ -18,6 +18,8 @@
   const featured = getFeaturedSeason(POPULATED_SEASONS);
   const featuredYear = featured?.season.year;
   const featuredInProgress = featured?.inProgress ?? false;
+  // A featured season that placed 1st is drawn in gold rather than brand blue.
+  const featuredIsChampion = featured?.season.placement === 1;
 
   const yearsParam = $derived(
     browser ? page.url.searchParams.get('years') : null,
@@ -70,7 +72,7 @@
             Hover any line to surface it · gold marks championship seasons
           </div>
         </div>
-        <ChartLegend {featuredYear} />
+        <ChartLegend {featuredYear} {featuredIsChampion} />
       </div>
       <div class="flex h-200 flex-col overflow-x-auto px-2 pt-2">
         <SeasonScoresChart
