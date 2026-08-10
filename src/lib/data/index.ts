@@ -46,6 +46,7 @@ import { SEASON_2023 } from './seasons/2023';
 import { SEASON_2024 } from './seasons/2024';
 import { SEASON_2025 } from './seasons/2025';
 import { SEASON_2026 } from './seasons/2026';
+import { SEASON_2027 } from './seasons/2027';
 
 /**
  * Every known season, including upcoming ones whose `scores` array is empty
@@ -102,6 +103,7 @@ export const ALL_SEASONS_INCLUDING_SCHEDULED: SeasonScores[] = [
   SEASON_2024,
   SEASON_2025,
   SEASON_2026,
+  SEASON_2027,
 ];
 
 /**
