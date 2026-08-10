@@ -34,7 +34,7 @@
     "@sveltejs/vite-plugin-svelte": "^7.2.0",
     "@tailwindcss/vite": "^4.3.3",
     "@total-typescript/ts-reset": "^0.6.1",
-    "@types/luxon": "^3.7.2",
+    "@types/luxon": "^3.7.4",
     "@types/node": "^26.1.2",
     "concurrently": "^10.0.4",
     "echarts": "^6.1.0",
