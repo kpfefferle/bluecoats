@@ -37,8 +37,10 @@ function championshipYears(era: Era, seasons: SeasonScores[]): string[] {
 
 /**
  * Sentences appended to the ongoing era's lead prose. Championships are scoped
- * to the era because they describe it; the best score is measured across every
- * season, because that is what "ever" claims.
+ * to the era because they describe it; the best score is measured globally,
+ * because that is what "ever" claims, but only claimed by this era when the
+ * record-setting season actually falls inside it — otherwise a later era
+ * would inherit a record set before it began.
  */
 function derivedSentences(era: Era, seasons: SeasonScores[]): string[] {
   const sentences: string[] = [];
@@ -52,7 +54,12 @@ function derivedSentences(era: Era, seasons: SeasonScores[]): string[] {
 
   const best = bestFinals(seasons);
   if (best) {
-    sentences.push(`Best ever score of ${best.score} (${best.year}).`);
+    const bestYear = Number(best.year);
+    const inEra =
+      bestYear >= era.from && (era.to === undefined || bestYear <= era.to);
+    if (inEra) {
+      sentences.push(`Best ever score of ${best.score} (${best.year}).`);
+    }
   }
 
   return sentences;

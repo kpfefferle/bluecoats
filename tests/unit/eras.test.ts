@@ -114,6 +114,38 @@ describe('buildEraSummaries', () => {
     expect(summary.description).toBe('Perennial top three.');
   });
 
+  it('omits the best-score sentence when the record predates the era', () => {
+    const laterEra: Era = {
+      from: 2027,
+      name: 'Next era',
+      description: 'A new chapter.',
+    };
+
+    const [summary] = buildEraSummaries(
+      [laterEra],
+      [season('2026', 99.1, 1), season('2027', 95, 1)],
+    );
+
+    expect(summary.description).toBe('A new chapter. Champion in 2027.');
+    expect(summary.description).not.toContain('Best ever');
+  });
+
+  it('passes a closed era with a championship through untouched', () => {
+    const closedEraWithTitle: Era = {
+      from: 2014,
+      to: 2026,
+      name: 'Modern medalist',
+      description: 'Perennial top three.',
+    };
+
+    const [summary] = buildEraSummaries(
+      [closedEraWithTitle],
+      [season('2016', 97, 1)],
+    );
+
+    expect(summary.description).toBe('Perennial top three.');
+  });
+
   it('keeps era order and name', () => {
     const summaries = buildEraSummaries(
       [CLOSED_ERA, ONGOING_ERA],

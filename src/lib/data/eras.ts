@@ -35,6 +35,11 @@ export const ERAS: ReadonlyArray<Era> = [
     description: 'First top-six finish in 2004. First medal in 2010 (bronze).',
   },
   {
+    // No `to` year: this era is ongoing, which is what makes
+    // buildEraSummaries() derive and append the championship and best-score
+    // sentences from season data. Closing this era (adding a `to` year) will
+    // silently drop those sentences — restore them as hand-written prose here
+    // before doing so.
     from: 2014,
     name: 'Modern medalist',
     description: 'Perennial top three.',
