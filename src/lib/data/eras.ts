@@ -36,9 +36,7 @@ export const ERAS: ReadonlyArray<Era> = [
   },
   {
     from: 2014,
-    to: 2026,
     name: 'Modern medalist',
-    description:
-      'Perennial top three. Champions in 2016 & 2024. Best ever score of 98.75 (2024).',
+    description: 'Perennial top three.',
   },
 ];
