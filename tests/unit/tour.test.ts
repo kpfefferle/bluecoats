@@ -38,6 +38,18 @@ const S2025_INPROGRESS: SeasonScores = {
   ],
 };
 
+// Placed at Finals, but a mid-tour stop was never given a result.
+const S2025_PLACED_WITH_GAP: SeasonScores = {
+  year: '2025',
+  endDate: '2025-08-09',
+  placement: 2,
+  scores: [
+    { date: '2025-06-23', location: 'Akron, OH', score: 75 },
+    { date: '2025-07-18', location: 'San Antonio, TX' }, // never filled in
+    { date: '2025-08-09', location: 'Indianapolis, IN', score: 98 },
+  ],
+};
+
 describe('buildTour', () => {
   it('includes numeric and null scores, excludes not-yet-competed', () => {
     const tour = buildTour(S2024);
@@ -76,6 +88,10 @@ describe('isInProgress', () => {
 
   it('is false for a fully completed season', () => {
     expect(isInProgress(S2024)).toBe(false);
+  });
+
+  it('is false once a placement is set, even with an unfilled stop', () => {
+    expect(isInProgress(S2025_PLACED_WITH_GAP)).toBe(false);
   });
 });
 
