@@ -34,6 +34,17 @@ const SEASON_2026_LIVE: SeasonScores = {
   scores: [{ date: '2026-06-27', location: 'Alliance, OH', score: 74.5 }],
 };
 
+// The same 2026 season after Finals night, once the result is logged.
+const SEASON_2026_PLACED: SeasonScores = {
+  year: '2026',
+  endDate: '2026-08-08',
+  placement: 1,
+  scores: [
+    { date: '2026-06-27', location: 'Alliance, OH', score: 74.5 },
+    { date: '2026-08-08', location: 'Indianapolis, IN', score: 99.1 },
+  ],
+};
+
 describe('getFeaturedSeason', () => {
   it('returns undefined when there are no populated seasons', () => {
     expect(getFeaturedSeason([])).toBeUndefined();
@@ -73,5 +84,29 @@ describe('getFeaturedSeason', () => {
     );
     expect(featured?.season.year).toBe('2026');
     expect(featured?.inProgress).toBe(true);
+  });
+
+  it('keeps the season in progress on Finals day before a placement is set', () => {
+    const now = DateTime.fromISO('2026-08-08T14:00', {
+      zone: 'America/New_York',
+    });
+    const featured = getFeaturedSeason(
+      [SEASON_2024, SEASON_2025, SEASON_2026_LIVE],
+      now,
+    );
+    expect(featured?.season.year).toBe('2026');
+    expect(featured?.inProgress).toBe(true);
+  });
+
+  it('ends the season on Finals night as soon as a placement is set', () => {
+    const now = DateTime.fromISO('2026-08-08T23:00', {
+      zone: 'America/New_York',
+    });
+    const featured = getFeaturedSeason(
+      [SEASON_2024, SEASON_2025, SEASON_2026_PLACED],
+      now,
+    );
+    expect(featured?.season.year).toBe('2026');
+    expect(featured?.inProgress).toBe(false);
   });
 });

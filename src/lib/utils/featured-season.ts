@@ -6,8 +6,9 @@ export interface FeaturedSeason {
   /** The season to highlight as the chart's protagonist. */
   season: SeasonScores;
   /**
-   * True while the season's Finals are still ahead — i.e. a tour is underway.
-   * The chart pins a "Today" marker to the latest result only in this case.
+   * True while a tour is underway: the season's Finals are still ahead *and* no
+   * final placement has been recorded yet. The chart pins a "Today" marker to
+   * the latest result only in this case.
    */
   inProgress: boolean;
 }
@@ -28,8 +29,12 @@ export function getFeaturedSeason(
     candidate.year > latest.year ? candidate : latest,
   );
 
+  // Finals night runs late: the season's end date is still "today" for hours
+  // after the placement is announced, so a recorded placement — not the
+  // calendar alone — is what ends the season.
   const finalsDate = DateTime.fromISO(season.endDate, { zone: FINALS_ZONE });
-  const inProgress = finalsDate >= now.startOf('day');
+  const inProgress =
+    season.placement == null && finalsDate >= now.startOf('day');
 
   return { season, inProgress };
 }
