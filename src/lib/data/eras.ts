@@ -6,8 +6,8 @@
 export interface Era {
   /** First season year of the era (inclusive). */
   from: number;
-  /** Last season year of the era (inclusive). */
-  to: number;
+  /** Last season year of the era (inclusive). Omit for the ongoing era. */
+  to?: number;
   /** Short era name. */
   name: string;
   /** One-line description of what defined the era. */
@@ -35,10 +35,13 @@ export const ERAS: ReadonlyArray<Era> = [
     description: 'First top-six finish in 2004. First medal in 2010 (bronze).',
   },
   {
+    // No `to` year: this era is ongoing, which is what makes
+    // buildEraSummaries() derive and append the championship and best-score
+    // sentences from season data. Closing this era (adding a `to` year) will
+    // silently drop those sentences — restore them as hand-written prose here
+    // before doing so.
     from: 2014,
-    to: 2026,
     name: 'Modern medalist',
-    description:
-      'Perennial top three. Champions in 2016 & 2024. Best ever score of 98.75 (2024).',
+    description: 'Perennial top three.',
   },
 ];
