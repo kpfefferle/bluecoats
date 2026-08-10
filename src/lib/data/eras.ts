@@ -6,8 +6,8 @@
 export interface Era {
   /** First season year of the era (inclusive). */
   from: number;
-  /** Last season year of the era (inclusive). */
-  to: number;
+  /** Last season year of the era (inclusive). Omit for the ongoing era. */
+  to?: number;
   /** Short era name. */
   name: string;
   /** One-line description of what defined the era. */
