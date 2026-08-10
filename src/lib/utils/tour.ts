@@ -46,8 +46,14 @@ export function scoreAsOfDay(season: SeasonScores, day: number): number | null {
   return result;
 }
 
-/** A season with both competed shows and still-scheduled (uncompeted) shows. */
+/**
+ * A season with both competed shows and still-scheduled (uncompeted) shows.
+ * A recorded placement always ends the season, so a stop that never got a
+ * result logged can't strand a finished tour in its in-progress state — the
+ * same rule `getFeaturedSeason` applies to the Home page.
+ */
 export function isInProgress(season: SeasonScores): boolean {
+  if (season.placement != null) return false;
   const hasScheduled = season.scores.some((s) => s.score === undefined);
   const hasNumeric = season.scores.some((s) => typeof s.score === 'number');
   return hasScheduled && hasNumeric;
