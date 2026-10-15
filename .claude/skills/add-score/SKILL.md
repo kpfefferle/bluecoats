@@ -37,7 +37,7 @@ Create a todo per step and work through them in order.
 
 5. **Branch.** Run `git branch --show-current`. Per the project's workflow rule (`.claude/CLAUDE.md` → Workflow), never commit to `main`. Branch from `main` as `feat/<year>-score-<event-slug>` (e.g. `feat/2026-score-dci-denton`). One PR per result.
 
-6. **Verify.** Run `pnpm lint` and `pnpm test:unit`; both must pass. (Node is pinned to 24.13.1 via `.node-version`/mise — pnpm runs directly, no prefix needed.)
+6. **Verify.** Run `pnpm lint` and `pnpm test:unit`; both must pass. (Node and pnpm are pinned via `mise.toml` — pnpm runs directly, no prefix needed.)
 
 7. **Commit, push, open the PR.** Commit message of the form `Log <event> score for <year>` (or `Log <event> as non-scored for <year>` for a `null`). Push and run `gh pr create` with a one-line summary of the event, value, and the lint/test result.
 
