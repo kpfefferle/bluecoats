@@ -49,6 +49,22 @@ test('the picker navigates to another season page', async ({ page }) => {
   await expect(page).toHaveURL(/\/tour\/2019$/);
 });
 
+test('choosing a season from the select scrolls back to the top', async ({
+  page,
+}) => {
+  await page.goto('/tour/2024');
+  await expect(page.getByRole('heading', { name: /^2024 ·/ })).toBeVisible();
+
+  await page.evaluate(() => window.scrollTo(0, 400));
+  await expect
+    .poll(() => page.evaluate(() => window.scrollY))
+    .toBeGreaterThan(0);
+
+  await page.locator('#tour-season').selectOption('2019');
+  await expect(page).toHaveURL(/\/tour\/2019$/);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+});
+
 test('renders a season with same-date shows (doubleheader) without crashing', async ({
   page,
 }) => {

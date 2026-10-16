@@ -1,17 +1,17 @@
 <script lang="ts">
-  import { browser } from '$app/environment';
+  import { browser } from '$app/env';
   import { page } from '$app/state';
-  import Card from '$components/shared/Card.svelte';
-  import ChartLegend from '$components/score-history/ChartLegend.svelte';
-  import DecadeYearPicker from '$components/score-history/DecadeYearPicker.svelte';
-  import EraSummary from '$components/score-history/EraSummary.svelte';
-  import PageContent from '$components/shared/PageContent.svelte';
-  import PageHeader from '$components/shared/PageHeader.svelte';
-  import Seo from '$components/shared/Seo.svelte';
-  import SeasonScoresChart from '$components/score-history/SeasonScoresChart.svelte';
-  import { POPULATED_SEASONS } from '$data';
-  import { getFeaturedSeason } from '$lib/utils/featured-season';
-  import { setParam } from '$lib/utils/url-state';
+  import Card from '#components/shared/Card.svelte';
+  import ChartLegend from '#components/score-history/ChartLegend.svelte';
+  import DecadeYearPicker from '#components/score-history/DecadeYearPicker.svelte';
+  import EraSummary from '#components/score-history/EraSummary.svelte';
+  import PageContent from '#components/shared/PageContent.svelte';
+  import PageHeader from '#components/shared/PageHeader.svelte';
+  import Seo from '#components/shared/Seo.svelte';
+  import SeasonScoresChart from '#components/score-history/SeasonScoresChart.svelte';
+  import { POPULATED_SEASONS } from '#data';
+  import { getFeaturedSeason } from '#lib/utils/featured-season.js';
+  import { setParam } from '#lib/utils/url-state.js';
 
   // The most recent season that has competed is the chart's protagonist; while
   // its tour is underway it also gets a "Today" marker.
@@ -72,6 +72,7 @@
             Hover any line to surface it · gold marks championship seasons
           </div>
         </div>
+
         <ChartLegend {featuredYear} {featuredIsChampion} />
       </div>
       <div class="flex h-200 flex-col overflow-x-auto px-2 pt-2">

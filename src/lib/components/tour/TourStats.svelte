@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Card from '$components/shared/Card.svelte';
-  import type { TourSummary } from '$lib/utils/tour';
+  import Card from '#components/shared/Card.svelte';
+  import type { TourSummary } from '#lib/utils/tour.js';
 
   let { summary, inProgress }: { summary: TourSummary; inProgress: boolean } =
     $props();

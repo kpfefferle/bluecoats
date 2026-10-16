@@ -2,8 +2,8 @@
   import { goto } from '$app/navigation';
   import { resolve } from '$app/paths';
   import type { ResolvedPathname } from '$app/types';
-  import type { SeasonScores } from '$data/base';
-  import { isInProgress, finalsOrLatestScore } from '$lib/utils/tour';
+  import type { SeasonScores } from '#data/base.js';
+  import { isInProgress, finalsOrLatestScore } from '#lib/utils/tour.js';
 
   let {
     seasons,
@@ -29,6 +29,13 @@
     const score = finalsOrLatestScore(season);
     const scoreText = score !== null ? ` — ${score.toFixed(3)}` : '';
     return `${season.year}${progress}${scoreText}`;
+  }
+
+  // Kit 3 folds keepFocus and noScroll into a single `reset` flag, so keep
+  // focus on the <select> with reset: false and restore scroll-to-top manually.
+  async function onSeasonChange(target: string) {
+    await goto(seasonHref(target), { reset: false });
+    window.scrollTo(0, 0);
   }
 </script>
 
@@ -71,8 +78,7 @@
         id="tour-season"
         class="focus:border-brand-500 h-9 w-full appearance-none rounded-md border border-gray-200 bg-white pr-9 pl-3 text-sm font-semibold text-gray-900 tabular-nums focus:outline-none"
         value={year}
-        onchange={(e) =>
-          void goto(seasonHref(e.currentTarget.value), { keepFocus: true })}
+        onchange={(e) => void onSeasonChange(e.currentTarget.value)}
       >
         {#each [...ordered].reverse() as season (season.year)}
           <option value={season.year}>{optionLabel(season)}</option>

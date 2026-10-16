@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { POPULATED_SEASONS } from '$data';
-  import { ERAS } from '$data/eras';
-  import { buildEraSummaries } from '$lib/utils/eras';
+  import { POPULATED_SEASONS } from '#data';
+  import { ERAS } from '#data/eras.js';
+  import { buildEraSummaries } from '#lib/utils/eras.js';
 
   const eras = buildEraSummaries(ERAS, POPULATED_SEASONS);
 </script>

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { SeasonScores } from '$data/base';
+  import type { SeasonScores } from '#data/base.js';
 
   let {
     seasonScores,

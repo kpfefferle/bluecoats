@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon';
-import type { Score, SeasonScores } from '$data/base';
+import type { Score, SeasonScores } from '#data/base.js';
 import { FINALS_ZONE } from './time';
 
 export interface DailyRankingItem {

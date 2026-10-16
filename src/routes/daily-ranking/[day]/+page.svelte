@@ -1,20 +1,20 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
   import { resolve } from '$app/paths';
-  import Card from '$components/shared/Card.svelte';
-  import DaySlider from '$components/daily-ranking/DaySlider.svelte';
-  import Table from '$components/daily-ranking/Table.svelte';
-  import PageContent from '$components/shared/PageContent.svelte';
-  import PageHeader from '$components/shared/PageHeader.svelte';
-  import Seo from '$components/shared/Seo.svelte';
-  import { ALL_SEASONS_INCLUDING_SCHEDULED, POPULATED_SEASONS } from '$data';
+  import Card from '#components/shared/Card.svelte';
+  import DaySlider from '#components/daily-ranking/DaySlider.svelte';
+  import Table from '#components/daily-ranking/Table.svelte';
+  import PageContent from '#components/shared/PageContent.svelte';
+  import PageHeader from '#components/shared/PageHeader.svelte';
+  import Seo from '#components/shared/Seo.svelte';
+  import { ALL_SEASONS_INCLUDING_SCHEDULED, POPULATED_SEASONS } from '#data';
   import {
     buildDailyRankings,
     currentDayUntilFinals,
     currentSeasonYear,
     dayRankingLabel,
     maxDayBeforeFinals,
-  } from '$lib/utils/daily-ranking';
+  } from '#lib/utils/daily-ranking.js';
   import type { PageData } from './$types';
 
   let { data }: { data: PageData } = $props();
@@ -31,9 +31,8 @@
 
   function onDayChange(day: number) {
     void goto(resolve('/daily-ranking/[day]', { day: String(day) }), {
-      replaceState: true,
-      keepFocus: true,
-      noScroll: true,
+      replace: true,
+      reset: false,
     });
   }
 </script>

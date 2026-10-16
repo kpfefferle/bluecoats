@@ -9,7 +9,7 @@
     OG_IMAGE_ALT,
     siteTitle,
     absoluteUrl,
-  } from '$lib/utils/seo';
+  } from '#lib/utils/seo.js';
 
   let {
     title,

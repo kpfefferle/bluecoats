@@ -1,7 +1,7 @@
 <script lang="ts">
   import { DateTime } from 'luxon';
-  import type { TourLogRow } from '$lib/utils/tour';
-  import { ordinalSuffix } from '$lib/utils/ordinal';
+  import type { TourLogRow } from '#lib/utils/tour.js';
+  import { ordinalSuffix } from '#lib/utils/ordinal.js';
 
   let { rows }: { rows: TourLogRow[] } = $props();
 

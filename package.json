@@ -6,9 +6,10 @@
   "license": "MIT",
   "author": "Kevin Pfefferle",
   "type": "module",
-  "packageManager": "pnpm@12.11.2",
+  "packageManager": "pnpm@12.14.0",
   "scripts": {
     "build": "vite build",
+    "prepare": "svelte-kit sync || echo ''",
     "dev": "vite dev",
     "format": "prettier . --cache --write",
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
@@ -29,8 +30,8 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.63.0",
-    "@sveltejs/adapter-cloudflare": "^7.2.9",
-    "@sveltejs/kit": "^2.70.3",
+    "@sveltejs/adapter-cloudflare": "^8.0.0",
+    "@sveltejs/kit": "^3.0.0",
     "@sveltejs/vite-plugin-svelte": "^7.3.1",
     "@tailwindcss/vite": "^4.3.3",
     "@total-typescript/ts-reset": "^0.6.1",
@@ -58,6 +59,12 @@
     "vitest": "^5.0.3"
   },
   "engines": {
-    "node": ">= 20.19.0"
+    "node": ">= 22.17.0"
+  },
+  "imports": {
+    "#lib/*": "./src/lib/*",
+    "#components/*": "./src/lib/components/*",
+    "#data": "./src/lib/data/index.js",
+    "#data/*": "./src/lib/data/*"
   }
 }

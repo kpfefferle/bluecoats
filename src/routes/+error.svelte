@@ -1,9 +1,9 @@
 <script lang="ts">
   import { resolve } from '$app/paths';
   import { page } from '$app/state';
-  import PageContent from '$components/shared/PageContent.svelte';
-  import PageHeader from '$components/shared/PageHeader.svelte';
-  import Seo from '$components/shared/Seo.svelte';
+  import PageContent from '#components/shared/PageContent.svelte';
+  import PageHeader from '#components/shared/PageHeader.svelte';
+  import Seo from '#components/shared/Seo.svelte';
 
   const notFound = $derived(page.status === 404);
   const title = $derived(notFound ? 'Page not found' : 'Something went wrong');

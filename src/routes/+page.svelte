@@ -1,18 +1,18 @@
 <script lang="ts">
   import { resolve } from '$app/paths';
-  import Card from '$components/shared/Card.svelte';
-  import PageContent from '$components/shared/PageContent.svelte';
-  import Seo from '$components/shared/Seo.svelte';
-  import SeasonScoresChart from '$components/score-history/SeasonScoresChart.svelte';
-  import ClosestSeasons from '$components/today/ClosestSeasons.svelte';
-  import TodayHero from '$components/today/TodayHero.svelte';
-  import { ALL_SEASONS_INCLUDING_SCHEDULED, POPULATED_SEASONS } from '$data';
+  import Card from '#components/shared/Card.svelte';
+  import PageContent from '#components/shared/PageContent.svelte';
+  import Seo from '#components/shared/Seo.svelte';
+  import SeasonScoresChart from '#components/score-history/SeasonScoresChart.svelte';
+  import ClosestSeasons from '#components/today/ClosestSeasons.svelte';
+  import TodayHero from '#components/today/TodayHero.svelte';
+  import { ALL_SEASONS_INCLUDING_SCHEDULED, POPULATED_SEASONS } from '#data';
   import {
     currentDayUntilFinals,
     maxDayBeforeFinals,
-  } from '$lib/utils/daily-ranking';
-  import { getFeaturedSeason } from '$lib/utils/featured-season';
-  import { buildTodayPage, closestSeasons } from '$lib/utils/today';
+  } from '#lib/utils/daily-ranking.js';
+  import { getFeaturedSeason } from '#lib/utils/featured-season.js';
+  import { buildTodayPage, closestSeasons } from '#lib/utils/today.js';
 
   const featured = getFeaturedSeason(POPULATED_SEASONS);
   const maxDay = maxDayBeforeFinals(POPULATED_SEASONS);

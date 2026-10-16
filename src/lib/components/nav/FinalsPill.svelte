@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { liveDaysToFinals } from '$lib/utils/days-to-finals';
+  import { liveDaysToFinals } from '#lib/utils/days-to-finals.js';
   import FinalsCountdown from './FinalsCountdown.svelte';
 
   const days = liveDaysToFinals();

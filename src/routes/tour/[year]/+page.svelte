@@ -1,17 +1,17 @@
 <script lang="ts">
-  import Card from '$components/shared/Card.svelte';
-  import PageContent from '$components/shared/PageContent.svelte';
-  import Seo from '$components/shared/Seo.svelte';
-  import SeasonPicker from '$components/tour/SeasonPicker.svelte';
-  import TourStats from '$components/tour/TourStats.svelte';
-  import TourLog from '$components/tour/TourLog.svelte';
-  import { POPULATED_SEASONS } from '$data';
+  import Card from '#components/shared/Card.svelte';
+  import PageContent from '#components/shared/PageContent.svelte';
+  import Seo from '#components/shared/Seo.svelte';
+  import SeasonPicker from '#components/tour/SeasonPicker.svelte';
+  import TourStats from '#components/tour/TourStats.svelte';
+  import TourLog from '#components/tour/TourLog.svelte';
+  import { POPULATED_SEASONS } from '#data';
   import {
     buildTourLog,
     tourSummary,
     isInProgress,
     placementLabel,
-  } from '$lib/utils/tour';
+  } from '#lib/utils/tour.js';
   import type { PageData } from './$types';
 
   let { data }: { data: PageData } = $props();

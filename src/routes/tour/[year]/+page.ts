@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
-import { POPULATED_SEASONS } from '$data';
-import { seasonForYear } from '$lib/utils/tour';
+import { POPULATED_SEASONS } from '#data';
+import { seasonForYear } from '#lib/utils/tour.js';
 import type { EntryGenerator, PageLoad } from './$types';
 
 export const entries: EntryGenerator = () =>

@@ -1,7 +1,7 @@
 import { redirect } from '@sveltejs/kit';
 import { resolve } from '$app/paths';
-import { POPULATED_SEASONS } from '$data';
-import { seasonForYear } from '$lib/utils/tour';
+import { POPULATED_SEASONS } from '#data';
+import { seasonForYear } from '#lib/utils/tour.js';
 import type { PageLoad } from './$types';
 
 // This route alone is served dynamically (by the Cloudflare worker in

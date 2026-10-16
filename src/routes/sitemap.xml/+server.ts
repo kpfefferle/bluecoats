@@ -1,4 +1,4 @@
-import { sitemapUrls } from '$lib/utils/sitemap';
+import { sitemapUrls } from '#lib/utils/sitemap.js';
 
 export const prerender = true;
 
