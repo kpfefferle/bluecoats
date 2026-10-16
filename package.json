@@ -9,6 +9,7 @@
   "packageManager": "pnpm@12.11.2",
   "scripts": {
     "build": "vite build",
+    "prepare": "svelte-kit sync || echo ''",
     "dev": "vite dev",
     "format": "prettier . --cache --write",
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",

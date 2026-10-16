@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { browser } from '$app/environment';
+  import { browser } from '$app/env';
   import FinalsCountdown from '$components/nav/FinalsCountdown.svelte';
-  import { ordinalSuffix } from '$lib/utils/ordinal';
-  import { ageLabel, daysAgo, type TodayHeroData } from '$lib/utils/today';
+  import { ordinalSuffix } from '#lib/utils/ordinal.js';
+  import { ageLabel, daysAgo, type TodayHeroData } from '#lib/utils/today.js';
 
   let { hero }: { hero: TodayHeroData } = $props();
 

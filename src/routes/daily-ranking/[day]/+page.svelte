@@ -31,9 +31,8 @@
 
   function onDayChange(day: number) {
     void goto(resolve('/daily-ranking/[day]', { day: String(day) }), {
-      replaceState: true,
-      keepFocus: true,
-      noScroll: true,
+      replace: true,
+      reset: false,
     });
   }
 </script>

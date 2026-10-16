@@ -72,7 +72,7 @@
         class="focus:border-brand-500 h-9 w-full appearance-none rounded-md border border-gray-200 bg-white pr-9 pl-3 text-sm font-semibold text-gray-900 tabular-nums focus:outline-none"
         value={year}
         onchange={(e) =>
-          void goto(seasonHref(e.currentTarget.value), { keepFocus: true })}
+          void goto(seasonHref(e.currentTarget.value), { reset: false })}
       >
         {#each [...ordered].reverse() as season (season.year)}
           <option value={season.year}>{optionLabel(season)}</option>
