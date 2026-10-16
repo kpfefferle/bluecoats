@@ -2,7 +2,7 @@
   import DesktopMenu from './DesktopMenu.svelte';
   import FinalsPill from './FinalsPill.svelte';
   import Logo from './Logo.svelte';
-  import { nextFinalsSeason } from '$lib/utils/days-to-finals';
+  import { nextFinalsSeason } from '#lib/utils/days-to-finals.js';
 
   const seasonYear = nextFinalsSeason()?.year;
 </script>

@@ -59,5 +59,9 @@
   },
   "engines": {
     "node": ">= 20.19.0"
+  },
+  "imports": {
+    "#lib": "./src/lib/index.js",
+    "#lib/*": "./src/lib/*"
   }
 }

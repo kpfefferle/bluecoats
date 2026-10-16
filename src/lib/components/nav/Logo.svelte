@@ -3,7 +3,7 @@
   import {
     liveDaysToFinals,
     nextFinalsSeason,
-  } from '$lib/utils/days-to-finals';
+  } from '#lib/utils/days-to-finals.js';
   import { POPULATED_SEASONS } from '$data';
   import FinalsCountdown from './FinalsCountdown.svelte';
 

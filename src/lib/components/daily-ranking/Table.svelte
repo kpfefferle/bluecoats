@@ -1,11 +1,11 @@
 <script lang="ts">
-  import type { DailyRankingItem } from '$lib/utils/daily-ranking';
-  import { ordinalSuffix } from '$lib/utils/ordinal';
+  import type { DailyRankingItem } from '#lib/utils/daily-ranking.js';
+  import { ordinalSuffix } from '#lib/utils/ordinal.js';
   import {
     MEDAL_EMOJI,
     MEDAL_LABEL,
     rankBadgeClass,
-  } from '$lib/utils/rank-style';
+  } from '#lib/utils/rank-style.js';
 
   let {
     rankings,

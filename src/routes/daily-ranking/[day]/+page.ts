@@ -3,7 +3,7 @@ import { POPULATED_SEASONS } from '$data';
 import {
   maxDayBeforeFinals,
   parseCanonicalDay,
-} from '$lib/utils/daily-ranking';
+} from '#lib/utils/daily-ranking.js';
 import type { EntryGenerator, PageLoad } from './$types';
 
 const MAX_DAY = maxDayBeforeFinals(POPULATED_SEASONS);

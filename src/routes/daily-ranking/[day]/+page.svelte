@@ -14,7 +14,7 @@
     currentSeasonYear,
     dayRankingLabel,
     maxDayBeforeFinals,
-  } from '$lib/utils/daily-ranking';
+  } from '#lib/utils/daily-ranking.js';
   import type { PageData } from './$types';
 
   let { data }: { data: PageData } = $props();

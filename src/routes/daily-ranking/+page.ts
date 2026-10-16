@@ -5,7 +5,7 @@ import {
   currentDayUntilFinals,
   maxDayBeforeFinals,
   parseCanonicalDay,
-} from '$lib/utils/daily-ranking';
+} from '#lib/utils/daily-ranking.js';
 import type { PageLoad } from './$types';
 
 // Served dynamically (by the Cloudflare worker in production, by SvelteKit's

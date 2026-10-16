@@ -3,7 +3,7 @@
   import { resolve } from '$app/paths';
   import type { ResolvedPathname } from '$app/types';
   import type { SeasonScores } from '$data/base';
-  import { isInProgress, finalsOrLatestScore } from '$lib/utils/tour';
+  import { isInProgress, finalsOrLatestScore } from '#lib/utils/tour.js';
 
   let {
     seasons,

@@ -10,8 +10,8 @@
   import Seo from '$components/shared/Seo.svelte';
   import SeasonScoresChart from '$components/score-history/SeasonScoresChart.svelte';
   import { POPULATED_SEASONS } from '$data';
-  import { getFeaturedSeason } from '$lib/utils/featured-season';
-  import { setParam } from '$lib/utils/url-state';
+  import { getFeaturedSeason } from '#lib/utils/featured-season.js';
+  import { setParam } from '#lib/utils/url-state.js';
 
   // The most recent season that has competed is the chart's protagonist; while
   // its tour is underway it also gets a "Today" marker.

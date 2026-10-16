@@ -11,7 +11,7 @@
     tourSummary,
     isInProgress,
     placementLabel,
-  } from '$lib/utils/tour';
+  } from '#lib/utils/tour.js';
   import type { PageData } from './$types';
 
   let { data }: { data: PageData } = $props();

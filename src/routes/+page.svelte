@@ -10,9 +10,9 @@
   import {
     currentDayUntilFinals,
     maxDayBeforeFinals,
-  } from '$lib/utils/daily-ranking';
-  import { getFeaturedSeason } from '$lib/utils/featured-season';
-  import { buildTodayPage, closestSeasons } from '$lib/utils/today';
+  } from '#lib/utils/daily-ranking.js';
+  import { getFeaturedSeason } from '#lib/utils/featured-season.js';
+  import { buildTodayPage, closestSeasons } from '#lib/utils/today.js';
 
   const featured = getFeaturedSeason(POPULATED_SEASONS);
   const maxDay = maxDayBeforeFinals(POPULATED_SEASONS);

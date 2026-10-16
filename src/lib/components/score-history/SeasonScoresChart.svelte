@@ -1,8 +1,8 @@
 <script lang="ts">
   import { browser } from '$app/env';
-  import { chart } from '$lib/actions/chart';
-  import { buildChartOption } from '$lib/utils/chart-options';
-  import { ageLabel, daysAgo, latestScoredEntry } from '$lib/utils/today';
+  import { chart } from '#lib/actions/chart.js';
+  import { buildChartOption } from '#lib/utils/chart-options.js';
+  import { ageLabel, daysAgo, latestScoredEntry } from '#lib/utils/today.js';
   import type { SeasonScores } from '$data/base';
 
   let {

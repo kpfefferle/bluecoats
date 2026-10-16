@@ -2,7 +2,7 @@
   import {
     buildDaySliderChips,
     daySliderDescriptor,
-  } from '$lib/utils/day-slider';
+  } from '#lib/utils/day-slider.js';
   import { resolve } from '$app/paths';
   import type { ResolvedPathname } from '$app/types';
 
