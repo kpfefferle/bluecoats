@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon';
-import { browser } from '$app/environment';
+import { browser } from '$app/env';
 import type { SeasonScores } from '$data/base';
 import { ALL_SEASONS_INCLUDING_SCHEDULED } from '$data';
 import { FINALS_ZONE } from './time';

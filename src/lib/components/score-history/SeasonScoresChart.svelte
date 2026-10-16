@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { browser } from '$app/environment';
+  import { browser } from '$app/env';
   import { chart } from '$lib/actions/chart';
   import { buildChartOption } from '$lib/utils/chart-options';
   import { ageLabel, daysAgo, latestScoredEntry } from '$lib/utils/today';

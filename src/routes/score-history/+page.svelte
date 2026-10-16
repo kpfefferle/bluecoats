@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { browser } from '$app/environment';
+  import { browser } from '$app/env';
   import { page } from '$app/state';
   import Card from '$components/shared/Card.svelte';
   import ChartLegend from '$components/score-history/ChartLegend.svelte';
@@ -72,6 +72,7 @@
             Hover any line to surface it · gold marks championship seasons
           </div>
         </div>
+
         <ChartLegend {featuredYear} {featuredIsChampion} />
       </div>
       <div class="flex h-200 flex-col overflow-x-auto px-2 pt-2">
