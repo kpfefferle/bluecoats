@@ -79,7 +79,7 @@ When an implementation plan is ready to execute, **always use subagent-driven ex
 
 ### Tech Stack
 
-- **SvelteKit 2.x** with **Svelte 5** runes (`$state`, `$derived`, `$props`)
+- **SvelteKit 3.x** with **Svelte 5** runes (`$state`, `$derived`, `$props`)
 - **`@sveltejs/adapter-cloudflare`** — all routes prerendered except the `/tour` and `/daily-ranking` redirects
 - **Vite 8** build system
 - **Tailwind CSS 4** via `@tailwindcss/vite` (no `tailwind.config.js`; theme customizations live in `src/app.css` under `@theme {}`)
@@ -132,12 +132,14 @@ tests/
 └── unit/                             # Vitest tests
 ```
 
-Path aliases (defined in `svelte.config.js`):
+There is no `svelte.config.js`: all SvelteKit config (adapter with `fallback: 'spa'` and `routes.include`, `prerender.entries`, preprocess) lives in `vite.config.ts` inside `sveltekit({...})`. `pnpm install` runs the `prepare` script (`svelte-kit sync`), which generates `node_modules/$app` so `tsconfig.json` can extend `$app/tsconfig`.
 
-- `$lib` → `src/lib` (SvelteKit default)
-- `$components` → `src/lib/components`
-- `$data` → `src/lib/data`
-- `$app/*` → SvelteKit runtime (e.g. `$app/paths`, `$app/state`, `$app/navigation`)
+Path aliases are Node subpath imports (the `imports` field in `package.json`), not SvelteKit `alias` config. Imports of `.ts` modules use a `.js` extension (e.g. `#lib/utils/ordinal.js`):
+
+- `#lib/*` → `src/lib/*`
+- `#components/*` → `src/lib/components/*`
+- `#data` → `src/lib/data/index.js`; `#data/*` → `src/lib/data/*`
+- `$app/*` → SvelteKit runtime (e.g. `$app/paths`, `$app/state`, `$app/navigation`, `$app/env`)
 
 ### Key Patterns
 
@@ -178,9 +180,9 @@ For the active-link state, read `page.route.id` from `$app/state` (not `$app/sto
 
 #### URL State
 
-Query-param-driven UI state lives in the URL, written via `setParam(key, value)` from `src/lib/utils/url-state.ts` (wraps `goto` with `replaceState: true, keepFocus: true, noScroll: true`).
+Query-param-driven UI state lives in the URL, written via `setParam(key, value)` from `src/lib/utils/url-state.ts` (wraps `goto` with `replace: true, reset: false`).
 
-**Important**: prerendered pages cannot read `page.url.searchParams` at build time. Gate the read on `browser` from `$app/environment`:
+**Important**: prerendered pages cannot read `page.url.searchParams` at build time. Gate the read on `browser` from `$app/env`:
 
 ```svelte
 const dayParam = $derived(browser ? page.url.searchParams.get('day') : null);
@@ -188,7 +190,7 @@ const dayParam = $derived(browser ? page.url.searchParams.get('day') : null);
 
 The prerendered HTML reflects the default state (no query params); on hydration, the client picks up the real URL and re-derives.
 
-Season selection on the Tour page and day selection on the Daily Ranking page are **path** state, not query state: each season lives at `/tour/[year]` and each day at `/daily-ranking/[day]` (both prerendered via `entries()`); `/tour` and `/daily-ranking` redirect to the latest season / current day. Link with `resolve('/tour/[year]', { year })` or `resolve('/daily-ranking/[day]', { day })`. Unknown paths never reach the worker (the `_routes.json` include-list), so Cloudflare serves the adapter's SPA-shell `404.html` (`fallback: 'spa'` in `svelte.config.js`), which hydrates into `src/routes/+error.svelte`.
+Season selection on the Tour page and day selection on the Daily Ranking page are **path** state, not query state: each season lives at `/tour/[year]` and each day at `/daily-ranking/[day]` (both prerendered via `entries()`); `/tour` and `/daily-ranking` redirect to the latest season / current day. Link with `resolve('/tour/[year]', { year })` or `resolve('/daily-ranking/[day]', { day })`. Unknown paths never reach the worker (the `_routes.json` include-list), so Cloudflare serves the adapter's SPA-shell `404.html` (`fallback: 'spa'` in the adapter config in `vite.config.ts`), which hydrates into `src/routes/+error.svelte`.
 
 #### Chart Action
 
