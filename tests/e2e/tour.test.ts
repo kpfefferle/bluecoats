@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { gotoHydrated } from './hydration';
 
 test('/tour issues a real server-side 302', async ({ request }) => {
   const res = await request.get('/tour?year=2010', { maxRedirects: 0 });
@@ -52,7 +53,7 @@ test('the picker navigates to another season page', async ({ page }) => {
 test('choosing a season from the select scrolls back to the top', async ({
   page,
 }) => {
-  await page.goto('/tour/2024');
+  await gotoHydrated(page, '/tour/2024');
   await expect(page.getByRole('heading', { name: /^2024 ·/ })).toBeVisible();
 
   await page.evaluate(() => window.scrollTo(0, 400));
