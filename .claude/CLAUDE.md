@@ -12,6 +12,10 @@ This is a SvelteKit application that displays historical DCI (Drum Corps Interna
 
 This project uses **pnpm** (not npm or yarn). All commands should use `pnpm`.
 
+### Toolchain (mise)
+
+Node and pnpm versions are managed by [mise](https://mise.jdx.dev) via `mise.toml` (Node LTS + pnpm). CI installs them with `jdx/mise-action`. Cloudflare Pages does **not** read `mise.toml` — it takes Node from `.node-version` and pnpm from `packageManager` in `package.json` — so when bumping either tool, update all three files together.
+
 ### Common Commands
 
 - `pnpm install` - Install dependencies
@@ -50,7 +54,7 @@ Deployment is handled by Cloudflare Pages via its Git integration. Cloudflare wa
 - Runtime compatibility flag: `nodejs_als`
 - Custom domain: `bluecoatsscores.com` (configured in the Cloudflare Pages dashboard, not via a `static/CNAME` file)
 
-`.github/workflows/ci.yml` only runs lint + test on PRs and `main` — it does not deploy.
+`.github/workflows/ci.yml` only runs lint + test on PRs and `main` — it does not deploy. Node and pnpm versions on Cloudflare come from `.node-version` and `packageManager` (see Toolchain above).
 
 ## Svelte MCP Server
 
