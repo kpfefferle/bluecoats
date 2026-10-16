@@ -59,7 +59,7 @@
             </div>
           </div>
           <a
-            href={resolve('/score-history')}
+            href={resolve('score-history')}
             class="rounded-md px-2.5 py-1.5 text-xs font-semibold text-gray-600 hover:bg-gray-100"
           >
             Open full chart →
@@ -96,7 +96,7 @@
             </div>
           </div>
           <a
-            href={resolve('/daily-ranking')}
+            href={resolve('daily-ranking')}
             class="rounded-md px-2.5 py-1.5 text-xs font-semibold text-gray-600 hover:bg-gray-100"
           >
             View full ranking →
