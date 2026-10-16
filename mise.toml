@@ -1,0 +1,7 @@
+# Toolchain pins for local dev and CI (jdx/mise-action).
+# Cloudflare Pages builds don't read this file: they take Node from
+# .node-version and pnpm from package.json's packageManager, so keep all
+# three in sync when bumping.
+[tools]
+node = "24.22.0"
+pnpm = "12.11.2"
