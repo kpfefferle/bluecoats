@@ -16,6 +16,7 @@ export default {
         ],
       },
     ],
+    'at-rule-prelude-no-invalid': [true, { ignoreAtRules: ['apply'] }],
     'import-notation': 'string',
     'value-keyword-case': ['lower', { ignoreKeywords: ['InterVariable'] }],
   },
