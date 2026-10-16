@@ -6,7 +6,7 @@
   "license": "MIT",
   "author": "Kevin Pfefferle",
   "type": "module",
-  "packageManager": "pnpm@12.11.2",
+  "packageManager": "pnpm@12.14.0",
   "scripts": {
     "build": "vite build",
     "prepare": "svelte-kit sync || echo ''",
