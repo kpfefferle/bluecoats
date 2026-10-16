@@ -23,11 +23,6 @@ export default defineConfig({
         routes: { include: ['/tour', '/daily-ranking'], exclude: [] },
       }),
       prerender: { entries: ['*'] },
-      alias: {
-        $components: 'src/lib/components',
-        $data: 'src/lib/data',
-        $src: 'src',
-      },
     }),
   ],
 });

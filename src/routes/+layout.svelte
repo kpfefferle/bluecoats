@@ -1,8 +1,8 @@
 <script lang="ts">
-  import '$src/app.css';
-  import NavigationBar from '$components/nav/NavigationBar.svelte';
-  import MobileTabBar from '$components/nav/MobileTabBar.svelte';
-  import Footer from '$components/shared/Footer.svelte';
+  import '../app.css';
+  import NavigationBar from '#components/nav/NavigationBar.svelte';
+  import MobileTabBar from '#components/nav/MobileTabBar.svelte';
+  import Footer from '#components/shared/Footer.svelte';
   import type { Snippet } from 'svelte';
 
   let { children }: { children: Snippet } = $props();

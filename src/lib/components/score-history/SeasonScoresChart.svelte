@@ -3,7 +3,7 @@
   import { chart } from '#lib/actions/chart.js';
   import { buildChartOption } from '#lib/utils/chart-options.js';
   import { ageLabel, daysAgo, latestScoredEntry } from '#lib/utils/today.js';
-  import type { SeasonScores } from '$data/base';
+  import type { SeasonScores } from '#data/base.js';
 
   let {
     seasonScores,

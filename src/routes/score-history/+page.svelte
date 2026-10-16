@@ -1,15 +1,15 @@
 <script lang="ts">
   import { browser } from '$app/env';
   import { page } from '$app/state';
-  import Card from '$components/shared/Card.svelte';
-  import ChartLegend from '$components/score-history/ChartLegend.svelte';
-  import DecadeYearPicker from '$components/score-history/DecadeYearPicker.svelte';
-  import EraSummary from '$components/score-history/EraSummary.svelte';
-  import PageContent from '$components/shared/PageContent.svelte';
-  import PageHeader from '$components/shared/PageHeader.svelte';
-  import Seo from '$components/shared/Seo.svelte';
-  import SeasonScoresChart from '$components/score-history/SeasonScoresChart.svelte';
-  import { POPULATED_SEASONS } from '$data';
+  import Card from '#components/shared/Card.svelte';
+  import ChartLegend from '#components/score-history/ChartLegend.svelte';
+  import DecadeYearPicker from '#components/score-history/DecadeYearPicker.svelte';
+  import EraSummary from '#components/score-history/EraSummary.svelte';
+  import PageContent from '#components/shared/PageContent.svelte';
+  import PageHeader from '#components/shared/PageHeader.svelte';
+  import Seo from '#components/shared/Seo.svelte';
+  import SeasonScoresChart from '#components/score-history/SeasonScoresChart.svelte';
+  import { POPULATED_SEASONS } from '#data';
   import { getFeaturedSeason } from '#lib/utils/featured-season.js';
   import { setParam } from '#lib/utils/url-state.js';
 

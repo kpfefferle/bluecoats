@@ -1,6 +1,6 @@
 import { redirect } from '@sveltejs/kit';
 import { resolve } from '$app/paths';
-import { ALL_SEASONS_INCLUDING_SCHEDULED, POPULATED_SEASONS } from '$data';
+import { ALL_SEASONS_INCLUDING_SCHEDULED, POPULATED_SEASONS } from '#data';
 import {
   currentDayUntilFinals,
   maxDayBeforeFinals,

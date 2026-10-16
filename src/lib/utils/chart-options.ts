@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon';
 import type { EChartsOption, SeriesOption } from 'echarts';
-import type { SeasonScores } from '$data/base';
+import type { SeasonScores } from '#data/base.js';
 import { FINALS_ZONE } from './time';
 
 const GRID_OPTION: EChartsOption['grid'] = {

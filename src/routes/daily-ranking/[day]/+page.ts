@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { POPULATED_SEASONS } from '$data';
+import { POPULATED_SEASONS } from '#data';
 import {
   maxDayBeforeFinals,
   parseCanonicalDay,

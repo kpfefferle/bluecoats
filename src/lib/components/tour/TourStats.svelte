@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Card from '$components/shared/Card.svelte';
+  import Card from '#components/shared/Card.svelte';
   import type { TourSummary } from '#lib/utils/tour.js';
 
   let { summary, inProgress }: { summary: TourSummary; inProgress: boolean } =

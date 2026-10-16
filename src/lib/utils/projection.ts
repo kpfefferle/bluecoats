@@ -1,4 +1,4 @@
-import type { SeasonScores } from '$data/base';
+import type { SeasonScores } from '#data/base.js';
 import { daysBeforeFinals, finalsScore, scoreAsOfDay } from './tour';
 
 /**

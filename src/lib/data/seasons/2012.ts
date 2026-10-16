@@ -1,4 +1,4 @@
-import { type SeasonScores } from '$data/base';
+import { type SeasonScores } from '#data/base.js';
 
 export const SEASON_2012: SeasonScores = {
   year: '2012',

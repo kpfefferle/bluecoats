@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon';
-import type { SeasonScores } from '$data/base';
+import type { SeasonScores } from '#data/base.js';
 import { buildDailyRankings, type DailyRankingItem } from './daily-ranking';
 import type { FeaturedSeason } from './featured-season';
 import { projectFinals, type ProjectedFinals } from './projection';

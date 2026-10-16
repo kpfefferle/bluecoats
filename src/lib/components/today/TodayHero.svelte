@@ -1,6 +1,6 @@
 <script lang="ts">
   import { browser } from '$app/env';
-  import FinalsCountdown from '$components/nav/FinalsCountdown.svelte';
+  import FinalsCountdown from '#components/nav/FinalsCountdown.svelte';
   import { ordinalSuffix } from '#lib/utils/ordinal.js';
   import { ageLabel, daysAgo, type TodayHeroData } from '#lib/utils/today.js';
 

@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon';
-import type { SeasonScores } from '$data/base';
+import type { SeasonScores } from '#data/base.js';
 import { FINALS_ZONE } from './time';
 import { ordinalSuffix } from './ordinal';
 

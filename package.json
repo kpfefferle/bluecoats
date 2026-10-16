@@ -62,7 +62,9 @@
     "node": ">= 20.19.0"
   },
   "imports": {
-    "#lib": "./src/lib/index.js",
-    "#lib/*": "./src/lib/*"
+    "#lib/*": "./src/lib/*",
+    "#components/*": "./src/lib/components/*",
+    "#data": "./src/lib/data/index.js",
+    "#data/*": "./src/lib/data/*"
   }
 }
