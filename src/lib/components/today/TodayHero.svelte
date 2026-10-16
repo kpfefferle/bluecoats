@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { browser } from '$app/env';
+  import { browser } from '$app/environment';
   import FinalsCountdown from '$components/nav/FinalsCountdown.svelte';
-  import { ordinalSuffix } from '#lib/utils/ordinal.js';
-  import { ageLabel, daysAgo, type TodayHeroData } from '#lib/utils/today.js';
+  import { ordinalSuffix } from '$lib/utils/ordinal';
+  import { ageLabel, daysAgo, type TodayHeroData } from '$lib/utils/today';
 
   let { hero }: { hero: TodayHeroData } = $props();
 
@@ -28,12 +28,10 @@
     <div
       class="text-brand-300 text-[0.71875rem] font-semibold tracking-[0.08em] uppercase"
     >
-      {hero.year} season{#if hero.inProgress}
-        <span aria-hidden="true">·</span>
-        <FinalsCountdown />
-      {:else}
-        <span aria-hidden="true">·</span>season complete
-      {/if}
+      {hero.year} season{#if hero.inProgress}&nbsp;<span aria-hidden="true"
+          >·</span
+        >&nbsp;<FinalsCountdown />{:else}&nbsp;<span aria-hidden="true">·</span
+        >&nbsp;season complete{/if}
     </div>
     <h1
       class="mt-2 max-w-3xl text-2xl font-bold tracking-tight text-balance sm:text-[1.75rem]"
@@ -86,9 +84,7 @@
           {hero.latest.score.toFixed(3)}
         </dd>
         <dd class="text-xs text-white/55">
-          {hero.latest.location}{#if latestAgeLabel}
-            · {latestAgeLabel}
-          {/if}
+          {hero.latest.location}{#if latestAgeLabel}&nbsp;· {latestAgeLabel}{/if}
         </dd>
       </div>
       <div
@@ -140,11 +136,8 @@
             {hero.best.score.toFixed(3)}
           </dd>
           <dd class="text-xs text-white/55">
-            <span class="text-gold-400 font-semibold">{hero.best.year}</span>
-
-            {#if hero.best.show}
-              · {hero.best.show}
-            {/if}
+            <span class="text-gold-400 font-semibold">{hero.best.year}</span
+            >{#if hero.best.show}&nbsp;· {hero.best.show}{/if}
           </dd>
         </div>
       {/if}
