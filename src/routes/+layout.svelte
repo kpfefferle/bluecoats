@@ -3,9 +3,16 @@
   import NavigationBar from '#components/nav/NavigationBar.svelte';
   import MobileTabBar from '#components/nav/MobileTabBar.svelte';
   import Footer from '#components/shared/Footer.svelte';
-  import type { Snippet } from 'svelte';
+  import { onMount, type Snippet } from 'svelte';
 
   let { children }: { children: Snippet } = $props();
+
+  // Mount effects run only after the whole tree has hydrated, so this marks
+  // the point where every event handler is attached. E2E tests wait for it
+  // before driving JS-only controls (see tests/e2e/hydration.ts).
+  onMount(() => {
+    document.documentElement.dataset['hydrated'] = '';
+  });
 </script>
 
 <div class="flex min-h-full flex-col">

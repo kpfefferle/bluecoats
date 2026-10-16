@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { gotoHydrated } from './hydration';
 
 function selectedYears(url: string): string | null {
   return new URL(url).searchParams.get('years');
@@ -18,7 +19,7 @@ test('renders the chart and the decade season picker', async ({ page }) => {
 test('toggling a year pill adds and removes it from the URL', async ({
   page,
 }) => {
-  await page.goto('/score-history');
+  await gotoHydrated(page, '/score-history');
   await page.getByRole('button', { name: '2014' }).click();
   await expect.poll(() => selectedYears(page.url())).toBe('2014');
 
@@ -29,7 +30,7 @@ test('toggling a year pill adds and removes it from the URL', async ({
 test('selecting multiple years records a sorted list in the URL', async ({
   page,
 }) => {
-  await page.goto('/score-history');
+  await gotoHydrated(page, '/score-history');
   await page.getByRole('button', { name: '2016' }).click();
   await page.getByRole('button', { name: '2014' }).click();
   await expect.poll(() => selectedYears(page.url())).toBe('2014,2016');

@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { gotoHydrated } from './hydration';
 import { POPULATED_SEASONS } from '../../src/lib/data';
 
 test('/daily-ranking redirects to the current day', async ({ page }) => {
@@ -73,7 +74,7 @@ test('the last three days use championship round titles', async ({ page }) => {
 test('the slider navigates and replaces history', async ({ page }) => {
   // Two full loads create two history entries: [/28, /10].
   await page.goto('/daily-ranking/28');
-  await page.goto('/daily-ranking/10');
+  await gotoHydrated(page, '/daily-ranking/10');
   // Range input: value is negated days (min=-maxDay, max=0).
   await page.getByLabel('Days before Finals').fill('-7');
   await expect(page).toHaveURL(/\/daily-ranking\/7$/);
