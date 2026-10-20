@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a SvelteKit application that displays historical DCI (Drum Corps International) competition scores for the Bluecoats drum and bugle corps. The app visualizes score progression throughout competitive seasons and provides daily ranking data. It is a prerendered static site deployed to Cloudflare Pages under the custom domain `bluecoatsscores.com`; every route is prerendered except the `/tour` and `/daily-ranking` redirects, which are handled server-side by the Cloudflare worker (`/tour` → the latest season's `/tour/[year]` page; `/daily-ranking` → the current day's `/daily-ranking/[day]` page, computed from today's date at request time).
+This is a SvelteKit application that displays historical DCI (Drum Corps International) competition scores for the Bluecoats drum and bugle corps. The app visualizes score progression throughout competitive seasons and provides daily ranking data. It is a prerendered static site deployed to Cloudflare Pages under the canonical domain `scores.bluecoats.com` (the legacy `bluecoatsscores.com` domain 301-redirects to it); every route is prerendered except the `/tour` and `/daily-ranking` redirects, which are handled server-side by the Cloudflare worker (`/tour` → the latest season's `/tour/[year]` page; `/daily-ranking` → the current day's `/daily-ranking/[day]` page, computed from today's date at request time).
 
 ## Development Commands
 
@@ -52,7 +52,8 @@ Deployment is handled by Cloudflare Pages via its Git integration. Cloudflare wa
 - Build command: `pnpm build`
 - Build output directory: `.svelte-kit/cloudflare`
 - Runtime compatibility flag: `nodejs_als`
-- Custom domain: `bluecoatsscores.com` (configured in the Cloudflare Pages dashboard, not via a `static/CNAME` file)
+- Custom domains: `scores.bluecoats.com` (canonical) and `bluecoatsscores.com` (legacy), both configured in the Cloudflare Pages dashboard, not via a `static/CNAME` file. The canonical origin is `SITE_ORIGIN` in `src/lib/utils/seo.ts` (drives `<link rel="canonical">`, `og:url`, and the sitemap), mirrored in `static/robots.txt`.
+- Legacy-domain redirect: a Cloudflare **Redirect Rule** on the `bluecoatsscores.com` zone 301s every request to `https://scores.bluecoats.com` with the path and query preserved. It must live at the edge, not in app code: static assets bypass the Pages worker (see `routes.include` in `vite.config.ts`), so a SvelteKit hook would only see `/tour` and `/daily-ranking`.
 
 `.github/workflows/ci.yml` only runs lint + test on PRs and `main` — it does not deploy. Node and pnpm versions on Cloudflare come from `.node-version` and `packageManager` (see Toolchain above).
 

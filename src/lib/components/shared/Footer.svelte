@@ -11,8 +11,6 @@
   >
     <span>© {year} Kevin Pfefferle</span>
     <span aria-hidden="true">·</span>
-    <span>Independent alumni archive</span>
-    <span aria-hidden="true">·</span>
     <a
       href="https://github.com/kpfefferle/bluecoats"
       target="_blank"

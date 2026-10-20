@@ -2,4 +2,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://bluecoatsscores.com/sitemap.xml
+Sitemap: https://scores.bluecoats.com/sitemap.xml

@@ -4,7 +4,7 @@ test('the root layout renders the shared footer', async ({ page }) => {
   await page.goto('/daily-ranking');
   const footer = page.locator('footer');
   await expect(footer.getByText(/© \d{4} Kevin Pfefferle/)).toBeVisible();
-  await expect(footer.getByText('Independent alumni archive')).toBeVisible();
+  await expect(footer.getByText('Independent alumni archive')).toHaveCount(0);
   const github = footer.getByRole('link', { name: 'GitHub' });
   await expect(github).toBeVisible();
   await expect(github).toHaveAttribute(

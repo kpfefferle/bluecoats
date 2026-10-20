@@ -19,18 +19,18 @@ describe('siteTitle', () => {
 
 describe('absoluteUrl', () => {
   it('joins the origin and a root path', () => {
-    expect(absoluteUrl('/')).toBe('https://bluecoatsscores.com/');
+    expect(absoluteUrl('/')).toBe('https://scores.bluecoats.com/');
   });
 
   it('joins the origin and a nested path', () => {
     expect(absoluteUrl('/tour/2024')).toBe(
-      'https://bluecoatsscores.com/tour/2024',
+      'https://scores.bluecoats.com/tour/2024',
     );
   });
 
   it('builds the OG image URL from the exported path', () => {
     expect(absoluteUrl(OG_IMAGE_PATH)).toBe(
-      'https://bluecoatsscores.com/og-image.png',
+      'https://scores.bluecoats.com/og-image.png',
     );
   });
 

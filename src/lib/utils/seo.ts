@@ -1,5 +1,5 @@
 /** Canonical production origin (no trailing slash). */
-export const SITE_ORIGIN = 'https://bluecoatsscores.com';
+export const SITE_ORIGIN = 'https://scores.bluecoats.com';
 
 /** Human-readable site name, used as the title suffix and og:site_name. */
 export const SITE_NAME = 'Bluecoats Scores';

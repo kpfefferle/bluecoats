@@ -7,35 +7,37 @@ const urls = sitemapUrls();
 
 describe('sitemapUrls', () => {
   it('includes the home and score-history pages', () => {
-    expect(urls).toContain('https://bluecoatsscores.com/');
-    expect(urls).toContain('https://bluecoatsscores.com/score-history');
+    expect(urls).toContain('https://scores.bluecoats.com/');
+    expect(urls).toContain('https://scores.bluecoats.com/score-history');
   });
 
   it('includes one URL per populated season tour page', () => {
     for (const season of POPULATED_SEASONS) {
-      expect(urls).toContain(`https://bluecoatsscores.com/tour/${season.year}`);
+      expect(urls).toContain(
+        `https://scores.bluecoats.com/tour/${season.year}`,
+      );
     }
   });
 
   it('includes every daily-ranking day from 0 to maxDay', () => {
     const maxDay = maxDayBeforeFinals(POPULATED_SEASONS);
-    expect(urls).toContain('https://bluecoatsscores.com/daily-ranking/0');
+    expect(urls).toContain('https://scores.bluecoats.com/daily-ranking/0');
     expect(urls).toContain(
-      `https://bluecoatsscores.com/daily-ranking/${maxDay}`,
+      `https://scores.bluecoats.com/daily-ranking/${maxDay}`,
     );
     expect(urls).not.toContain(
-      `https://bluecoatsscores.com/daily-ranking/${maxDay + 1}`,
+      `https://scores.bluecoats.com/daily-ranking/${maxDay + 1}`,
     );
   });
 
   it('excludes the redirect stubs', () => {
-    expect(urls).not.toContain('https://bluecoatsscores.com/tour');
-    expect(urls).not.toContain('https://bluecoatsscores.com/daily-ranking');
+    expect(urls).not.toContain('https://scores.bluecoats.com/tour');
+    expect(urls).not.toContain('https://scores.bluecoats.com/daily-ranking');
   });
 
   it('emits only absolute origin URLs', () => {
     expect(
-      urls.every((u) => u.startsWith('https://bluecoatsscores.com/')),
+      urls.every((u) => u.startsWith('https://scores.bluecoats.com/')),
     ).toBe(true);
   });
 });
