@@ -48,7 +48,7 @@
       </span>
     {/if}
     <span class="hidden text-[0.6875rem] font-medium text-white/60 md:inline">
-      Independent alumni archive · {firstYear}&ndash;{lastYear}
+      {firstYear}&ndash;{lastYear}
     </span>
   </span>
 </a>
